@@ -23,12 +23,61 @@
         <div id="sidebar" class="active">
             <div class="sidebar-wrapper active">
                 <div class="sidebar-header">
-                    <div class="d-flex justify-content-between">
-                        <div class="logo">
+                    <div class="d-flex align-items-center justify-content-between">
+                        <div class="logo me-2">
                             <a href="index.html"><img src="assets/images/logo/logo.png" alt="Logo" srcset=""></a>
                         </div>
-                        <div class="toggler">
-                            <a href="#" class="sidebar-hide d-xl-none d-block"><i class="bi bi-x bi-middle"></i></a>
+                        <div class="d-flex align-items-center">
+                            <div class="dropdown me-2">
+                                <a href="#" id="notifDropdown" data-bs-toggle="dropdown" aria-expanded="false"
+                                    class="position-relative">
+                                    <i class="bi bi-bell fs-4"></i>
+                                    <span
+                                        class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+                                        style="font-size:0.7rem;">2</span>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-end shadow p-0 mt-2"
+                                    aria-labelledby="notifDropdown" style="min-width: 250px;">
+                                    <div
+                                        class="px-3 py-2 border-bottom d-flex justify-content-center align-items-center">
+                                        <a href="#" class="small text-primary">Mark all as read</a>
+                                    </div>
+                                    <div class="list-group list-group-flush">
+                                        <a href="#"
+                                            class="list-group-item list-group-item-action d-flex align-items-start">
+
+                                            <div>
+                                                <div class="d-flex align-items-center justify-content-center">
+                                                    <i class="bi bi-cash fs-4 me-4 mb-3"></i>
+
+                                                    <span class="fw-bold">Cash Redeem</span>
+                                                </div>
+
+                                                <div class="small text-muted mt-1">$4.49 was redeemed</div>
+                                            </div>
+                                        </a>
+                                        <a href="#"
+                                            class="list-group-item list-group-item-action d-flex align-items-start">
+
+                                            <div>
+                                                <div class="d-flex align-items-center justify-content-center">
+                                                    <i class="bi bi-cash fs-4 me-4 mb-3"></i>
+
+                                                    <span class="fw-bold">Cash Redeem</span>
+                                                </div>
+
+                                                <div class="small text-muted mt-1">$10.49 was redeemed</div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="text-center py-2 border-top">
+                                        <a href="#" class="small text-primary">View All</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="toggler">
+                                <a href="#" class="sidebar-hide d-xl-none d-block"><i class="bi bi-x bi-middle"></i></a>
+                            </div>
                         </div>
                     </div>
                 </div>
