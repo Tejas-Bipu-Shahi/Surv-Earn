@@ -35,7 +35,7 @@ def register():
         if len(password) < 8:
             return f'Password must be at least 8 characters long.'
 
-        user = user_handler.register_user(email=email, password=password, mongo=mongo)
+        user = user_handler.register_user(email=email, password=password, mongo=mongo, username=username)
         return redirect(url_for('login'))
 
     return render_template('register.html')
