@@ -26,17 +26,24 @@
 
                 <form action="login" method="POST">
                     <div class="form-group position-relative has-icon-left mb-4">
-                        <input type="email" class="form-control form-control-xl" placeholder="Email" name="email" id="email" required>
+                        <input type="email" class="form-control form-control-xl" placeholder="Email" name="email" id="email"
+                               value="{{email}}" required>
                         <div class="form-control-icon">
                             <i class="bi bi-person"></i>
                         </div>
+                        {% if email_error %}
+                        <span class="text-danger">{{ email_error }}</span>
+                        {% endif %}
                     </div>
                     <div class="form-group position-relative has-icon-left mb-4">
                         <input type="password" class="form-control form-control-xl" placeholder="Password" name="password" id="password"
-                               required>
+                               value="{{password}}" required>
                         <div class="form-control-icon">
                             <i class="bi bi-shield-lock"></i>
                         </div>
+                        {% if password_error %}
+                        <span class="text-danger">{{ password_error }}</span>
+                        {% endif %}
                     </div>
                     <div class="form-check form-check-lg d-flex align-items-end">
                         <input class="form-check-input me-2" type="checkbox" value="" id="flexCheckDefault">

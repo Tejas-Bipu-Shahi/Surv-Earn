@@ -56,16 +56,16 @@ def login():
         password = request.form['password']
 
         if not fn.is_valid_email(email):
-            return f'Invalid email {email}', 400
+            return render_template('login.html', email_error='Invalid Email!', email=email, password=password)
 
         existing_user = mongo.db.users.find_one({'email': email})
         if not existing_user:
-            return f'{email} does not exist. Please Register.'
+            return render_template('login.html', email_error='Email Not Found!', email=email, password=password)
 
         user: User = User(**existing_user)
 
         if not bcrypt.checkpw(password.encode(), user.password.encode()):
-            return f'Incorrect password.'
+            return render_template('login.html', password_error='Incorrect Password!', email=email, password=password)
 
         ic(f'User {email} logged in.')
 
