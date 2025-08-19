@@ -52,6 +52,8 @@ def register():
 def login():
     # todo: if user is already logged in ask to logout first or logout automatically
     if request.method == 'POST':
+        ic(request.form)
+
         email = request.form['email']
         password = request.form['password']
 
@@ -69,8 +71,9 @@ def login():
 
         ic(f'User {email} logged in.')
 
-        # session['email'] = user.email
-        login_user(user, remember=True)
+        if request.form.get('keep_logged_in'):
+            login_user(user, remember=True)
+        login_user(user)
         return redirect(url_for('index'))
 
     return render_template('login.html')
