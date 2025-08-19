@@ -1,4 +1,4 @@
-from flask import request, render_template, redirect, url_for
+from flask import request, render_template, redirect, url_for, flash
 import bcrypt
 from models.user import User
 import utils.functions as fn
@@ -27,13 +27,20 @@ def register():
         confirm_password = request.form['confirm-password']
 
         if not fn.is_valid_email(email):
-            return f'Invalid email {email}', 400
+            return render_template('register.html', email_error='Invalid Email!', email=email, password=password,
+                                   confirm_password=confirm_password, username=username)
 
         if mongo.db.users.find_one({'email': email}):
-            return f'{email} already exists. Please log in.'
+            return render_template('register.html', email_error='Email already in use.', email=email, password=password,
+                                   confirm_password=confirm_password, username=username)
 
         if len(password) < 8:
-            return f'Password must be at least 8 characters long.'
+            return render_template('register.html', password_error='Password must be at least 8 characters.', email=email,
+                                   password=password, confirm_password=confirm_password, username=username)
+
+        if password != confirm_password:
+            return render_template('register.html', confirm_password_error='Passwords do not match.', email=email, password=password,
+                                   confirm_password=confirm_password, username=username)
 
         user = user_handler.register_user(email=email, password=password, mongo=mongo, username=username)
         return redirect(url_for('login'))
