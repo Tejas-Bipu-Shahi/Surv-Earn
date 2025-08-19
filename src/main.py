@@ -1,4 +1,4 @@
-from flask import request, render_template
+from flask import request, render_template, redirect, url_for
 import bcrypt
 from models.user import User
 import utils.functions as fn
@@ -14,8 +14,8 @@ from icecream import ic
 @app.route('/')
 def index():
     if current_user.is_authenticated:
-        return f'Welcome {current_user.email}'
-    return '<h1>Welcome to Flask-Flask!. Please Register/Login.</h1>'
+        return render_template('user/dist/index.html')
+    return render_template('index.html')
 
 
 @app.route('/register', methods=['GET', 'POST'])
@@ -36,7 +36,7 @@ def register():
             return f'Password must be at least 8 characters long.'
 
         user = user_handler.register_user(email=email, password=password, mongo=mongo)
-        return f"Registered {user.email}"
+        return redirect(url_for('login'))
 
     return render_template('register.html')
 
@@ -64,7 +64,7 @@ def login():
 
         # session['email'] = user.email
         login_user(user, remember=True)
-        return f"Logged in {user.email}"
+        return redirect(url_for('index'))
 
     return render_template('login.html')
 
@@ -79,7 +79,7 @@ def logout():
 
         ic(f'logout successful.')
 
-        return 'logout successful.'
+        return redirect(url_for('index'))
     return 'Not logged in.'
 
 
@@ -91,7 +91,7 @@ def settings():
 
 @app.route('/reset_password', methods=['GET', 'POST'])
 def reset_password():
-    return render_template('forgetpassword.html')
+    return render_template('reset_password.html')
 
 
 if __name__ == '__main__':

@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Surv&Earn - Get Paid for Your Opinions</title>
     <meta name="description"
-        content="Earn rewards by participating in surveys. Your opinions matter and we pay you for them!">
+          content="Earn rewards by participating in surveys. Your opinions matter and we pay you for them!">
 
     <!-- Favicon -->
     <link rel="icon" href="favicon.ico" type="image/x-icon">
@@ -18,8 +18,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Crimson+Text:wght@400;700&display=swap"
-        rel="stylesheet">
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Crimson+Text:wght@400;700&display=swap"
+            rel="stylesheet">
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -27,488 +27,490 @@
     <!-- AOS Animation -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
-    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="{{url_for('static', filename='assets/css/style.css')}}">
 </head>
 
 <body>
-    <!-- Navigation Bar (Original Design) -->
-    <nav class="navbar navbar-expand-lg navbar-light fixed-top bg-transparent">
-        <div class="container">
-            <!-- Brand/Logo -->
-            <a class="navbar-brand" href="#">Surv&Earn</a>
+<!-- Navigation Bar (Original Design) -->
+<nav class="navbar navbar-expand-lg navbar-light fixed-top bg-transparent">
+    <div class="container">
+        <!-- Brand/Logo -->
+        <a class="navbar-brand" href="#">Surv&Earn</a>
 
-            <!-- Toggler for mobile view -->
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        <!-- Toggler for mobile view -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
-            <!-- Navbar links and buttons -->
-            <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
-                <div class="nav-links-container">
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link active" href="#home">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#features">Features</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#how-it-works">How It Works</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#testimonials">Testimonials</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#contact">Contact</a>
-                        </li>
+        <!-- Navbar links and buttons -->
+        <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+            <div class="nav-links-container">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#features">Features</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#how-it-works">How It Works</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#testimonials">Testimonials</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- Register and Log In buttons -->
+        <div class="d-flex">
+            <a href="{{url_for('register')}}" class="btn btn-green me-2">Register</a>
+            <a href="{{url_for('login')}}" class="btn btn-green-light">Log In</a>
+        </div>
+    </div>
+</nav>
+
+<!-- Hero Section -->
+<section id="home" class="hero-section">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6" data-aos="fade-right">
+                <div class="hero-content">
+                    <h1 class="hero-title">Your Voice, Your Rewards</h1>
+                    <p class="hero-subtitle">Participate in quick, engaging surveys and earn real rewards. Your
+                        opinions help shape the future, and we believe you should be compensated for it.</p>
+                    <div class="d-flex flex-wrap gap-3">
+                        <a href="#signup" class="btn btn-green">Get Started</a>
+                        <a href="#how-it-works" class="btn btn-outline-dark">Learn More</a>
+                    </div>
+                    <div class="mt-4 d-flex align-items-center">
+                        <div class="d-flex">
+                            <img src="https://randomuser.me/api/portraits/women/43.jpg"
+                                 class="rounded-circle border border-3 border-white" width="40" height="40"
+                                 alt="User">
+                            <img src="https://randomuser.me/api/portraits/men/32.jpg"
+                                 class="rounded-circle border border-3 border-white ms-n2" width="40" height="40"
+                                 alt="User">
+                            <img src="https://randomuser.me/api/portraits/women/65.jpg"
+                                 class="rounded-circle border border-3 border-white ms-n2" width="40" height="40"
+                                 alt="User">
+                        </div>
+                        <div class="ms-3">
+                            <p class="mb-0 small fw-bold">Join 10,000+ happy members</p>
+                            <div class="text-warning">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <span class="text-dark ms-1">4.9/5</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6" data-aos="fade-left">
+                <div class="hero-image text-center">
+                    <svg width="500" height="400" viewBox="0 0 500 400" fill="none"
+                         xmlns="http://www.w3.org/2000/svg">
+                        <!-- Phone Frame -->
+                        <rect x="150" y="50" width="200" height="350" rx="20" fill="#F5F5F5" stroke="#556B2F"
+                              stroke-width="3"/>
+
+                        <!-- Phone Screen Content -->
+                        <rect x="170" y="70" width="160" height="310" rx="10" fill="#E8F5E9"/>
+
+                        <!-- Survey Question -->
+                        <rect x="180" y="100" width="140" height="30" rx="5" fill="#6B8E23" opacity="0.8"/>
+                        <text x="250" y="120" font-family="Inter" font-size="12" fill="white" text-anchor="middle"
+                              dominant-baseline="middle">तपाईंको उमेर कति हो?
+                        </text>
+
+                        <!-- Survey Options -->
+                        <rect x="180" y="150" width="140" height="25" rx="5" fill="#FFFFFF" stroke="#556B2F"
+                              stroke-width="1"/>
+                        <rect x="180" y="185" width="140" height="25" rx="5" fill="#FFFFFF" stroke="#556B2F"
+                              stroke-width="1"/>
+                        <rect x="180" y="220" width="140" height="25" rx="5" fill="#FFFFFF" stroke="#556B2F"
+                              stroke-width="1"/>
+
+                        <!-- Progress Bar -->
+                        <rect x="180" y="280" width="140" height="10" rx="5" fill="#D9D9D9"/>
+                        <rect x="180" y="280" width="70" height="10" rx="5" fill="#6B8E23"/>
+
+                        <!-- Nepali User -->
+                        <circle cx="350" cy="150" r="40" fill="#FFD3B6"/>
+                        <path d="M330,170 Q350,190 370,170" stroke="#333" stroke-width="2" fill="none"/>
+
+                        <!-- Money Elements -->
+                        <circle cx="100" cy="150" r="30" fill="#FFD700"/>
+                        <text x="100" y="150" font-family="Inter" font-size="20" fill="#333" text-anchor="middle"
+                              dominant-baseline="middle">रु
+                        </text>
+
+                        <!-- Survey Complete Checkmark -->
+                        <path d="M350,250 L370,270 L400,230" stroke="#6B8E23" stroke-width="5"
+                              stroke-linecap="round" fill="none" opacity="0.8"/>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Features Section -->
+<section id="features" class="features-section">
+    <div class="container">
+        <div class="text-center mb-5" data-aos="fade-up">
+            <h2 class="section-title">Why Choose Surv&Earn</h2>
+            <p class="lead">We make sharing your opinions rewarding and effortless</p>
+        </div>
+        <div class="row g-4">
+            <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-money-bill-wave"></i>
+                    </div>
+                    <h3 class="feature-title">Real Cash Rewards</h3>
+                    <p>Earn actual money for each survey you complete, with no minimum payout threshold.</p>
+                </div>
+            </div>
+            <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3 class="feature-title">Quick Surveys</h3>
+                    <p>Most surveys take less than 10 minutes to complete, perfect for your spare time.</p>
+                </div>
+            </div>
+            <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-gift"></i>
+                    </div>
+                    <h3 class="feature-title">Multiple Redemption Options</h3>
+                    <p>Get paid via Esewa, gift cards, or direct bank transfer - you choose!</p>
+                </div>
+            </div>
+            <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-bell"></i>
+                    </div>
+                    <h3 class="feature-title">Survey Notifications</h3>
+                    <p>Get alerted when new surveys matching your profile become available.</p>
+                </div>
+            </div>
+            <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3 class="feature-title">Mobile Friendly</h3>
+                    <p>Complete surveys anytime, anywhere with our mobile-optimized platform.</p>
+                </div>
+            </div>
+            <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 class="feature-title">Privacy Protected</h3>
+                    <p>Your data is secure and never shared without your explicit consent.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- How It Works Section -->
+<section id="how-it-works" class="py-5 bg-light">
+    <div class="container">
+        <div class="text-center mb-5" data-aos="fade-up">
+            <h2 class="section-title">How It Works</h2>
+            <p class="lead">Start earning in just 3 simple steps</p>
+        </div>
+        <div class="row g-4">
+            <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                <div class="feature-card">
+                    <div class="feature-icon" style="background-color: #FFECB3; color: #FFA000;">
+                        <i class="fas fa-user-plus"></i>
+                    </div>
+                    <h3 class="feature-title">1. Create Your Account</h3>
+                    <p>Sign up in less than a minute with just your email address. Complete your profile to get
+                        matched with relevant surveys.</p>
+                </div>
+            </div>
+            <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                <div class="feature-card">
+                    <div class="feature-icon" style="background-color: #BBDEFB; color: #1976D2;">
+                        <i class="fas fa-clipboard-check"></i>
+                    </div>
+                    <h3 class="feature-title">2. Take Surveys</h3>
+                    <p>Browse available surveys in your dashboard. Choose ones that interest you and share your
+                        honest opinions.</p>
+                </div>
+            </div>
+            <div class="col-lg-4" data-aos="fade-up" data-aos-delay="300">
+                <div class="feature-card">
+                    <div class="feature-icon" style="background-color: #C8E6C9; color: #388E3C;">
+                        <i class="fas fa-wallet"></i>
+                    </div>
+                    <h3 class="feature-title">3. Get Paid</h3>
+                    <p>Earn rewards for each completed survey. Redeem your earnings via your preferred payment
+                        method.</p>
+                </div>
+            </div>
+        </div>
+        <div class="text-center mt-5" data-aos="fade-up">
+            <a href="#signup" class="btn btn-green px-5 py-3">Get Started Now</a>
+        </div>
+    </div>
+</section>
+
+<!-- Stats Section -->
+<section class="stats-section">
+    <div class="container">
+        <div class="row text-center">
+            <div class="col-md-3 col-6 mb-4 mb-md-0" data-aos="fade-up" data-aos-delay="100">
+                <div class="stat-item">
+                    <div class="stat-number">1000+</div>
+                    <div class="stat-label">Active Members</div>
+                </div>
+            </div>
+            <div class="col-md-3 col-6 mb-4 mb-md-0" data-aos="fade-up" data-aos-delay="200">
+                <div class="stat-item">
+                    <div class="stat-number">1K+</div>
+                    <div class="stat-label">Surveys Completed</div>
+                </div>
+            </div>
+            <div class="col-md-3 col-6 mb-4 mb-md-0" data-aos="fade-up" data-aos-delay="300">
+                <div class="stat-item">
+                    <div class="stat-number">10,000+</div>
+                    <div class="stat-label">Paid to Members</div>
+                </div>
+            </div>
+            <div class="col-md-3 col-6" data-aos="fade-up" data-aos-delay="400">
+                <div class="stat-item">
+                    <div class="stat-number">4.9</div>
+                    <div class="stat-label">Average Rating</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Testimonials Section -->
+<section id="testimonials" class="testimonials-section">
+    <div class="container">
+        <div class="text-center mb-5" data-aos="fade-up">
+            <h2 class="section-title">What Our Members Say</h2>
+            <p class="lead">Don't just take our word for it</p>
+        </div>
+        <div class="row">
+            <div class="col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="100">
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p class="testimonial-text">I've earned over Rs.5000 in just 3 months by completing surveys
+                            during my commute. It's so easy and the payments are always on time!</p>
+                        <div class="testimonial-author">
+                            <img src="https://randomuser.me/api/portraits/women/22.jpg" class="author-img"
+                                 alt="सुनीता महर्जन">
+                            <div>
+                                <h6 class="author-name mb-0">Sunita Maharjan</h6>
+                                <span class="author-title">Teacher, Kathmandu</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="200">
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p class="testimonial-text">As a stay-at-home mom, Surv&Earn has been a great way to make
+                            some extra money during nap times. The surveys are interesting too!</p>
+                        <div class="testimonial-author">
+                            <img src="https://randomuser.me/api/portraits/women/33.jpg" class="author-img"
+                                 alt="Radhika Shrestha">
+                            <div>
+                                <h6 class="author-name mb-0">Radhika Shrestha</h6>
+                                <span class="author-title">Housewife, Pokhara</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="300">
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p class="testimonial-text">I was skeptical at first, but I've been consistently earning
+                            Rs.1000-1500 per month. Perfect for covering my streaming subscriptions!</p>
+                        <div class="testimonial-author">
+                            <img src="https://randomuser.me/api/portraits/men/25.jpg" class="author-img"
+                                 alt="Rajesh Thapa">
+                            <div>
+                                <h6 class="author-name mb-0">Rajesh Thapa</h6>
+                                <span class="author-title">Student, Bhaktapur</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="cta-section">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8 text-center" data-aos="zoom-in">
+                <h2 class="cta-title">Ready to Start Earning?</h2>
+                <p class="cta-subtitle">Join our community today and get paid for sharing your opinions. It's free
+                    to sign up and takes less than a minute!</p>
+                <a href="{{url_for('register')}}" class="btn btn-light btn-lg px-5 me-3">Sign Up Free</a>
+                <a href="#how-it-works" class="btn btn-outline-light btn-lg px-5">Learn More</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 mb-5 mb-lg-0">
+                <a href="#" class="footer-logo">Surv&Earn</a>
+                <div class="footer-about">
+                    <p>We connect businesses with consumers through meaningful surveys, while rewarding participants
+                        for their valuable time and opinions.</p>
+                    <div class="social-links mt-4">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-4 mb-4 mb-md-0">
+                <div class="footer-links">
+                    <h5>Quick Links</h5>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#how-it-works">How It Works</a></li>
+                        <li><a href="#testimonials">Testimonials</a></li>
+                        <li><a href="#contact">Contact</a></li>
                     </ul>
                 </div>
             </div>
-            <!-- Register and Log In buttons -->
-            <div class="d-flex">
-                <a href="register.html" class="btn btn-green me-2">Register</a>
-                <a href="logIn.html" class="btn btn-green-light">Log In</a>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <section id="home" class="hero-section">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-6" data-aos="fade-right">
-                    <div class="hero-content">
-                        <h1 class="hero-title">Your Voice, Your Rewards</h1>
-                        <p class="hero-subtitle">Participate in quick, engaging surveys and earn real rewards. Your
-                            opinions help shape the future, and we believe you should be compensated for it.</p>
-                        <div class="d-flex flex-wrap gap-3">
-                            <a href="#signup" class="btn btn-green">Get Started</a>
-                            <a href="#how-it-works" class="btn btn-outline-dark">Learn More</a>
-                        </div>
-                        <div class="mt-4 d-flex align-items-center">
-                            <div class="d-flex">
-                                <img src="https://randomuser.me/api/portraits/women/43.jpg"
-                                    class="rounded-circle border border-3 border-white" width="40" height="40"
-                                    alt="User">
-                                <img src="https://randomuser.me/api/portraits/men/32.jpg"
-                                    class="rounded-circle border border-3 border-white ms-n2" width="40" height="40"
-                                    alt="User">
-                                <img src="https://randomuser.me/api/portraits/women/65.jpg"
-                                    class="rounded-circle border border-3 border-white ms-n2" width="40" height="40"
-                                    alt="User">
-                            </div>
-                            <div class="ms-3">
-                                <p class="mb-0 small fw-bold">Join 10,000+ happy members</p>
-                                <div class="text-warning">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <span class="text-dark ms-1">4.9/5</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+            <div class="col-lg-2 col-md-4 mb-4 mb-md-0">
+                <div class="footer-links">
+                    <h5>Legal</h5>
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Cookie Policy</a></li>
+                        <li><a href="#">GDPR</a></li>
+                    </ul>
                 </div>
-                <div class="col-lg-6" data-aos="fade-left">
-                    <div class="hero-image text-center">
-                        <svg width="500" height="400" viewBox="0 0 500 400" fill="none"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <!-- Phone Frame -->
-                            <rect x="150" y="50" width="200" height="350" rx="20" fill="#F5F5F5" stroke="#556B2F"
-                                stroke-width="3" />
-
-                            <!-- Phone Screen Content -->
-                            <rect x="170" y="70" width="160" height="310" rx="10" fill="#E8F5E9" />
-
-                            <!-- Survey Question -->
-                            <rect x="180" y="100" width="140" height="30" rx="5" fill="#6B8E23" opacity="0.8" />
-                            <text x="250" y="120" font-family="Inter" font-size="12" fill="white" text-anchor="middle"
-                                dominant-baseline="middle">तपाईंको उमेर कति हो?</text>
-
-                            <!-- Survey Options -->
-                            <rect x="180" y="150" width="140" height="25" rx="5" fill="#FFFFFF" stroke="#556B2F"
-                                stroke-width="1" />
-                            <rect x="180" y="185" width="140" height="25" rx="5" fill="#FFFFFF" stroke="#556B2F"
-                                stroke-width="1" />
-                            <rect x="180" y="220" width="140" height="25" rx="5" fill="#FFFFFF" stroke="#556B2F"
-                                stroke-width="1" />
-
-                            <!-- Progress Bar -->
-                            <rect x="180" y="280" width="140" height="10" rx="5" fill="#D9D9D9" />
-                            <rect x="180" y="280" width="70" height="10" rx="5" fill="#6B8E23" />
-
-                            <!-- Nepali User -->
-                            <circle cx="350" cy="150" r="40" fill="#FFD3B6" />
-                            <path d="M330,170 Q350,190 370,170" stroke="#333" stroke-width="2" fill="none" />
-
-                            <!-- Money Elements -->
-                            <circle cx="100" cy="150" r="30" fill="#FFD700" />
-                            <text x="100" y="150" font-family="Inter" font-size="20" fill="#333" text-anchor="middle"
-                                dominant-baseline="middle">रु</text>
-
-                            <!-- Survey Complete Checkmark -->
-                            <path d="M350,250 L370,270 L400,230" stroke="#6B8E23" stroke-width="5"
-                                stroke-linecap="round" fill="none" opacity="0.8" />
-                        </svg>
-                    </div>
+            </div>
+            <div class="col-lg-4 col-md-4">
+                <div class="footer-links">
+                    <h5>Contact Us</h5>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt me-2"></i> Kamalpokhari, Kathmandu Nepal</li>
+                        <li><i class="fas fa-phone-alt me-2"></i> 9791754839</li>
+                        <li><i class="fas fa-envelope me-2"></i> info@survearn.com</li>
+                    </ul>
                 </div>
             </div>
         </div>
-    </section>
-
-    <!-- Features Section -->
-    <section id="features" class="features-section">
-        <div class="container">
-            <div class="text-center mb-5" data-aos="fade-up">
-                <h2 class="section-title">Why Choose Surv&Earn</h2>
-                <p class="lead">We make sharing your opinions rewarding and effortless</p>
-            </div>
-            <div class="row g-4">
-                <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-money-bill-wave"></i>
-                        </div>
-                        <h3 class="feature-title">Real Cash Rewards</h3>
-                        <p>Earn actual money for each survey you complete, with no minimum payout threshold.</p>
-                    </div>
-                </div>
-                <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-clock"></i>
-                        </div>
-                        <h3 class="feature-title">Quick Surveys</h3>
-                        <p>Most surveys take less than 10 minutes to complete, perfect for your spare time.</p>
-                    </div>
-                </div>
-                <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-gift"></i>
-                        </div>
-                        <h3 class="feature-title">Multiple Redemption Options</h3>
-                        <p>Get paid via Esewa, gift cards, or direct bank transfer - you choose!</p>
-                    </div>
-                </div>
-                <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-bell"></i>
-                        </div>
-                        <h3 class="feature-title">Survey Notifications</h3>
-                        <p>Get alerted when new surveys matching your profile become available.</p>
-                    </div>
-                </div>
-                <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-mobile-alt"></i>
-                        </div>
-                        <h3 class="feature-title">Mobile Friendly</h3>
-                        <p>Complete surveys anytime, anywhere with our mobile-optimized platform.</p>
-                    </div>
-                </div>
-                <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-shield-alt"></i>
-                        </div>
-                        <h3 class="feature-title">Privacy Protected</h3>
-                        <p>Your data is secure and never shared without your explicit consent.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- How It Works Section -->
-    <section id="how-it-works" class="py-5 bg-light">
-        <div class="container">
-            <div class="text-center mb-5" data-aos="fade-up">
-                <h2 class="section-title">How It Works</h2>
-                <p class="lead">Start earning in just 3 simple steps</p>
-            </div>
-            <div class="row g-4">
-                <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
-                    <div class="feature-card">
-                        <div class="feature-icon" style="background-color: #FFECB3; color: #FFA000;">
-                            <i class="fas fa-user-plus"></i>
-                        </div>
-                        <h3 class="feature-title">1. Create Your Account</h3>
-                        <p>Sign up in less than a minute with just your email address. Complete your profile to get
-                            matched with relevant surveys.</p>
-                    </div>
-                </div>
-                <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
-                    <div class="feature-card">
-                        <div class="feature-icon" style="background-color: #BBDEFB; color: #1976D2;">
-                            <i class="fas fa-clipboard-check"></i>
-                        </div>
-                        <h3 class="feature-title">2. Take Surveys</h3>
-                        <p>Browse available surveys in your dashboard. Choose ones that interest you and share your
-                            honest opinions.</p>
-                    </div>
-                </div>
-                <div class="col-lg-4" data-aos="fade-up" data-aos-delay="300">
-                    <div class="feature-card">
-                        <div class="feature-icon" style="background-color: #C8E6C9; color: #388E3C;">
-                            <i class="fas fa-wallet"></i>
-                        </div>
-                        <h3 class="feature-title">3. Get Paid</h3>
-                        <p>Earn rewards for each completed survey. Redeem your earnings via your preferred payment
-                            method.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="text-center mt-5" data-aos="fade-up">
-                <a href="#signup" class="btn btn-green px-5 py-3">Get Started Now</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Stats Section -->
-    <section class="stats-section">
-        <div class="container">
-            <div class="row text-center">
-                <div class="col-md-3 col-6 mb-4 mb-md-0" data-aos="fade-up" data-aos-delay="100">
-                    <div class="stat-item">
-                        <div class="stat-number">1000+</div>
-                        <div class="stat-label">Active Members</div>
-                    </div>
-                </div>
-                <div class="col-md-3 col-6 mb-4 mb-md-0" data-aos="fade-up" data-aos-delay="200">
-                    <div class="stat-item">
-                        <div class="stat-number">1K+</div>
-                        <div class="stat-label">Surveys Completed</div>
-                    </div>
-                </div>
-                <div class="col-md-3 col-6 mb-4 mb-md-0" data-aos="fade-up" data-aos-delay="300">
-                    <div class="stat-item">
-                        <div class="stat-number">10,000+</div>
-                        <div class="stat-label">Paid to Members</div>
-                    </div>
-                </div>
-                <div class="col-md-3 col-6" data-aos="fade-up" data-aos-delay="400">
-                    <div class="stat-item">
-                        <div class="stat-number">4.9</div>
-                        <div class="stat-label">Average Rating</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials Section -->
-    <section id="testimonials" class="testimonials-section">
-        <div class="container">
-            <div class="text-center mb-5" data-aos="fade-up">
-                <h2 class="section-title">What Our Members Say</h2>
-                <p class="lead">Don't just take our word for it</p>
-            </div>
+        <div class="footer-bottom">
             <div class="row">
-                <div class="col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="100">
-                    <div class="testimonial-card">
-                        <div class="testimonial-content">
-                            <p class="testimonial-text">I've earned over Rs.5000 in just 3 months by completing surveys
-                                during my commute. It's so easy and the payments are always on time!</p>
-                            <div class="testimonial-author">
-                                <img src="https://randomuser.me/api/portraits/women/22.jpg" class="author-img"
-                                    alt="सुनीता महर्जन">
-                                <div>
-                                    <h6 class="author-name mb-0">Sunita Maharjan</h6>
-                                    <span class="author-title">Teacher, Kathmandu</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="mb-0">&copy; 2024 Surv&Earn. All rights reserved.</p>
                 </div>
-                <div class="col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="200">
-                    <div class="testimonial-card">
-                        <div class="testimonial-content">
-                            <p class="testimonial-text">As a stay-at-home mom, Surv&Earn has been a great way to make
-                                some extra money during nap times. The surveys are interesting too!</p>
-                            <div class="testimonial-author">
-                                <img src="https://randomuser.me/api/portraits/women/33.jpg" class="author-img"
-                                    alt="Radhika Shrestha">
-                                <div>
-                                    <h6 class="author-name mb-0">Radhika Shrestha</h6>
-                                    <span class="author-title">Housewife, Pokhara</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="300">
-                    <div class="testimonial-card">
-                        <div class="testimonial-content">
-                            <p class="testimonial-text">I was skeptical at first, but I've been consistently earning
-                                Rs.1000-1500 per month. Perfect for covering my streaming subscriptions!</p>
-                            <div class="testimonial-author">
-                                <img src="https://randomuser.me/api/portraits/men/25.jpg" class="author-img"
-                                    alt="Rajesh Thapa">
-                                <div>
-                                    <h6 class="author-name mb-0">Rajesh Thapa</h6>
-                                    <span class="author-title">Student, Bhaktapur</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <p class="mb-0">Made with <i class="fas fa-heart text-danger"></i> by Surv&Earn Team</p>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</footer>
 
-    <!-- CTA Section -->
-    <section class="cta-section">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-8 text-center" data-aos="zoom-in">
-                    <h2 class="cta-title">Ready to Start Earning?</h2>
-                    <p class="cta-subtitle">Join our community today and get paid for sharing your opinions. It's free
-                        to sign up and takes less than a minute!</p>
-                    <a href="#signup" class="btn btn-light btn-lg px-5 me-3">Sign Up Free</a>
-                    <a href="#how-it-works" class="btn btn-outline-light btn-lg px-5">Learn More</a>
-                </div>
-            </div>
-        </div>
-    </section>
+<!-- Back to Top Button -->
+<a href="#" class="back-to-top" id="backToTop"><i class="fas fa-arrow-up"></i></a>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-4 mb-5 mb-lg-0">
-                    <a href="#" class="footer-logo">Surv&Earn</a>
-                    <div class="footer-about">
-                        <p>We connect businesses with consumers through meaningful surveys, while rewarding participants
-                            for their valuable time and opinions.</p>
-                        <div class="social-links mt-4">
-                            <a href="#"><i class="fab fa-facebook-f"></i></a>
-                            <a href="#"><i class="fab fa-twitter"></i></a>
-                            <a href="#"><i class="fab fa-instagram"></i></a>
-                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-2 col-md-4 mb-4 mb-md-0">
-                    <div class="footer-links">
-                        <h5>Quick Links</h5>
-                        <ul>
-                            <li><a href="#home">Home</a></li>
-                            <li><a href="#features">Features</a></li>
-                            <li><a href="#how-it-works">How It Works</a></li>
-                            <li><a href="#testimonials">Testimonials</a></li>
-                            <li><a href="#contact">Contact</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-lg-2 col-md-4 mb-4 mb-md-0">
-                    <div class="footer-links">
-                        <h5>Legal</h5>
-                        <ul>
-                            <li><a href="#">Privacy Policy</a></li>
-                            <li><a href="#">Terms of Service</a></li>
-                            <li><a href="#">Cookie Policy</a></li>
-                            <li><a href="#">GDPR</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-4">
-                    <div class="footer-links">
-                        <h5>Contact Us</h5>
-                        <ul>
-                            <li><i class="fas fa-map-marker-alt me-2"></i> Kamalpokhari, Kathmandu Nepal</li>
-                            <li><i class="fas fa-phone-alt me-2"></i> 9791754839</li>
-                            <li><i class="fas fa-envelope me-2"></i> info@survearn.com</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <div class="row">
-                    <div class="col-md-6 text-center text-md-start">
-                        <p class="mb-0">&copy; 2024 Surv&Earn. All rights reserved.</p>
-                    </div>
-                    <div class="col-md-6 text-center text-md-end">
-                        <p class="mb-0">Made with <i class="fas fa-heart text-danger"></i> by Surv&Earn Team</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
+<!-- Bootstrap Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
-    <!-- Back to Top Button -->
-    <a href="#" class="back-to-top" id="backToTop"><i class="fas fa-arrow-up"></i></a>
+<!-- AOS Animation -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
-    <!-- Bootstrap Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Custom JS -->
+<script>
+    // Initialize AOS animation
+    AOS.init({
+        duration: 800,
+        easing: 'ease-in-out',
+        once: true
+    });
 
-    <!-- AOS Animation -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    // Navbar scroll effect
+    window.addEventListener('scroll', function () {
+        const navbar = document.querySelector('.navbar');
+        if (window.scrollY > 50) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+    });
 
-    <!-- Custom JS -->
-    <script>
-        // Initialize AOS animation
-        AOS.init({
-            duration: 800,
-            easing: 'ease-in-out',
-            once: true
-        });
+    // Back to top button
+    const backToTopButton = document.getElementById('backToTop');
+    window.addEventListener('scroll', function () {
+        if (window.scrollY > 300) {
+            backToTopButton.style.display = 'block';
+        } else {
+            backToTopButton.style.display = 'none';
+        }
+    });
 
-        // Navbar scroll effect
-        window.addEventListener('scroll', function () {
-            const navbar = document.querySelector('.navbar');
-            if (window.scrollY > 50) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
-        });
+    backToTopButton.addEventListener('click', function (e) {
+        e.preventDefault();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
 
-        // Back to top button
-        const backToTopButton = document.getElementById('backToTop');
-        window.addEventListener('scroll', function () {
-            if (window.scrollY > 300) {
-                backToTopButton.style.display = 'block';
-            } else {
-                backToTopButton.style.display = 'none';
-            }
-        });
-
-        backToTopButton.addEventListener('click', function (e) {
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
             e.preventDefault();
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
 
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
+            const targetId = this.getAttribute('href');
+            if (targetId === '#') return;
 
-                const targetId = this.getAttribute('href');
-                if (targetId === '#') return;
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+                window.scrollTo({
+                    top: targetElement.offsetTop - 70,
+                    behavior: 'smooth'
+                });
 
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 70,
-                        behavior: 'smooth'
-                    });
-
-                    // Close mobile menu if open
-                    const navbarToggler = document.querySelector('.navbar-toggler');
-                    const navbarNav = document.querySelector('.navbar-collapse');
-                    if (navbarToggler && !navbarToggler.classList.contains('collapsed')) {
-                        navbarToggler.click();
-                    }
+                // Close mobile menu if open
+                const navbarToggler = document.querySelector('.navbar-toggler');
+                const navbarNav = document.querySelector('.navbar-collapse');
+                if (navbarToggler && !navbarToggler.classList.contains('collapsed')) {
+                    navbarToggler.click();
                 }
-            });
+            }
         });
-    </script>
+    });
+</script>
 </body>
 
 </html>
