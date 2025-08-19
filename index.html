@@ -13,6 +13,8 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Crimson+Text:wght@400;700&display=swap"
         rel="stylesheet">
+    <!-- Font Awesome for social icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
     <style>
         /* Apply a global font family for consistency */
         body {
@@ -152,6 +154,17 @@
             text-decoration: underline;
         }
 
+        .social-icons a {
+            font-size: 1.5rem;
+            margin: 0 10px;
+            transition: transform 0.2s ease-in-out;
+        }
+
+        .social-icons a:hover {
+            transform: scale(1.1);
+        }
+
+
         /* Adjustments for smaller screens */
         @media (max-width: 992px) {
             .hero-section {
@@ -179,6 +192,10 @@
             .btn-brown {
                 width: 100%;
                 margin-top: 10px;
+            }
+
+            .footer-section .col-md-4 {
+                text-align: center !important;
             }
         }
     </style>
@@ -362,9 +379,15 @@
                     </ul>
                 </div>
                 <div class="col-md-4 text-center text-md-end">
-                    <h5 class="fw-bold">Contact</h5>
+                    <h5 class="fw-bold">Follow Us</h5>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                    <h5 class="fw-bold mt-4">Contact</h5>
                     <p class="mb-0">info@survearn.com</p>
-                    <p>123 Survey St, Reward City, 54321</p>
+                    <p>Kamalpokhari, Kathmandu Nepal</p>
                 </div>
             </div>
             <hr class="mt-4 mb-3" style="border-color: rgba(255, 255, 255, 0.2);">
