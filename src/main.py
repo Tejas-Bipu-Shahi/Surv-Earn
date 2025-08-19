@@ -21,8 +21,10 @@ def index():
 @app.route('/register', methods=['GET', 'POST'])
 def register():
     if request.method == 'POST':
+        username = request.form['username']
         email = request.form['email']
         password = request.form['password']
+        confirm_password = request.form['confirm-password']
 
         if not fn.is_valid_email(email):
             return f'Invalid email {email}', 400
@@ -36,11 +38,7 @@ def register():
         user = user_handler.register_user(email=email, password=password, mongo=mongo)
         return f"Registered {user.email}"
 
-    return '''<form action='register' method='POST'>
-                    <input type='email' name='email' id='email' placeholder='email'/>
-                    <input type='password' name='password' id='password' placeholder='password'/>
-                    <input type='submit' name='Register'/>
-                   </form>'''
+    return render_template('register.html')
 
 
 @app.route('/login', methods=['GET', 'POST'])
@@ -68,7 +66,7 @@ def login():
         login_user(user, remember=True)
         return f"Logged in {user.email}"
 
-    return render_template('logIn.html')
+    return render_template('login.html')
 
 
 @app.route('/logout', methods=['GET', 'POST'])
@@ -89,6 +87,11 @@ def logout():
 @login_required
 def settings():
     return f'Settings Page for {current_user.email}.'
+
+
+@app.route('/reset_password', methods=['GET', 'POST'])
+def reset_password():
+    return render_template('forgetpassword.html')
 
 
 if __name__ == '__main__':
