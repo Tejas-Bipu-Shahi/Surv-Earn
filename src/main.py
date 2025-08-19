@@ -1,4 +1,4 @@
-from flask import request
+from flask import request, render_template
 import bcrypt
 from models.user import User
 import utils.functions as fn
@@ -68,11 +68,7 @@ def login():
         login_user(user, remember=True)
         return f"Logged in {user.email}"
 
-    return '''<form action='login' method='POST'>
-                <input type='email' name='email' id='email' placeholder='email'/>
-                <input type='password' name='password' id='password' placeholder='password'/>
-                <input type='submit' name='login'/>
-               </form>'''
+    return render_template('logIn.html')
 
 
 @app.route('/logout', methods=['GET', 'POST'])
