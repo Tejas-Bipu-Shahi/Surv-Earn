@@ -225,64 +225,127 @@
                         </div>
                     </div>
                 </div>
-
+                <div class="card">
+                    <div class="card-header">
+                        <i class="bi bi-cash me-3"></i>Redeemable Surveys
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-striped align-middle" id="table1">
+                                <thead>
+                                    <tr>
+                                        <th>SN</th>
+                                        <th><i class="bi bi-clipboard-check me-2"></i>Survey</th>
+                                        <th><i class="bi bi-building me-2"></i>Company</th>
+                                        <th><i class="bi bi-file-text me-2"></i>Short Description</th>
+                                        <th><i class="bi bi-cash me-2"></i>Reward</th>
+                                        <th><i class="bi bi-calendar-event me-2"></i>Eligible Date</th>
+                                        <th><i class="bi bi-basket me-2"></i>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td><a href="surveyDetails.html"
+                                                class="text-decoration-none fw-semibold text-primary">Customer
+                                                Satisfaction</a></td>
+                                        <td>Acme Corp</td>
+                                        <td class="text-truncate w-25">Short feedback survey about recent purchase
+                                            experience.</td>
+                                        <td><span class="badge bg-success">$2.00</span></td>
+                                        <td>2025-08-10</td>
+                                        <td><button class="btn btn-sm btn-primary">Redeem</button></td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td><a href="surveyDetails.html"
+                                                class="text-decoration-none fw-semibold text-primary">Product
+                                                Feedback</a>
+                                        </td>
+                                        <td>Globex Inc</td>
+                                        <td class="text-truncate w-25">Give your opinion on the new product line.</td>
+                                        <td><span class="badge bg-success">$1.50</span></td>
+                                        <td>2025-08-12</td>
+                                        <td><button class="btn btn-sm btn-primary">Redeem</button></td>
+                                    </tr>
+                                    <tr>
+                                        <td>3</td>
+                                        <td><a href="surveyDetails.html"
+                                                class="text-decoration-none fw-semibold text-primary">Market
+                                                Research</a>
+                                        </td>
+                                        <td>Initech</td>
+                                        <td class="text-truncate w-25">Basic market preferences questionnaire.</td>
+                                        <td><span class="badge bg-success">$0.50</span></td>
+                                        <td>2025-08-15</td>
+                                        <td><button class="btn btn-sm btn-primary">Redeem</button></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
                 <div class="card">
                     <div class="card-header">
                         <i class="bi bi-wallet2 me-3"></i>Redeem history & transactions
                     </div>
                     <div class="card-body">
-                        <table class="table table-striped align-middle" id="table2">
-                            <thead>
-                                <tr>
-                                    <th>SN</th>
-                                    <th>Txn ID</th>
-                                    <th><i class="bi bi-clipboard-check me-2"></i>Survey</th>
-                                    <th><i class="bi bi-building me-2"></i>Company</th>
-                                    <th><i class="bi bi-file-text me-2"></i>Description</th>
-                                    <th><i class="bi bi-currency-dollar me-2"></i>Amount</th>
-                                    <th><i class="bi bi-calendar-event me-2"></i>Date</th>
-                                    <th><i class="bi bi-check-circle me-2"></i>Status</th>
-                                    <th><i class="bi bi-hash me-2"></i>Reference</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td>#RD-1023</td>
-                                    <td>Customer Satisfaction</td>
-                                    <td>Acme Corp</td>
-                                    <td>Feedback payout via PayPal</td>
-                                    <td><span class="badge bg-success">$25.00</span></td>
-                                    <td>2025-08-12</td>
-                                    <td><span class="badge bg-success"><i class="bi bi-check-circle"></i>
-                                            Completed</span></td>
-                                    <td>PP-9A3F</td>
-                                </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td>#RD-1024</td>
-                                    <td>Product Feedback</td>
-                                    <td>Globex Inc</td>
-                                    <td>Bank transfer for product feedback</td>
-                                    <td><span class="badge bg-warning text-dark">$50.00</span></td>
-                                    <td>2025-08-14</td>
-                                    <td><span class="badge bg-warning text-dark"><i class="bi bi-hourglass-split"></i>
-                                            Processing</span></td>
-                                    <td>BT-44X2</td>
-                                </tr>
-                                <tr>
-                                    <td>3</td>
-                                    <td>#RD-1025</td>
-                                    <td>Market Research</td>
-                                    <td>Initech</td>
-                                    <td>Gift card issuance failed</td>
-                                    <td><span class="badge bg-danger">$10.00</span></td>
-                                    <td>2025-08-16</td>
-                                    <td><span class="badge bg-danger"><i class="bi bi-x-circle"></i> Failed</span></td>
-                                    <td>GC-0Z7Q</td>
-                                </tr>
-                            </tbody>
-                        </table>
+                        <div class="table-responsive overflow-auto">
+                            <table class="table table-striped align-middle text-nowrap min-vw-100" id="table2">
+                                <thead>
+                                    <tr>
+                                        <th>SN</th>
+                                        <th>Txn ID</th>
+                                        <th><i class="bi bi-clipboard-check me-2"></i>Survey</th>
+                                        <th><i class="bi bi-building me-2"></i>Company</th>
+                                        <th><i class="bi bi-file-text me-2"></i>Description</th>
+                                        <th><i class="bi bi-currency-dollar me-2"></i>Amount</th>
+                                        <th><i class="bi bi-calendar-event me-2"></i>Date</th>
+                                        <th><i class="bi bi-check-circle me-2"></i>Status</th>
+                                        <th><i class="bi bi-hash me-2"></i>Reference</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>#RD-1023</td>
+                                        <td>Customer Satisfaction</td>
+                                        <td>Acme Corp</td>
+                                        <td>Feedback payout via PayPal</td>
+                                        <td><span class="badge bg-success">$25.00</span></td>
+                                        <td>2025-08-12</td>
+                                        <td><span class="badge bg-success"><i class="bi bi-check-circle"></i>
+                                                Completed</span></td>
+                                        <td>PP-9A3F</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td>#RD-1024</td>
+                                        <td>Product Feedback</td>
+                                        <td>Globex Inc</td>
+                                        <td>Bank transfer for product feedback</td>
+                                        <td><span class="badge bg-warning text-dark">$50.00</span></td>
+                                        <td>2025-08-14</td>
+                                        <td><span class="badge bg-warning text-dark"><i
+                                                    class="bi bi-hourglass-split"></i>
+                                                Processing</span></td>
+                                        <td>BT-44X2</td>
+                                    </tr>
+                                    <tr>
+                                        <td>3</td>
+                                        <td>#RD-1025</td>
+                                        <td>Market Research</td>
+                                        <td>Initech</td>
+                                        <td>Gift card issuance failed</td>
+                                        <td><span class="badge bg-danger">$10.00</span></td>
+                                        <td>2025-08-16</td>
+                                        <td><span class="badge bg-danger"><i class="bi bi-x-circle"></i> Failed</span>
+                                        </td>
+                                        <td>GC-0Z7Q</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </section>
