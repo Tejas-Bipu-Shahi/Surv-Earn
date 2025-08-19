@@ -47,26 +47,28 @@
             border: 1px solid #556B2F;
         }
 
-        .illustration-bg {
-            background-color: #8F9D7C;
-            border-radius: 20px;
-            padding: 20px;
-            margin-top: 250px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            max-width: 1800px;
-            width: 100%;
-            height: 362px;
-            position: relative;
-            z-index: 1;
+        /* New Hero Section Styling */
+        .hero-section {
+            background-color: #E8F5E9;
+            /* Light green background */
+            padding: 8rem 0;
         }
 
-        .main-heading {
-            font-size: 7rem;
+        .hero-section .main-heading {
+            font-size: 4.5rem;
             font-weight: 700;
-            margin-top: 1rem;
             font-family: 'Crimson Text', serif;
+            color: #212121;
+        }
+
+        .hero-section .lead {
+            font-size: 1.25rem;
+            color: #424242;
+        }
+
+        .hero-illustration {
+            width: 100%;
+            height: auto;
         }
 
         .nav-links-container {
@@ -82,7 +84,7 @@
             font-size: 3rem;
             font-weight: 700;
             margin-bottom: 2rem;
-            color: #556B2F;
+            color: #000;
         }
 
         .section-card {
@@ -92,7 +94,6 @@
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             height: 100%;
-            /* Ensure cards have equal height */
         }
 
         .section-card:hover {
@@ -113,10 +114,42 @@
             border: none;
         }
 
+        .text-dark-heading {
+            color: #000;
+        }
+
+        /* Animations for the hero section */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        .hero-content {
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        .hero-illustration {
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
         /* Adjustments for smaller screens */
-        @media (max-width: 768px) {
-            .main-heading {
-                font-size: 3.5rem;
+        @media (max-width: 992px) {
+            .hero-section {
+                text-align: center;
+                padding: 4rem 0;
+            }
+
+            .hero-section .main-heading {
+                font-size: 3rem;
+            }
+
+            .illustration-container {
+                margin-top: 2rem;
             }
 
             .navbar-nav {
@@ -131,10 +164,6 @@
             .btn-brown {
                 width: 100%;
                 margin-top: 10px;
-            }
-
-            .illustration-bg {
-                margin-top: 50px;
             }
         }
     </style>
@@ -181,14 +210,44 @@
         </div>
     </nav>
 
-    <!-- Main Content Section -->
-    <div id="main-content" class="container text-center py-4">
-        <h1 class="main-heading">Survey and Earn</h1>
-        <div class="illustration-bg">
-            <img src="https://placehold.co/760x400/98C1D9/293241?text=Tablet+with+Graph"
-                alt="Tablet showing a graph for efficiency improvements">
+    <!-- Main Content Section - Updated with new design -->
+    <section id="main-content" class="hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4 mb-lg-0 hero-content text-center text-lg-start">
+                    <h1 class="main-heading">Your Voice, Your Rewards</h1>
+                    <p class="lead mt-4">
+                        Participate in quick, engaging surveys and earn real rewards. Your opinions help shape the
+                        future, and we believe you should be compensated for it.
+                    </p>
+                    <a href="#how-it-works" class="btn btn-green mt-4">Get Started</a>
+                </div>
+                <div class="col-lg-6 d-flex justify-content-center illustration-container">
+                    <svg class="hero-illustration" viewBox="0 0 500 400" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M472.5 100H27.5C12.31 100 0 112.31 0 127.5V372.5C0 387.69 12.31 400 27.5 400H472.5C487.69 400 500 387.69 500 372.5V127.5C500 112.31 487.69 100 472.5 100Z"
+                            fill="#B0C4B4" />
+                        <path
+                            d="M450 110H50C38.95 110 30 118.95 30 130V370C30 381.05 38.95 390 50 390H450C461.05 390 470 381.05 470 370V130C470 118.95 461.05 110 450 110Z"
+                            fill="#F0F0F0" />
+                        <rect x="50" y="130" width="400" height="240" fill="#E0E0E0" />
+                        <circle cx="100" cy="180" r="15" fill="#4CAF50" />
+                        <circle cx="150" cy="220" r="15" fill="#FFC107" />
+                        <circle cx="200" cy="260" r="15" fill="#2196F3" />
+                        <circle cx="250" cy="200" r="15" fill="#F44336" />
+                        <path d="M120 280 L200 280 L200 320 L120 320 Z" fill="#6A493B" />
+                        <rect x="250" y="280" width="100" height="40" fill="#6A493B" />
+                        <rect x="150" y="340" width="200" height="20" fill="#90A4AE" />
+                        <rect x="230" y="345" width="40" height="10" fill="#BDBDBD" />
+                        <circle cx="400" cy="200" r="50" fill="#FFD700" />
+                        <path
+                            d="M400 200 L430 230 M400 200 L370 230 M400 200 L430 170 M400 200 L370 170 M400 200 L400 150 M400 200 L400 250"
+                            stroke="#FFC107" stroke-width="5" stroke-linecap="round" />
+                    </svg>
+                </div>
+            </div>
         </div>
-    </div>
+    </section>
 
     <!-- How-it-works Section -->
     <section id="how-it-works" class="py-5 my-5">
@@ -197,21 +256,21 @@
             <div class="row g-4 mt-4">
                 <div class="col-md-4">
                     <div class="section-card text-center">
-                        <h3 class="fw-bold text-success">1. Sign Up</h3>
+                        <h3 class="fw-bold text-dark-heading">1. Sign Up</h3>
                         <p class="mt-3">Create your free account in minutes. We only need a few details to get you
                             started on your earning journey.</p>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="section-card text-center">
-                        <h3 class="fw-bold text-success">2. Take Surveys</h3>
+                        <h3 class="fw-bold text-dark-heading">2. Take Surveys</h3>
                         <p class="mt-3">Browse our list of available surveys from top companies. Choose the ones that
                             interest you and start participating.</p>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="section-card text-center">
-                        <h3 class="fw-bold text-success">3. Earn Rewards</h3>
+                        <h3 class="fw-bold text-dark-heading">3. Earn Rewards</h3>
                         <p class="mt-3">Once you complete a survey, you'll be credited with rewards that you can redeem
                             for cash, gift cards, and more.</p>
                     </div>
