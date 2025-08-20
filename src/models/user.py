@@ -10,3 +10,9 @@ class User(BaseModel, UserMixin):
 
     def get_id(self):
         return self.email
+
+
+class TempUnverifiedUser(BaseModel):
+    email: str
+    password: str
+    username: str

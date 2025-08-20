@@ -1,5 +1,5 @@
 import bcrypt
-from models.user import User
+from models.user import User, TempUnverifiedUser
 
 # type hinting
 from typing import TYPE_CHECKING
@@ -19,3 +19,13 @@ def register_user(email: str, password: str, mongo: 'PyMongo', username: str) ->
     ic(f'Registered: {user}')
 
     return user
+
+
+def create_temp_unverified_user(email: str, password: str, mongo: 'PyMongo', username: str) -> TempUnverifiedUser:
+    hashed_password = bcrypt.hashpw(password.encode(), bcrypt.gensalt())
+    temp_unverified_user: TempUnverifiedUser = TempUnverifiedUser(email=email, password=hashed_password.decode(), username=username)
+    mongo.db.temp_unverified_users.insert_one(temp_unverified_user.model_dump())
+
+    ic(f'Created Unverified User: {temp_unverified_user}')
+
+    return temp_unverified_user

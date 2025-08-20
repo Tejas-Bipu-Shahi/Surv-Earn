@@ -1,4 +1,4 @@
-from flask import request, render_template, redirect, url_for, flash
+from flask import request, render_template, redirect, url_for, flash, session
 import bcrypt
 from models.user import User
 import utils.functions as fn
@@ -42,8 +42,9 @@ def register():
             return render_template('register.html', confirm_password_error='Passwords do not match.', email=email, password=password,
                                    confirm_password=confirm_password, username=username)
 
-        user = user_handler.register_user(email=email, password=password, mongo=mongo, username=username)
-        return redirect(url_for('login'))
+        temp_unverified_user = user_handler.create_temp_unverified_user(email=email, password=password, mongo=mongo, username=username)
+        session['temp_unverified_email'] = temp_unverified_user.email
+        return redirect(url_for('verify_otp'))
 
     return render_template('register.html')
 
@@ -102,6 +103,13 @@ def settings():
 @app.route('/reset_password', methods=['GET', 'POST'])
 def reset_password():
     return render_template('reset_password.html')
+
+
+@app.route('/verify_otp', methods=['GET', 'POST'])
+def verify_otp():
+    if request.method == 'POST':
+        pass
+    return render_template('verify_otp.html')
 
 
 if __name__ == '__main__':
