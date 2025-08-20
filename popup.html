@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toastify - Top Center</title>
+    <link rel="stylesheet" href="/user/dist/assets/css/bootstrap.css">
+    <link rel="stylesheet" href="/user/dist/assets/vendors/toastify/toastify.css">
+</head>
+<body>
+    <button id="top-center" class="btn btn-outline-primary btn-lg">Top Center</button>
+
+    <script src="/user/dist/assets/vendors/toastify/toastify.js"></script>
+    <script>
+        document.getElementById("top-center").addEventListener("click", function () {
+            Toastify({
+                text: "This is a Top Center notification!",
+                duration: 5000,
+                close: true,
+                gravity: "top",
+                position: "center",
+                className: "toastify-success"
+            }).showToast();
+        });
+    </script>
+</body>
+</html>

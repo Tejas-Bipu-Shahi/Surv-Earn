@@ -7,6 +7,7 @@ from flask_login import login_required, login_user, logout_user, current_user
 
 from config import app, mongo
 
+
 # logging
 from icecream import ic
 
@@ -74,7 +75,8 @@ def login():
         if request.form.get('keep_logged_in'):
             login_user(user, remember=True)
         login_user(user)
-        return redirect(url_for('index'))
+        flash("Login Succesful!!")
+        return redirect(url_for('index'),)
 
     return render_template('login.html')
 
