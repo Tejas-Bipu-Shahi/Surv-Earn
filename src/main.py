@@ -2,10 +2,11 @@ from flask import request, render_template, redirect, url_for, flash, session
 import bcrypt
 from models.user import User, TempUnverifiedUser
 import utils.functions as fn
-from controllers import user_handler
+from controllers import user_handler, email_sender
 from flask_login import login_required, login_user, logout_user, current_user
+from utils.otp_generator import generate_otp
 
-from config import app, mongo
+from config import app, mongo, mail
 
 # logging
 from icecream import ic
@@ -41,9 +42,16 @@ def register():
         if password != confirm_password:
             return render_template('register.html', confirm_password_error='Passwords do not match.', email=email, password=password,
                                    confirm_password=confirm_password, username=username)
-
-        temp_unverified_user = user_handler.create_temp_unverified_user(email=email, password=password, username=username, mongo=mongo)
+        otp = generate_otp()
+        otp_hash = bcrypt.hashpw(otp.encode(), bcrypt.gensalt())
+        temp_unverified_user = user_handler.create_temp_unverified_user(email=email, password=password, username=username,
+                                                                        otp_hash=otp_hash.decode(),
+                                                                        mongo=mongo)
         session['temp_unverified_email'] = temp_unverified_user.email
+        email_sender.send_otp_mail(mail=mail, otp=otp, recipient=temp_unverified_user.email,
+                                   sender=app.config.get('MAIL_DEFAULT_SENDER'))
+        ic(otp)
+
         return redirect(url_for('verify_otp'))
 
     return render_template('register.html')
