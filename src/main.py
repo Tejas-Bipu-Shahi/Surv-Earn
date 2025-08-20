@@ -133,6 +133,7 @@ def verify_otp():
             mongo=mongo
         )
         session.pop('temp_unverified_email')
+        mongo.db.temp_unverified_users.delete_one({'email': temp_unverified_user.email})
         return redirect(url_for('login'))
     return render_template('verify_otp.html', email=session['temp_unverified_email'])
 
