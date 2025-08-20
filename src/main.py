@@ -48,10 +48,11 @@ def register():
                                                                         otp_hash=otp_hash.decode(),
                                                                         mongo=mongo)
         session['temp_unverified_email'] = temp_unverified_user.email
-        email_sender.send_otp_mail(mail=mail, otp=otp, recipient=temp_unverified_user.email,
-                                   sender=app.config.get('MAIL_DEFAULT_SENDER'))
-        ic(otp)
-
+        status: tuple[bool, str] = email_sender.send_otp_mail(mail=mail, otp=otp, recipient=temp_unverified_user.email,
+                                                              sender=app.config.get('MAIL_DEFAULT_SENDER'))
+        if not status[0]:
+            return render_template('register.html', email_error=status[1], email=email, password=password,
+                                   confirm_password=confirm_password, username=username)
         return redirect(url_for('verify_otp'))
 
     return render_template('register.html')
