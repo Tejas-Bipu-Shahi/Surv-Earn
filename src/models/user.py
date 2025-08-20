@@ -4,7 +4,7 @@ from flask_login import UserMixin
 
 class User(BaseModel, UserMixin):
     email: str
-    password: str
+    password_hash: str
     username: str
     _id: str | None = None
 
@@ -14,5 +14,6 @@ class User(BaseModel, UserMixin):
 
 class TempUnverifiedUser(BaseModel):
     email: str
-    password: str
+    password_hash: str
     username: str
+    otp_hash: str

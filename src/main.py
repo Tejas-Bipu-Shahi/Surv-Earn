@@ -1,6 +1,6 @@
 from flask import request, render_template, redirect, url_for, flash, session
 import bcrypt
-from models.user import User
+from models.user import User, TempUnverifiedUser
 import utils.functions as fn
 from controllers import user_handler
 from flask_login import login_required, login_user, logout_user, current_user
@@ -42,7 +42,7 @@ def register():
             return render_template('register.html', confirm_password_error='Passwords do not match.', email=email, password=password,
                                    confirm_password=confirm_password, username=username)
 
-        temp_unverified_user = user_handler.create_temp_unverified_user(email=email, password=password, mongo=mongo, username=username)
+        temp_unverified_user = user_handler.create_temp_unverified_user(email=email, password=password, username=username, mongo=mongo)
         session['temp_unverified_email'] = temp_unverified_user.email
         return redirect(url_for('verify_otp'))
 
@@ -67,7 +67,7 @@ def login():
 
         user: User = User(**existing_user)
 
-        if not bcrypt.checkpw(password.encode(), user.password.encode()):
+        if not bcrypt.checkpw(password.encode(), user.password_hash.encode()):
             return render_template('login.html', password_error='Incorrect Password!', email=email, password=password)
 
         ic(f'User {email} logged in.')
@@ -107,9 +107,25 @@ def reset_password():
 
 @app.route('/verify_otp', methods=['GET', 'POST'])
 def verify_otp():
+    if not session.get('temp_unverified_email'):
+        return "Not Allowed"
     if request.method == 'POST':
-        pass
-    return render_template('verify_otp.html')
+        email = session['temp_unverified_email']
+        entered_otp = request.form['otp']
+        temp_unverified_user_data = mongo.db.temp_unverified_users.find_one({'email': email})
+        temp_unverified_user = TempUnverifiedUser(**temp_unverified_user_data)
+        if not bcrypt.checkpw(entered_otp.encode(), temp_unverified_user.otp_hash.encode()):
+            return render_template('verify_otp.html', otp_error='Incorrect OTP!')
+
+        user_handler.register_user(
+            email=temp_unverified_user.email,
+            password_hash=temp_unverified_user.password_hash,
+            username=temp_unverified_user.username,
+            mongo=mongo
+        )
+        session.pop('temp_unverified_email')
+        return redirect(url_for('login'))
+    return render_template('verify_otp.html', email=session['temp_unverified_email'])
 
 
 if __name__ == '__main__':
