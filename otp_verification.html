@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OTP Verification</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{url_for('static', filename='user/dist/assets/css/bootstrap.css')}}">
+    <link rel="stylesheet"
+        href="{{url_for('static', filename='user/dist/assets/vendors/bootstrap-icons/bootstrap-icons.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='user/dist/assets/css/app.css')}}">
+</head>
+
+<body style="font-family: 'Nunito', sans-serif; background:#f5f6fa;">
+
+    <div id="auth" class="d-flex align-items-center justify-content-center vh-100">
+        <div class="card shadow-lg border-0 rounded-4 p-5" style="max-width:450px; width:100%;">
+            <div class="text-center mb-4">
+                <h2 class="fw-bold">Enter OTP</h2>
+                <p class="text-muted">We sent a code to <b>xyz@gmail.com</b></p>
+            </div>
+
+            <form action="index.html">
+                <div class="d-flex justify-content-center gap-2 mb-4">
+                    <input type="text" maxlength="1" class="form-control text-center"
+                        style="width:55px; height:55px; font-size:1.5rem;">
+                    <input type="text" maxlength="1" class="form-control text-center"
+                        style="width:55px; height:55px; font-size:1.5rem;">
+                    <input type="text" maxlength="1" class="form-control text-center"
+                        style="width:55px; height:55px; font-size:1.5rem;">
+                    <input type="text" maxlength="1" class="form-control text-center"
+                        style="width:55px; height:55px; font-size:1.5rem;">
+                </div>
+
+                <button class="btn btn-primary btn-lg w-100 shadow-sm">Verify OTP</button>
+            </form>
+
+            <div class="text-center mt-3">
+                <span class="text-muted">Didn’t receive the code?</span>
+                <a href="#" class="fw-bold text-decoration-none"> Resend OTP</a>
+            </div>
+
+            <div class="text-center mt-4">
+                <p class="text-muted">Remember your account?
+                    <a href="auth-login.html" class="fw-bold text-decoration-none">Log in</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
