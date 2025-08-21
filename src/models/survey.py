@@ -17,7 +17,9 @@ class Survey(BaseModel):
     expiration_date: date
     _id: str | None = None
     survey_url: str
+    short_description: str
 
+    full_description: str | None
     status: SurveyStatus | None = None
     estimated_time: int | None = None
     date_posted: date | None = None
