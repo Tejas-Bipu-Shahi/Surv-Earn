@@ -21,6 +21,8 @@ def index():
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():
+    if current_user.is_authenticated:
+        return "<h1>You are already registered and logged in.</h1>"
     if request.method == 'POST':
         username = request.form['username']
         email = request.form['email']
@@ -34,6 +36,9 @@ def register():
         if mongo.db.users.find_one({'email': email}):
             return render_template('register.html', email_error='Email already in use.', email=email, password=password,
                                    confirm_password=confirm_password, username=username)
+
+        if mongo.db.temp_unverified_users.find_one({'email': email}):
+            mongo.db.temp_unverified_users.delete_one({'email': email})
 
         if len(password) < 8:
             return render_template('register.html', password_error='Password must be at least 8 characters.', email=email,
@@ -51,8 +56,10 @@ def register():
         status: tuple[bool, str] = email_sender.send_otp_mail(mail=mail, otp=otp, recipient=temp_unverified_user.email,
                                                               sender=app.config.get('MAIL_DEFAULT_SENDER'))
         if not status[0]:
-            return render_template('register.html', email_error=status[1], email=email, password=password,
+            ic(status[1])
+            return render_template('register.html', email=email, password=password,
                                    confirm_password=confirm_password, username=username)
+
         return redirect(url_for('verify_otp'))
 
     return render_template('register.html')
@@ -60,7 +67,8 @@ def register():
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
-    # todo: if user is already logged in ask to logout first or logout automatically
+    if current_user.is_authenticated:
+        return "<h1>You are already logged in!</h1>"
     if request.method == 'POST':
         ic(request.form)
 
@@ -124,7 +132,7 @@ def verify_otp():
         temp_unverified_user_data = mongo.db.temp_unverified_users.find_one({'email': email})
         temp_unverified_user = TempUnverifiedUser(**temp_unverified_user_data)
         if not bcrypt.checkpw(entered_otp.encode(), temp_unverified_user.otp_hash.encode()):
-            return render_template('verify_otp.html', otp_error='Incorrect OTP!')
+            return render_template('verify_otp.html', otp_error='Incorrect OTP!', email=email)
 
         user_handler.register_user(
             email=temp_unverified_user.email,
