@@ -151,7 +151,7 @@
             </header>
 
             <div class="page-heading">
-                <h3>Hello, John</h3>
+                <h3>Hello, {{current_user.username}}</h3>
                 <p class="text-muted mb-0">Track your survey activity, earnings, and status at a glance</p>
             </div>
             <div class="page-content">
@@ -168,7 +168,7 @@
                                             </div>
                                             <div>
                                                 <div class="fw-bold small mb-1">Completed</div>
-                                                <div class="h5 fw-bold mb-0">27</div>
+                                                <div class="h5 fw-bold mb-0">{{current_user.total_completed_surveys}}</div>
                                             </div>
                                         </div>
                                     </div>
@@ -184,7 +184,7 @@
                                             </div>
                                             <div>
                                                 <div class="fw-bold small mb-1">Balance</div>
-                                                <div class="h5 fw-bold mb-0">$24.50</div>
+                                                <div class="h5 fw-bold mb-0">Rs. {{current_user.current_balance}}</div>
                                             </div>
                                         </div>
                                     </div>
@@ -200,7 +200,7 @@
                                             </div>
                                             <div>
                                                 <div class="fw-bold small mb-1">Total Earnings</div>
-                                                <div class="h5 fw-bold mb-0">$120.00</div>
+                                                <div class="h5 fw-bold mb-0">Rs. {{current_user.total_earnings}}</div>
                                             </div>
                                         </div>
                                     </div>
@@ -216,7 +216,7 @@
                                             </div>
                                             <div>
                                                 <div class="fw-bold small mb-1">Pending</div>
-                                                <div class="h5 fw-bold mb-0">3</div>
+                                                <div class="h5 fw-bold mb-0">N/A</div>
                                             </div>
                                         </div>
                                     </div>
@@ -328,8 +328,8 @@
                                         <img src="{{url_for('static', filename='user/dist/assets/images/faces/1.jpg')}}" alt="Face 1">
                                     </div>
                                     <div class="ms-3 name">
-                                        <h5 class="font-bold">John Doe</h5>
-                                        <h6 class="text-muted mb-0">@johndoe</h6>
+                                        <h5 class="font-bold">{{current_user.username}}</h5>
+                                        <h6 class="text-muted mb-0">@{{current_user.username}}</h6>
                                     </div>
                                 </div>
                             </div>
