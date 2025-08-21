@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Mazer Admin Dashboard</title>
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/bootstrap.css">
+
+    <link rel="stylesheet" href="assets/vendors/iconly/bold.css">
+
+    <link rel="stylesheet" href="assets/vendors/simple-datatables/style.css">
+
+    <link rel="stylesheet" href="assets/vendors/perfect-scrollbar/perfect-scrollbar.css">
+    <link rel="stylesheet" href="assets/vendors/bootstrap-icons/bootstrap-icons.css">
+    <link rel="stylesheet" href="assets/css/app.css">
+    <link rel="shortcut icon" href="assets/images/favicon.svg" type="image/x-icon">
+</head>
+
+<body>
+    <div id="app">
+        <div id="sidebar" class="active">
+            <div class="sidebar-wrapper active">
+                <div class="sidebar-header">
+                    <div class="d-flex align-items-center justify-content-between">
+                        <div class="logo me-2">
+                            <a href="index.html"><img src="assets/images/logo/logo.png" alt="Logo" srcset=""></a>
+                        </div>
+                        <div class="d-flex align-items-center">
+                            <div class="dropdown me-2">
+                                <a href="#" id="notifDropdown" data-bs-toggle="dropdown" aria-expanded="false"
+                                    class="position-relative">
+                                    <i class="bi bi-bell fs-4"></i>
+                                    <span
+                                        class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+                                        style="font-size:0.7rem;">2</span>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-end shadow p-0 mt-2"
+                                    aria-labelledby="notifDropdown" style="min-width: 250px;">
+                                    <div
+                                        class="px-3 py-2 border-bottom d-flex justify-content-center align-items-center">
+                                        <a href="#" class="small text-primary">Mark all as read</a>
+                                    </div>
+                                    <div class="list-group list-group-flush">
+                                        <a href="#"
+                                            class="list-group-item list-group-item-action d-flex align-items-start">
+
+                                            <div>
+                                                <div class="d-flex align-items-center justify-content-center">
+                                                    <i class="bi bi-cash fs-4 me-4 mb-3"></i>
+
+                                                    <span class="fw-bold">Cash Redeem</span>
+                                                </div>
+
+                                                <div class="small text-muted mt-1">$4.49 was redeemed</div>
+                                            </div>
+                                        </a>
+                                        <a href="#"
+                                            class="list-group-item list-group-item-action d-flex align-items-start">
+
+                                            <div>
+                                                <div class="d-flex align-items-center justify-content-center">
+                                                    <i class="bi bi-cash fs-4 me-4 mb-3"></i>
+
+                                                    <span class="fw-bold">Cash Redeem</span>
+                                                </div>
+
+                                                <div class="small text-muted mt-1">$10.49 was redeemed</div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="text-center py-2 border-top">
+                                        <a href="#" class="small text-primary">View All</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="toggler">
+                                <a href="#" class="sidebar-hide d-xl-none d-block"><i class="bi bi-x bi-middle"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="sidebar-menu">
+                    <ul class="menu">
+                        <li class="sidebar-title">Menu</li>
+                        <li class="sidebar-item">
+                            <a href="index.html" class="sidebar-link">
+                                <i class="bi bi-grid-fill"></i>
+                                <span>Dashboard</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-title">Actions</li>
+                        <li class="sidebar-item has-sub active">
+                            <a href="#" class="sidebar-link">
+                                <i class="bi bi-ui-checks-grid"></i>
+                                <span>Survey</span>
+                            </a>
+                            <ul class="submenu active">
+                                <li class="submenu-item">
+                                    <a href="addSurvey.html">Add Survey</a>
+                                </li>
+                                <li class="submenu-item active">
+                                    <a href="yourSurveys.html">Your Surveys</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="sidebar-item has-sub">
+                            <a href="#" class="sidebar-link">
+                                <i class="bi bi-person-circle"></i>
+                                <span>Profile</span>
+                            </a>
+                            <ul class="submenu">
+                                <li class="submenu-item">
+                                    <a href="accountSettings.html">Account Settings</a>
+                                </li>
+                                <li class="submenu-item">
+                                    <a href="changePassword.html">Change Password</a>
+                                </li>
+                                <li class="submenu-item">
+                                    <a href="notifications.html">Notifications</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="sidebar-item">
+                            <a href="logout.html" class="sidebar-link">
+                                <i class="bi bi-grid-fill"></i>
+                                <span>Logout</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <button class="sidebar-toggler btn x"><i data-feather="x"></i></button>
+            </div>
+        </div>
+        <div id="main">
+            <header class="mb-3">
+                <a href="#" class="burger-btn d-block d-xl-none">
+                    <i class="bi bi-justify fs-3"></i>
+                </a>
+            </header>
+            <div class="page-heading">
+                <h3>Survey History</h3>
+            </div>
+            <section class="section">
+                <div class="row">
+                    <div class="col-6 col-lg-3 col-md-6">
+                        <div class="card">
+                            <div class="card-body px-3 py-4-5">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="stats-icon purple ">
+                                            <i
+                                                class="bi bi-bar-chart d-flex align-items-center justify-content-center mx-auto my-automx-auto my-auto"></i>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <h6 class="text-muted font-semibold">Total Surveys Taken</h6>
+                                        <h6 class="font-extrabold mb-0">15</h6>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-lg-3 col-md-6">
+                        <div class="card">
+                            <div class="card-body px-3 py-4-5">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="stats-icon blue">
+                                            <i
+                                                class="bi bi-cash d-flex align-items-center justify-content-center mx-auto my-auto"></i>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <h6 class="text-muted font-semibold">Surveys Paid</h6>
+                                        <h6 class="font-extrabold mb-0">10</h6>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-lg-3 col-md-6">
+                        <div class="card">
+                            <div class="card-body px-3 py-4-5">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="stats-icon green">
+                                            <i
+                                                class="bi bi-hourglass-split d-flex align-items-center justify-content-center mx-auto my-auto"></i>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <h6 class="text-muted font-semibold">Surveys Pending</h6>
+                                        <h6 class="font-extrabold mb-0">3</h6>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-lg-3 col-md-6">
+                        <div class="card">
+                            <div class="card-body px-3 py-4-5">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="stats-icon red">
+                                            <i
+                                                class="bi bi-x-circle d-flex align-items-center justify-content-center mx-auto my-auto"></i>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <h6 class="text-muted font-semibold">Surveys Rejected</h6>
+                                        <h6 class="font-extrabold mb-0">2</h6>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header">
+                        <i class="bi bi-clock-history me-2"></i>Survey history & earnings
+                    </div>
+                    <div class="card-body">
+                        <table class="table table-striped align-middle" id="table1">
+                            <thead>
+                                <tr>
+                                    <th>SN</th>
+                                    <th><i class="bi bi-clipboard-check me-2"></i>Survey</th>
+                                    <th><i class="bi bi-building me-2"></i>Company</th>
+                                    <th><i class="bi bi-calendar-event me-2"></i>Date Taken</th>
+                                    <th><i class="bi bi-cash me-2"></i>Payment</th>
+                                    <th><i class="bi bi-check-circle me-2"></i>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td><a href="surveyDetails.html"
+                                            class="text-decoration-none fw-semibold text-primary">Customer
+                                            Satisfaction</a></td>
+                                    <td><span class="badge bg-secondary">Acme Corp</span></td>
+                                    <td>2025-08-10</td>
+                                    <td>
+                                        <span class="badge bg-success"><i class="bi bi-currency-dollar"
+                                                style="opacity: 0.5;"></i>
+                                            $2.00</span>
+                                    </td>
+                                    <td>
+                                        <span class="badge bg-success"><i class="bi bi-check-circle"></i> Paid</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td><a href="surveyDetails.html"
+                                            class="text-decoration-none fw-semibold text-primary">Product Feedback</a>
+                                    </td>
+                                    <td><span class="badge bg-secondary">Globex Inc</span></td>
+                                    <td>2025-08-12</td>
+                                    <td>
+                                        <span class="badge bg-warning text-dark"><i class="bi bi-currency-dollar"></i>
+                                            $1.50</span>
+                                    </td>
+                                    <td>
+                                        <span class="badge bg-warning text-dark"><i class="bi bi-hourglass-split"></i>
+                                            Pending</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td><a href="surveyDetails.html"
+                                            class="text-decoration-none fw-semibold text-primary">Market Research</a>
+                                    </td>
+                                    <td><span class="badge bg-secondary">Initech</span></td>
+                                    <td>2025-08-15</td>
+                                    <td>
+                                        <span class="badge bg-danger"><i class="bi bi-currency-dollar"></i> $0.00</span>
+                                    </td>
+                                    <td>
+                                        <span class="badge bg-danger"><i class="bi bi-x-circle"></i> Rejected</span>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <footer>
+                <div class="footer clearfix mb-0 text-muted">
+                    <div class="float-start">
+                        <p>2025 &copy; Triyatra </p>
+                    </div>
+                    <div class="float-end">
+                        <p>Crafted with <span class="text-danger"><i class="bi bi-heart-fill"></i></span> by <a
+                                href="https://github.com/Tejas-Bipu-Shahi/Surv-Earn">Triyatra</a></p>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+    <script src="assets/vendors/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/vendors/simple-datatables/simple-datatables.js"></script>
+    <script src="assets/vendors/apexcharts/apexcharts.js"></script>
+    <script src="assets/js/pages/dashboard.js"></script>
+    <script>
+        // Simple Datatable
+        let table1 = document.querySelector('#table1');
+        let dataTable = new simpleDatatables.DataTable(table1);
+    </script>
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>

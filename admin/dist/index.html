@@ -16,7 +16,14 @@
     <link rel="stylesheet" href="assets/vendors/bootstrap-icons/bootstrap-icons.css">
     <link rel="stylesheet" href="assets/css/app.css">
     <link rel="shortcut icon" href="assets/images/favicon.svg" type="image/x-icon">
+    <style>
+        .extra-small {
+            font-size: 0.700rem;
+            /* ~10px */
+        }
+    </style>
 </head>
+
 
 <body>
     <div id="app">
@@ -98,10 +105,10 @@
                             </a>
                             <ul class="submenu">
                                 <li class="submenu-item">
-                                    <a href="#">Fillup Survey</a>
+                                    <a href="addSurvey.html">Add Survey</a>
                                 </li>
                                 <li class="submenu-item">
-                                    <a href="#">Redeem</a>
+                                    <a href="yourSurveys.html">Your Surveys</a>
                                 </li>
                             </ul>
                         </li>
@@ -112,16 +119,13 @@
                             </a>
                             <ul class="submenu">
                                 <li class="submenu-item">
-                                    <a href="#">Account Settings</a>
+                                    <a href="accountSettings.html">Account Settings</a>
                                 </li>
                                 <li class="submenu-item">
-                                    <a href="#">Change Password</a>
+                                    <a href="changePassword.html">Change Password</a>
                                 </li>
                                 <li class="submenu-item">
-                                    <a href="#">Notifications</a>
-                                </li>
-                                <li class="submenu-item">
-                                    <a href="#">Logout</a>
+                                    <a href="notifications.html">Notifications</a>
                                 </li>
                             </ul>
                         </li>
@@ -144,86 +148,88 @@
             </header>
 
             <div class="page-heading">
-                <h3>Profile Statistics</h3>
+                <h3>Hello, John</h3>
+                <p class="text-muted mb-0">Track your survey activity, earnings, and status at a glance</p>
             </div>
             <div class="page-content">
                 <section class="row">
-                    <div class="col-12 col-lg-9">
+                    <div class="col-12 col-xl-9">
                         <div class="row">
                             <div class="col-6 col-lg-3 col-md-6">
-                                <div class="card">
+                                <div class="card h-75">
                                     <div class="card-body px-3 py-4-5">
-                                        <div class="row">
-                                            <div class="col-md-4">
-                                                <div class="stats-icon purple">
-                                                    <i class="iconly-boldShow"></i>
-                                                </div>
+                                        <div class="d-flex align-items-center">
+                                            <div class="stats-icon purple me-3">
+                                                <i
+                                                    class="bi bi-clipboard-check fs-4 d-flex align-items-center justify-content-center mx-auto my-auto"></i>
                                             </div>
-                                            <div class="col-md-8">
-                                                <h6 class="text-muted font-semibold">Profile Views</h6>
-                                                <h6 class="font-extrabold mb-0">112.000</h6>
+                                            <div>
+                                                <div class="fw-bold small mb-1">Completed</div>
+                                                <div class="h5 fw-bold mb-0">27</div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-6 col-lg-3 col-md-6">
-                                <div class="card">
+                                <div class="card h-75">
                                     <div class="card-body px-3 py-4-5">
-                                        <div class="row">
-                                            <div class="col-md-4">
-                                                <div class="stats-icon blue">
-                                                    <i class="iconly-boldProfile"></i>
-                                                </div>
+                                        <div class="d-flex align-items-center">
+                                            <div class="stats-icon green me-2">
+                                                <i
+                                                    class="bi bi-wallet2 fs-4 d-flex align-items-center justify-content-center mx-auto my-auto"></i>
                                             </div>
-                                            <div class="col-md-8">
-                                                <h6 class="text-muted font-semibold">Followers</h6>
-                                                <h6 class="font-extrabold mb-0">183.000</h6>
+                                            <div>
+                                                <div class="fw-bold small mb-1">Balance</div>
+                                                <div class="h5 fw-bold mb-0">$24.50</div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-6 col-lg-3 col-md-6">
-                                <div class="card">
+                                <div class="card h-75">
                                     <div class="card-body px-3 py-4-5">
-                                        <div class="row">
-                                            <div class="col-md-4">
-                                                <div class="stats-icon green">
-                                                    <i class="iconly-boldAdd-User"></i>
-                                                </div>
+                                        <div class="d-flex align-items-center">
+                                            <div class="stats-icon blue me-3">
+                                                <i
+                                                    class="bi bi-cash fs-4 d-flex align-items-center justify-content-center mx-auto my-auto"></i>
                                             </div>
-                                            <div class="col-md-8">
-                                                <h6 class="text-muted font-semibold">Following</h6>
-                                                <h6 class="font-extrabold mb-0">80.000</h6>
+                                            <div>
+                                                <div class="fw-bold small mb-1">Total Earnings</div>
+                                                <div class="h5 fw-bold mb-0">$120.00</div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-6 col-lg-3 col-md-6">
-                                <div class="card">
+                                <div class="card h-75">
                                     <div class="card-body px-3 py-4-5">
-                                        <div class="row">
-                                            <div class="col-md-4">
-                                                <div class="stats-icon red">
-                                                    <i class="iconly-boldBookmark"></i>
-                                                </div>
+                                        <div class="d-flex align-items-center">
+                                            <div class="stats-icon green me-3">
+                                                <i
+                                                    class="bi bi-hourglass-split fs-4 d-flex align-items-center justify-content-center mx-auto my-auto"></i>
                                             </div>
-                                            <div class="col-md-8">
-                                                <h6 class="text-muted font-semibold">Saved Post</h6>
-                                                <h6 class="font-extrabold mb-0">112</h6>
+                                            <div>
+                                                <div class="fw-bold small mb-1">Pending</div>
+                                                <div class="h5 fw-bold mb-0">3</div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+
                         </div>
+
+                        <!-- Secondary quick cards moved to the right column -->
+
                         <div class="row">
                             <div class="col-12">
                                 <div class="card">
-                                    <div class="card-header">
-                                        <h4>Profile Visit</h4>
+                                    <div class="card-header d-flex align-items-center justify-content-between">
+                                        <h4 class="mb-0">Surveys Completed</h4>
+                                        <small class="text-muted">Showing last 12 months</small>
                                     </div>
                                     <div class="card-body">
                                         <div id="chart-profile-visit"></div>
@@ -231,179 +237,158 @@
                                 </div>
                             </div>
                         </div>
+
                         <div class="row">
-                            <div class="col-12 col-xl-4">
+                            <div class="col-12 col-xl-4 mb-3">
                                 <div class="card">
                                     <div class="card-header">
-                                        <h4>Profile Visit</h4>
+                                        <h4 class="mb-0">Quick Trends</h4>
                                     </div>
                                     <div class="card-body">
                                         <div class="row">
-                                            <div class="col-6">
-                                                <div class="d-flex align-items-center">
-                                                    <svg class="bi text-primary" width="32" height="32" fill="blue"
-                                                        style="width:10px">
-                                                        <use
-                                                            xlink:href="assets/vendors/bootstrap-icons/bootstrap-icons.svg#circle-fill" />
-                                                    </svg>
-                                                    <h5 class="mb-0 ms-3">Europe</h5>
-                                                </div>
-                                            </div>
-                                            <div class="col-6">
-                                                <h5 class="mb-0">862</h5>
+                                            <div class="d-flex align-items-center justify-content-between mb-1">
+                                                <span class="fw-bold">Completion rate</span>
+                                                <span class="badge bg-primary">82%</span>
                                             </div>
                                             <div class="col-12">
                                                 <div id="chart-europe"></div>
                                             </div>
                                         </div>
-                                        <div class="row">
-                                            <div class="col-6">
-                                                <div class="d-flex align-items-center">
-                                                    <svg class="bi text-success" width="32" height="32" fill="blue"
-                                                        style="width:10px">
-                                                        <use
-                                                            xlink:href="assets/vendors/bootstrap-icons/bootstrap-icons.svg#circle-fill" />
-                                                    </svg>
-                                                    <h5 class="mb-0 ms-3">America</h5>
-                                                </div>
+                                        <div class="row mt-3">
+                                            <div class="d-flex align-items-center justify-content-between mb-1">
+                                                <span class="fw-bold">Earnings trend</span>
+                                                <span class="badge bg-success">$120</span>
                                             </div>
-                                            <div class="col-6">
-                                                <h5 class="mb-0">375</h5>
-                                            </div>
-                                            <div class="col-12">
+                                            <div class="col-12 mt-2">
                                                 <div id="chart-america"></div>
                                             </div>
                                         </div>
-                                        <div class="row">
-                                            <div class="col-6">
-                                                <div class="d-flex align-items-center">
-                                                    <svg class="bi text-danger" width="32" height="32" fill="blue"
-                                                        style="width:10px">
-                                                        <use
-                                                            xlink:href="assets/vendors/bootstrap-icons/bootstrap-icons.svg#circle-fill" />
-                                                    </svg>
-                                                    <h5 class="mb-0 ms-3">Indonesia</h5>
-                                                </div>
+                                        <div class="row mt-3">
+                                            <div class="d-flex align-items-center justify-content-between mb-1">
+                                                <span class="fw-bold">Pending surveys</span>
+                                                <span class="badge bg-danger">3</span>
                                             </div>
-                                            <div class="col-6">
-                                                <h5 class="mb-0">1025</h5>
-                                            </div>
-                                            <div class="col-12">
+                                            <div class="col-12 mt-2">
                                                 <div id="chart-indonesia"></div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-12 col-xl-8">
+
+                            <div class="col-12 col-xl-8 mb-">
                                 <div class="card">
                                     <div class="card-header">
-                                        <h4>Latest Comments</h4>
+                                        <h4>Recent Activity</h4>
                                     </div>
-                                    <div class="card-body">
-                                        <div class="table-responsive">
-                                            <table class="table table-hover table-lg">
-                                                <thead>
-                                                    <tr>
-                                                        <th>Name</th>
-                                                        <th>Comment</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <td class="col-3">
-                                                            <div class="d-flex align-items-center">
-                                                                <div class="avatar avatar-md">
-                                                                    <img src="assets/images/faces/5.jpg">
-                                                                </div>
-                                                                <p class="font-bold ms-3 mb-0">Si Cantik</p>
-                                                            </div>
-                                                        </td>
-                                                        <td class="col-auto">
-                                                            <p class=" mb-0">Congratulations on your graduation!</p>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td class="col-3">
-                                                            <div class="d-flex align-items-center">
-                                                                <div class="avatar avatar-md">
-                                                                    <img src="assets/images/faces/2.jpg">
-                                                                </div>
-                                                                <p class="font-bold ms-3 mb-0">Si Ganteng</p>
-                                                            </div>
-                                                        </td>
-                                                        <td class="col-auto">
-                                                            <p class=" mb-0">Wow amazing design! Can you make another
-                                                                tutorial for
-                                                                this design?</p>
-                                                        </td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
+                                    <div class="card-body p-0">
+                                        <div class="list-group list-group-flush">
+                                            <div class="list-group-item d-flex align-items-start">
+                                                <div class="me-3 text-primary"><i
+                                                        class="bi bi-clipboard-check fs-5"></i></div>
+                                                <div class="flex-grow-1">
+                                                    <div class="fw-semibold">Survey completed</div>
+                                                    <div class="small text-muted">Customer Satisfaction 2025 • 2m ago
+                                                    </div>
+                                                </div>
+                                                <span class="badge bg-success">+$2.00</span>
+                                            </div>
+                                            <div class="list-group-item d-flex align-items-start">
+                                                <div class="me-3 text-success"><i class="bi bi-cash fs-5"></i>
+                                                </div>
+                                                <div class="flex-grow-1">
+                                                    <div class="fw-semibold">Redeemed to wallet</div>
+                                                    <div class="small text-muted">$10.00 • 2d ago</div>
+                                                </div>
+                                                <span class="badge bg-secondary">Balance: $24.50</span>
+                                            </div>
+                                            <div class="list-group-item d-flex align-items-start">
+                                                <div class="me-3 text-warning"><i
+                                                        class="bi bi-hourglass-split fs-5"></i></div>
+                                                <div class="flex-grow-1">
+                                                    <div class="fw-semibold">3 surveys pending</div>
+                                                    <div class="small text-muted">Matched to your profile • Today</div>
+                                                </div>
+
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-12 col-lg-3">
-                        <div class="card">
+                    <div class="col-12 col-xl-3">
+                        <div class="card mb-3">
                             <div class="card-body py-4 px-5">
                                 <div class="d-flex align-items-center">
                                     <div class="avatar avatar-xl">
                                         <img src="assets/images/faces/1.jpg" alt="Face 1">
                                     </div>
                                     <div class="ms-3 name">
-                                        <h5 class="font-bold">John Duck</h5>
-                                        <h6 class="text-muted mb-0">@johnducky</h6>
+                                        <h5 class="font-bold">John Doe</h5>
+                                        <h6 class="text-muted mb-0">@johndoe</h6>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        <!-- Removed Recent Messages card as requested -->
                         <div class="card">
                             <div class="card-header">
-                                <h4>Recent Messages</h4>
-                            </div>
-                            <div class="card-content pb-4">
-                                <div class="recent-message d-flex px-4 py-3">
-                                    <div class="avatar avatar-lg">
-                                        <img src="assets/images/faces/4.jpg">
-                                    </div>
-                                    <div class="name ms-4">
-                                        <h5 class="mb-1">Hank Schrader</h5>
-                                        <h6 class="text-muted mb-0">@johnducky</h6>
-                                    </div>
-                                </div>
-                                <div class="recent-message d-flex px-4 py-3">
-                                    <div class="avatar avatar-lg">
-                                        <img src="assets/images/faces/5.jpg">
-                                    </div>
-                                    <div class="name ms-4">
-                                        <h5 class="mb-1">Dean Winchester</h5>
-                                        <h6 class="text-muted mb-0">@imdean</h6>
-                                    </div>
-                                </div>
-                                <div class="recent-message d-flex px-4 py-3">
-                                    <div class="avatar avatar-lg">
-                                        <img src="assets/images/faces/1.jpg">
-                                    </div>
-                                    <div class="name ms-4">
-                                        <h5 class="mb-1">John Dodol</h5>
-                                        <h6 class="text-muted mb-0">@dodoljohn</h6>
-                                    </div>
-                                </div>
-                                <div class="px-4">
-                                    <button class='btn btn-block btn-xl btn-light-primary font-bold mt-3'>Start
-                                        Conversation</button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <div class="card-header">
-                                <h4>Visitors Profile</h4>
+                                <h4>Completion Status</h4>
                             </div>
                             <div class="card-body">
                                 <div id="chart-visitors-profile"></div>
+                            </div>
+                        </div>
+                        <!-- Secondary quick cards (right column) -->
+                        <div class="card mt-3">
+                            <div class="card-body p-3">
+                                <div class="d-flex align-items-center justify-content-between mb-2">
+                                    <div class="d-flex align-items-center">
+                                        <div class="bg-light text-primary rounded-circle d-flex align-items-center justify-content-center me-2"
+                                            style="width:36px;height:36px;">
+                                            <i class="bi bi-cash"></i>
+                                        </div>
+                                        <h6 class="mb-0">Last Redeem</h6>
+                                    </div>
+                                    <span class="badge bg-success">Success</span>
+                                </div>
+                                <div class="small text-muted">18 Aug 2025 • Wallet</div>
+                                <div class="fw-semibold mt-1">Amount: $10.00</div>
+                            </div>
+                        </div>
+                        <div class="card mt-3">
+                            <div class="card-body p-3">
+                                <div class="d-flex align-items-center justify-content-between mb-2">
+                                    <div class="d-flex align-items-center">
+                                        <div class="bg-light text-success rounded-circle d-flex align-items-center justify-content-center me-2"
+                                            style="width:36px;height:36px;">
+                                            <i class="bi bi-ui-checks-grid"></i>
+                                        </div>
+                                        <h6 class="mb-0">Surveys Available Today</h6>
+                                    </div>
+                                    <span class="badge bg-primary">5</span>
+                                </div>
+                                <div class="small text-muted">New surveys matched to your profile</div>
+                                <a href="fillSurvey.html" class="btn btn-sm btn-outline-primary mt-2">View</a>
+                            </div>
+                        </div>
+                        <div class="card mt-3">
+                            <div class="card-body p-3">
+                                <div class="d-flex align-items-center justify-content-between mb-2">
+                                    <div class="d-flex align-items-center">
+                                        <div class="bg-light text-warning rounded-circle d-flex align-items-center justify-content-center me-2"
+                                            style="width:36px;height:36px;">
+                                            <i class="bi bi-award"></i>
+                                        </div>
+                                        <h6 class="mb-0">Account Tier</h6>
+                                    </div>
+                                    <span class="badge bg-warning text-dark">Bronze</span>
+                                </div>
+                                <div class="small text-muted">Complete 3 more surveys to reach Silver</div>
+                                <a href="accountSettings.html" class="btn btn-sm btn-outline-primary mt-2">Go to
+                                    Profile</a>
+
                             </div>
                         </div>
                     </div>
@@ -413,11 +398,11 @@
             <footer>
                 <div class="footer clearfix mb-0 text-muted">
                     <div class="float-start">
-                        <p>2021 &copy; Mazer</p>
+                        <p>2025 &copy; Triyatra</p>
                     </div>
                     <div class="float-end">
                         <p>Crafted with <span class="text-danger"><i class="bi bi-heart"></i></span> by <a
-                                href="http://ahmadsaugi.com">A. Saugi</a></p>
+                                href="https://github.com/Tejas-Bipu-Shahi/Surv-Earn">Triyatra</a></p>
                     </div>
                 </div>
             </footer>
