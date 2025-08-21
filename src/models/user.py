@@ -14,17 +14,17 @@ class User(BaseModel, UserMixin):
     total_completed_surveys: int = 0
     current_balance: int = 0
     total_earnings: int = 0
-    completed_surveys: list[Survey] | None = None
+    completed_surveys: list[Survey] = []
 
-    full_name: str | None = None
-    phone_number: int | None = None
-    dob: date | None = None
-    address: str | None = None
-    zip_code: int | None = None
-    occupation: str | None = None
-    gender: str | None = None
-    city: str | None = None
-    education: str | None = None
+    full_name: str = ''
+    phone_number: int | str = ''
+    dob: date | str = ''
+    address: str = ''
+    zip_code: int | str = ''
+    occupation: str = ''
+    gender: str = ''
+    city: str = ''
+    education: str = ''
 
     def get_id(self):
         return self.email
