@@ -32,7 +32,7 @@
                 <div class="sidebar-header">
                     <div class="d-flex align-items-center justify-content-between">
                         <div class="logo me-2">
-                            <a href="index.html"><img src="{{url_for('static', filename='user/dist/assets/images/logo/logo.png')}}" alt="Logo" srcset=""></a>
+                            <a href="{{url_for('index')}}"><img src="{{url_for('static', filename='user/dist/assets/images/logo/logo.png')}}" alt="Logo" srcset=""></a>
                         </div>
                         <div class="d-flex align-items-center">
                             <div class="dropdown me-2">
@@ -92,7 +92,7 @@
                     <ul class="menu">
                         <li class="sidebar-title">Menu</li>
                         <li class="sidebar-item active">
-                            <a href="index.html" class="sidebar-link">
+                            <a href="{{url_for('index')}}" class="sidebar-link">
                                 <i class="bi bi-grid-fill"></i>
                                 <span>Dashboard</span>
                             </a>
@@ -105,13 +105,13 @@
                             </a>
                             <ul class="submenu">
                                 <li class="submenu-item">
-                                    <a href="fillSurvey.html">Fillup Survey</a>
+                                    <a href="{{url_for('fillsurvey')}}">Fillup Survey</a>
                                 </li>
                                 <li class="submenu-item">
-                                    <a href="survHistory.html">Survey History</a>
+                                    <a href="{{url_for('surveyhistory')}}">Survey History</a>
                                 </li>
                                 <li class="submenu-item">
-                                    <a href="redeem.html">Redeem</a>
+                                    <a href="{{url_for('redeem')}}">Redeem</a>
                                 </li>
                             </ul>
                         </li>
@@ -122,10 +122,10 @@
                             </a>
                             <ul class="submenu">
                                 <li class="submenu-item">
-                                    <a href="accountSettings.html">Account Settings</a>
+                                    <a href="{{url_for('accountsettings')}}">Account Settings</a>
                                 </li>
                                 <li class="submenu-item">
-                                    <a href="changePassword.html">Change Password</a>
+                                    <a href="{{url_for('changepassword')}}">Change Password</a>
                                 </li>
                                 <li class="submenu-item">
                                     <a href="notifications.html">Notifications</a>
@@ -373,7 +373,7 @@
                                     <span class="badge bg-primary">5</span>
                                 </div>
                                 <div class="small text-muted">New surveys matched to your profile</div>
-                                <a href="fillSurvey.html" class="btn btn-sm btn-outline-primary mt-2">View</a>
+                                <a href="{{url_for('fillsurvey')}}" class="btn btn-sm btn-outline-primary mt-2">View</a>
                             </div>
                         </div>
                         <div class="card mt-3">
@@ -389,7 +389,7 @@
                                     <span class="badge bg-warning text-dark">Bronze</span>
                                 </div>
                                 <div class="small text-muted">Complete 3 more surveys to reach Silver</div>
-                                <a href="accountSettings.html" class="btn btn-sm btn-outline-primary mt-2">Go to
+                                <a href="{{url_for('accountsettings')}}" class="btn btn-sm btn-outline-primary mt-2">Go to
                                     Profile</a>
 
                             </div>
