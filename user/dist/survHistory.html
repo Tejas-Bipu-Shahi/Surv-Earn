@@ -123,7 +123,7 @@
                                     <a href="{{url_for('changepassword')}}">Change Password</a>
                                 </li>
                                 <li class="submenu-item">
-                                    <a href="notifications.html">Notifications</a>
+                                    <a href="#">Notifications</a>
                                 </li>
                             </ul>
                         </li>
@@ -161,7 +161,7 @@
                                     </div>
                                     <div class="col-md-8">
                                         <h6 class="text-muted font-semibold">Total Surveys Taken</h6>
-                                        <h6 class="font-extrabold mb-0">15</h6>
+                                        <h6 class="font-extrabold mb-0">{{current_user.total_completed_surveys}}</h6>
                                     </div>
                                 </div>
                             </div>
@@ -179,7 +179,7 @@
                                     </div>
                                     <div class="col-md-8">
                                         <h6 class="text-muted font-semibold">Surveys Paid</h6>
-                                        <h6 class="font-extrabold mb-0">10</h6>
+                                        <h6 class="font-extrabold mb-0">N/A</h6>
                                     </div>
                                 </div>
                             </div>
@@ -197,7 +197,7 @@
                                     </div>
                                     <div class="col-md-8">
                                         <h6 class="text-muted font-semibold">Surveys Pending</h6>
-                                        <h6 class="font-extrabold mb-0">3</h6>
+                                        <h6 class="font-extrabold mb-0">N/A</h6>
                                     </div>
                                 </div>
                             </div>
@@ -215,7 +215,7 @@
                                     </div>
                                     <div class="col-md-8">
                                         <h6 class="text-muted font-semibold">Surveys Rejected</h6>
-                                        <h6 class="font-extrabold mb-0">2</h6>
+                                        <h6 class="font-extrabold mb-0">N/A</h6>
                                     </div>
                                 </div>
                             </div>

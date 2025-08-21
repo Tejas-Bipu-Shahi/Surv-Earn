@@ -132,7 +132,7 @@
                                     <a href="{{url_for('changepassword')}}">Change Password</a>
                                 </li>
                                 <li class="submenu-item">
-                                    <a href="notifications.html">Notifications</a>
+                                    <a href="#">Notifications</a>
                                 </li>
                             </ul>
                         </li>
@@ -170,7 +170,7 @@
                                     </div>
                                     <div class="col-md-8">
                                         <h6 class="text-muted font-semibold">Available Balance</h6>
-                                        <h6 class="font-extrabold mb-0">$24.50</h6>
+                                        <h6 class="font-extrabold mb-0">Rs. {{current_user.current_balance}}</h6>
                                     </div>
                                 </div>
                             </div>
@@ -188,7 +188,7 @@
                                     </div>
                                     <div class="col-md-8">
                                         <h6 class="text-muted font-semibold">Total Earnings</h6>
-                                        <h6 class="font-extrabold mb-0">$120.00</h6>
+                                        <h6 class="font-extrabold mb-0">Rs. {{current_user.total_earnings}}</h6>
                                     </div>
                                 </div>
                             </div>
@@ -247,7 +247,7 @@
 
                                                 <div>
                                                     <h6 class="mb-1 text-white">Wallet Balance</h6>
-                                                    <h1 class="fw-bold mb-1 text-white">$24.50</h1>
+                                                    <h1 class="fw-bold mb-1 text-white">Rs. {{current_user.current_balance}}</h1>
 
                                                 </div>
                                             </div>
