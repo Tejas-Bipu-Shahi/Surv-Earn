@@ -16,6 +16,7 @@ class Survey(BaseModel):
     reward_per_completion: int
     expiration_date: date
     _id: str | None = None
+    survey_url: str
 
     status: SurveyStatus | None = None
     estimated_time: int | None = None
