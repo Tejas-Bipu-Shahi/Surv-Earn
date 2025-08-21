@@ -27,7 +27,7 @@
     <!-- AOS Animation -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
-    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="{{url_for('static', filename='assets/css/style.css')}}">
 </head>
 
 <body>
@@ -70,8 +70,8 @@
             </div>
             <!-- Register and Log In buttons -->
             <div class="d-flex">
-                <a href="#signup" class="btn btn-green me-2">Register</a>
-                <a href="#login" class="btn btn-green-light">Log In</a>
+                <a href="{{url_for('register')}}" class="btn btn-green me-2">Register</a>
+                <a href="{{url_for('login')}}" class="btn btn-green-light">Log In</a>
             </div>
         </div>
     </nav>
