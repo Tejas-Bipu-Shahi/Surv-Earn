@@ -28,6 +28,11 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
     <link rel="stylesheet" href="{{url_for('static', filename='assets/css/style.css')}}">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+
+
+
 </head>
 
 <body>
@@ -517,5 +522,30 @@
         });
     </script>
 </body>
+
+<script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+
+<script>
+    console.log("Public index.html loaded - checking for flash messages");
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    console.log("Flash messages found:", [{% for message in messages %}"{{ message }}"{% if not loop.last %}, {% endif %} {% endfor %}]);
+    {% for message in messages %}
+    console.log("Showing toast for:", "{{ message }}");
+    Toastify({
+        text: "{{ message }}",
+        duration: 4000,
+        close: true,
+        gravity: "top",
+        position: "center",
+        backgroundColor: "#f39c12",
+        stopOnFocus: true,
+    }).showToast();
+    {% endfor %}
+    {% else %}
+    console.log("No flash messages found");
+    {% endif %}
+    {% endwith %}
+</script>
 
 </html>

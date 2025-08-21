@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="{{url_for('static', filename='user/dist/assets/vendors/bootstrap-icons/bootstrap-icons.css')}}">
     <link rel="stylesheet" href="{{url_for('static', filename='user/dist/assets/css/app.css')}}">
     <link rel="stylesheet" href="{{url_for('static', filename='user/dist/assets/css/pages/auth.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='user/dist/assets/vendors/toastify/toastify.css')}}">
+
 </head>
 
 <body>
@@ -71,5 +73,23 @@
 
 </div>
 </body>
+    <script src="{{url_for('static', filename='user/dist/assets/vendors/toastify/toastify.js')}}"></script>
+<script>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+                Toastify({
+                    text: "{{ message }}",
+                    duration: 4000,
+                    close: true,
+                    gravity: "top",
+                    position: "center",
+                    className: "toastify-error",
+                    stopOnFocus: true,
+                }).showToast();
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+</script>
 
 </html>

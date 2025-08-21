@@ -6,13 +6,12 @@
  * Copyright (C) 2018 Varun A P
  */
 
+/* Base Toastify style */
 .toastify {
     padding: 12px 20px;
     color: #ffffff;
     display: inline-block;
     box-shadow: 0 3px 6px -1px rgba(0, 0, 0, 0.12), 0 10px 36px -4px rgba(77, 96, 232, 0.3);
-    background: -webkit-linear-gradient(315deg, #73a5ff, #5477f5);
-    background: linear-gradient(135deg, #73a5ff, #5477f5);
     position: fixed;
     opacity: 0;
     transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
@@ -22,6 +21,19 @@
     max-width: calc(50% - 20px);
     z-index: 2147483647;
 }
+
+/* Success Toast - Green theme */
+.toastify-success {
+    background: linear-gradient(135deg, #28a745, #218838); /* green gradient */
+    box-shadow: 0 3px 6px -1px rgba(0, 128, 0, 0.2), 0 10px 36px -4px rgba(0, 100, 0, 0.3);
+}
+
+/* Error Toast - Red theme */
+.toastify-error {
+    background: linear-gradient(135deg, #dc3545, #c82333); /* red gradient */
+    box-shadow: 0 3px 6px -1px rgba(128, 0, 0, 0.2), 0 10px 36px -4px rgba(100, 0, 0, 0.3);
+}
+
 
 .toastify.on {
     opacity: 1;
