@@ -114,10 +114,10 @@
                             </a>
                             <ul class="submenu active">
                                 <li class="submenu-item active">
-                                    <a href="{{ url_for('admin.addsurvey.html') }}">Add Survey</a>
+                                    <a href="{{ url_for('admin.addsurvey') }}">Add Survey</a>
                                 </li>
                                 <li class="submenu-item">
-                                    <a href="{{ url_for('admin.yoursurveys.html') }}">Your Surveys</a>
+                                    <a href="{{ url_for('admin.yoursurveys') }}">Your Surveys</a>
                                 </li>
                             </ul>
                         </li>
@@ -140,7 +140,7 @@
                             </ul>
                         </li>
                         <li class="sidebar-item">
-                            <a href="{{ url_for('admin.logout') }} class=" sidebar-link">
+                            <a href="{{ url_for('logout') }} class=" sidebar-link">
                                 <i class="bi bi-grid-fill"></i>
                                 <span>Logout</span>
                             </a>
