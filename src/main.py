@@ -22,6 +22,7 @@ def index():
 @app.route('/register', methods=['GET', 'POST'])
 def register():
     if current_user.is_authenticated:
+        flash('Already Registered','warn')
         return "<h1>You are already registered and logged in.</h1>"
     if request.method == 'POST':
         username = request.form['username']
@@ -30,10 +31,13 @@ def register():
         confirm_password = request.form['confirm-password']
 
         if not fn.is_valid_email(email):
+            flash('Invalid Email')
+            flash('Already Registered','error')
             return render_template('register.html', email_error='Invalid Email!', email=email, password=password,
                                    confirm_password=confirm_password, username=username)
 
         if mongo.db.users.find_one({'email': email}):
+            flash('Already Registered','warn')
             return render_template('register.html', email_error='Email already in use.', email=email, password=password,
                                    confirm_password=confirm_password, username=username)
 
@@ -59,7 +63,7 @@ def register():
             ic(status[1])
             return render_template('register.html', email=email, password=password,
                                    confirm_password=confirm_password, username=username)
-
+        flash('User Registered!','success')
         return redirect(url_for('verify_otp'))
 
     return render_template('register.html')
@@ -76,22 +80,27 @@ def login():
         password = request.form['password']
 
         if not fn.is_valid_email(email):
+            flash('Invalid Email!')
             return render_template('login.html', email_error='Invalid Email!', email=email, password=password)
 
         existing_user = mongo.db.users.find_one({'email': email})
         if not existing_user:
+            flash('Email not found','error')
             return render_template('login.html', email_error='Email Not Found!', email=email, password=password)
 
         user: User = User(**existing_user)
 
         if not bcrypt.checkpw(password.encode(), user.password_hash.encode()):
+            flash('Incorrect Password!','error')
             return render_template('login.html', password_error='Incorrect Password!', email=email, password=password)
 
         ic(f'User {email} logged in.')
 
         if request.form.get('keep_logged_in'):
             login_user(user, remember=True)
-        login_user(user)
+        else:
+            login_user(user)
+        flash('Login Successful!','success')
         return redirect(url_for('index'))
 
     return render_template('login.html')
@@ -102,10 +111,10 @@ def login():
 def logout():
     if current_user.is_authenticated:
         ic(f'User {current_user.email} logging out.')
-
+        flash('Logout Successful!','success')
         logout_user()
 
-        ic(f'logout successful.')
+        ic(f'logout successful.','success')
 
         return redirect(url_for('index'))
     return 'Not logged in.'

@@ -29,7 +29,8 @@
 
     <link rel="stylesheet" href="{{url_for('static', filename='assets/css/style.css')}}">
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='user/dist/assets/vendors//toastify/toastify.css') }}">
+
 
 
 
@@ -526,26 +527,22 @@
 <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
 
 <script>
-    console.log("Public index.html loaded - checking for flash messages");
-    {% with messages = get_flashed_messages() %}
+    {% with messages = get_flashed_messages(with_categories=true) %}
     {% if messages %}
-    console.log("Flash messages found:", [{% for message in messages %}"{{ message }}"{% if not loop.last %}, {% endif %} {% endfor %}]);
-    {% for message in messages %}
-    console.log("Showing toast for:", "{{ message }}");
-    Toastify({
-        text: "{{ message }}",
-        duration: 4000,
-        close: true,
-        gravity: "top",
-        position: "center",
-        backgroundColor: "#f39c12",
-        stopOnFocus: true,
-    }).showToast();
-    {% endfor %}
-    {% else %}
-    console.log("No flash messages found");
+        {% for category, message in messages %}
+            Toastify({
+                text: "{{ message }}",
+                duration: 4000,
+                close: true,
+                gravity: "top",
+                position: "center",
+                className: "toastify-{{ category }}",
+                stopOnFocus: true,
+            }).showToast();
+        {% endfor %}
     {% endif %}
     {% endwith %}
 </script>
+
 
 </html>
