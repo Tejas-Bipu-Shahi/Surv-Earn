@@ -8,7 +8,8 @@
 
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../dist/assets/css/transaction.css">
+  <link rel="stylesheet" `href="{{ url_for('admin.static', filename='dist/assets/css/transaction.css') }}"`
+>
   <style>
     /* Confetti canvas sits above content but doesn't block interactions */
     .confetti-canvas {
@@ -53,7 +54,10 @@
       </div>
     </div>
     <div style="text-align: center; margin-top: 20px;">
-      <a href="addSurvey.html" role="button" style="
+      <a ```html
+href="{{ url_for('admin.addsurvey') }}"
+```
+ role="button" style="
         background-color: #0d6efd;
         color: #fff;
         font-family: inherit;
