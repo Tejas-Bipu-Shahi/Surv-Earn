@@ -11,7 +11,7 @@ class SurveyStatus(StrEnum):
 
 
 class Survey(BaseModel):
-    survey_name: str
+    survey_title: str
     company_name: str
     reward_per_completion: int
     expiration_date: date
