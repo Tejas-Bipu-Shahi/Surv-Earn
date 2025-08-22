@@ -141,9 +141,18 @@
                     <i class="bi bi-justify fs-3"></i>
                 </a>
             </header>
-            <div class="page-heading">
-                <h3>Survey History</h3>
+            <div class="page-heading d-flex align-items-center justify-content-between">
+                <div>
+                    <h3 class="mb-0">Your Surveys</h3>
+                    <p class="text-subtitle text-muted mb-0">Overview of surveys you've published and their performance.
+                    </p>
+                </div>
+                <div class="d-flex gap-2">
+                    <a href="addSurvey.html" class="btn btn-sm btn-primary">Create Survey</a>
+                    <button class="btn btn-sm btn-outline-secondary">Export CSV</button>
+                </div>
             </div>
+
             <section class="section">
                 <div class="row">
                     <div class="col-6 col-lg-3 col-md-6">
@@ -151,14 +160,14 @@
                             <div class="card-body px-3 py-4-5">
                                 <div class="row">
                                     <div class="col-md-4">
-                                        <div class="stats-icon purple ">
+                                        <div class="stats-icon purple d-flex align-items-center justify-content-center">
                                             <i
-                                                class="bi bi-bar-chart d-flex align-items-center justify-content-center mx-auto my-automx-auto my-auto"></i>
+                                                class="bi bi-journal-bookmark fs-3 d-flex align-items-center justify-content-center mx-auto my-auto"></i>
                                         </div>
                                     </div>
                                     <div class="col-md-8">
-                                        <h6 class="text-muted font-semibold">Total Surveys Taken</h6>
-                                        <h6 class="font-extrabold mb-0">15</h6>
+                                        <h6 class="text-muted font-semibold">Surveys Created</h6>
+                                        <h6 class="font-extrabold mb-0">24</h6>
                                     </div>
                                 </div>
                             </div>
@@ -169,14 +178,14 @@
                             <div class="card-body px-3 py-4-5">
                                 <div class="row">
                                     <div class="col-md-4">
-                                        <div class="stats-icon blue">
+                                        <div class="stats-icon blue d-flex align-items-center justify-content-center">
                                             <i
-                                                class="bi bi-cash d-flex align-items-center justify-content-center mx-auto my-auto"></i>
+                                                class="bi bi-calendar-check-fill fs-3 d-flex align-items-center justify-content-center mx-auto my-auto"></i>
                                         </div>
                                     </div>
                                     <div class="col-md-8">
-                                        <h6 class="text-muted font-semibold">Surveys Paid</h6>
-                                        <h6 class="font-extrabold mb-0">10</h6>
+                                        <h6 class="text-muted font-semibold">Active Surveys</h6>
+                                        <h6 class="font-extrabold mb-0">6</h6>
                                     </div>
                                 </div>
                             </div>
@@ -187,14 +196,14 @@
                             <div class="card-body px-3 py-4-5">
                                 <div class="row">
                                     <div class="col-md-4">
-                                        <div class="stats-icon green">
+                                        <div class="stats-icon green d-flex align-items-center justify-content-center">
                                             <i
-                                                class="bi bi-hourglass-split d-flex align-items-center justify-content-center mx-auto my-auto"></i>
+                                                class="bi bi-people-fill fs-3 d-flex align-items-center justify-content-center mx-auto my-auto"></i>
                                         </div>
                                     </div>
                                     <div class="col-md-8">
-                                        <h6 class="text-muted font-semibold">Surveys Pending</h6>
-                                        <h6 class="font-extrabold mb-0">3</h6>
+                                        <h6 class="text-muted font-semibold">Total Responses</h6>
+                                        <h6 class="font-extrabold mb-0">8,420</h6>
                                     </div>
                                 </div>
                             </div>
@@ -205,23 +214,25 @@
                             <div class="card-body px-3 py-4-5">
                                 <div class="row">
                                     <div class="col-md-4">
-                                        <div class="stats-icon red">
+                                        <div class="stats-icon red d-flex align-items-center justify-content-center">
                                             <i
-                                                class="bi bi-x-circle d-flex align-items-center justify-content-center mx-auto my-auto"></i>
+                                                class="bi bi-calendar-x-fill fs-3 d-flex align-items-center justify-content-center mx-auto my-auto"></i>
                                         </div>
                                     </div>
                                     <div class="col-md-8">
-                                        <h6 class="text-muted font-semibold">Surveys Rejected</h6>
-                                        <h6 class="font-extrabold mb-0">2</h6>
+                                        <h6 class="text-muted font-semibold">Expired Surveys</h6>
+                                        <h6 class="font-extrabold mb-0">5</h6>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+
                 <div class="card">
-                    <div class="card-header">
-                        <i class="bi bi-clock-history me-2"></i>Survey history & earnings
+                    <div class="card-header d-flex align-items-center justify-content-between">
+                        <div><i class="bi bi-clock-history me-2"></i>Your surveys & stats</div>
+                        <small class="text-muted">Showing recent 50 entries</small>
                     </div>
                     <div class="card-body">
                         <table class="table table-striped align-middle" id="table1">
@@ -229,10 +240,12 @@
                                 <tr>
                                     <th>SN</th>
                                     <th><i class="bi bi-clipboard-check me-2"></i>Survey</th>
-                                    <th><i class="bi bi-building me-2"></i>Company</th>
-                                    <th><i class="bi bi-calendar-event me-2"></i>Date Taken</th>
-                                    <th><i class="bi bi-cash me-2"></i>Payment</th>
-                                    <th><i class="bi bi-check-circle me-2"></i>Status</th>
+                                    <th><i class="bi bi-calendar-event me-2"></i>Creation Date</th>
+                                    <th><i class="bi bi-calendar-x me-2"></i>Expiration</th>
+                                    <th><i class="bi bi-people me-2"></i>Responses</th>
+                                    <th><i class="bi bi-clock me-2"></i>Estimated Time</th>
+                                    <th><i class="bi bi-tags me-2"></i>Category</th>
+                                    <th><i class="bi bi-link-45deg me-2"></i>Results</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -241,46 +254,40 @@
                                     <td><a href="surveyDetails.html"
                                             class="text-decoration-none fw-semibold text-primary">Customer
                                             Satisfaction</a></td>
-                                    <td><span class="badge bg-secondary">Acme Corp</span></td>
                                     <td>2025-08-10</td>
-                                    <td>
-                                        <span class="badge bg-success"><i class="bi bi-currency-dollar"
-                                                style="opacity: 0.5;"></i>
-                                            $2.00</span>
-                                    </td>
-                                    <td>
-                                        <span class="badge bg-success"><i class="bi bi-check-circle"></i> Paid</span>
-                                    </td>
+                                    <td>2025-09-10</td>
+                                    <td><span class="fw-bold">150</span></td>
+                                    <td>5 min</td>
+                                    <td><span class="badge bg-secondary">Customer Experience</span></td>
+                                    <td><a href="https://docs.google.com/forms/d/e/example1/viewanalytics"
+                                            target="_blank" class="btn btn-sm btn-outline-primary">View Results</a></td>
                                 </tr>
                                 <tr>
                                     <td>2</td>
                                     <td><a href="surveyDetails.html"
                                             class="text-decoration-none fw-semibold text-primary">Product Feedback</a>
                                     </td>
-                                    <td><span class="badge bg-secondary">Globex Inc</span></td>
                                     <td>2025-08-12</td>
-                                    <td>
-                                        <span class="badge bg-warning text-dark"><i class="bi bi-currency-dollar"></i>
-                                            $1.50</span>
-                                    </td>
-                                    <td>
-                                        <span class="badge bg-warning text-dark"><i class="bi bi-hourglass-split"></i>
-                                            Pending</span>
-                                    </td>
+                                    <td>2025-09-12</td>
+                                    <td><span class="fw-bold">87</span></td>
+                                    <td>8 min</td>
+                                    <td><span class="badge bg-secondary">Product</span></td>
+                                    <td><a href="https://docs.google.com/forms/d/e/example2/viewanalytics"
+                                            target="_blank" class="btn btn-sm btn-outline-primary">View Results</a></td>
                                 </tr>
                                 <tr>
                                     <td>3</td>
                                     <td><a href="surveyDetails.html"
                                             class="text-decoration-none fw-semibold text-primary">Market Research</a>
                                     </td>
-                                    <td><span class="badge bg-secondary">Initech</span></td>
                                     <td>2025-08-15</td>
-                                    <td>
-                                        <span class="badge bg-danger"><i class="bi bi-currency-dollar"></i> $0.00</span>
-                                    </td>
-                                    <td>
-                                        <span class="badge bg-danger"><i class="bi bi-x-circle"></i> Rejected</span>
-                                    </td>
+                                    <td>2025-09-15</td>
+                                    <td><span class="fw-bold">15</span></td>
+                                    <td>15 min</td>
+                                    <td><span class="badge bg-secondary">Market</span></td>
+
+                                    <td><a href="https://docs.google.com/forms/d/e/example1/viewanalytics"
+                                            target="_blank" class="btn btn-sm btn-outline-primary">View Results</a></td>
                                 </tr>
                             </tbody>
                         </table>
