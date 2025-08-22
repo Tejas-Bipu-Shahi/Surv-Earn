@@ -22,12 +22,40 @@
     <div id="app">
         <div id="sidebar" class="active">
             <div class="sidebar-wrapper active">
-                <div class="sidebar-header">
-                    <div class="d-flex justify-content-between">
+                <div class="sidebar-header position-relative">
+                    <div class="d-flex justify-content-between align-items-center">
                         <div class="logo">
                             <a href="index.html"><img src="assets/images/logo/logo.png" alt="Logo" srcset=""></a>
                         </div>
-                        <div class="toggler">
+                        <div class="theme-toggle d-flex gap-2 align-items-center mt-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true"
+                                role="img" class="iconify iconify--system-uicons" width="20" height="20"
+                                preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21">
+                                <g fill="none" fill-rule="evenodd" stroke="currentColor" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path
+                                        d="M10.5 14.5c2.219 0 4-1.763 4-3.982a4.003 4.003 0 0 0-4-4.018c-2.219 0-4 1.781-4 4c0 2.219 1.781 4 4 4zM4.136 4.136L5.55 5.55m9.9 9.9l1.414 1.414M1.5 10.5h2m14 0h2M4.135 16.863L5.55 15.45m9.899-9.9l1.414-1.415M10.5 19.5v-2m0-14v-2"
+                                        opacity=".3"></path>
+                                    <g transform="translate(-210 -1)">
+                                        <path d="m220.5 2.5v2m6.5.5l-1.5 1.5"></path>
+                                        <circle cx="220.5" cy="11.5" r="4"></circle>
+                                        <path d="m220.5 20.5v-2m6.5-.5l-1.5-1.5m0-8l1.5-1.5m-14 0l1.5 1.5m0 8l-1.5 1.5"></path>
+                                    </g>
+                                </g>
+                            </svg>
+                            <div class="form-check form-switch fs-6">
+                                <input class="form-check-input me-0" type="checkbox" id="toggle-dark">
+                                <label class="form-check-label"></label>
+                            </div>
+                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true"
+                                role="img" class="iconify iconify--mdi" width="20" height="20" preserveAspectRatio="xMidYMid meet"
+                                viewBox="0 0 24 24">
+                                <path fill="currentColor"
+                                    d="m17.75 4.09l-2.53 1.94l.91 3.06l-2.63-1.81l-2.63 1.81l.91-3.06L8.25 4.09l3.25.02l1.01-3.02l1.01 3.02l3.25-.02zm-9.1 6.27L6.1 8.5l-1.85 1.85l1.85 1.85l2.55-1.86zm-2.51 4.91l1.85-1.85l1.85 1.85l-1.85 1.85l-1.85-1.85zm8.24-2.13l-1.01 3.02l-1.01-3.02L8.25 19.9l2.53-1.94l-.91-3.06l2.63 1.81l2.63-1.81l-.91 3.06l2.53 1.94L12.5 15.98zm2.5-1.04l1.85 1.85l1.85-1.85L18.4 8.5l-1.85 1.86z">
+                                </path>
+                            </svg>
+                        </div>
+                        <div class="sidebar-toggler x">
                             <a href="#" class="sidebar-hide d-xl-none d-block"><i class="bi bi-x bi-middle"></i></a>
                         </div>
                     </div>
@@ -37,124 +65,55 @@
                         <li class="sidebar-title">Menu</li>
 
                         <li class="sidebar-item">
-                            <a href="index.html" class='sidebar-link'>
+                            <a href="../dist/index.html" class='sidebar-link'>
+
                                 <i class="bi bi-grid-fill"></i>
                                 <span>Dashboard</span>
                             </a>
                         </li>
 
-                        <li class="sidebar-item active">
-                            <a href="notifications.html" class='sidebar-link'>
-                                <i class="bi bi-bell-fill"></i>
-                                <span>Notifications</span>
-                            </a>
-                        </li>
-
                         <li class="sidebar-item has-sub">
                             <a href="#" class='sidebar-link'>
-                                <i class="bi bi-stack"></i>
-                                <span>Components</span>
+                                <i class="bi bi-file-earmark-medical-fill"></i>
+                                <span>Survey</span>
                             </a>
                             <ul class="submenu">
                                 <li class="submenu-item">
-                                    <a href="component-alert.html">Alert</a>
+                                    <a href="fillSurvey.html">Fillup Survey</a>
                                 </li>
                                 <li class="submenu-item">
-                                    <a href="component-badge.html">Badge</a>
+                                    <a href="survHistory.html">Survey History</a>
                                 </li>
                                 <li class="submenu-item">
-                                    <a href="component-breadcrumb.html">Breadcrumb</a>
-                                </li>
-                                <li class="submenu-item">
-                                    <a href="component-button.html">Button</a>
-                                </li>
-                                <li class="submenu-item">
-                                    <a href="component-card.html">Card</a>
-                                </li>
-                                <li class="submenu-item">
-                                    <a href="component-carousel.html">Carousel</a>
-                                </li>
-                                <li class="submenu-item">
-                                    <a href="component-dropdown.html">Dropdown</a>
-                                </li>
-                                <li class="submenu-item">
-                                    <a href="component-list-group.html">List Group</a>
-                                </li>
-                                <li class="submenu-item">
-                                    <a href="component-modal.html">Modal</a>
-                                </li>
-                                <li class="submenu-item">
-                                    <a href="component-navs.html">Navs</a>
-                                </li>
-                                <li class="submenu-item">
-                                    <a href="component-pagination.html">Pagination</a>
-                                </li>
-                                <li class="submenu-item">
-                                    <a href="component-progress.html">Progress</a>
-                                </li>
-                                <li class="submenu-item">
-                                    <a href="component-spinner.html">Spinner</a>
-                                </li>
-                                <li class="submenu-item">
-                                    <a href="component-tooltip.html">Tooltip</a>
+                                    <a href="redeem.html">Redeem</a>
                                 </li>
                             </ul>
                         </li>
 
-                        <li class="sidebar-item has-sub">
+                        <li class="sidebar-item has-sub active">
                             <a href="#" class='sidebar-link'>
-                                <i class="bi bi-collection-fill"></i>
-                                <span>Extra Components</span>
+                                <i class="bi bi-person-badge-fill"></i>
+                                <span>Profile</span>
                             </a>
                             <ul class="submenu">
                                 <li class="submenu-item">
-                                    <a href="extra-component-avatar.html">Avatar</a>
+                                    <a href="accountSettings.html">Account Settings</a>
                                 </li>
                                 <li class="submenu-item">
-                                    <a href="extra-component-sweetalert.html">Sweet Alert</a>
+                                    <a href="changePassword.html">Change Password</a>
                                 </li>
-                                <li class="submenu-item">
-                                    <a href="extra-component-toastify.html">Toastify</a>
-                                </li>
-                                <li class="submenu-item">
-                                    <a href="extra-component-rating.html">Rating</a>
-                                </li>
-                                <li class="submenu-item">
-                                    <a href="extra-component-divider.html">Divider</a>
+                                <li class="submenu-item active">
+                                    <a href="notifications.html">Notifications</a>
                                 </li>
                             </ul>
                         </li>
 
-                        <li class="sidebar-title">Pages</li>
-
                         <li class="sidebar-item">
-                            <a href="application-email.html" class='sidebar-link'>
-                                <i class="bi bi-envelope-fill"></i>
-                                <span>Email Application</span>
+                            <a href="auth-login.html" class='sidebar-link'>
+                                <i class="bi bi-life-preserver"></i>
+                                <span>Logout</span>
                             </a>
                         </li>
-
-                        <li class="sidebar-item">
-                            <a href="application-chat.html" class='sidebar-link'>
-                                <i class="bi bi-chat-dots-fill"></i>
-                                <span>Chat Application</span>
-                            </a>
-                        </li>
-
-                        <li class="sidebar-item">
-                            <a href="application-gallery.html" class='sidebar-link'>
-                                <i class="bi bi-image-fill"></i>
-                                <span>Photo Gallery</span>
-                            </a>
-                        </li>
-
-                        <li class="sidebar-item">
-                            <a href="application-checkout.html" class='sidebar-link'>
-                                <i class="bi bi-basket-fill"></i>
-                                <span>Checkout Page</span>
-                            </a>
-                        </li>
-
                     </ul>
                 </div>
                 <button class="sidebar-toggler btn x"><i data-feather="x"></i></button>
@@ -205,22 +164,12 @@
                                 <ul class="nav nav-tabs" id="notificationTabs" role="tablist">
                                     <li class="nav-item" role="presentation">
                                         <button class="nav-link active" id="all-tab" data-bs-toggle="tab" data-bs-target="#all" type="button" role="tab" aria-controls="all" aria-selected="true">
-                                            All <span class="badge bg-primary ms-1">12</span>
+                                            All <span class="badge bg-primary ms-1">5</span>
                                         </button>
                                     </li>
                                     <li class="nav-item" role="presentation">
                                         <button class="nav-link" id="unread-tab" data-bs-toggle="tab" data-bs-target="#unread" type="button" role="tab" aria-controls="unread" aria-selected="false">
-                                            Unread <span class="badge bg-danger ms-1">5</span>
-                                        </button>
-                                    </li>
-                                    <li class="nav-item" role="presentation">
-                                        <button class="nav-link" id="system-tab" data-bs-toggle="tab" data-bs-target="#system" type="button" role="tab" aria-controls="system" aria-selected="false">
-                                            System <span class="badge bg-info ms-1">3</span>
-                                        </button>
-                                    </li>
-                                    <li class="nav-item" role="presentation">
-                                        <button class="nav-link" id="alerts-tab" data-bs-toggle="tab" data-bs-target="#alerts" type="button" role="tab" aria-controls="alerts" aria-selected="false">
-                                            Alerts <span class="badge bg-warning ms-1">2</span>
+                                            Unread <span class="badge bg-danger ms-1">3</span>
                                         </button>
                                     </li>
                                 </ul>
@@ -233,23 +182,15 @@
                                             <!-- Notification Item 1 -->
                                             <div class="notification-item border-bottom py-3 unread">
                                                 <div class="d-flex align-items-start">
-                                                    <div class="notification-icon me-3">
-                                                        <div class="avatar avatar-lg bg-success">
+                                                    <div class="notification-icon me-4">
+                                                        <div class="avatar avatar-md bg-success">
                                                             <i class="bi bi-check-circle text-white"></i>
                                                         </div>
                                                     </div>
                                                     <div class="notification-content flex-grow-1">
-                                                        <div class="d-flex justify-content-between align-items-start">
-                                                            <div>
-                                                                <h6 class="notification-title mb-1">Survey Completed Successfully</h6>
-                                                                <p class="notification-text text-muted mb-1">Your survey "Customer Satisfaction Q4" has been completed by 150 participants.</p>
-                                                                <small class="text-muted"><i class="bi bi-clock me-1"></i>2 minutes ago</small>
-                                                            </div>
-                                                            <div class="notification-actions">
-                                                                <button class="btn btn-sm btn-outline-primary me-1" onclick="markAsRead(this)">Mark as Read</button>
-                                                                <button class="btn btn-sm btn-outline-danger" onclick="deleteNotification(this)"><i class="bi bi-trash"></i></button>
-                                                            </div>
-                                                        </div>
+                                                        <h6 class="notification-title mb-1">Survey Completed</h6>
+                                                        <p class="notification-text text-muted mb-1">Customer Satisfaction Q4 survey completed by 150 participants.</p>
+                                                        <small class="text-muted"><i class="bi bi-clock me-1"></i>2 minutes ago</small>
                                                     </div>
                                                 </div>
                                             </div>
@@ -257,23 +198,15 @@
                                             <!-- Notification Item 2 -->
                                             <div class="notification-item border-bottom py-3 unread">
                                                 <div class="d-flex align-items-start">
-                                                    <div class="notification-icon me-3">
-                                                        <div class="avatar avatar-lg bg-warning">
+                                                    <div class="notification-icon me-4">
+                                                        <div class="avatar avatar-md bg-warning">
                                                             <i class="bi bi-exclamation-triangle text-white"></i>
                                                         </div>
                                                     </div>
                                                     <div class="notification-content flex-grow-1">
-                                                        <div class="d-flex justify-content-between align-items-start">
-                                                            <div>
-                                                                <h6 class="notification-title mb-1">Low Response Rate Alert</h6>
-                                                                <p class="notification-text text-muted mb-1">Survey "Product Feedback" has only 15% response rate. Consider extending the deadline.</p>
-                                                                <small class="text-muted"><i class="bi bi-clock me-1"></i>1 hour ago</small>
-                                                            </div>
-                                                            <div class="notification-actions">
-                                                                <button class="btn btn-sm btn-outline-primary me-1" onclick="markAsRead(this)">Mark as Read</button>
-                                                                <button class="btn btn-sm btn-outline-danger" onclick="deleteNotification(this)"><i class="bi bi-trash"></i></button>
-                                                            </div>
-                                                        </div>
+                                                        <h6 class="notification-title mb-1">Low Response Rate</h6>
+                                                        <p class="notification-text text-muted mb-1">Product Feedback survey has only 15% response rate.</p>
+                                                        <small class="text-muted"><i class="bi bi-clock me-1"></i>1 hour ago</small>
                                                     </div>
                                                 </div>
                                             </div>
@@ -281,22 +214,15 @@
                                             <!-- Notification Item 3 -->
                                             <div class="notification-item border-bottom py-3">
                                                 <div class="d-flex align-items-start">
-                                                    <div class="notification-icon me-3">
-                                                        <div class="avatar avatar-lg bg-info">
+                                                    <div class="notification-icon me-4">
+                                                        <div class="avatar avatar-md bg-info">
                                                             <i class="bi bi-person-plus text-white"></i>
                                                         </div>
                                                     </div>
                                                     <div class="notification-content flex-grow-1">
-                                                        <div class="d-flex justify-content-between align-items-start">
-                                                            <div>
-                                                                <h6 class="notification-title mb-1">New User Registration</h6>
-                                                                <p class="notification-text text-muted mb-1">John Smith has registered and completed the onboarding survey.</p>
-                                                                <small class="text-muted"><i class="bi bi-clock me-1"></i>3 hours ago</small>
-                                                            </div>
-                                                            <div class="notification-actions">
-                                                                <button class="btn btn-sm btn-outline-danger" onclick="deleteNotification(this)"><i class="bi bi-trash"></i></button>
-                                                            </div>
-                                                        </div>
+                                                        <h6 class="notification-title mb-1">New User Registration</h6>
+                                                        <p class="notification-text text-muted mb-1">John Smith registered and completed onboarding.</p>
+                                                        <small class="text-muted"><i class="bi bi-clock me-1"></i>3 hours ago</small>
                                                     </div>
                                                 </div>
                                             </div>
@@ -304,23 +230,15 @@
                                             <!-- Notification Item 4 -->
                                             <div class="notification-item border-bottom py-3 unread">
                                                 <div class="d-flex align-items-start">
-                                                    <div class="notification-icon me-3">
-                                                        <div class="avatar avatar-lg bg-primary">
+                                                    <div class="notification-icon me-4">
+                                                        <div class="avatar avatar-md bg-primary">
                                                             <i class="bi bi-graph-up text-white"></i>
                                                         </div>
                                                     </div>
                                                     <div class="notification-content flex-grow-1">
-                                                        <div class="d-flex justify-content-between align-items-start">
-                                                            <div>
-                                                                <h6 class="notification-title mb-1">Weekly Report Available</h6>
-                                                                <p class="notification-text text-muted mb-1">Your weekly analytics report is ready for download.</p>
-                                                                <small class="text-muted"><i class="bi bi-clock me-1"></i>5 hours ago</small>
-                                                            </div>
-                                                            <div class="notification-actions">
-                                                                <button class="btn btn-sm btn-outline-primary me-1" onclick="markAsRead(this)">Mark as Read</button>
-                                                                <button class="btn btn-sm btn-outline-danger" onclick="deleteNotification(this)"><i class="bi bi-trash"></i></button>
-                                                            </div>
-                                                        </div>
+                                                        <h6 class="notification-title mb-1">Weekly Report Ready</h6>
+                                                        <p class="notification-text text-muted mb-1">Your analytics report is ready for download.</p>
+                                                        <small class="text-muted"><i class="bi bi-clock me-1"></i>5 hours ago</small>
                                                     </div>
                                                 </div>
                                             </div>
@@ -328,22 +246,15 @@
                                             <!-- Notification Item 5 -->
                                             <div class="notification-item border-bottom py-3">
                                                 <div class="d-flex align-items-start">
-                                                    <div class="notification-icon me-3">
-                                                        <div class="avatar avatar-lg bg-secondary">
+                                                    <div class="notification-icon me-4">
+                                                        <div class="avatar avatar-md bg-secondary">
                                                             <i class="bi bi-gear text-white"></i>
                                                         </div>
                                                     </div>
                                                     <div class="notification-content flex-grow-1">
-                                                        <div class="d-flex justify-content-between align-items-start">
-                                                            <div>
-                                                                <h6 class="notification-title mb-1">System Maintenance</h6>
-                                                                <p class="notification-text text-muted mb-1">Scheduled maintenance completed successfully. All systems are operational.</p>
-                                                                <small class="text-muted"><i class="bi bi-clock me-1"></i>1 day ago</small>
-                                                            </div>
-                                                            <div class="notification-actions">
-                                                                <button class="btn btn-sm btn-outline-danger" onclick="deleteNotification(this)"><i class="bi bi-trash"></i></button>
-                                                            </div>
-                                                        </div>
+                                                        <h6 class="notification-title mb-1">System Maintenance</h6>
+                                                        <p class="notification-text text-muted mb-1">Scheduled maintenance completed successfully.</p>
+                                                        <small class="text-muted"><i class="bi bi-clock me-1"></i>1 day ago</small>
                                                     </div>
                                                 </div>
                                             </div>
@@ -351,23 +262,15 @@
                                             <!-- Notification Item 6 -->
                                             <div class="notification-item border-bottom py-3 unread">
                                                 <div class="d-flex align-items-start">
-                                                    <div class="notification-icon me-3">
-                                                        <div class="avatar avatar-lg bg-danger">
+                                                    <div class="notification-icon me-4">
+                                                        <div class="avatar avatar-md bg-danger">
                                                             <i class="bi bi-shield-exclamation text-white"></i>
                                                         </div>
                                                     </div>
                                                     <div class="notification-content flex-grow-1">
-                                                        <div class="d-flex justify-content-between align-items-start">
-                                                            <div>
-                                                                <h6 class="notification-title mb-1">Security Alert</h6>
-                                                                <p class="notification-text text-muted mb-1">Unusual login activity detected from a new device. Please verify if this was you.</p>
-                                                                <small class="text-muted"><i class="bi bi-clock me-1"></i>2 days ago</small>
-                                                            </div>
-                                                            <div class="notification-actions">
-                                                                <button class="btn btn-sm btn-outline-primary me-1" onclick="markAsRead(this)">Mark as Read</button>
-                                                                <button class="btn btn-sm btn-outline-danger" onclick="deleteNotification(this)"><i class="bi bi-trash"></i></button>
-                                                            </div>
-                                                        </div>
+                                                        <h6 class="notification-title mb-1">Security Alert</h6>
+                                                        <p class="notification-text text-muted mb-1">Unusual login activity detected from new device.</p>
+                                                        <small class="text-muted"><i class="bi bi-clock me-1"></i>2 days ago</small>
                                                     </div>
                                                 </div>
                                             </div>
@@ -375,22 +278,15 @@
                                             <!-- Notification Item 7 -->
                                             <div class="notification-item border-bottom py-3">
                                                 <div class="d-flex align-items-start">
-                                                    <div class="notification-icon me-3">
-                                                        <div class="avatar avatar-lg bg-success">
+                                                    <div class="notification-icon me-4">
+                                                        <div class="avatar avatar-md bg-success">
                                                             <i class="bi bi-currency-dollar text-white"></i>
                                                         </div>
                                                     </div>
                                                     <div class="notification-content flex-grow-1">
-                                                        <div class="d-flex justify-content-between align-items-start">
-                                                            <div>
-                                                                <h6 class="notification-title mb-1">Payment Received</h6>
-                                                                <p class="notification-text text-muted mb-1">Payment of $25.00 has been credited to your account for survey completion.</p>
-                                                                <small class="text-muted"><i class="bi bi-clock me-1"></i>3 days ago</small>
-                                                            </div>
-                                                            <div class="notification-actions">
-                                                                <button class="btn btn-sm btn-outline-danger" onclick="deleteNotification(this)"><i class="bi bi-trash"></i></button>
-                                                            </div>
-                                                        </div>
+                                                        <h6 class="notification-title mb-1">Payment Received</h6>
+                                                        <p class="notification-text text-muted mb-1">$25.00 credited to your account.</p>
+                                                        <small class="text-muted"><i class="bi bi-clock me-1"></i>3 days ago</small>
                                                     </div>
                                                 </div>
                                             </div>
@@ -405,35 +301,48 @@
                                     <!-- Unread Notifications -->
                                     <div class="tab-pane fade" id="unread" role="tabpanel" aria-labelledby="unread-tab">
                                         <div class="notification-list">
-                                            <!-- Only unread notifications will be shown here -->
-                                            <div class="text-center py-5">
-                                                <i class="bi bi-bell-slash text-muted" style="font-size: 3rem;"></i>
-                                                <h5 class="text-muted mt-3">No unread notifications</h5>
-                                                <p class="text-muted">You're all caught up!</p>
+                                            <!-- Show only unread notifications -->
+                                            <div class="notification-item border-bottom py-3 unread">
+                                                <div class="d-flex align-items-start">
+                                                    <div class="notification-icon me-4">
+                                                        <div class="avatar avatar-md bg-success">
+                                                            <i class="bi bi-check-circle text-white"></i>
+                                                        </div>
+                                                    </div>
+                                                    <div class="notification-content flex-grow-1">
+                                                        <h6 class="notification-title mb-1">Survey Completed</h6>
+                                                        <p class="notification-text text-muted mb-1">Customer Satisfaction Q4 survey completed.</p>
+                                                        <small class="text-muted"><i class="bi bi-clock me-1"></i>2 minutes ago</small>
+                                                    </div>
+                                                </div>
                                             </div>
-                                        </div>
-                                    </div>
-
-                                    <!-- System Notifications -->
-                                    <div class="tab-pane fade" id="system" role="tabpanel" aria-labelledby="system-tab">
-                                        <div class="notification-list">
-                                            <!-- System notifications only -->
-                                            <div class="text-center py-5">
-                                                <i class="bi bi-gear text-muted" style="font-size: 3rem;"></i>
-                                                <h5 class="text-muted mt-3">No system notifications</h5>
-                                                <p class="text-muted">All systems running smoothly</p>
+                                            <div class="notification-item border-bottom py-3 unread">
+                                                <div class="d-flex align-items-start">
+                                                    <div class="notification-icon me-4">
+                                                        <div class="avatar avatar-md bg-warning">
+                                                            <i class="bi bi-exclamation-triangle text-white"></i>
+                                                        </div>
+                                                    </div>
+                                                    <div class="notification-content flex-grow-1">
+                                                        <h6 class="notification-title mb-1">Low Response Rate</h6>
+                                                        <p class="notification-text text-muted mb-1">Product Feedback survey needs attention.</p>
+                                                        <small class="text-muted"><i class="bi bi-clock me-1"></i>1 hour ago</small>
+                                                    </div>
+                                                </div>
                                             </div>
-                                        </div>
-                                    </div>
-
-                                    <!-- Alert Notifications -->
-                                    <div class="tab-pane fade" id="alerts" role="tabpanel" aria-labelledby="alerts-tab">
-                                        <div class="notification-list">
-                                            <!-- Alert notifications only -->
-                                            <div class="text-center py-5">
-                                                <i class="bi bi-shield-check text-muted" style="font-size: 3rem;"></i>
-                                                <h5 class="text-muted mt-3">No active alerts</h5>
-                                                <p class="text-muted">Everything looks good</p>
+                                            <div class="notification-item border-bottom py-3 unread">
+                                                <div class="d-flex align-items-start">
+                                                    <div class="notification-icon me-4">
+                                                        <div class="avatar avatar-md bg-primary">
+                                                            <i class="bi bi-graph-up text-white"></i>
+                                                        </div>
+                                                    </div>
+                                                    <div class="notification-content flex-grow-1">
+                                                        <h6 class="notification-title mb-1">Weekly Report Ready</h6>
+                                                        <p class="notification-text text-muted mb-1">Analytics report is ready for download.</p>
+                                                        <small class="text-muted"><i class="bi bi-clock me-1"></i>5 hours ago</small>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -601,6 +510,9 @@
                 }
                 .notification-item:hover {
                     background-color: #f1f3f4;
+                }
+                .notification-icon {
+                    margin-right: 1.5rem !important;
                 }
                 .notification-actions {
                     opacity: 0;
