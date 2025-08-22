@@ -8,14 +8,18 @@
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/bootstrap.css">
+    <link rel="stylesheet" href="{{ url_for('admin.static', filename='assets/css/bootstrap.css') }}">
 
-    <link rel="stylesheet" href="assets/vendors/iconly/bold.css">
+    <link rel="stylesheet" href="{{ url_for('admin.static', filename='assets/vendors/iconly/bold.css') }}">
 
-    <link rel="stylesheet" href="assets/vendors/perfect-scrollbar/perfect-scrollbar.css">
-    <link rel="stylesheet" href="assets/vendors/bootstrap-icons/bootstrap-icons.css">
-    <link rel="stylesheet" href="assets/css/app.css">
-    <link rel="shortcut icon" href="assets/images/favicon.svg" type="image/x-icon">
+    <link rel="stylesheet"
+        href="{{ url_for('admin.static', filename='assets/vendors/perfect-scrollbar/perfect-scrollbar.css') }}">
+    <link rel="stylesheet"
+        href="{{ url_for('admin.static', filename='assets/vendors/bootstrap-icons/bootstrap-icons.css') }}">
+    <link rel="stylesheet" href="{{ url_for('admin.static', filename='assets/css/app.css') }}">
+    <link rel="shortcut icon" href="{{ url_for('admin.static', filename='assets/images/favicon.svg') }}"
+        type="image/x-icon">
+
     <style>
         .extra-small {
             font-size: 0.700rem;
@@ -32,7 +36,9 @@
                 <div class="sidebar-header">
                     <div class="d-flex align-items-center justify-content-between">
                         <div class="logo me-2">
-                            <a href="index.html"><img src="assets/images/logo/logo.png" alt="Logo" srcset=""></a>
+                            <a href="{{ url_for('admin.index') }}"><img
+                                    src="{{ url_for('admin.static', filename='assets/images/logo/logo.png') }}"
+                                    alt="Logo" srcset=""></a>
                         </div>
                         <div class="d-flex align-items-center">
                             <div class="dropdown me-2">
@@ -92,7 +98,7 @@
                     <ul class="menu">
                         <li class="sidebar-title">Menu</li>
                         <li class="sidebar-item active">
-                            <a href="index.html" class="sidebar-link">
+                            <a href="{{ url_for('admin.index') }}" class="sidebar-link">
                                 <i class="bi bi-grid-fill"></i>
                                 <span>Dashboard</span>
                             </a>
@@ -105,10 +111,10 @@
                             </a>
                             <ul class="submenu">
                                 <li class="submenu-item">
-                                    <a href="addSurvey.html">Add Survey</a>
+                                    <a href="{{ url_for('admin.add_survey') }}">Add Survey</a>
                                 </li>
                                 <li class="submenu-item">
-                                    <a href="yourSurveys.html">Your Surveys</a>
+                                    <a href="{{ url_for('admin.your_surveys') }}">Your Surveys</a>
                                 </li>
                             </ul>
                         </li>
@@ -119,24 +125,25 @@
                             </a>
                             <ul class="submenu">
                                 <li class="submenu-item">
-                                    <a href="accountSettings.html">Account Settings</a>
+                                    <a href="{{ url_for('admin.account_settings') }}">Account Settings</a>
                                 </li>
                                 <li class="submenu-item">
-                                    <a href="changePassword.html">Change Password</a>
+                                    <a href="{{ url_for('admin.change_password') }}">Change Password</a>
                                 </li>
                                 <li class="submenu-item">
-                                    <a href="notifications.html">Notifications</a>
+                                    <a href="{{ url_for('admin.notifications') }}">Notifications</a>
                                 </li>
                             </ul>
                         </li>
                         <li class="sidebar-item">
-                            <a href="logout.html" class="sidebar-link">
+                            <a href="{{ url_for('admin.logout') }}" class="sidebar-link">
                                 <i class="bi bi-grid-fill"></i>
                                 <span>Logout</span>
                             </a>
                         </li>
                     </ul>
                 </div>
+
                 <button class="sidebar-toggler btn x"><i data-feather="x"></i></button>
             </div>
         </div>
@@ -322,7 +329,8 @@
                             <div class="card-body py-4 px-5">
                                 <div class="d-flex align-items-center">
                                     <div class="avatar avatar-xl">
-                                        <img src="assets/images/faces/1.jpg" alt="Face 1">
+                                        <img src="{{ url_for('admin.static', filename='assets/images/faces/1.jpg') }}" alt="...">
+ alt="Face 1">
                                     </div>
                                     <div class="ms-3 name">
                                         <h5 class="font-bold">John Doe</h5>
@@ -370,7 +378,8 @@
                                     <span class="badge bg-primary">5</span>
                                 </div>
                                 <div class="small text-muted">New surveys matched to your profile</div>
-                                <a href="fillSurvey.html" class="btn btn-sm btn-outline-primary mt-2">View</a>
+                                <a href="{{ url_for('admin.fillSurvey') }}"
+ class="btn btn-sm btn-outline-primary mt-2">View</a>
                             </div>
                         </div>
                         <div class="card mt-3">
@@ -386,7 +395,8 @@
                                     <span class="badge bg-warning text-dark">Bronze</span>
                                 </div>
                                 <div class="small text-muted">Complete 3 more surveys to reach Silver</div>
-                                <a href="accountSettings.html" class="btn btn-sm btn-outline-primary mt-2">Go to
+                                <a href="{{ url_for('admin.accountSettings') }}"
+class="btn btn-sm btn-outline-primary mt-2">Go to
                                     Profile</a>
 
                             </div>
@@ -408,13 +418,14 @@
             </footer>
         </div>
     </div>
-    <script src="assets/vendors/perfect-scrollbar/perfect-scrollbar.min.js"></script>
-    <script src="assets/js/bootstrap.bundle.min.js"></script>
+<script src="{{ url_for('admin.static', filename='vendors/perfect-scrollbar/perfect-scrollbar.min.js') }}"></script>
+<script src="{{ url_for('admin.static', filename='js/bootstrap.bundle.min.js') }}"></script>
 
-    <script src="assets/vendors/apexcharts/apexcharts.js"></script>
-    <script src="assets/js/pages/dashboard.js"></script>
+<script src="{{ url_for('admin.static', filename='vendors/apexcharts/apexcharts.js') }}"></script>
+<script src="{{ url_for('admin.static', filename='js/pages/dashboard.js') }}"></script>
 
-    <script src="assets/js/main.js"></script>
+<script src="{{ url_for('admin.static', filename='js/main.js') }}"></script>
+
 </body>
 
 </html>
