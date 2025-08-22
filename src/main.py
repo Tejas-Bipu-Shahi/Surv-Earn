@@ -7,6 +7,7 @@ import utils.functions as fn
 from controllers import user_handler, email_sender
 from flask_login import login_required, login_user, logout_user, current_user
 from utils.otp_generator import generate_otp
+from bson import ObjectId
 
 from config import app, mongo, mail
 
@@ -178,7 +179,9 @@ def verify_otp():
 @app.route('/fillsurvey', methods=['GET', 'POST'])
 @login_required
 def fillsurvey():
-    return render_template('user/dist/fillSurvey.html')
+    surveys = list(mongo.db.surveys.find())
+    total_surveys = len(surveys)
+    return render_template('user/dist/fillSurvey.html', surveys=surveys, enumerate=enumerate, total_surveys=total_surveys)
 
 
 @app.route('/surveyhistory', methods=['GET', 'POST'])
@@ -208,7 +211,27 @@ def changepassword():
 @app.route('/surveyDetails', methods=['GET', 'POST'])
 @login_required
 def surveydetails():
-    return render_template('user/dist/surveyDetails.html')
+    survey_id = request.args.get('survey_id')
+    if survey_id:
+        survey = mongo.db.surveys.find_one({'_id': ObjectId(survey_id)})
+    else:
+        survey = None
+    return render_template('user/dist/surveyDetails.html', survey=survey)
+
+
+@app.route('/opensurveyurl', methods=['GET', 'POST'])
+@login_required
+def opensurveyurl():
+    survey_id = request.args.get('survey_id')
+    if survey_id:
+        survey = mongo.db.surveys.find_one({'_id': ObjectId(survey_id)})
+    else:
+        survey = None
+    ic(survey_id)
+    ic(survey)
+    if survey:
+        return redirect(survey.get('survey_url'))
+    return "Not Found"
 
 
 @app.route('/transaction', methods=['GET', 'POST'])
