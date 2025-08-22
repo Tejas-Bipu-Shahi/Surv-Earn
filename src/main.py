@@ -1,3 +1,5 @@
+import os
+
 from flask import request, render_template, redirect, url_for, flash, session
 import bcrypt
 from models.user import User, TempUnverifiedUser
@@ -22,7 +24,7 @@ def index():
 @app.route('/register', methods=['GET', 'POST'])
 def register():
     if current_user.is_authenticated:
-        flash('Already Registered','warn')
+        flash('Already Registered', 'warn')
         return "<h1>You are already registered and logged in.</h1>"
     if request.method == 'POST':
         username = request.form['username']
@@ -32,12 +34,11 @@ def register():
 
         if not fn.is_valid_email(email):
             flash('Invalid Email')
-            flash('Already Registered','error')
             return render_template('register.html', email_error='Invalid Email!', email=email, password=password,
                                    confirm_password=confirm_password, username=username)
 
         if mongo.db.users.find_one({'email': email}):
-            flash('Already Registered','warn')
+            flash('Already Registered', 'warn')
             return render_template('register.html', email_error='Email already in use.', email=email, password=password,
                                    confirm_password=confirm_password, username=username)
 
@@ -53,17 +54,24 @@ def register():
                                    confirm_password=confirm_password, username=username)
         otp = generate_otp()
         otp_hash = bcrypt.hashpw(otp.encode(), bcrypt.gensalt())
+        if request.form.get('register_as_admin'):
+            recipient = os.getenv('PRIMARY_ADMIN_EMAIL')
+            is_admin = True
+        else:
+            recipient = email
+            is_admin = False
+
         temp_unverified_user = user_handler.create_temp_unverified_user(email=email, password=password, username=username,
-                                                                        otp_hash=otp_hash.decode(),
-                                                                        mongo=mongo)
+                                                                        otp_hash=otp_hash.decode(), mongo=mongo, is_admin=is_admin)
         session['temp_unverified_email'] = temp_unverified_user.email
-        status: tuple[bool, str] = email_sender.send_otp_mail(mail=mail, otp=otp, recipient=temp_unverified_user.email,
+
+        status: tuple[bool, str] = email_sender.send_otp_mail(mail=mail, otp=otp, recipient=recipient,
                                                               sender=app.config.get('MAIL_DEFAULT_SENDER'))
         if not status[0]:
             ic(status[1])
             return render_template('register.html', email=email, password=password,
                                    confirm_password=confirm_password, username=username)
-        flash('User Registered!','success')
+        flash('User Registered!', 'success')
         return redirect(url_for('verify_otp'))
 
     return render_template('register.html')
@@ -85,13 +93,13 @@ def login():
 
         existing_user = mongo.db.users.find_one({'email': email})
         if not existing_user:
-            flash('Email not found','error')
+            flash('Email not found', 'error')
             return render_template('login.html', email_error='Email Not Found!', email=email, password=password)
 
         user: User = User(**existing_user)
 
         if not bcrypt.checkpw(password.encode(), user.password_hash.encode()):
-            flash('Incorrect Password!','error')
+            flash('Incorrect Password!', 'error')
             return render_template('login.html', password_error='Incorrect Password!', email=email, password=password)
 
         ic(f'User {email} logged in.')
@@ -100,7 +108,7 @@ def login():
             login_user(user, remember=True)
         else:
             login_user(user)
-        flash('Login Successful!','success')
+        flash('Login Successful!', 'success')
         return redirect(url_for('index'))
 
     return render_template('login.html')
@@ -111,10 +119,10 @@ def login():
 def logout():
     if current_user.is_authenticated:
         ic(f'User {current_user.email} logging out.')
-        flash('Logout Successful!','success')
+        flash('Logout Successful!', 'success')
         logout_user()
 
-        ic(f'logout successful.','success')
+        ic(f'logout successful.', 'success')
 
         return redirect(url_for('index'))
     return 'Not logged in.'
@@ -135,11 +143,14 @@ def reset_password():
 def verify_otp():
     if not session.get('temp_unverified_email'):
         return "Not Allowed"
+
+    email = session['temp_unverified_email']
+    temp_unverified_user_data = mongo.db.temp_unverified_users.find_one({'email': email})
+    temp_unverified_user = TempUnverifiedUser(**temp_unverified_user_data)
+
     if request.method == 'POST':
-        email = session['temp_unverified_email']
         entered_otp = request.form['otp']
-        temp_unverified_user_data = mongo.db.temp_unverified_users.find_one({'email': email})
-        temp_unverified_user = TempUnverifiedUser(**temp_unverified_user_data)
+
         if not bcrypt.checkpw(entered_otp.encode(), temp_unverified_user.otp_hash.encode()):
             return render_template('verify_otp.html', otp_error='Incorrect OTP!', email=email)
 
@@ -147,12 +158,19 @@ def verify_otp():
             email=temp_unverified_user.email,
             password_hash=temp_unverified_user.password_hash,
             username=temp_unverified_user.username,
-            mongo=mongo
+            mongo=mongo,
+            is_admin=temp_unverified_user.is_admin
         )
         session.pop('temp_unverified_email')
         mongo.db.temp_unverified_users.delete_one({'email': temp_unverified_user.email})
         return redirect(url_for('login'))
-    return render_template('verify_otp.html', email=session['temp_unverified_email'])
+
+    if temp_unverified_user.is_admin:
+        otp_reciever = os.getenv('PRIMARY_ADMIN_EMAIL')
+    else:
+        otp_reciever = temp_unverified_user.email
+
+    return render_template('verify_otp.html', email=otp_reciever)
 
 
 @app.route('/fillsurvey', methods=['GET', 'POST'])
