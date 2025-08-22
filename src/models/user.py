@@ -36,3 +36,4 @@ class TempUnverifiedUser(BaseModel):
     password_hash: str
     username: str
     otp_hash: str
+    is_admin: bool = False
