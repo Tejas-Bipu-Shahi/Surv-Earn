@@ -14,12 +14,12 @@
     <link rel="stylesheet" href="{{ url_for('admin.static', filename='assets/vendors/quill/quill.bubble.css') }}">
     <link rel="stylesheet" href="{{ url_for('admin.static', filename='assets/vendors/quill/quill.snow.css') }}">
     <link rel="stylesheet"
-        href="{{ url_for('admin.static', filename='assets/vendors/perfect-scrollbar/perfect-scrollbar.css') }}">
+          href="{{ url_for('admin.static', filename='assets/vendors/perfect-scrollbar/perfect-scrollbar.css') }}">
     <link rel="stylesheet"
-        href="{{ url_for('admin.static', filename='assets/vendors/bootstrap-icons/bootstrap-icons.css') }}">
+          href="{{ url_for('admin.static', filename='assets/vendors/bootstrap-icons/bootstrap-icons.css') }}">
     <link rel="stylesheet" href="{{ url_for('admin.static', filename='assets/css/app.css') }}">
     <link rel="shortcut icon" href="{{ url_for('admin.static', filename='assets/images/favicon.svg') }}"
-        type="image/x-icon">
+          type="image/x-icon">
 
 </head>
 <style>
@@ -33,440 +33,440 @@
 </style>
 
 <body>
-    <div id="app">
-        <div id="sidebar" class="active">
-            <div class="sidebar-wrapper active">
-                <div class="sidebar-header">
-                    <div class="d-flex align-items-center justify-content-between">
-                        <div class="logo me-2">
-                            <a href="{{ url_for('index') }}"><img
-                                    src="{{ url_for('admin.static', filename='assets/images/logo/logo.png') }}"
-                                    alt="Logo" srcset=""></a>
-                        </div>
-                        <div class="d-flex align-items-center">
-                            <div class="dropdown me-2">
-                                <a href="#" id="notifDropdown" data-bs-toggle="dropdown" aria-expanded="false"
-                                    class="position-relative">
-                                    <i class="bi bi-bell fs-4"></i>
-                                    <span
+<div id="app">
+    <div id="sidebar" class="active">
+        <div class="sidebar-wrapper active">
+            <div class="sidebar-header">
+                <div class="d-flex align-items-center justify-content-between">
+                    <div class="logo me-2">
+                        <a href="{{ url_for('index') }}"><img
+                                src="{{ url_for('admin.static', filename='assets/images/logo/logo.png') }}"
+                                alt="Logo" srcset=""></a>
+                    </div>
+                    <div class="d-flex align-items-center">
+                        <div class="dropdown me-2">
+                            <a href="#" id="notifDropdown" data-bs-toggle="dropdown" aria-expanded="false"
+                               class="position-relative">
+                                <i class="bi bi-bell fs-4"></i>
+                                <span
                                         class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
                                         style="font-size:0.7rem;">2</span>
-                                </a>
-                                <div class="dropdown-menu dropdown-menu-end shadow p-0 mt-2"
-                                    aria-labelledby="notifDropdown" style="min-width: 250px;">
-                                    <div
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-end shadow p-0 mt-2"
+                                 aria-labelledby="notifDropdown" style="min-width: 250px;">
+                                <div
                                         class="px-3 py-2 border-bottom d-flex justify-content-center align-items-center">
-                                        <a href="#" class="small text-primary">Mark all as read</a>
-                                    </div>
-                                    <div class="list-group list-group-flush">
-                                        <a href="#"
-                                            class="list-group-item list-group-item-action d-flex align-items-start">
+                                    <a href="#" class="small text-primary">Mark all as read</a>
+                                </div>
+                                <div class="list-group list-group-flush">
+                                    <a href="#"
+                                       class="list-group-item list-group-item-action d-flex align-items-start">
 
-                                            <div>
-                                                <div class="d-flex align-items-center justify-content-center">
-                                                    <i class="bi bi-cash fs-4 me-4 mb-3"></i>
+                                        <div>
+                                            <div class="d-flex align-items-center justify-content-center">
+                                                <i class="bi bi-cash fs-4 me-4 mb-3"></i>
 
-                                                    <span class="fw-bold">Cash Redeem</span>
-                                                </div>
-
-                                                <div class="small text-muted mt-1">$4.49 was redeemed</div>
+                                                <span class="fw-bold">Cash Redeem</span>
                                             </div>
-                                        </a>
-                                        <a href="#"
-                                            class="list-group-item list-group-item-action d-flex align-items-start">
 
-                                            <div>
-                                                <div class="d-flex align-items-center justify-content-center">
-                                                    <i class="bi bi-cash fs-4 me-4 mb-3"></i>
+                                            <div class="small text-muted mt-1">$4.49 was redeemed</div>
+                                        </div>
+                                    </a>
+                                    <a href="#"
+                                       class="list-group-item list-group-item-action d-flex align-items-start">
 
-                                                    <span class="fw-bold">Cash Redeem</span>
-                                                </div>
+                                        <div>
+                                            <div class="d-flex align-items-center justify-content-center">
+                                                <i class="bi bi-cash fs-4 me-4 mb-3"></i>
 
-                                                <div class="small text-muted mt-1">$10.49 was redeemed</div>
+                                                <span class="fw-bold">Cash Redeem</span>
                                             </div>
-                                        </a>
-                                    </div>
-                                    <div class="text-center py-2 border-top">
-                                        <a href="#" class="small text-primary">View All</a>
-                                    </div>
+
+                                            <div class="small text-muted mt-1">$10.49 was redeemed</div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="text-center py-2 border-top">
+                                    <a href="#" class="small text-primary">View All</a>
                                 </div>
                             </div>
-                            <div class="toggler">
-                                <a href="#" class="sidebar-hide d-xl-none d-block"><i class="bi bi-x bi-middle"></i></a>
-                            </div>
+                        </div>
+                        <div class="toggler">
+                            <a href="#" class="sidebar-hide d-xl-none d-block"><i class="bi bi-x bi-middle"></i></a>
                         </div>
                     </div>
                 </div>
-                <div class="sidebar-menu">
-                    <ul class="menu">
-                        <li class="sidebar-title">Menu</li>
-                        <li class="sidebar-item">
-                            <a href="{{ url_for('index') }}" class="sidebar-link">
-                                <i class="bi bi-grid-fill"></i>
-                                <span>Dashboard</span>
-                            </a>
-                        </li>
-                        <li class="sidebar-title">Actions</li>
-                        <li class="sidebar-item has-sub active">
-                            <a href="#" class="sidebar-link">
-                                <i class="bi bi-ui-checks-grid"></i>
-                                <span>Survey</span>
-                            </a>
-                            <ul class="submenu active">
-                                <li class="submenu-item active">
-                                    <a href="{{ url_for('admin.addsurvey') }}">Add Survey</a>
-                                </li>
-                                <li class="submenu-item">
-                                    <a href="{{ url_for('admin.yoursurveys') }}">Your Surveys</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="sidebar-item has-sub">
-                            <a href="#" class="sidebar-link">
-                                <i class="bi bi-person-circle"></i>
-                                <span>Profile</span>
-                            </a>
-                            <ul class="submenu">
-                                <li class="submenu-item">
-                                    <a href="{{ url_for('admin.accountsettings') }}">Account Settings</a>
-                                </li>
-                                <li class="submenu-item">
-                                    <a href="{{ url_for('admin.changepassword') }}">Change Password</a>
-                                </li>
-                                <li class="submenu-item">
-                                    <a href="{{ url_for('admin.notifications') }}">Notifications</a>
-                                </li>
-
-                            </ul>
-                        </li>
-                        <li class="sidebar-item">
-                            <a href="{{ url_for('logout') }} class=" sidebar-link">
-                                <i class="bi bi-grid-fill"></i>
-                                <span>Logout</span>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-                <button class="sidebar-toggler btn x"><i data-feather="x"></i></button>
             </div>
+            <div class="sidebar-menu">
+                <ul class="menu">
+                    <li class="sidebar-title">Menu</li>
+                    <li class="sidebar-item">
+                        <a href="{{ url_for('index') }}" class="sidebar-link">
+                            <i class="bi bi-grid-fill"></i>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-title">Actions</li>
+                    <li class="sidebar-item has-sub active">
+                        <a href="#" class="sidebar-link">
+                            <i class="bi bi-ui-checks-grid"></i>
+                            <span>Survey</span>
+                        </a>
+                        <ul class="submenu active">
+                            <li class="submenu-item active">
+                                <a href="{{ url_for('admin.addsurvey') }}">Add Survey</a>
+                            </li>
+                            <li class="submenu-item">
+                                <a href="{{ url_for('admin.yoursurveys') }}">Your Surveys</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="sidebar-item has-sub">
+                        <a href="#" class="sidebar-link">
+                            <i class="bi bi-person-circle"></i>
+                            <span>Profile</span>
+                        </a>
+                        <ul class="submenu">
+                            <li class="submenu-item">
+                                <a href="{{ url_for('admin.accountsettings') }}">Account Settings</a>
+                            </li>
+                            <li class="submenu-item">
+                                <a href="{{ url_for('admin.changepassword') }}">Change Password</a>
+                            </li>
+                            <li class="submenu-item">
+                                <a href="{{ url_for('admin.notifications') }}">Notifications</a>
+                            </li>
+
+                        </ul>
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="{{ url_for('logout') }} class=" sidebar-link">
+                        <i class="bi bi-grid-fill"></i>
+                        <span>Logout</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <button class="sidebar-toggler btn x"><i data-feather="x"></i></button>
         </div>
-        <div id="main">
-            <header class="mb-3">
-                <a href="#" class="burger-btn d-block d-xl-none">
-                    <i class="bi bi-justify fs-3"></i>
-                </a>
-            </header>
-            <div class="page-heading">
-                <h3>Add Surveys</h3>
-                <p class="text-subtitle text-muted">Create surveys that will be shown to users. Provide clear
-                    instructions, reward amount and the external form link.</p>
-            </div>
-            <section class="section">
+    </div>
+    <div id="main">
+        <header class="mb-3">
+            <a href="#" class="burger-btn d-block d-xl-none">
+                <i class="bi bi-justify fs-3"></i>
+            </a>
+        </header>
+        <div class="page-heading">
+            <h3>Add Surveys</h3>
+            <p class="text-subtitle text-muted">Create surveys that will be shown to users. Provide clear
+                instructions, reward amount and the external form link.</p>
+        </div>
+        <section class="section">
 
-                <!-- // Basic multiple Column Form section start -->
-                <section id="multiple-column-form">
-                    <div class="row match-height">
-                        <div class="col-12">
-                            <div class="card">
-                                <div class="card-header">
-                                    <h4 class="card-title">Create Survey</h4>
-                                    <p class="text-muted mb-0">Fill the fields below to publish a new survey. Fields
-                                        marked required must be completed.</p>
-                                </div>
-                                <div class="card-content">
-                                    <div class="card-body">
-                                        <form class="form">
-                                            <div class="row">
-                                                <!-- Title + Short description (same row) -->
-                                                <div class="col-md-6 col-12 mb-3">
-                                                    <label class="badge bg-light text-dark mb-1">Title</label>
-                                                    <div class="input-group">
+            <!-- // Basic multiple Column Form section start -->
+            <section id="multiple-column-form">
+                <div class="row match-height">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Create Survey</h4>
+                                <p class="text-muted mb-0">Fill the fields below to publish a new survey. Fields
+                                    marked required must be completed.</p>
+                            </div>
+                            <div class="card-content">
+                                <div class="card-body">
+                                    <form class="form">
+                                        <div class="row">
+                                            <!-- Title + Short description (same row) -->
+                                            <div class="col-md-6 col-12 mb-3">
+                                                <label class="badge bg-light text-dark mb-1">Title</label>
+                                                <div class="input-group">
                                                         <span class="input-group-text"><i
                                                                 class="bi bi-journal-text"></i></span>
-                                                        <input type="text" id="survey-title" class="form-control"
-                                                            placeholder="Customer Satisfaction Survey" required>
-                                                    </div>
+                                                    <input type="text" id="survey-title" class="form-control"
+                                                           placeholder="Customer Satisfaction Survey" required>
                                                 </div>
-                                                <div class="col-md-6 col-12 mb-3">
-                                                    <label class="badge bg-light text-dark mb-1">Short
-                                                        description</label>
-                                                    <div class="input-group">
+                                            </div>
+                                            <div class="col-md-6 col-12 mb-3">
+                                                <label class="badge bg-light text-dark mb-1">Short
+                                                    description</label>
+                                                <div class="input-group">
                                                         <span class="input-group-text"><i
                                                                 class="bi bi-card-text"></i></span>
-                                                        <input type="text" id="survey-short" class="form-control"
-                                                            placeholder="One-line summary (max 80 chars)">
-                                                    </div>
-                                                </div>
-
-                                                <!-- Long detailed description (Quill editor) -->
-                                                <div class="col-12 mb-3">
-                                                    <label class="badge bg-light text-dark mb-1">Detailed
-                                                        description</label>
-                                                    <div class="card">
-                                                        <div class="card-body p-0">
-                                                            <div id="snow" style="min-height:160px;">
-                                                                <p>Describe the survey in detail. Explain eligibility
-                                                                    and any special instructions.</p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                                <!-- Reward and Expiry -->
-                                                <div class="col-md-6 col-12 mb-3">
-                                                    <label class="badge bg-light text-dark mb-1">Reward per user</label>
-                                                    <div class="input-group">
-                                                        <span class="input-group-text">$</span>
-                                                        <input type="number" step="0.01" min="0" id="reward"
-                                                            class="form-control" placeholder="2.00" required>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-6 col-12 mb-3">
-                                                    <label class="badge bg-light text-dark mb-1">Expiry date</label>
-                                                    <div class="input-group">
-                                                        <span class="input-group-text"><i
-                                                                class="bi bi-calendar-event"></i></span>
-                                                        <input type="date" id="expiry-date" class="form-control"
-                                                            required>
-                                                    </div>
-                                                </div>
-
-
-                                                <!-- Estimated time + Google form link combined in same column -->
-                                                <div class="col-md-6 col-12 mb-3">
-                                                    <label class="badge bg-light text-dark mb-1">Est.
-                                                        time</label>
-                                                    <div class="input-group">
-                                                        <span class="input-group-text"><i
-                                                                class="bi bi-clock"></i></span>
-                                                        <input type="number" id="est-time" class="form-control"
-                                                            placeholder="5" min="1">
-                                                    </div>
-
-                                                </div>
-                                                <div class="col-md-6 col-12 mb-3">
-                                                    <label class="badge bg-light text-dark mb-1">Google form
-                                                        link</label>
-                                                    <div class="input-group">
-                                                        <span class="input-group-text"><i
-                                                                class="bi bi-link-45deg"></i></span>
-                                                        <input type="url" id="google-form" class="form-control"
-                                                            placeholder="https://forms.gle/your-form-link">
-                                                    </div>
-                                                </div>
-                                                <!-- Number of Questions + Category (same row) -->
-                                                <div class="col-md-6 col-12 mb-3">
-                                                    <label class="badge bg-light-secondary text-dark mb-2">Number of
-                                                        questions</label>
-                                                    <div class="input-group">
-                                                        <span class="input-group-text"><i
-                                                                class="bi bi-list-ol"></i></span>
-                                                        <input type="number" id="num-questions" class="form-control"
-                                                            placeholder="10" min="1">
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-6 col-12 mb-3">
-                                                    <label
-                                                        class="badge bg-light-secondary text-dark mb-2">Category</label>
-                                                    <select id="category" class="form-select">
-                                                        <option value="Product Feedback">Product Feedback</option>
-                                                        <option value="Customer Satisfaction">Customer Satisfaction
-                                                        </option>
-                                                        <option value="Market Research">Market Research</option>
-                                                        <option value="User Experience">User Experience</option>
-                                                        <option value="Brand Awareness">Brand Awareness</option>
-                                                    </select>
-                                                </div>
-
-                                                <div class="row">
-                                                    <div class="card-header">
-                                                        <h4 class="card-title">Payment Information</h4>
-                                                        <p class="text-muted mb-0">Use the following QR code to pay for
-                                                            the survey.</p>
-                                                    </div>
-                                                    <!-- Payment partners (toggle buttons) -->
-                                                    <div class="col-12 mb-3">
-                                                        <div class="d-flex flex-wrap gap-2">
-                                                            <input type="radio" class="btn-check" name="partner"
-                                                                id="partnerEsewa" autocomplete="off" checked>
-                                                            <label class="btn btn-outline-success px-3"
-                                                                for="partnerEsewa">esewa</label>
-
-                                                            <input type="radio" class="btn-check" name="partner"
-                                                                id="partnerKhalti" autocomplete="off">
-                                                            <label class="btn btn-outline-secondary px-3 khalti-btn"
-                                                                for="partnerKhalti"
-                                                                style="border-color:#6f42c1; color:#6f42c1;">
-                                                                khalti
-                                                            </label>
-
-
-                                                            <input type="radio" class="btn-check" name="partner"
-                                                                id="partnerPaypal" autocomplete="off">
-                                                            <label class="btn btn-outline-primary px-3"
-                                                                for="partnerPaypal">PayPal</label>
-
-                                                            <input type="radio" class="btn-check" name="partner"
-                                                                id="partnerFonepay" autocomplete="off">
-                                                            <label class="btn btn-outline-danger px-3"
-                                                                for="partnerFonepay">Fonepay</label>
-                                                        </div>
-                                                    </div>
-
-                                                    <!-- Amount input and actions: left content and right notes column -->
-                                                    <div class="col-12">
-                                                        <div class="row">
-                                                            <div class="col-md-8">
-                                                                <div class="row align-items-center">
-                                                                    <div class="col-md-7 mb-2">
-
-                                                                        <div class="d-flex align-items-center justify-content-center bg-white border rounded mb-2"
-                                                                            style="height:250px;">
-                                                                            <img src="c:\Users\Waitik Joshi\Downloads\triyatra.png"
-                                                                                alt="Triyatra QR"
-                                                                                style="max-height:220px; width:auto;" />
-                                                                        </div>
-                                                                        <img src="{{ url_for('admin.static', filename='admin/dist/assets/images/qr/triyatra.png') }}"
-                                                                            alt="">
-                                                                    </div>
-
-
-                                                                </div>
-                                                            </div>
-                                                            <!-- additional notes  -->
-                                                            <div class="col-md-4 mt-3 mt-md-0">
-                                                                <div class="card border-0 bg-light h-100 rounded-3">
-                                                                    <div class="card-body py-3 px-4">
-                                                                        <h6 class="card-title text-dark mb-2">
-                                                                            <i
-                                                                                class="bi bi-info-circle-fill me-2"></i>Payment
-                                                                            Notes
-                                                                        </h6>
-                                                                        <ul class="list-unstyled small text-dark mb-0">
-                                                                            <li class="mb-2">
-                                                                                <i
-                                                                                    class="bi bi-currency-dollar me-2 text-primary"></i>
-                                                                                You will be charged the total reward
-                                                                                amount for this survey when it is
-                                                                                published. Ensure your account has
-                                                                                sufficient funds.
-                                                                            </li>
-                                                                            <li class="mb-2">
-                                                                                <i
-                                                                                    class="bi bi-clock me-2 text-muted"></i>
-                                                                                Surveys typically become visible to
-                                                                                users within <strong>~5 minutes</strong>
-                                                                                of publishing.
-                                                                            </li>
-                                                                            <li class="mb-2">
-                                                                                <i
-                                                                                    class="bi bi-shield-lock me-2 text-muted"></i>
-                                                                                Verify each partner QR links to the
-                                                                                correct receiving account. We recommend
-                                                                                a small test transfer.
-                                                                            </li>
-                                                                            <li class="mb-2">
-                                                                                <i
-                                                                                    class="bi bi-clock-history me-2 text-success"></i>
-                                                                                Payouts initiated via partners typically
-                                                                                process in <strong>1–3 business
-                                                                                    days</strong>.
-                                                                            </li>
-                                                                            <li>
-                                                                                <i
-                                                                                    class="bi bi-envelope me-2 text-muted"></i>
-                                                                                For payments or publishing help contact
-                                                                                <a
-                                                                                    href="mailto:support@example.com">support@example.com</a>.
-                                                                            </li>
-                                                                        </ul>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
+                                                    <input type="text" id="survey-short" class="form-control"
+                                                           placeholder="One-line summary (max 80 chars)">
                                                 </div>
                                             </div>
 
-                                    </div>
+                                            <!-- Long detailed description (Quill editor) -->
+                                            <div class="col-12 mb-3">
+                                                <label class="badge bg-light text-dark mb-1">Detailed
+                                                    description</label>
+                                                <div class="card">
+                                                    <div class="card-body p-0">
+                                                        <div id="snow" style="min-height:160px;">
+                                                            <p>Describe the survey in detail. Explain eligibility
+                                                                and any special instructions.</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!-- Reward and Expiry -->
+                                            <div class="col-md-6 col-12 mb-3">
+                                                <label class="badge bg-light text-dark mb-1">Reward per user</label>
+                                                <div class="input-group">
+                                                    <span class="input-group-text">$</span>
+                                                    <input type="number" step="0.01" min="0" id="reward"
+                                                           class="form-control" placeholder="2.00" required>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 col-12 mb-3">
+                                                <label class="badge bg-light text-dark mb-1">Expiry date</label>
+                                                <div class="input-group">
+                                                        <span class="input-group-text"><i
+                                                                class="bi bi-calendar-event"></i></span>
+                                                    <input type="date" id="expiry-date" class="form-control"
+                                                           required>
+                                                </div>
+                                            </div>
+
+
+                                            <!-- Estimated time + Google form link combined in same column -->
+                                            <div class="col-md-6 col-12 mb-3">
+                                                <label class="badge bg-light text-dark mb-1">Est.
+                                                    time</label>
+                                                <div class="input-group">
+                                                        <span class="input-group-text"><i
+                                                                class="bi bi-clock"></i></span>
+                                                    <input type="number" id="est-time" class="form-control"
+                                                           placeholder="5" min="1">
+                                                </div>
+
+                                            </div>
+                                            <div class="col-md-6 col-12 mb-3">
+                                                <label class="badge bg-light text-dark mb-1">Google form
+                                                    link</label>
+                                                <div class="input-group">
+                                                        <span class="input-group-text"><i
+                                                                class="bi bi-link-45deg"></i></span>
+                                                    <input type="url" id="google-form" class="form-control"
+                                                           placeholder="https://forms.gle/your-form-link">
+                                                </div>
+                                            </div>
+                                            <!-- Number of Questions + Category (same row) -->
+                                            <div class="col-md-6 col-12 mb-3">
+                                                <label class="badge bg-light-secondary text-dark mb-2">Number of
+                                                    questions</label>
+                                                <div class="input-group">
+                                                        <span class="input-group-text"><i
+                                                                class="bi bi-list-ol"></i></span>
+                                                    <input type="number" id="num-questions" class="form-control"
+                                                           placeholder="10" min="1">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 col-12 mb-3">
+                                                <label
+                                                        class="badge bg-light-secondary text-dark mb-2">Category</label>
+                                                <select id="category" class="form-select">
+                                                    <option value="Product Feedback">Product Feedback</option>
+                                                    <option value="Customer Satisfaction">Customer Satisfaction
+                                                    </option>
+                                                    <option value="Market Research">Market Research</option>
+                                                    <option value="User Experience">User Experience</option>
+                                                    <option value="Brand Awareness">Brand Awareness</option>
+                                                </select>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="card-header">
+                                                    <h4 class="card-title">Payment Information</h4>
+                                                    <p class="text-muted mb-0">Use the following QR code to pay for
+                                                        the survey.</p>
+                                                </div>
+                                                <!-- Payment partners (toggle buttons) -->
+                                                <div class="col-12 mb-3">
+                                                    <div class="d-flex flex-wrap gap-2">
+                                                        <input type="radio" class="btn-check" name="partner"
+                                                               id="partnerEsewa" autocomplete="off" checked>
+                                                        <label class="btn btn-outline-success px-3"
+                                                               for="partnerEsewa">esewa</label>
+
+                                                        <input type="radio" class="btn-check" name="partner"
+                                                               id="partnerKhalti" autocomplete="off">
+                                                        <label class="btn btn-outline-secondary px-3 khalti-btn"
+                                                               for="partnerKhalti"
+                                                               style="border-color:#6f42c1; color:#6f42c1;">
+                                                            khalti
+                                                        </label>
+
+
+                                                        <input type="radio" class="btn-check" name="partner"
+                                                               id="partnerPaypal" autocomplete="off">
+                                                        <label class="btn btn-outline-primary px-3"
+                                                               for="partnerPaypal">PayPal</label>
+
+                                                        <input type="radio" class="btn-check" name="partner"
+                                                               id="partnerFonepay" autocomplete="off">
+                                                        <label class="btn btn-outline-danger px-3"
+                                                               for="partnerFonepay">Fonepay</label>
+                                                    </div>
+                                                </div>
+
+                                                <!-- Amount input and actions: left content and right notes column -->
+                                                <div class="col-12">
+                                                    <div class="row">
+                                                        <div class="col-md-8">
+                                                            <div class="row align-items-center">
+                                                                <div class="col-md-7 mb-2">
+
+                                                                    <div class="d-flex align-items-center justify-content-center bg-white border rounded mb-2"
+                                                                         style="height:250px;">
+                                                                        <img src="c:\Users\Waitik Joshi\Downloads\triyatra.png"
+                                                                             alt="Triyatra QR"
+                                                                             style="max-height:220px; width:auto;"/>
+                                                                    </div>
+                                                                    <img src="{{ url_for('admin.static', filename='admin/dist/assets/images/qr/triyatra.png') }}"
+                                                                         alt="">
+                                                                </div>
+
+
+                                                            </div>
+                                                        </div>
+                                                        <!-- additional notes  -->
+                                                        <div class="col-md-4 mt-3 mt-md-0">
+                                                            <div class="card border-0 bg-light h-100 rounded-3">
+                                                                <div class="card-body py-3 px-4">
+                                                                    <h6 class="card-title text-dark mb-2">
+                                                                        <i
+                                                                                class="bi bi-info-circle-fill me-2"></i>Payment
+                                                                        Notes
+                                                                    </h6>
+                                                                    <ul class="list-unstyled small text-dark mb-0">
+                                                                        <li class="mb-2">
+                                                                            <i
+                                                                                    class="bi bi-currency-dollar me-2 text-primary"></i>
+                                                                            You will be charged the total reward
+                                                                            amount for this survey when it is
+                                                                            published. Ensure your account has
+                                                                            sufficient funds.
+                                                                        </li>
+                                                                        <li class="mb-2">
+                                                                            <i
+                                                                                    class="bi bi-clock me-2 text-muted"></i>
+                                                                            Surveys typically become visible to
+                                                                            users within <strong>~5 minutes</strong>
+                                                                            of publishing.
+                                                                        </li>
+                                                                        <li class="mb-2">
+                                                                            <i
+                                                                                    class="bi bi-shield-lock me-2 text-muted"></i>
+                                                                            Verify each partner QR links to the
+                                                                            correct receiving account. We recommend
+                                                                            a small test transfer.
+                                                                        </li>
+                                                                        <li class="mb-2">
+                                                                            <i
+                                                                                    class="bi bi-clock-history me-2 text-success"></i>
+                                                                            Payouts initiated via partners typically
+                                                                            process in <strong>1–3 business
+                                                                            days</strong>.
+                                                                        </li>
+                                                                        <li>
+                                                                            <i
+                                                                                    class="bi bi-envelope me-2 text-muted"></i>
+                                                                            For payments or publishing help contact
+                                                                            <a
+                                                                                    href="mailto:support@example.com">support@example.com</a>.
+                                                                        </li>
+                                                                    </ul>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-12 d-flex justify-content-end">
-                        <button type="submit" class="btn btn-primary me-2">Create
-                            Survey</button>
-                        <button type="reset" class="btn btn-light-secondary">Reset</button>
-                    </div>
-        </div>
-        <!-- hidden input to store quill html -->
-        <input type="hidden" id="description-html" name="description-html">
-        </form>
+                </div>
+                <div class="col-12 d-flex justify-content-end">
+                    <button type="submit" class="btn btn-primary me-2">Create
+                        Survey
+                    </button>
+                    <button type="reset" class="btn btn-light-secondary">Reset</button>
+                </div>
     </div>
-    </div>
-    </div>
-    </div>
-    </div>
-    </section>
-    <!-- // Basic multiple Column Form section end -->
-    </section>
+    <!-- hidden input to store quill html -->
+    <input type="hidden" id="description-html" name="description-html">
+    </form>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- // Basic multiple Column Form section end -->
+</section>
 
-    <footer>
-        <div class="footer clearfix mb-0 text-muted">
-            <div class="float-start">
-                <p>2025 &copy; Triyatra </p>
-            </div>
-            <div class="float-end">
-                <p>Crafted with <span class="text-danger"><i class="bi bi-heart-fill"></i></span> by <a
-                        href="https://github.com/Tejas-Bipu-Shahi/Surv-Earn">Triyatra</a></p>
-            </div>
+<footer>
+    <div class="footer clearfix mb-0 text-muted">
+        <div class="float-start">
+            <p>2025 &copy; Triyatra </p>
         </div>
-    </footer>
+        <div class="float-end">
+            <p>Crafted with <span class="text-danger"><i class="bi bi-heart-fill"></i></span> by <a
+                    href="https://github.com/Tejas-Bipu-Shahi/Surv-Earn">Triyatra</a></p>
+        </div>
     </div>
-    </div>
-    <script
+</footer>
+</div>
+</div>
+<script
         src="{{ url_for('admin.static', filename='assets/vendors/perfect-scrollbar/perfect-scrollbar.min.js') }}"></script>
-    <script src="{{ url_for('admin.static', filename='assets/js/bootstrap.bundle.min.js') }}"></script>
-    <script
+<script src="{{ url_for('admin.static', filename='assets/js/bootstrap.bundle.min.js') }}"></script>
+<script
         src="{{ url_for('admin.static', filename='assets/vendors/simple-datatables/simple-datatables.js') }}"></script>
-    <script src="{{ url_for('admin.static', filename='assets/vendors/apexcharts/apexcharts.js') }}"></script>
-    <script src="{{ url_for('admin.static', filename='assets/js/pages/dashboard.js') }}"></script>
+<script src="{{ url_for('admin.static', filename='assets/vendors/apexcharts/apexcharts.js') }}"></script>
+<script src="{{ url_for('admin.static', filename='assets/js/pages/dashboard.js') }}"></script>
 
-    <script src="{{ url_for('admin.static', filename='assets/vendors/quill/quill.min.js') }}"></script>
-    <script src="{{ url_for('admin.static', filename='assets/js/pages/form-editor.js') }}"></script>
+<script src="{{ url_for('admin.static', filename='assets/vendors/quill/quill.min.js') }}"></script>
+<script src="{{ url_for('admin.static', filename='assets/js/pages/form-editor.js') }}"></script>
 
 
+<script>
+    // Simple Datatable
+    let table1 = document.querySelector('#table1');
+    let dataTable = new simpleDatatables.DataTable(table1);
+</script>
+<script>
+    // Initialize Quill (the project already includes quill.min.js and form-editor.js)
+    document.addEventListener('DOMContentLoaded', function () {
+        try {
+            var quill = new Quill('#snow', {
+                theme: 'snow',
+                placeholder: 'Enter detailed survey description here...',
+                modules: { toolbar: [['bold', 'italic', 'underline'], [{ 'list': 'ordered' }, { 'list': 'bullet' }], ['link']] }
+            });
 
-    <script>
-        // Simple Datatable
-        let table1 = document.querySelector('#table1');
-        let dataTable = new simpleDatatables.DataTable(table1);
-    </script>
-    <script>
-        // Initialize Quill (the project already includes quill.min.js and form-editor.js)
-        document.addEventListener('DOMContentLoaded', function () {
-            try {
-                var quill = new Quill('#snow', {
-                    theme: 'snow',
-                    placeholder: 'Enter detailed survey description here...',
-                    modules: { toolbar: [['bold', 'italic', 'underline'], [{ 'list': 'ordered' }, { 'list': 'bullet' }], ['link']] }
+            var form = document.querySelector('.form');
+            if (form) {
+                form.addEventListener('submit', function (e) {
+                    var html = quill.root.innerHTML;
+                    document.getElementById('description-html').value = html;
+                    // allow normal submit (or AJAX) afterwards
                 });
-
-                var form = document.querySelector('.form');
-                if (form) {
-                    form.addEventListener('submit', function (e) {
-                        var html = quill.root.innerHTML;
-                        document.getElementById('description-html').value = html;
-                        // allow normal submit (or AJAX) afterwards
-                    });
-                }
-            } catch (err) {
-                console.warn('Quill init failed', err);
             }
-        });
-    </script>
-    <script src="{{ url_for('admin.static', filename='assets/js/main.js') }}"></script>
+        } catch (err) {
+            console.warn('Quill init failed', err);
+        }
+    });
+</script>
+<script src="{{ url_for('admin.static', filename='assets/js/main.js') }}"></script>
 </body>
 
 </html>
