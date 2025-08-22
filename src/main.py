@@ -17,6 +17,8 @@ from icecream import ic
 @app.route('/')
 def index():
     if current_user.is_authenticated:
+        if current_user.is_admin:
+            return render_template('admin/dist/index.html')
         return render_template('user/dist/index.html')
     return render_template('index.html')
 
@@ -216,4 +218,7 @@ def transaction():
 
 
 if __name__ == '__main__':
+    from views.admin import admin_bp
+
+    app.register_blueprint(admin_bp)
     app.run(debug=True, port=5000)
