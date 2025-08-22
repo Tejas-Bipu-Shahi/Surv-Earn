@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notifications - Mazer Admin Dashboard</title>
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/bootstrap.css">
+
+    <link rel="stylesheet" href="assets/vendors/iconly/bold.css">
+
+    <link rel="stylesheet" href="assets/vendors/perfect-scrollbar/perfect-scrollbar.css">
+    <link rel="stylesheet" href="assets/vendors/bootstrap-icons/bootstrap-icons.css">
+    <link rel="stylesheet" href="assets/css/app.css">
+    <link rel="shortcut icon" href="assets/images/favicon.svg" type="image/x-icon">
+</head>
+
+<body>
+    <div id="app">
+        <div id="sidebar" class="active">
+            <div class="sidebar-wrapper active">
+                <div class="sidebar-header position-relative">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="logo">
+                            <a href="index.html"><img src="assets/images/logo/logo.png" alt="Logo" srcset=""></a>
+                        </div>
+                        <div class="theme-toggle d-flex gap-2 align-items-center mt-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true"
+                                role="img" class="iconify iconify--system-uicons" width="20" height="20"
+                                preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21">
+                                <g fill="none" fill-rule="evenodd" stroke="currentColor" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path
+                                        d="M10.5 14.5c2.219 0 4-1.763 4-3.982a4.003 4.003 0 0 0-4-4.018c-2.219 0-4 1.781-4 4c0 2.219 1.781 4 4 4zM4.136 4.136L5.55 5.55m9.9 9.9l1.414 1.414M1.5 10.5h2m14 0h2M4.135 16.863L5.55 15.45m9.899-9.9l1.414-1.415M10.5 19.5v-2m0-14v-2"
+                                        opacity=".3"></path>
+                                    <g transform="translate(-210 -1)">
+                                        <path d="m220.5 2.5v2m6.5.5l-1.5 1.5"></path>
+                                        <circle cx="220.5" cy="11.5" r="4"></circle>
+                                        <path d="m220.5 20.5v-2m6.5-.5l-1.5-1.5m0-8l1.5-1.5m-14 0l1.5 1.5m0 8l-1.5 1.5"></path>
+                                    </g>
+                                </g>
+                            </svg>
+                            <div class="form-check form-switch fs-6">
+                                <input class="form-check-input me-0" type="checkbox" id="toggle-dark">
+                                <label class="form-check-label"></label>
+                            </div>
+                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true"
+                                role="img" class="iconify iconify--mdi" width="20" height="20" preserveAspectRatio="xMidYMid meet"
+                                viewBox="0 0 24 24">
+                                <path fill="currentColor"
+                                    d="m17.75 4.09l-2.53 1.94l.91 3.06l-2.63-1.81l-2.63 1.81l.91-3.06L8.25 4.09l3.25.02l1.01-3.02l1.01 3.02l3.25-.02zm-9.1 6.27L6.1 8.5l-1.85 1.85l1.85 1.85l2.55-1.86zm-2.51 4.91l1.85-1.85l1.85 1.85l-1.85 1.85l-1.85-1.85zm8.24-2.13l-1.01 3.02l-1.01-3.02L8.25 19.9l2.53-1.94l-.91-3.06l2.63 1.81l2.63-1.81l-.91 3.06l2.53 1.94L12.5 15.98zm2.5-1.04l1.85 1.85l1.85-1.85L18.4 8.5l-1.85 1.86z">
+                                </path>
+                            </svg>
+                        </div>
+                        <div class="sidebar-toggler x">
+                            <a href="#" class="sidebar-hide d-xl-none d-block"><i class="bi bi-x bi-middle"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="sidebar-menu">
+                    <ul class="menu">
+                        <li class="sidebar-title">Menu</li>
+
+                        <li class="sidebar-item">
+                            <a href="../dist/index.html" class='sidebar-link'>
+
+                                <i class="bi bi-grid-fill"></i>
+                                <span>Dashboard</span>
+                            </a>
+                        </li>
+
+                        <li class="sidebar-item has-sub">
+                            <a href="#" class='sidebar-link'>
+                                <i class="bi bi-file-earmark-medical-fill"></i>
+                                <span>Survey</span>
+                            </a>
+                            <ul class="submenu">
+                                <li class="submenu-item">
+                                    <a href="fillSurvey.html">Fillup Survey</a>
+                                </li>
+                                <li class="submenu-item">
+                                    <a href="survHistory.html">Survey History</a>
+                                </li>
+                                <li class="submenu-item">
+                                    <a href="redeem.html">Redeem</a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="sidebar-item has-sub active">
+                            <a href="#" class='sidebar-link'>
+                                <i class="bi bi-person-badge-fill"></i>
+                                <span>Profile</span>
+                            </a>
+                            <ul class="submenu">
+                                <li class="submenu-item">
+                                    <a href="accountSettings.html">Account Settings</a>
+                                </li>
+                                <li class="submenu-item">
+                                    <a href="changePassword.html">Change Password</a>
+                                </li>
+                                <li class="submenu-item active">
+                                    <a href="notifications.html">Notifications</a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="sidebar-item">
+                            <a href="auth-login.html" class='sidebar-link'>
+                                <i class="bi bi-life-preserver"></i>
+                                <span>Logout</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <button class="sidebar-toggler btn x"><i data-feather="x"></i></button>
+            </div>
+        </div>
+        <div id="main">
+            <header class="mb-3">
+                <a href="#" class="burger-btn d-block d-xl-none">
+                    <i class="bi bi-justify fs-3"></i>
+                </a>
+            </header>
+
+            <div class="page-heading">
+                <div class="page-title">
+                    <div class="row">
+                        <div class="col-12 col-md-6 order-md-1 order-last">
+                            <h3>Notifications</h3>
+                            <p class="text-subtitle text-muted">View and manage your notification history</p>
+                        </div>
+                        <div class="col-12 col-md-6 order-md-2 order-first">
+                            <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">Notifications</li>
+                                </ol>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="page-content">
+                <section class="row">
+                    <div class="col-12">
+                        <!-- Notification Filter Tabs -->
+                        <div class="card">
+                            <div class="card-header">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <h4 class="card-title">Notification History</h4>
+                                    <div class="d-flex gap-2">
+                                        <button class="btn btn-sm btn-outline-primary" onclick="markAllAsRead()">Mark All as Read</button>
+                                        <button class="btn btn-sm btn-outline-danger" onclick="clearAll()">Clear All</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <!-- Filter Tabs -->
+                                <ul class="nav nav-tabs" id="notificationTabs" role="tablist">
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link active" id="all-tab" data-bs-toggle="tab" data-bs-target="#all" type="button" role="tab" aria-controls="all" aria-selected="true">
+                                            All <span class="badge bg-primary ms-1">5</span>
+                                        </button>
+                                    </li>
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link" id="unread-tab" data-bs-toggle="tab" data-bs-target="#unread" type="button" role="tab" aria-controls="unread" aria-selected="false">
+                                            Unread <span class="badge bg-danger ms-1">3</span>
+                                        </button>
+                                    </li>
+                                </ul>
+
+                                <!-- Tab Content -->
+                                <div class="tab-content mt-3" id="notificationTabsContent">
+                                    <!-- All Notifications -->
+                                    <div class="tab-pane fade show active" id="all" role="tabpanel" aria-labelledby="all-tab">
+                                        <div class="notification-list">
+                                            <!-- Notification Item 1 -->
+                                            <div class="notification-item border-bottom py-3 unread">
+                                                <div class="d-flex align-items-start">
+                                                    <div class="notification-icon me-4">
+                                                        <div class="avatar avatar-md bg-success">
+                                                            <i class="bi bi-check-circle text-white"></i>
+                                                        </div>
+                                                    </div>
+                                                    <div class="notification-content flex-grow-1">
+                                                        <h6 class="notification-title mb-1">Survey Completed</h6>
+                                                        <p class="notification-text text-muted mb-1">Customer Satisfaction Q4 survey completed by 150 participants.</p>
+                                                        <small class="text-muted"><i class="bi bi-clock me-1"></i>2 minutes ago</small>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!-- Notification Item 2 -->
+                                            <div class="notification-item border-bottom py-3 unread">
+                                                <div class="d-flex align-items-start">
+                                                    <div class="notification-icon me-4">
+                                                        <div class="avatar avatar-md bg-warning">
+                                                            <i class="bi bi-exclamation-triangle text-white"></i>
+                                                        </div>
+                                                    </div>
+                                                    <div class="notification-content flex-grow-1">
+                                                        <h6 class="notification-title mb-1">Low Response Rate</h6>
+                                                        <p class="notification-text text-muted mb-1">Product Feedback survey has only 15% response rate.</p>
+                                                        <small class="text-muted"><i class="bi bi-clock me-1"></i>1 hour ago</small>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!-- Notification Item 3 -->
+                                            <div class="notification-item border-bottom py-3">
+                                                <div class="d-flex align-items-start">
+                                                    <div class="notification-icon me-4">
+                                                        <div class="avatar avatar-md bg-info">
+                                                            <i class="bi bi-person-plus text-white"></i>
+                                                        </div>
+                                                    </div>
+                                                    <div class="notification-content flex-grow-1">
+                                                        <h6 class="notification-title mb-1">New User Registration</h6>
+                                                        <p class="notification-text text-muted mb-1">John Smith registered and completed onboarding.</p>
+                                                        <small class="text-muted"><i class="bi bi-clock me-1"></i>3 hours ago</small>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!-- Notification Item 4 -->
+                                            <div class="notification-item border-bottom py-3 unread">
+                                                <div class="d-flex align-items-start">
+                                                    <div class="notification-icon me-4">
+                                                        <div class="avatar avatar-md bg-primary">
+                                                            <i class="bi bi-graph-up text-white"></i>
+                                                        </div>
+                                                    </div>
+                                                    <div class="notification-content flex-grow-1">
+                                                        <h6 class="notification-title mb-1">Weekly Report Ready</h6>
+                                                        <p class="notification-text text-muted mb-1">Your analytics report is ready for download.</p>
+                                                        <small class="text-muted"><i class="bi bi-clock me-1"></i>5 hours ago</small>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!-- Notification Item 5 -->
+                                            <div class="notification-item border-bottom py-3">
+                                                <div class="d-flex align-items-start">
+                                                    <div class="notification-icon me-4">
+                                                        <div class="avatar avatar-md bg-secondary">
+                                                            <i class="bi bi-gear text-white"></i>
+                                                        </div>
+                                                    </div>
+                                                    <div class="notification-content flex-grow-1">
+                                                        <h6 class="notification-title mb-1">System Maintenance</h6>
+                                                        <p class="notification-text text-muted mb-1">Scheduled maintenance completed successfully.</p>
+                                                        <small class="text-muted"><i class="bi bi-clock me-1"></i>1 day ago</small>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!-- Notification Item 6 -->
+                                            <div class="notification-item border-bottom py-3 unread">
+                                                <div class="d-flex align-items-start">
+                                                    <div class="notification-icon me-4">
+                                                        <div class="avatar avatar-md bg-danger">
+                                                            <i class="bi bi-shield-exclamation text-white"></i>
+                                                        </div>
+                                                    </div>
+                                                    <div class="notification-content flex-grow-1">
+                                                        <h6 class="notification-title mb-1">Security Alert</h6>
+                                                        <p class="notification-text text-muted mb-1">Unusual login activity detected from new device.</p>
+                                                        <small class="text-muted"><i class="bi bi-clock me-1"></i>2 days ago</small>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!-- Notification Item 7 -->
+                                            <div class="notification-item border-bottom py-3">
+                                                <div class="d-flex align-items-start">
+                                                    <div class="notification-icon me-4">
+                                                        <div class="avatar avatar-md bg-success">
+                                                            <i class="bi bi-currency-dollar text-white"></i>
+                                                        </div>
+                                                    </div>
+                                                    <div class="notification-content flex-grow-1">
+                                                        <h6 class="notification-title mb-1">Payment Received</h6>
+                                                        <p class="notification-text text-muted mb-1">$25.00 credited to your account.</p>
+                                                        <small class="text-muted"><i class="bi bi-clock me-1"></i>3 days ago</small>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!-- Load More Button -->
+                                            <div class="text-center mt-4">
+                                                <button class="btn btn-outline-primary" onclick="loadMoreNotifications()">Load More Notifications</button>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Unread Notifications -->
+                                    <div class="tab-pane fade" id="unread" role="tabpanel" aria-labelledby="unread-tab">
+                                        <div class="notification-list">
+                                            <!-- Show only unread notifications -->
+                                            <div class="notification-item border-bottom py-3 unread">
+                                                <div class="d-flex align-items-start">
+                                                    <div class="notification-icon me-4">
+                                                        <div class="avatar avatar-md bg-success">
+                                                            <i class="bi bi-check-circle text-white"></i>
+                                                        </div>
+                                                    </div>
+                                                    <div class="notification-content flex-grow-1">
+                                                        <h6 class="notification-title mb-1">Survey Completed</h6>
+                                                        <p class="notification-text text-muted mb-1">Customer Satisfaction Q4 survey completed.</p>
+                                                        <small class="text-muted"><i class="bi bi-clock me-1"></i>2 minutes ago</small>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="notification-item border-bottom py-3 unread">
+                                                <div class="d-flex align-items-start">
+                                                    <div class="notification-icon me-4">
+                                                        <div class="avatar avatar-md bg-warning">
+                                                            <i class="bi bi-exclamation-triangle text-white"></i>
+                                                        </div>
+                                                    </div>
+                                                    <div class="notification-content flex-grow-1">
+                                                        <h6 class="notification-title mb-1">Low Response Rate</h6>
+                                                        <p class="notification-text text-muted mb-1">Product Feedback survey needs attention.</p>
+                                                        <small class="text-muted"><i class="bi bi-clock me-1"></i>1 hour ago</small>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="notification-item border-bottom py-3 unread">
+                                                <div class="d-flex align-items-start">
+                                                    <div class="notification-icon me-4">
+                                                        <div class="avatar avatar-md bg-primary">
+                                                            <i class="bi bi-graph-up text-white"></i>
+                                                        </div>
+                                                    </div>
+                                                    <div class="notification-content flex-grow-1">
+                                                        <h6 class="notification-title mb-1">Weekly Report Ready</h6>
+                                                        <p class="notification-text text-muted mb-1">Analytics report is ready for download.</p>
+                                                        <small class="text-muted"><i class="bi bi-clock me-1"></i>5 hours ago</small>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Notification Settings Card -->
+                <section class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Notification Settings</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <h6>Email Notifications</h6>
+                                        <div class="form-check form-switch mb-2">
+                                            <input class="form-check-input" type="checkbox" id="emailSurvey" checked>
+                                            <label class="form-check-label" for="emailSurvey">
+                                                Survey completions
+                                            </label>
+                                        </div>
+                                        <div class="form-check form-switch mb-2">
+                                            <input class="form-check-input" type="checkbox" id="emailPayment" checked>
+                                            <label class="form-check-label" for="emailPayment">
+                                                Payment notifications
+                                            </label>
+                                        </div>
+                                        <div class="form-check form-switch mb-2">
+                                            <input class="form-check-input" type="checkbox" id="emailSecurity">
+                                            <label class="form-check-label" for="emailSecurity">
+                                                Security alerts
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <h6>Push Notifications</h6>
+                                        <div class="form-check form-switch mb-2">
+                                            <input class="form-check-input" type="checkbox" id="pushSurvey" checked>
+                                            <label class="form-check-label" for="pushSurvey">
+                                                New survey opportunities
+                                            </label>
+                                        </div>
+                                        <div class="form-check form-switch mb-2">
+                                            <input class="form-check-input" type="checkbox" id="pushReminder">
+                                            <label class="form-check-label" for="pushReminder">
+                                                Survey reminders
+                                            </label>
+                                        </div>
+                                        <div class="form-check form-switch mb-2">
+                                            <input class="form-check-input" type="checkbox" id="pushSystem" checked>
+                                            <label class="form-check-label" for="pushSystem">
+                                                System updates
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mt-3">
+                                    <button class="btn btn-primary">Save Settings</button>
+                                    <button class="btn btn-outline-secondary ms-2">Reset to Default</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <footer>
+                <div class="footer clearfix mb-0 text-muted">
+                    <div class="float-start">
+                        <p>2021 &copy; Mazer</p>
+                    </div>
+                    <div class="float-end">
+                        <p>Crafted with <span class="text-danger"><i class="bi bi-heart"></i></span> by <a
+                                href="http://ahmadsaugi.com">A. Saugi</a></p>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <script src="assets/vendors/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/main.js"></script>
+
+    <script>
+        // Notification management functions
+        function markAsRead(button) {
+            const notificationItem = button.closest('.notification-item');
+            notificationItem.classList.remove('unread');
+            button.style.display = 'none';
+            updateNotificationCounts();
+        }
+
+        function markAllAsRead() {
+            const unreadItems = document.querySelectorAll('.notification-item.unread');
+            unreadItems.forEach(item => {
+                item.classList.remove('unread');
+                const markButton = item.querySelector('button[onclick*="markAsRead"]');
+                if (markButton) markButton.style.display = 'none';
+            });
+            updateNotificationCounts();
+        }
+
+        function deleteNotification(button) {
+            const notificationItem = button.closest('.notification-item');
+            notificationItem.style.transition = 'opacity 0.3s ease';
+            notificationItem.style.opacity = '0';
+            setTimeout(() => {
+                notificationItem.remove();
+                updateNotificationCounts();
+            }, 300);
+        }
+
+        function clearAll() {
+            if (confirm('Are you sure you want to clear all notifications?')) {
+                const allItems = document.querySelectorAll('.notification-item');
+                allItems.forEach(item => {
+                    item.style.transition = 'opacity 0.3s ease';
+                    item.style.opacity = '0';
+                });
+                setTimeout(() => {
+                    allItems.forEach(item => item.remove());
+                    updateNotificationCounts();
+                    showEmptyState();
+                }, 300);
+            }
+        }
+
+        function loadMoreNotifications() {
+            // Simulate loading more notifications
+            alert('Loading more notifications... (This would typically load from server)');
+        }
+
+        function updateNotificationCounts() {
+            const allCount = document.querySelectorAll('.notification-item').length;
+            const unreadCount = document.querySelectorAll('.notification-item.unread').length;
+            
+            document.querySelector('#all-tab .badge').textContent = allCount;
+            document.querySelector('#unread-tab .badge').textContent = unreadCount;
+        }
+
+        function showEmptyState() {
+            const notificationList = document.querySelector('#all .notification-list');
+            notificationList.innerHTML = `
+                <div class="text-center py-5">
+                    <i class="bi bi-bell-slash text-muted" style="font-size: 3rem;"></i>
+                    <h5 class="text-muted mt-3">No notifications</h5>
+                    <p class="text-muted">You have no notifications at this time.</p>
+                </div>
+            `;
+        }
+
+        // Add custom styles for unread notifications
+        document.addEventListener('DOMContentLoaded', function() {
+            const style = document.createElement('style');
+            style.textContent = `
+                .notification-item.unread {
+                    background-color: #f8f9fa;
+                    border-left: 4px solid #435ebe;
+                }
+                .notification-item:hover {
+                    background-color: #f1f3f4;
+                }
+                .notification-icon {
+                    margin-right: 1.5rem !important;
+                }
+                .notification-actions {
+                    opacity: 0;
+                    transition: opacity 0.2s ease;
+                }
+                .notification-item:hover .notification-actions {
+                    opacity: 1;
+                }
+            `;
+            document.head.appendChild(style);
+        });
+    </script>
+</body>
+
+</html>
