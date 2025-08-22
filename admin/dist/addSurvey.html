@@ -14,11 +14,23 @@
 
     <link rel="stylesheet" href="assets/vendors/simple-datatables/style.css">
 
+    <link rel="stylesheet" href="assets/vendors/quill/quill.bubble.css">
+    <link rel="stylesheet" href="assets/vendors/quill/quill.snow.css">
+
     <link rel="stylesheet" href="assets/vendors/perfect-scrollbar/perfect-scrollbar.css">
     <link rel="stylesheet" href="assets/vendors/bootstrap-icons/bootstrap-icons.css">
     <link rel="stylesheet" href="assets/css/app.css">
     <link rel="shortcut icon" href="assets/images/favicon.svg" type="image/x-icon">
 </head>
+<style>
+    input[type="radio"]:checked+label.khalti-btn {
+        background-color: #6f42c1 !important;
+        color: #fff !important;
+        border-color: #6f42c1 !important;
+        box-shadow: 0 0 0 0.25rem rgba(111, 66, 193, 0.5) !important;
+        /* Purple outline */
+    }
+</style>
 
 <body>
     <div id="app">
@@ -142,209 +154,311 @@
                 </a>
             </header>
             <div class="page-heading">
-                <h3>Fill up Surveys</h3>
+                <h3>Add Surveys</h3>
+                <p class="text-subtitle text-muted">Create surveys that will be shown to users. Provide clear
+                    instructions, reward amount and the external form link.</p>
             </div>
             <section class="section">
-                <div class="row">
-                    <div class="col-6 col-lg-3 col-md-6">
-                        <div class="card">
-                            <div class="card-body px-3 py-4-5">
-                                <div class="row">
-                                    <div class="col-md-4">
-                                        <div class="stats-icon purple">
-                                            <i
-                                                class="bi bi-ui-checks-grid d-flex align-items-center justify-content-center mx-auto my-auto"></i>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-8">
-                                        <h6 class="text-muted font-semibold">Active Surveys</h6>
-                                        <h6 class="font-extrabold mb-0">8</h6>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-6 col-lg-3 col-md-6">
-                        <div class="card">
-                            <div class="card-body px-3 py-4-5">
-                                <div class="row">
-                                    <div class="col-md-4">
-                                        <div class="stats-icon blue">
-                                            <i
-                                                class="bi bi-cash d-flex align-items-center justify-content-center mx-auto my-auto"></i>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-8">
-                                        <h6 class="text-muted font-semibold">Total Earnings</h6>
-                                        <h6 class="font-extrabold mb-0">$120.00</h6>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-6 col-lg-3 col-md-6">
-                        <div class="card">
-                            <div class="card-body px-3 py-4-5">
-                                <div class="row">
-                                    <div class="col-md-4">
-                                        <div class="stats-icon green">
-                                            <i
-                                                class="bi bi-calendar2-week d-flex align-items-center justify-content-center mx-auto my-auto"></i>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-8">
-                                        <h6 class="text-muted font-semibold">Completed Surveys</h6>
-                                        <h6 class="font-extrabold mb-0">2</h6>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-6 col-lg-3 col-md-6">
-                        <div class="card">
-                            <div class="card-body px-3 py-4-5">
-                                <div class="row">
-                                    <div class="col-md-4">
-                                        <div class="stats-icon red">
-                                            <i
-                                                class="bi bi-clipboard-x d-flex align-items-center justify-content-center mx-auto my-auto"></i>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-8">
-                                        <h6 class="text-muted font-semibold">Expiring Soon</h6>
-                                        <h6 class="font-extrabold mb-0">15</h6>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-header">
-                        <i class="bi bi-ui-checks-grid me-2"></i>Available Surveys
-                    </div>
-                    <div class="card-body">
-                        <table class="table table-striped align-middle" id="table1">
-                            <thead>
-                                <tr>
-                                    <th>#</th>
-                                    <th><i class="bi bi-clipboard-check me-2"></i>Survey Name</th>
-                                    <th><i class="bi bi-card-text me-2"></i>Description</th>
-                                    <th><i class="bi bi-building me-2"></i>Company</th>
-                                    <th><i class="bi bi-calendar2-week me-2"></i>Expiry</th>
-                                    <th><i class="bi bi-cash-coin me-2"></i>Amount</th>
-                                    <th><i class="bi bi-pencil-square me-2"></i>Action</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td>
-                                        <a href="surveyDetails.html"
-                                            class="text-decoration-none fw-semibold text-primary">Customer
-                                            Satisfaction</a>
-                                    </td>
-                                    <td>
-                                        <span class="text-muted">Share your experience with Acme's latest
-                                            product.</span>
-                                    </td>
-                                    <td>
-                                        <span class="badge bg-secondary"><i class="bi bi-building"></i> Acme Corp</span>
-                                    </td>
-                                    <td>
-                                        <span class="badge bg-light text-dark border"><i
-                                                class="bi bi-calendar-event"></i> 2025-08-25</span>
-                                    </td>
-                                    <td>
-                                        <span class="badge bg-success"><i class="bi bi-currency-dollar"></i>
-                                            $2.00</span>
-                                    </td>
-                                    <td>
-                                        <a href="https://forms.gle/example1" class="btn btn-outline-primary btn-sm"><i
-                                                class="bi bi-pencil-square"></i> Fill Survey</a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td>
-                                        <a href="surveyDetails.html"
-                                            class="text-decoration-none fw-semibold text-primary">Product Feedback</a>
-                                    </td>
-                                    <td>
-                                        <span class="text-muted">Help Globex improve their services by sharing your
-                                            feedback.</span>
-                                    </td>
-                                    <td>
-                                        <span class="badge bg-secondary"><i class="bi bi-building"></i> Globex
-                                            Inc</span>
-                                    </td>
-                                    <td>
-                                        <span class="badge bg-light text-dark border"><i
-                                                class="bi bi-calendar-event"></i> 2025-08-30</span>
-                                    </td>
-                                    <td>
-                                        <span class="badge bg-warning text-dark"><i class="bi bi-currency-dollar"></i>
-                                            $1.50</span>
-                                    </td>
-                                    <td>
-                                        <a href="https://forms.gle/example2" class="btn btn-outline-primary btn-sm"><i
-                                                class="bi bi-pencil-square"></i> Fill Survey</a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>3</td>
-                                    <td>
-                                        <a href="surveyDetails.html"
-                                            class="text-decoration-none fw-semibold text-primary">Market Research</a>
-                                    </td>
-                                    <td>
-                                        <span class="text-muted">Participate in Initech's market research and earn
-                                            rewards.</span>
-                                    </td>
-                                    <td>
-                                        <span class="badge bg-secondary"><i class="bi bi-building"></i> Initech</span>
-                                    </td>
-                                    <td>
-                                        <span class="badge bg-light text-dark border"><i
-                                                class="bi bi-calendar-event"></i> 2025-09-05</span>
-                                    </td>
-                                    <td>
-                                        <span class="badge bg-success"><i class="bi bi-currency-dollar"></i>
-                                            $2.50</span>
-                                    </td>
-                                    <td>
-                                        <a href="https://forms.gle/example3" class="btn btn-outline-primary btn-sm"><i
-                                                class="bi bi-pencil-square"></i> Fill Survey</a>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </section>
 
-            <footer>
-                <div class="footer clearfix mb-0 text-muted">
-                    <div class="float-start">
-                        <p>2025 &copy; Triyatra </p>
+                <!-- // Basic multiple Column Form section start -->
+                <section id="multiple-column-form">
+                    <div class="row match-height">
+                        <div class="col-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h4 class="card-title">Create Survey</h4>
+                                    <p class="text-muted mb-0">Fill the fields below to publish a new survey. Fields
+                                        marked required must be completed.</p>
+                                </div>
+                                <div class="card-content">
+                                    <div class="card-body">
+                                        <form class="form">
+                                            <div class="row">
+                                                <!-- Title + Short description (same row) -->
+                                                <div class="col-md-6 col-12 mb-3">
+                                                    <label class="badge bg-light text-dark mb-1">Title</label>
+                                                    <div class="input-group">
+                                                        <span class="input-group-text"><i
+                                                                class="bi bi-journal-text"></i></span>
+                                                        <input type="text" id="survey-title" class="form-control"
+                                                            placeholder="Customer Satisfaction Survey" required>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6 col-12 mb-3">
+                                                    <label class="badge bg-light text-dark mb-1">Short
+                                                        description</label>
+                                                    <div class="input-group">
+                                                        <span class="input-group-text"><i
+                                                                class="bi bi-card-text"></i></span>
+                                                        <input type="text" id="survey-short" class="form-control"
+                                                            placeholder="One-line summary (max 80 chars)">
+                                                    </div>
+                                                </div>
+
+                                                <!-- Long detailed description (Quill editor) -->
+                                                <div class="col-12 mb-3">
+                                                    <label class="badge bg-light text-dark mb-1">Detailed
+                                                        description</label>
+                                                    <div class="card">
+                                                        <div class="card-body p-0">
+                                                            <div id="snow" style="min-height:160px;">
+                                                                <p>Describe the survey in detail. Explain eligibility
+                                                                    and any special instructions.</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <!-- Reward and Expiry -->
+                                                <div class="col-md-6 col-12 mb-3">
+                                                    <label class="badge bg-light text-dark mb-1">Reward per user</label>
+                                                    <div class="input-group">
+                                                        <span class="input-group-text">$</span>
+                                                        <input type="number" step="0.01" min="0" id="reward"
+                                                            class="form-control" placeholder="2.00" required>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6 col-12 mb-3">
+                                                    <label class="badge bg-light text-dark mb-1">Expiry date</label>
+                                                    <div class="input-group">
+                                                        <span class="input-group-text"><i
+                                                                class="bi bi-calendar-event"></i></span>
+                                                        <input type="date" id="expiry-date" class="form-control"
+                                                            required>
+                                                    </div>
+                                                </div>
+
+
+                                                <!-- Estimated time + Google form link combined in same column -->
+                                                <div class="col-md-6 col-12 mb-3">
+                                                    <label class="badge bg-light text-dark mb-1">Est.
+                                                        time</label>
+                                                    <div class="input-group">
+                                                        <span class="input-group-text"><i
+                                                                class="bi bi-clock"></i></span>
+                                                        <input type="number" id="est-time" class="form-control"
+                                                            placeholder="5" min="1">
+                                                    </div>
+
+                                                </div>
+                                                <div class="col-md-6 col-12 mb-3">
+                                                    <label class="badge bg-light text-dark mb-1">Google form
+                                                        link</label>
+                                                    <div class="input-group">
+                                                        <span class="input-group-text"><i
+                                                                class="bi bi-link-45deg"></i></span>
+                                                        <input type="url" id="google-form" class="form-control"
+                                                            placeholder="https://forms.gle/your-form-link">
+                                                    </div>
+                                                </div>
+                                                <!-- Number of Questions + Category (same row) -->
+                                                <div class="col-md-6 col-12 mb-3">
+                                                    <label class="badge bg-light-secondary text-dark mb-2">Number of
+                                                        questions</label>
+                                                    <div class="input-group">
+                                                        <span class="input-group-text"><i
+                                                                class="bi bi-list-ol"></i></span>
+                                                        <input type="number" id="num-questions" class="form-control"
+                                                            placeholder="10" min="1">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6 col-12 mb-3">
+                                                    <label
+                                                        class="badge bg-light-secondary text-dark mb-2">Category</label>
+                                                    <select id="category" class="form-select">
+                                                        <option value="Product Feedback">Product Feedback</option>
+                                                        <option value="Customer Satisfaction">Customer Satisfaction
+                                                        </option>
+                                                        <option value="Market Research">Market Research</option>
+                                                        <option value="User Experience">User Experience</option>
+                                                        <option value="Brand Awareness">Brand Awareness</option>
+                                                    </select>
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="card-header">
+                                                        <h4 class="card-title">Payment Information</h4>
+                                                        <p class="text-muted mb-0">Use the following QR code to pay for
+                                                            the survey.</p>
+                                                    </div>
+                                                    <!-- Payment partners (toggle buttons) -->
+                                                    <div class="col-12 mb-3">
+                                                        <div class="d-flex flex-wrap gap-2">
+                                                            <input type="radio" class="btn-check" name="partner"
+                                                                id="partnerEsewa" autocomplete="off" checked>
+                                                            <label class="btn btn-outline-success px-3"
+                                                                for="partnerEsewa">esewa</label>
+
+                                                            <input type="radio" class="btn-check" name="partner"
+                                                                id="partnerKhalti" autocomplete="off">
+                                                            <label class="btn btn-outline-secondary px-3 khalti-btn"
+                                                                for="partnerKhalti"
+                                                                style="border-color:#6f42c1; color:#6f42c1;">
+                                                                khalti
+                                                            </label>
+
+
+                                                            <input type="radio" class="btn-check" name="partner"
+                                                                id="partnerPaypal" autocomplete="off">
+                                                            <label class="btn btn-outline-primary px-3"
+                                                                for="partnerPaypal">PayPal</label>
+
+                                                            <input type="radio" class="btn-check" name="partner"
+                                                                id="partnerFonepay" autocomplete="off">
+                                                            <label class="btn btn-outline-danger px-3"
+                                                                for="partnerFonepay">Fonepay</label>
+                                                        </div>
+                                                    </div>
+
+                                                    <!-- Amount input and actions: left content and right notes column -->
+                                                    <div class="col-12">
+                                                        <div class="row">
+                                                            <div class="col-md-8">
+                                                                <div class="row align-items-center">
+                                                                    <div class="col-md-7 mb-2">
+
+                                                                        <div class="d-flex align-items-center justify-content-center bg-white border rounded mb-2"
+                                                                            style="height:250px;">
+                                                                            <img src="c:\Users\Waitik Joshi\Downloads\triyatra.png"
+                                                                                alt="Triyatra QR"
+                                                                                style="max-height:220px; width:auto;" />
+                                                                        </div>
+                                                                        <img src="admin/dist/assets/images/qr/triyatra.png  "
+                                                                            alt="">
+                                                                    </div>
+
+
+                                                                </div>
+                                                            </div>
+                                                            <!-- additional notes  -->
+                                                            <div class="col-md-4 mt-3 mt-md-0">
+                                                                <div class="card border-0 bg-light h-100 rounded-3">
+                                                                    <div class="card-body py-3 px-4">
+                                                                        <h6 class="card-title text-dark mb-2">
+                                                                            <i
+                                                                                class="bi bi-info-circle-fill me-2"></i>Payment
+                                                                            Notes
+                                                                        </h6>
+                                                                        <ul class="list-unstyled small text-dark mb-0">
+                                                                            <li class="mb-2">
+                                                                                <i
+                                                                                    class="bi bi-currency-dollar me-2 text-primary"></i>
+                                                                                You will be charged the total reward
+                                                                                amount for this survey when it is
+                                                                                published. Ensure your account has
+                                                                                sufficient funds.
+                                                                            </li>
+                                                                            <li class="mb-2">
+                                                                                <i
+                                                                                    class="bi bi-clock me-2 text-muted"></i>
+                                                                                Surveys typically become visible to
+                                                                                users within <strong>~5 minutes</strong>
+                                                                                of publishing.
+                                                                            </li>
+                                                                            <li class="mb-2">
+                                                                                <i
+                                                                                    class="bi bi-shield-lock me-2 text-muted"></i>
+                                                                                Verify each partner QR links to the
+                                                                                correct receiving account. We recommend
+                                                                                a small test transfer.
+                                                                            </li>
+                                                                            <li class="mb-2">
+                                                                                <i
+                                                                                    class="bi bi-clock-history me-2 text-success"></i>
+                                                                                Payouts initiated via partners typically
+                                                                                process in <strong>1–3 business
+                                                                                    days</strong>.
+                                                                            </li>
+                                                                            <li>
+                                                                                <i
+                                                                                    class="bi bi-envelope me-2 text-muted"></i>
+                                                                                For payments or publishing help contact
+                                                                                <a
+                                                                                    href="mailto:support@example.com">support@example.com</a>.
+                                                                            </li>
+                                                                        </ul>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="float-end">
-                        <p>Crafted with <span class="text-danger"><i class="bi bi-heart-fill"></i></span> by <a
-                                href="https://github.com/Tejas-Bipu-Shahi/Surv-Earn">Triyatra</a></p>
+                    <div class="col-12 d-flex justify-content-end">
+                        <button type="submit" class="btn btn-primary me-2">Create
+                            Survey</button>
+                        <button type="reset" class="btn btn-light-secondary">Reset</button>
                     </div>
-                </div>
-            </footer>
         </div>
+        <!-- hidden input to store quill html -->
+        <input type="hidden" id="description-html" name="description-html">
+        </form>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </section>
+    <!-- // Basic multiple Column Form section end -->
+    </section>
+
+    <footer>
+        <div class="footer clearfix mb-0 text-muted">
+            <div class="float-start">
+                <p>2025 &copy; Triyatra </p>
+            </div>
+            <div class="float-end">
+                <p>Crafted with <span class="text-danger"><i class="bi bi-heart-fill"></i></span> by <a
+                        href="https://github.com/Tejas-Bipu-Shahi/Surv-Earn">Triyatra</a></p>
+            </div>
+        </div>
+    </footer>
+    </div>
     </div>
     <script src="assets/vendors/perfect-scrollbar/perfect-scrollbar.min.js"></script>
     <script src="assets/js/bootstrap.bundle.min.js"></script>
     <script src="assets/vendors/simple-datatables/simple-datatables.js"></script>
     <script src="assets/vendors/apexcharts/apexcharts.js"></script>
     <script src="assets/js/pages/dashboard.js"></script>
+
+    <script src="assets/vendors/quill/quill.min.js"></script>
+    <script src="assets/js/pages/form-editor.js"></script>
+
+
     <script>
         // Simple Datatable
         let table1 = document.querySelector('#table1');
         let dataTable = new simpleDatatables.DataTable(table1);
+    </script>
+    <script>
+        // Initialize Quill (the project already includes quill.min.js and form-editor.js)
+        document.addEventListener('DOMContentLoaded', function () {
+            try {
+                var quill = new Quill('#snow', {
+                    theme: 'snow',
+                    placeholder: 'Enter detailed survey description here...',
+                    modules: { toolbar: [['bold', 'italic', 'underline'], [{ 'list': 'ordered' }, { 'list': 'bullet' }], ['link']] }
+                });
+
+                var form = document.querySelector('.form');
+                if (form) {
+                    form.addEventListener('submit', function (e) {
+                        var html = quill.root.innerHTML;
+                        document.getElementById('description-html').value = html;
+                        // allow normal submit (or AJAX) afterwards
+                    });
+                }
+            } catch (err) {
+                console.warn('Quill init failed', err);
+            }
+        });
     </script>
     <script src="assets/js/main.js"></script>
 </body>
