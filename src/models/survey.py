@@ -13,15 +13,15 @@ class SurveyStatus(StrEnum):
 class Survey(BaseModel):
     survey_title: str
     company_name: str
-    reward_per_completion: int
+    reward_per_completion: float
     expiration_date: date
     _id: str | None = None
     survey_url: str
     short_description: str
 
-    full_description: str | None
-    status: SurveyStatus | None = None
+    full_description: str = ''
+    status: SurveyStatus = SurveyStatus.ACTIVE
     estimated_time: int | None = None
-    date_posted: date | None = None
-    questions_count: int | None = None
-    category: str | None = None
+    date_posted: date = date.today()
+    questions_count: int = 0
+    category: str = ''
