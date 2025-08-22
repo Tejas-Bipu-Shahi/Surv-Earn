@@ -14,7 +14,7 @@ class Survey(BaseModel):
     survey_title: str
     company_name: str
     reward_per_completion: float
-    expiration_date: date
+    expiration_date: str
     _id: str | None = None
     survey_url: str
     short_description: str
@@ -22,6 +22,6 @@ class Survey(BaseModel):
     full_description: str = ''
     status: SurveyStatus = SurveyStatus.ACTIVE
     estimated_time: int | None = None
-    date_posted: date = date.today()
+    date_posted: str = date.today().strftime("%Y-%m-%d")
     questions_count: int = 0
     category: str = ''

@@ -1,3 +1,4 @@
+import flask
 from flask import Blueprint, render_template, redirect, flash, request, url_for
 from flask_login import current_user, login_required
 import os
@@ -29,22 +30,23 @@ def addsurvey():
     if request.method == 'POST':
         survey_title = request.form['survey-title']
         survey_short_desc = request.form['survey-short']
-        reward = request.form['reward']
-        expiry_date = request.form['expiry-date']
-        est_time = request.form['est-time']
+        reward = float(request.form['reward'])
+        expiry_date = date.fromisoformat(request.form['expiry-date']).strftime('%Y-%m-%d')
+        est_time = int(request.form['est-time'])
         form_url = request.form['form-url']
-        no_of_questions = request.form['num-questions']
+        questions_count = int(request.form['num-questions'])
         category = request.form['category']
+        company_name = request.form['company-name']
+        date_posted: str = date.today().strftime("%Y-%m-%d")
 
-        company_name = 'N/A'
-
-        survey = Survey(survey_title=survey_title, company_name=company_name, reward_per_completion=float(reward), survey_url=form_url,
-                        short_description=survey_short_desc, status=SurveyStatus.ACTIVE, estimated_time=int(est_time),
-                        date_posted=date.today(), questions_count=int(no_of_questions), category=category,
-                        expiration_date=date.fromisoformat(expiry_date))
+        survey = Survey(survey_title=survey_title, company_name=company_name, reward_per_completion=reward, survey_url=form_url,
+                        short_description=survey_short_desc, status=SurveyStatus.ACTIVE, estimated_time=est_time,
+                        date_posted=date_posted, questions_count=questions_count, category=category,
+                        expiration_date=expiry_date)
         ic(survey)
 
         mongo.db.surveys.insert_one(survey.model_dump())
+        flask.flash('Survey Added Successfully', 'success')
 
     return render_template('addSurvey.html')
 
