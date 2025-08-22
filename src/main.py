@@ -142,6 +142,7 @@ def reset_password():
     return render_template('reset_password.html')
 
 
+
 @app.route('/verify_otp', methods=['GET', 'POST'])
 def verify_otp():
     if not session.get('temp_unverified_email'):
@@ -198,8 +199,29 @@ def redeem():
 
 @app.route('/accountsettings', methods=['GET', 'POST'])
 @login_required
+
 def accountsettings():
+    if request.method == 'POST':
+        full_name=request.form['fullname']
+        phone_number=request.form['phone']
+        dob=request.form['birthday']
+        address=request.form['address']
+        zip_code=request.form['zipcode']
+        occupation=request.form['occupation']
+        gender=request.form['gender']
+        city=request.form['city']
+        education=request.form['education']
+
+        user_updated_data = dict(full_name=full_name,phone_number=phone_number,
+                            dob=dob,address=address,zip_code=zip_code,occupation=occupation
+                            ,gender=gender,city=city,education=education)
+        
+        mongo.db.users.update_one(dict(email=current_user.email),
+                                {"$set": user_updated_data})
+        flash("Saved Succesfully!",'success')
+
     return render_template('user/dist/accountSettings.html')
+
 
 
 @app.route('/changepassword', methods=['GET', 'POST'])

@@ -155,8 +155,8 @@
             </header>
 
             <div class="page-heading">
-                <h3>Hello, John</h3>
-                <p class="text-muted mb-0">Track your survey activity, earnings, and status at a glance</p>
+                <h3>Hello, {{current_user.username}}</h3>
+                <p class="text-muted mb-0">Welcome back, admin</p>
             </div>
             <div class="page-content">
                 <section class="row">
@@ -332,8 +332,8 @@
                                         <img src="{{ url_for('admin.static', filename='assets/images/faces/1.jpg') }}" alt="...">
                                     </div>
                                     <div class="ms-3 name">
-                                        <h5 class="font-bold">John Doe</h5>
-                                        <h6 class="text-muted mb-0">@johndoe</h6>
+                                        <h5 class="font-bold">{{current_user.full_name}}</h5>
+                                        <h6 class="text-muted mb-0">{{current_user.username}}</h6>
                                     </div>
                                 </div>
                             </div>
