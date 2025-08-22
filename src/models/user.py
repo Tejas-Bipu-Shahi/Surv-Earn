@@ -10,6 +10,7 @@ class User(BaseModel, UserMixin):
     password_hash: str
     username: str
     _id: str | None = None
+    is_admin: bool = False
 
     total_completed_surveys: int = 0
     current_balance: int = 0
