@@ -65,6 +65,12 @@
                     {% if confirm_password_error %}
                     <span class="text-danger">{{confirm_password_error}}</span>
                     {% endif %}
+                    <div class="form-check form-check-lg d-flex align-items-end">
+                        <input class="form-check-input me-2" type="checkbox" value="True" name="register_as_admin" id="flexCheckDefault">
+                        <label class="form-check-label text-gray-600" for="flexCheckDefault">
+                            Register as Admin
+                        </label>
+                    </div>
                     <button class="btn btn-primary btn-block btn-lg shadow-lg mt-5" type="submit">Sign Up</button>
                 </form>
                 <div class="text-center mt-5 text-lg fs-4">
@@ -84,7 +90,7 @@
 </div>
 </body>
 
-    <script src="{{url_for('static', filename='user/dist/assets/vendors/toastify/toastify.js')}}"></script>
+<script src="{{url_for('static', filename='user/dist/assets/vendors/toastify/toastify.js')}}"></script>
 <script>
     {% with messages = get_flashed_messages(with_categories=true) %}
     {% if messages %}
