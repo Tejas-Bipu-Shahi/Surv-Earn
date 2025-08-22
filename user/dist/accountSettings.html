@@ -8,16 +8,16 @@
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/bootstrap.css">
+    <link rel="stylesheet" href="{{url_for('static', filename='user/dist/assets/css/bootstrap.css')}}">
 
-    <link rel="stylesheet" href="assets/vendors/iconly/bold.css">
+    <link rel="stylesheet" href="{{url_for('static', filename='user/dist/assets/vendors/iconly/bold.css')}}">
 
-    <link rel="stylesheet" href="assets/vendors/simple-datatables/style.css">
+    <link rel="stylesheet" href="{{url_for('static', filename='user/dist/assets/vendors/simple-datatables/style.css')}}">
 
-    <link rel="stylesheet" href="assets/vendors/perfect-scrollbar/perfect-scrollbar.css">
-    <link rel="stylesheet" href="assets/vendors/bootstrap-icons/bootstrap-icons.css">
-    <link rel="stylesheet" href="assets/css/app.css">
-    <link rel="shortcut icon" href="assets/images/favicon.svg" type="image/x-icon">
+    <link rel="stylesheet" href="{{url_for('static', filename='user/dist/assets/vendors/perfect-scrollbar/perfect-scrollbar.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='user/dist/assets/vendors/bootstrap-icons/bootstrap-icons.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='user/dist/assets/css/app.css')}}">
+    <link rel="shortcut icon" href="{{url_for('static', filename='user/dist/assets/images/favicon.svg')}}" type="image/x-icon">
     <style>
         input[type="radio"]:checked+label.khalti-btn {
             background-color: #6f42c1 !important;
@@ -98,7 +98,7 @@
                 <div class="sidebar-header">
                     <div class="d-flex align-items-center justify-content-between">
                         <div class="logo me-2">
-                            <a href="index.html"><img src="assets/images/logo/logo.png" alt="Logo" srcset=""></a>
+                            <a href="{{url_for('index')}}"><img src="{{url_for('static', filename='user/dist/assets/images/logo/logo.png')}}" alt="Logo" srcset=""></a>
                         </div>
                         <div class="d-flex align-items-center">
                             <div class="dropdown me-2">
@@ -158,7 +158,7 @@
                     <ul class="menu">
                         <li class="sidebar-title">Menu</li>
                         <li class="sidebar-item">
-                            <a href="index.html" class="sidebar-link">
+                            <a href="{{url_for('index')}}" class="sidebar-link">
                                 <i class="bi bi-grid-fill"></i>
                                 <span>Dashboard</span>
                             </a>
@@ -171,13 +171,13 @@
                             </a>
                             <ul class="submenu">
                                 <li class="submenu-item">
-                                    <a href="fillSurvey.html">Fillup Survey</a>
+                                    <a href="{{url_for('fillsurvey')}}">Fillup Survey</a>
                                 </li>
                                 <li class="submenu-item  ">
-                                    <a href="survHistory.html">Survey History</a>
+                                    <a href="{{url_for('surveyhistory')}}">Survey History</a>
                                 </li>
                                 <li class="submenu-item">
-                                    <a href="redeem.html">Redeem</a>
+                                    <a href="{{url_for('redeem')}}">Redeem</a>
                                 </li>
                             </ul>
                         </li>
@@ -188,18 +188,18 @@
                             </a>
                             <ul class="submenu active">
                                 <li class="submenu-item active">
-                                    <a href="accountSettings.html">Account Settings</a>
+                                    <a href="{{url_for('accountsettings')}}">Account Settings</a>
                                 </li>
                                 <li class="submenu-item">
-                                    <a href="changePassword.html">Change Password</a>
+                                    <a href="{{url_for('changepassword')}}">Change Password</a>
                                 </li>
                                 <li class="submenu-item">
-                                    <a href="notifications.html">Notifications</a>
+                                    <a href="#">Notifications</a>
                                 </li>
                             </ul>
                         </li>
                         <li class="sidebar-item">
-                            <a href="logout.html" class="sidebar-link">
+                            <a href="{{url_for('logout')}}" class="sidebar-link">
                                 <i class="bi bi-grid-fill"></i>
                                 <span>Logout</span>
                             </a>
@@ -242,8 +242,8 @@
                                             Click to upload profile image
                                         </div>
 
-                                        <h3 class="mt-3" id="userName">John Doe</h3>
-                                        <p class="text-small" id="userOccupation">Junior Software Engineer</p>
+                                        <h3 class="mt-3" id="userName">{{current_user.username}}</h3>
+                                        <p class="text-small" id="userOccupation">{{current_user.occupation}}</p>
                                     </div>
 
                                     <!-- Profile Completion Section -->
@@ -265,11 +265,11 @@
 
                                         <div class="profile-stats">
                                             <div class="stat-card">
-                                                <div class="stat-value">24</div>
+                                                <div class="stat-value">{{current_user.total_completed_surveys}}</div>
                                                 <div class="stat-label">Surveys Completed</div>
                                             </div>
                                             <div class="stat-card">
-                                                <div class="stat-value">$128.50</div>
+                                                <div class="stat-value">Rs. {{current_user.total_earnings}}</div>
                                                 <div class="stat-label">Total Earnings</div>
                                             </div>
                                         </div>
@@ -291,14 +291,14 @@
                                                 <div class="form-group">
                                                     <label for="name" class="form-label">Full Name</label>
                                                     <input type="text" name="name" id="name" class="form-control"
-                                                        placeholder="Your Name" value="John Doe">
+                                                        placeholder="Your Name" value="{{current_user.full_name}}">
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label for="email" class="form-label">Email Address</label>
                                                     <input type="text" name="email" id="email" class="form-control"
-                                                        placeholder="Your Email" value="john.doe@example.net">
+                                                        placeholder="Your Email" value="{{current_user.email}}">
                                                 </div>
                                             </div>
                                         </div>
@@ -308,7 +308,7 @@
                                                 <div class="form-group">
                                                     <label for="phone" class="form-label">Phone Number</label>
                                                     <input type="text" name="phone" id="phone" class="form-control"
-                                                        placeholder="Your Phone" value="+1 (555) 123-4567">
+                                                        placeholder="Your Phone" value="{{current_user.phone_number}}">
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
@@ -316,7 +316,7 @@
                                                     <label for="occupation" class="form-label">Occupation</label>
                                                     <input type="text" name="occupation" id="occupation"
                                                         class="form-control" placeholder="Your Occupation"
-                                                        value="Software Engineer">
+                                                        value="{{current_user.occupation}}">
                                                 </div>
                                             </div>
                                         </div>
@@ -326,7 +326,7 @@
                                                 <div class="form-group">
                                                     <label for="birthday" class="form-label">Date of Birth</label>
                                                     <input type="date" name="birthday" id="birthday"
-                                                        class="form-control" value="1990-05-15">
+                                                        class="form-control" value="{{current_user.dob}}">
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
@@ -345,14 +345,14 @@
                                                 <div class="form-group">
                                                     <label for="address" class="form-label">Address</label>
                                                     <input type="text" name="address" id="address" class="form-control"
-                                                        placeholder="Your Address" value="123 Main Street, Apt 4B">
+                                                        placeholder="Your Address" value="{{current_user.address}}">
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label for="city" class="form-label">City</label>
                                                     <input type="text" name="city" id="city" class="form-control"
-                                                        placeholder="Your City" value="New York">
+                                                        placeholder="Your City" value="{{current_user.city}}">
                                                 </div>
                                             </div>
                                         </div>
@@ -362,7 +362,7 @@
                                                 <div class="form-group">
                                                     <label for="zipcode" class="form-label">ZIP Code</label>
                                                     <input type="text" name="zipcode" id="zipcode" class="form-control"
-                                                        placeholder="Your ZIP Code" value="10001">
+                                                        placeholder="Your ZIP Code" value="{{current_user.zip_code}}">
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
@@ -370,7 +370,7 @@
                                                     <label for="education" class="form-label">Education</label>
                                                     <input type="text" name="education" id="education"
                                                         class="form-control" placeholder="Your Education"
-                                                        value="Bachelor's Degree">
+                                                        value="{{current_user.education}}">
                                                 </div>
                                             </div>
                                         </div>
@@ -409,11 +409,11 @@
         </div>
     </div>
 
-    <script src="assets/vendors/perfect-scrollbar/perfect-scrollbar.min.js"></script>
-    <script src="assets/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/vendors/simple-datatables/simple-datatables.js"></script>
-    <script src="assets/vendors/apexcharts/apexcharts.js"></script>
-    <script src="assets/js/pages/dashboard.js"></script>
+    <script src="{{url_for('static', filename='user/dist/assets/vendors/perfect-scrollbar/perfect-scrollbar.min.js')}}"></script>
+    <script src="{{url_for('static', filename='user/dist/assets/js/bootstrap.bundle.min.js')}}"></script>
+    <script src="{{url_for('static', filename='user/dist/assets/vendors/simple-datatables/simple-datatables.js')}}"></script>
+    <script src="{{url_for('static', filename='user/dist/assets/vendors/apexcharts/apexcharts.js')}}"></script>
+    <script src="{{url_for('static', filename='user/dist/assets/js/pages/dashboard.js')}}"></script>
     <script>
         // Simple Datatable
         let table1 = document.querySelector('#table1');
@@ -534,7 +534,7 @@
             });
         });
     </script>
-    <script src="assets/js/main.js"></script>
+    <script src="{{url_for('static', filename='user/dist/assets/js/main.js')}}"></script>
 </body>
 
 </html>

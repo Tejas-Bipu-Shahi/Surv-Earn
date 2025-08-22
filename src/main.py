@@ -146,5 +146,47 @@ def verify_otp():
     return render_template('verify_otp.html', email=session['temp_unverified_email'])
 
 
+@app.route('/fillsurvey', methods=['GET', 'POST'])
+@login_required
+def fillsurvey():
+    return render_template('user/dist/fillSurvey.html')
+
+
+@app.route('/surveyhistory', methods=['GET', 'POST'])
+@login_required
+def surveyhistory():
+    return render_template('user/dist/survHistory.html')
+
+
+@app.route('/redeems', methods=['GET', 'POST'])
+@login_required
+def redeem():
+    return render_template('user/dist/redeem.html')
+
+
+@app.route('/accountsettings', methods=['GET', 'POST'])
+@login_required
+def accountsettings():
+    return render_template('user/dist/accountSettings.html')
+
+
+@app.route('/changepassword', methods=['GET', 'POST'])
+@login_required
+def changepassword():
+    return render_template('user/dist/changePassword.html')
+
+
+@app.route('/surveyDetails', methods=['GET', 'POST'])
+@login_required
+def surveydetails():
+    return render_template('user/dist/surveyDetails.html')
+
+
+@app.route('/transaction', methods=['GET', 'POST'])
+@login_required
+def transaction():
+    return render_template('user/dist/transaction.html')
+
+
 if __name__ == '__main__':
     app.run(debug=True, port=5000)

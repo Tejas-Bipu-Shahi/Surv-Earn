@@ -21,21 +21,20 @@
 </head>
 
 <body>
-<div id="app">
-    <div id="sidebar" class="active">
-        <div class="sidebar-wrapper active">
-            <div class="sidebar-header">
-                <div class="d-flex align-items-center justify-content-between">
-                    <div class="logo me-2">
-                        <a href="{{url_for('index')}}"><img src="{{url_for('static', filename='user/dist/assets/images/logo/logo.png')}}"
-                                                            alt="Logo" srcset=""></a>
-                    </div>
-                    <div class="d-flex align-items-center">
-                        <div class="dropdown me-2">
-                            <a href="#" id="notifDropdown" data-bs-toggle="dropdown" aria-expanded="false"
-                               class="position-relative">
-                                <i class="bi bi-bell fs-4"></i>
-                                <span
+    <div id="app">
+        <div id="sidebar" class="active">
+            <div class="sidebar-wrapper active">
+                <div class="sidebar-header">
+                    <div class="d-flex align-items-center justify-content-between">
+                        <div class="logo me-2">
+                            <a href="{{url_for('index')}}"><img src="{{url_for('static', filename='user/dist/assets/images/logo/logo.png')}}" alt="Logo" srcset=""></a>
+                        </div>
+                        <div class="d-flex align-items-center">
+                            <div class="dropdown me-2">
+                                <a href="#" id="notifDropdown" data-bs-toggle="dropdown" aria-expanded="false"
+                                    class="position-relative">
+                                    <i class="bi bi-bell fs-4"></i>
+                                    <span
                                         class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
                                         style="font-size:0.7rem;">2</span>
                             </a>
@@ -69,148 +68,150 @@
                                                 <span class="fw-bold">Cash Redeem</span>
                                             </div>
 
-                                            <div class="small text-muted mt-1">$10.49 was redeemed</div>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="text-center py-2 border-top">
-                                    <a href="#" class="small text-primary">View All</a>
+                                                <div class="small text-muted mt-1">$10.49 was redeemed</div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="text-center py-2 border-top">
+                                        <a href="#" class="small text-primary">View All</a>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="toggler">
-                            <a href="#" class="sidebar-hide d-xl-none d-block"><i class="bi bi-x bi-middle"></i></a>
+                            <div class="toggler">
+                                <a href="#" class="sidebar-hide d-xl-none d-block"><i class="bi bi-x bi-middle"></i></a>
+                            </div>
                         </div>
                     </div>
                 </div>
+                <div class="sidebar-menu">
+                    <ul class="menu">
+                        <li class="sidebar-title">Menu</li>
+                        <li class="sidebar-item active">
+                            <a href="{{url_for('index')}}" class="sidebar-link">
+                                <i class="bi bi-grid-fill"></i>
+                                <span>Dashboard</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-title">Actions</li>
+                        <li class="sidebar-item has-sub">
+                            <a href="#" class="sidebar-link">
+                                <i class="bi bi-ui-checks-grid"></i>
+                                <span>Survey</span>
+                            </a>
+                            <ul class="submenu">
+                                <li class="submenu-item">
+                                    <a href="{{url_for('fillsurvey')}}">Fillup Survey</a>
+                                </li>
+                                <li class="submenu-item">
+                                    <a href="{{url_for('surveyhistory')}}">Survey History</a>
+                                </li>
+                                <li class="submenu-item">
+                                    <a href="{{url_for('redeem')}}">Redeem</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="sidebar-item has-sub">
+                            <a href="#" class="sidebar-link">
+                                <i class="bi bi-person-circle"></i>
+                                <span>Profile</span>
+                            </a>
+                            <ul class="submenu">
+                                <li class="submenu-item">
+                                    <a href="{{url_for('accountsettings')}}">Account Settings</a>
+                                </li>
+                                <li class="submenu-item">
+                                    <a href="{{url_for('changepassword')}}">Change Password</a>
+                                </li>
+                                <li class="submenu-item">
+                                    <a href="#">Notifications</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="sidebar-item">
+                            <a href="{{url_for('logout')}}" class="sidebar-link">
+                                <i class="bi bi-grid-fill"></i>
+                                <span>Logout</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <button class="sidebar-toggler btn x"><i data-feather="x"></i></button>
             </div>
-            <div class="sidebar-menu">
-                <ul class="menu">
-                    <li class="sidebar-title">Menu</li>
-                    <li class="sidebar-item active">
-                        <a href="#" class="sidebar-link">
-                            <i class="bi bi-grid-fill"></i>
-                            <span>Dashboard</span>
-                        </a>
-                    </li>
-                    <li class="sidebar-title">Actions</li>
-                    <li class="sidebar-item has-sub">
-                        <a href="#" class="sidebar-link">
-                            <i class="bi bi-ui-checks-grid"></i>
-                            <span>Survey</span>
-                        </a>
-                        <ul class="submenu">
-                            <li class="submenu-item">
-                                <a href="#">Fillup Survey</a>
-                            </li>
-                            <li class="submenu-item">
-                                <a href="#">Redeem</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="sidebar-item has-sub">
-                        <a href="#" class="sidebar-link">
-                            <i class="bi bi-person-circle"></i>
-                            <span>Profile</span>
-                        </a>
-                        <ul class="submenu">
-                            <li class="submenu-item">
-                                <a href="#">Account Settings</a>
-                            </li>
-                            <li class="submenu-item">
-                                <a href="#">Change Password</a>
-                            </li>
-                            <li class="submenu-item">
-                                <a href="#">Notifications</a>
-                            </li>
-                            <li class="submenu-item">
-                                <a href="#">Logout</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="sidebar-item">
-                        <a href="{{url_for('logout')}}" class="sidebar-link">
-                            <i class="bi bi-grid-fill"></i>
-                            <span>Logout</span>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-            <button class="sidebar-toggler btn x"><i data-feather="x"></i></button>
         </div>
-    </div>
-    <div id="main">
-        <header class="mb-3">
-            <a href="#" class="burger-btn d-block d-xl-none">
-                <i class="bi bi-justify fs-3"></i>
-            </a>
-        </header>
+        <div id="main">
+            <header class="mb-3">
+                <a href="#" class="burger-btn d-block d-xl-none">
+                    <i class="bi bi-justify fs-3"></i>
+                </a>
+            </header>
 
-        <div class="page-heading">
-            <h3>Profile Statistics</h3>
-        </div>
-        <div class="page-content">
-            <section class="row">
-                <div class="col-12 col-lg-9">
-                    <div class="row">
-                        <div class="col-6 col-lg-3 col-md-6">
-                            <div class="card">
-                                <div class="card-body px-3 py-4-5">
-                                    <div class="row">
-                                        <div class="col-md-4">
-                                            <div class="stats-icon purple">
-                                                <i class="iconly-boldShow"></i>
+            <div class="page-heading">
+                <h3>Hello, {{current_user.username}}</h3>
+                <p class="text-muted mb-0">Track your survey activity, earnings, and status at a glance</p>
+            </div>
+            <div class="page-content">
+                <section class="row">
+                    <div class="col-12 col-xl-9">
+                        <div class="row">
+                            <div class="col-6 col-lg-3 col-md-6">
+                                <div class="card h-75">
+                                    <div class="card-body px-3 py-4-5">
+                                        <div class="d-flex align-items-center">
+                                            <div class="stats-icon purple me-3">
+                                                <i
+                                                    class="bi bi-clipboard-check fs-4 d-flex align-items-center justify-content-center mx-auto my-auto"></i>
                                             </div>
-                                        </div>
-                                        <div class="col-md-8">
-                                            <h6 class="text-muted font-semibold">Profile Views</h6>
-                                            <h6 class="font-extrabold mb-0">112.000</h6>
+                                            <div>
+                                                <div class="fw-bold small mb-1">Completed</div>
+                                                <div class="h5 fw-bold mb-0">{{current_user.total_completed_surveys}}</div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-6 col-lg-3 col-md-6">
-                            <div class="card">
-                                <div class="card-body px-3 py-4-5">
-                                    <div class="row">
-                                        <div class="col-md-4">
-                                            <div class="stats-icon blue">
-                                                <i class="iconly-boldProfile"></i>
+                            <div class="col-6 col-lg-3 col-md-6">
+                                <div class="card h-75">
+                                    <div class="card-body px-3 py-4-5">
+                                        <div class="d-flex align-items-center">
+                                            <div class="stats-icon green me-2">
+                                                <i
+                                                    class="bi bi-wallet2 fs-4 d-flex align-items-center justify-content-center mx-auto my-auto"></i>
                                             </div>
-                                        </div>
-                                        <div class="col-md-8">
-                                            <h6 class="text-muted font-semibold">Followers</h6>
-                                            <h6 class="font-extrabold mb-0">183.000</h6>
+                                            <div>
+                                                <div class="fw-bold small mb-1">Balance</div>
+                                                <div class="h5 fw-bold mb-0">Rs. {{current_user.current_balance}}</div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-6 col-lg-3 col-md-6">
-                            <div class="card">
-                                <div class="card-body px-3 py-4-5">
-                                    <div class="row">
-                                        <div class="col-md-4">
-                                            <div class="stats-icon green">
-                                                <i class="iconly-boldAdd-User"></i>
+                            <div class="col-6 col-lg-3 col-md-6">
+                                <div class="card h-75">
+                                    <div class="card-body px-3 py-4-5">
+                                        <div class="d-flex align-items-center">
+                                            <div class="stats-icon blue me-3">
+                                                <i
+                                                    class="bi bi-cash fs-4 d-flex align-items-center justify-content-center mx-auto my-auto"></i>
                                             </div>
-                                        </div>
-                                        <div class="col-md-8">
-                                            <h6 class="text-muted font-semibold">Following</h6>
-                                            <h6 class="font-extrabold mb-0">80.000</h6>
+                                            <div>
+                                                <div class="fw-bold small mb-1">Total Earnings</div>
+                                                <div class="h5 fw-bold mb-0">Rs. {{current_user.total_earnings}}</div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-6 col-lg-3 col-md-6">
-                            <div class="card">
-                                <div class="card-body px-3 py-4-5">
-                                    <div class="row">
-                                        <div class="col-md-4">
-                                            <div class="stats-icon red">
-                                                <i class="iconly-boldBookmark"></i>
+                            <div class="col-6 col-lg-3 col-md-6">
+                                <div class="card h-75">
+                                    <div class="card-body px-3 py-4-5">
+                                        <div class="d-flex align-items-center">
+                                            <div class="stats-icon green me-3">
+                                                <i
+                                                    class="bi bi-hourglass-split fs-4 d-flex align-items-center justify-content-center mx-auto my-auto"></i>
+                                            </div>
+                                            <div>
+                                                <div class="fw-bold small mb-1">Pending</div>
+                                                <div class="h5 fw-bold mb-0">N/A</div>
                                             </div>
                                         </div>
                                         <div class="col-md-8">
@@ -348,17 +349,17 @@
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-12 col-lg-3">
-                    <div class="card">
-                        <div class="card-body py-4 px-5">
-                            <div class="d-flex align-items-center">
-                                <div class="avatar avatar-xl">
-                                    <img src="assets/images/faces/1.jpg" alt="Face 1">
-                                </div>
-                                <div class="ms-3 name">
-                                    <h5 class="font-bold">{{current_user.username}}</h5>
-                                    <h6 class="text-muted mb-0">{{current_user.email}}</h6>
+                    <div class="col-12 col-xl-3">
+                        <div class="card mb-3">
+                            <div class="card-body py-4 px-5">
+                                <div class="d-flex align-items-center">
+                                    <div class="avatar avatar-xl">
+                                        <img src="{{url_for('static', filename='user/dist/assets/images/faces/1.jpg')}}" alt="Face 1">
+                                    </div>
+                                    <div class="ms-3 name">
+                                        <h5 class="font-bold">{{current_user.username}}</h5>
+                                        <h6 class="text-muted mb-0">@{{current_user.username}}</h6>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -385,6 +386,8 @@
                                     <h5 class="mb-1">Dean Winchester</h5>
                                     <h6 class="text-muted mb-0">@imdean</h6>
                                 </div>
+                                <div class="small text-muted">New surveys matched to your profile</div>
+                                <a href="{{url_for('fillsurvey')}}" class="btn btn-sm btn-outline-primary mt-2">View</a>
                             </div>
                             <div class="recent-message d-flex px-4 py-3">
                                 <div class="avatar avatar-lg">
@@ -394,25 +397,15 @@
                                     <h5 class="mb-1">John Dodol</h5>
                                     <h6 class="text-muted mb-0">@dodoljohn</h6>
                                 </div>
-                            </div>
-                            <div class="px-4">
-                                <button class='btn btn-block btn-xl btn-light-primary font-bold mt-3'>Start
-                                    Conversation
-                                </button>
+                                <div class="small text-muted">Complete 3 more surveys to reach Silver</div>
+                                <a href="{{url_for('accountsettings')}}" class="btn btn-sm btn-outline-primary mt-2">Go to
+                                    Profile</a>
+
                             </div>
                         </div>
                     </div>
-                    <div class="card">
-                        <div class="card-header">
-                            <h4>Visitors Profile</h4>
-                        </div>
-                        <div class="card-body">
-                            <div id="chart-visitors-profile"></div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </div>
+                </section>
+            </div>
 
         <footer>
             <div class="footer clearfix mb-0 text-muted">

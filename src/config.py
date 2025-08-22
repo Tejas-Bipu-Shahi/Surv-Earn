@@ -13,7 +13,7 @@ load_dotenv(os.path.join(app_src_dir, '.env'))
 
 app = Flask(__name__, template_folder=project_root_dir, static_folder=project_root_dir)
 
-app.config['MONGO_URI'] = 'mongodb://127.0.0.1:27017/SurvUsersTestDB'
+app.config['MONGO_URI'] = 'mongodb://127.0.0.1:27017/SurvEarnTestDB'
 mongo = PyMongo(app)
 
 app.config['SECRET_KEY'] = os.getenv('SECRET_KEY')
