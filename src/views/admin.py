@@ -8,6 +8,7 @@ from config import project_root_dir, mongo
 from models.survey import Survey, SurveyStatus
 from models.admindata import AdminData
 
+
 from icecream import ic
 
 admin_bp = Blueprint(name='admin', import_name=__name__, url_prefix='/admin',
@@ -98,7 +99,9 @@ def yoursurveys():
                           total_surveys_created=1,
                           expired_surveys=0,
                           this_month_spending=0)
-    return render_template('yourSurveys.html',admindb=admindata)
+    surveys = list(mongo.db.surveys.find())
+    total_surveys = len(surveys)
+    return render_template('yourSurveys.html',admindb=admindata,surveys=surveys,enumerate=enumerate,total_surveys=total_surveys)
 
 
 @admin_bp.route('/notifications', methods=['GET', 'POST'])

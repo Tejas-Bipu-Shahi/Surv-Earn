@@ -27,7 +27,8 @@
     <!-- AOS Animation -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
-    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/style.css') }}">
+
 </head>
 
 <body>
@@ -170,7 +171,7 @@
                         <div class="mb-3">
                             <div class="mx-auto"
                                 style="width: 100px; height: 100px; background: linear-gradient(135deg, #556B2F, #6B8E23); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 2rem; font-weight: bold;">
-                                <img src="assets/images/tejas.jpg" alt="Tejas Shahi" class="img-fluid rounded-circle"
+                                <img src="{{url_for('static',filename='assets/images/tejas.jpg')}}" alt="Tejas Shahi" class="img-fluid rounded-circle"
                                     style="width: 100px; height: 100px; object-fit: cover;">
                             </div>
                         </div>
@@ -186,7 +187,7 @@
                         <div class="mb-3">
                             <div class="mx-auto"
                                 style="width: 100px; height: 100px; background: linear-gradient(135deg, #1976D2, #42A5F5); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 2rem; font-weight: bold;">
-                                <img src="assets/images/nitya.jpg" alt="Nitya Yadav" class="img-fluid rounded-circle"
+                                <img src="{{url_for('static',filename='assets/images/nitya.jpg')}}" alt="Nitya Yadav" class="img-fluid rounded-circle"
                                     style="width: 100px; height: 100px; object-fit: cover;">
                             </div>
                         </div>
@@ -202,7 +203,7 @@
                         <div class="mb-3">
                             <div class="mx-auto"
                                 style="width: 100px; height: 100px; background: linear-gradient(135deg, #388E3C, #66BB6A); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 2rem; font-weight: bold;">
-                                <img src="assets/images/naitik.jpg" alt="Naitik Joshi" class="img-fluid rounded-circle"
+                                <img src="{{url_for('static',filename='assets/images/naitik.jpg')}}" alt="Naitik Joshi" class="img-fluid rounded-circle"
                                     style="width: 100px; height: 100px; object-fit: cover;">
                             </div>
                         </div>
@@ -218,7 +219,7 @@
                         <div class="mb-3">
                             <div class="mx-auto"
                                 style="width: 100px; height: 100px; background: linear-gradient(135deg, #F57C00, #FFB74D); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 2rem; font-weight: bold;">
-                                <img src="assets/images/sambhav.jpg" alt="Sambhav Shrestha"
+                                <img src="{{url_for('static',filename='assets/images/sambhav.jpg')}}" alt="Sambhav Shrestha"
                                     class="img-fluid rounded-circle"
                                     style="width: 100px; height: 100px; object-fit: cover;">
                             </div>
@@ -235,7 +236,7 @@
                         <div class="mb-3">
                             <div class="mx-auto"
                                 style="width: 100px; height: 100px; background: linear-gradient(135deg, #7B1FA2, #BA68C8); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 2rem; font-weight: bold;">
-                                <img src="assets/images/alwin.jpg" alt="Alwin Maharjan" class="img-fluid rounded-circle"
+                                <img src="{{url_for('static',filename='assets/images/alwin.jpg')}}" alt="Alwin Maharjan" class="img-fluid rounded-circle"
                                     style="width: 100px; height: 100px; object-fit: cover;">
                             </div>
                         </div>

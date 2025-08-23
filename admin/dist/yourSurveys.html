@@ -250,49 +250,28 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td><a href="{{ url_for('admin.surveydetails') }}"
 
-                                            class="text-decoration-none fw-semibold text-primary">Customer
-                                            Satisfaction</a></td>
-                                    <td>2025-08-10</td>
-                                    <td>2025-09-10</td>
+                                {% for i, survey in enumerate(surveys) %}
+                                <tr>
+                                    <td>{{i+1}}</td>
+                                    <td>
+                                        <a href="{{url_for('surveydetails', survey_id=survey._id)}}"
+                                            class="text-decoration-none fw-semibold text-primary">{{survey.survey_title}}</a>
+                                    </td>
+                                    <td><span class="badge bg-light text-dark border"><i
+                                                class="bi bi-calendar-event"></i>{{survey.date_posted}}</span></td>
+                                    <<td>
+                                        <span class="badge bg-light text-dark border"><i
+                                                class="bi bi-calendar-event"></i>{{survey.expiration_date}}</span>
+                                    </td>
                                     <td><span class="fw-bold">150</span></td>
-                                    <td>5 min</td>
-                                    <td><span class="badge bg-secondary">Customer Experience</span></td>
+                                    <td>{{survey.estimated_time}} min</td>
+                                    <td><span class="badge bg-secondary">{{survey.category}}</span></td>
                                     <td><a href="https://docs.google.com/forms/d/e/example1/viewanalytics"
                                             target="_blank" class="btn btn-sm btn-outline-primary">View Results</a></td>
                                 </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td><a href="{{ url_for('admin.surveydetails') }}"
+                            {% endfor %}
 
-                                            class="text-decoration-none fw-semibold text-primary">Product Feedback</a>
-                                    </td>
-                                    <td>2025-08-12</td>
-                                    <td>2025-09-12</td>
-                                    <td><span class="fw-bold">87</span></td>
-                                    <td>8 min</td>
-                                    <td><span class="badge bg-secondary">Product</span></td>
-                                    <td><a href="https://docs.google.com/forms/d/e/example2/viewanalytics"
-                                            target="_blank" class="btn btn-sm btn-outline-primary">View Results</a></td>
-                                </tr>
-                                <tr>
-                                    <td>3</td>
-                                    <td><a href="{{ url_for('admin.surveydetails') }}"
-
-                                            class="text-decoration-none fw-semibold text-primary">Market Research</a>
-                                    </td>
-                                    <td>2025-08-15</td>
-                                    <td>2025-09-15</td>
-                                    <td><span class="fw-bold">15</span></td>
-                                    <td>15 min</td>
-                                    <td><span class="badge bg-secondary">Market</span></td>
-
-                                    <td><a href="https://docs.google.com/forms/d/e/example1/viewanalytics"
-                                            target="_blank" class="btn btn-sm btn-outline-primary">View Results</a></td>
-                                </tr>
                             </tbody>
                         </table>
                     </div>
