@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard - Mazer Admin Dashboard</title>
+    <title>Admin Dashboard - Survey & Earn</title>
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
@@ -21,13 +21,45 @@
         type="image/x-icon">
 
     <style>
+        .stats-icon-admin {
+            width: 3rem;
+            height: 3rem;
+            border-radius: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .admin-card-header {
+            background-color: #f8f9fa;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .quick-action-card {
+            transition: all 0.3s ease;
+        }
+
+        .quick-action-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+        }
+
+        .notification-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+        }
+
         .extra-small {
             font-size: 0.700rem;
             /* ~10px */
         }
     </style>
 </head>
-
 
 <body>
     <div id="app">
@@ -84,7 +116,7 @@
                                         </a>
                                     </div>
                                     <div class="text-center py-2 border-top">
-                                        <a href="#" class="small text-primary">View All</a>
+                                        <a href="notifications.html" class="small text-primary">View All</a>
                                     </div>
                                 </div>
                             </div>
@@ -97,20 +129,20 @@
                 <div class="sidebar-menu">
                     <ul class="menu">
                         <li class="sidebar-title">Menu</li>
-                        <li class="sidebar-item active">
+                        <li class="sidebar-item">
                             <a href="{{ url_for('index') }}" class="sidebar-link">
                                 <i class="bi bi-grid-fill"></i>
                                 <span>Dashboard</span>
                             </a>
                         </li>
                         <li class="sidebar-title">Actions</li>
-                        <li class="sidebar-item has-sub">
+                        <li class="sidebar-item has-sub active">
                             <a href="#" class="sidebar-link">
                                 <i class="bi bi-ui-checks-grid"></i>
                                 <span>Survey</span>
                             </a>
-                            <ul class="submenu">
-                                <li class="submenu-item">
+                            <ul class="submenu active">
+                                <li class="submenu-item active">
                                     <a href="{{ url_for('admin.addsurvey') }}">Add Survey</a>
                                 </li>
                                 <li class="submenu-item">
@@ -137,13 +169,12 @@
                         </li>
                         <li class="sidebar-item">
                             <a href="{{ url_for('logout') }}" class="sidebar-link">
-                                <i class="bi bi-grid-fill"></i>
+                                <i class="bi bi-box-arrow-left"></i>
                                 <span>Logout</span>
                             </a>
                         </li>
                     </ul>
                 </div>
-
                 <button class="sidebar-toggler btn x"><i data-feather="x"></i></button>
             </div>
         </div>
@@ -155,168 +186,197 @@
             </header>
 
             <div class="page-heading">
-                <h3>Hello, {{current_user.username}}</h3>
-                <p class="text-muted mb-0">Welcome back, admin</p>
+                <h3>Admin Dashboard</h3>
+                <p class="text-muted mb-0">Platform overview and management console</p>
             </div>
             <div class="page-content">
                 <section class="row">
                     <div class="col-12 col-xl-9">
-                        <div class="row">
+                        <section class="row">
+
                             <div class="col-6 col-lg-3 col-md-6">
                                 <div class="card h-75">
                                     <div class="card-body px-3 py-4-5">
                                         <div class="d-flex align-items-center">
                                             <div class="stats-icon purple me-3">
                                                 <i
-                                                    class="bi bi-clipboard-check fs-4 d-flex align-items-center justify-content-center mx-auto my-auto"></i>
+                                                    class="bi bi-people-fill fs-4 d-flex align-items-center justify-content-center mx-auto my-auto"></i>
                                             </div>
                                             <div>
-                                                <div class="fw-bold small mb-1">Completed</div>
-                                                <div class="h5 fw-bold mb-0">27</div>
+                                                <div class="fw-bold small mb-1">Total Users</div>
+                                                <div class="h5 fw-bold mb-0">2,487</div>
                                             </div>
+
+                                        </div>
+                                        <div class="mt-2">
+                                            <span class="text-success small"><i class="bi bi-arrow-up"></i> 12.8%</span>
+                                            <span class="text-muted small"> from last month</span>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-6 col-lg-3 col-md-6">
-                                <div class="card h-75">
-                                    <div class="card-body px-3 py-4-5">
-                                        <div class="d-flex align-items-center">
-                                            <div class="stats-icon green me-2">
-                                                <i
-                                                    class="bi bi-wallet2 fs-4 d-flex align-items-center justify-content-center mx-auto my-auto"></i>
-                                            </div>
-                                            <div>
-                                                <div class="fw-bold small mb-1">Balance</div>
-                                                <div class="h5 fw-bold mb-0">$24.50</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+
                             <div class="col-6 col-lg-3 col-md-6">
                                 <div class="card h-75">
                                     <div class="card-body px-3 py-4-5">
                                         <div class="d-flex align-items-center">
                                             <div class="stats-icon blue me-3">
                                                 <i
-                                                    class="bi bi-cash fs-4 d-flex align-items-center justify-content-center mx-auto my-auto"></i>
+                                                    class="bi bi-ui-checks-grid fs-4 d-flex align-items-center justify-content-center mx-auto my-auto"></i>
                                             </div>
                                             <div>
-                                                <div class="fw-bold small mb-1">Total Earnings</div>
-                                                <div class="h5 fw-bold mb-0">$120.00</div>
+                                                <div class="fw-bold small mb-1">Active Surveys</div>
+                                                <div class="h5 fw-bold mb-0">6</div>
                                             </div>
+                                        </div>
+                                        <div class="mt-2">
+                                            <span class="text-success small"><i class="bi bi-arrow-up"></i> 5.3%</span>
+                                            <span class="text-muted small"> from last week</span>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+
                             <div class="col-6 col-lg-3 col-md-6">
                                 <div class="card h-75">
                                     <div class="card-body px-3 py-4-5">
                                         <div class="d-flex align-items-center">
                                             <div class="stats-icon green me-3">
                                                 <i
-                                                    class="bi bi-hourglass-split fs-4 d-flex align-items-center justify-content-center mx-auto my-auto"></i>
+                                                    class="bi bi-check-circle-fill fs-4 d-flex align-items-center justify-content-center mx-auto my-auto"></i>
                                             </div>
                                             <div>
-                                                <div class="fw-bold small mb-1">Pending</div>
-                                                <div class="h5 fw-bold mb-0">3</div>
+                                                <div class="fw-bold small mb-1">Completed Responses</div>
+                                                <div class="h5 fw-bold mb-0">8,420</div>
                                             </div>
+                                        </div>
+                                        <div class="mt-2">
+                                            <span class="text-success small"><i class="bi bi-arrow-up"></i> 8.2%</span>
+                                            <span class="text-muted small"> from last week</span>
                                         </div>
                                     </div>
                                 </div>
                             </div>
 
-                        </div>
-
-                        <!-- Secondary quick cards moved to the right column -->
+                            <div class="col-6 col-lg-3 col-md-6">
+                                <div class="card h-75">
+                                    <div class="card-body px-3 py-4-5">
+                                        <div class="d-flex align-items-center">
+                                            <!-- <div class="stats-icon red me-3">
+                                                <i class="bi bi-cash-coin"></i>
+                                            </div> -->
+                                            <div class="stats-icon blue me-3">
+                                                <i
+                                                    class="bi bi-cash fs-4 d-flex align-items-center justify-content-center mx-auto my-auto"></i>
+                                            </div>
+                                            <div>
+                                                <div class="fw-bold small mb-1">Total Payouts</div>
+                                                <div class="h5 fw-bold mb-0">$5,690</div>
+                                            </div>
+                                        </div>
+                                        <div class="mt-2">
+                                            <span class="text-success small"><i class="bi bi-arrow-up"></i> 7.5%</span>
+                                            <span class="text-muted small"> from last month</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
 
                         <div class="row">
                             <div class="col-12">
                                 <div class="card">
                                     <div class="card-header d-flex align-items-center justify-content-between">
-                                        <h4 class="mb-0">Surveys Completed</h4>
+                                        <h4 class="mb-0">Platform Performance Overview</h4>
                                         <small class="text-muted">Showing last 12 months</small>
                                     </div>
                                     <div class="card-body">
-                                        <div id="chart-profile-visit"></div>
+                                        <div id="chart-platform-performance"></div>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
                         <div class="row">
-                            <div class="col-12 col-xl-4 mb-3">
+                            <div class="col-12 col-xl-6 mb-3">
                                 <div class="card">
                                     <div class="card-header">
-                                        <h4 class="mb-0">Quick Trends</h4>
+                                        <h4 class="mb-0">Recent Surveys</h4>
                                     </div>
-                                    <div class="card-body">
-                                        <div class="row">
-                                            <div class="d-flex align-items-center justify-content-between mb-1">
-                                                <span class="fw-bold">Completion rate</span>
-                                                <span class="badge bg-primary">82%</span>
+                                    <div class="card-body p-0">
+                                        <div class="list-group list-group-flush">
+                                            <div class="list-group-item d-flex align-items-start">
+                                                <div class="me-3 text-primary">
+                                                    <i class="bi bi-clipboard-check fs-5"></i>
+                                                </div>
+                                                <div class="flex-grow-1">
+                                                    <div class="fw-semibold">Customer Satisfaction Q3 2025</div>
+                                                    <div class="small text-muted">1,248 responses • Active</div>
+                                                </div>
+                                                <span class="badge bg-success">82% Complete</span>
                                             </div>
-                                            <div class="col-12">
-                                                <div id="chart-europe"></div>
+                                            <div class="list-group-item d-flex align-items-start">
+                                                <div class="me-3 text-warning">
+                                                    <i class="bi bi-exclamation-triangle fs-5"></i>
+                                                </div>
+                                                <div class="flex-grow-1">
+                                                    <div class="fw-semibold">Product Feedback - New Feature</div>
+                                                    <div class="small text-muted">842 responses • Low participation
+                                                    </div>
+                                                </div>
+                                                <span class="badge bg-warning">56% Complete</span>
                                             </div>
-                                        </div>
-                                        <div class="row mt-3">
-                                            <div class="d-flex align-items-center justify-content-between mb-1">
-                                                <span class="fw-bold">Earnings trend</span>
-                                                <span class="badge bg-success">$120</span>
-                                            </div>
-                                            <div class="col-12 mt-2">
-                                                <div id="chart-america"></div>
-                                            </div>
-                                        </div>
-                                        <div class="row mt-3">
-                                            <div class="d-flex align-items-center justify-content-between mb-1">
-                                                <span class="fw-bold">Pending surveys</span>
-                                                <span class="badge bg-danger">3</span>
-                                            </div>
-                                            <div class="col-12 mt-2">
-                                                <div id="chart-indonesia"></div>
+                                            <div class="list-group-item d-flex align-items-start">
+                                                <div class="me-3 text-info">
+                                                    <i class="bi bi-clock-history fs-5"></i>
+                                                </div>
+                                                <div class="flex-grow-1">
+                                                    <div class="fw-semibold">Market Research - Consumer Trends</div>
+                                                    <div class="small text-muted">524 responses • Ends in 3 days</div>
+                                                </div>
+                                                <span class="badge bg-info">65% Complete</span>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
 
-                            <div class="col-12 col-xl-8 mb-">
+                            <div class="col-12 col-xl-6 mb-3">
                                 <div class="card">
                                     <div class="card-header">
-                                        <h4>Recent Activity</h4>
+                                        <h4 class="mb-0">Pending Actions</h4>
                                     </div>
                                     <div class="card-body p-0">
                                         <div class="list-group list-group-flush">
                                             <div class="list-group-item d-flex align-items-start">
-                                                <div class="me-3 text-primary"><i
-                                                        class="bi bi-clipboard-check fs-5"></i></div>
-                                                <div class="flex-grow-1">
-                                                    <div class="fw-semibold">Survey completed</div>
-                                                    <div class="small text-muted">Customer Satisfaction 2025 • 2m ago
-                                                    </div>
+                                                <div class="me-3 text-danger">
+                                                    <i class="bi bi-currency-dollar fs-5"></i>
                                                 </div>
-                                                <span class="badge bg-success">+$2.00</span>
+                                                <div class="flex-grow-1">
+                                                    <div class="fw-semibold">12 Payout Requests</div>
+                                                    <div class="small text-muted">Require approval</div>
+                                                </div>
+                                                <span class="badge bg-danger">Urgent</span>
                                             </div>
                                             <div class="list-group-item d-flex align-items-start">
-                                                <div class="me-3 text-success"><i class="bi bi-cash fs-5"></i>
+                                                <div class="me-3 text-warning">
+                                                    <i class="bi bi-flag fs-5"></i>
                                                 </div>
                                                 <div class="flex-grow-1">
-                                                    <div class="fw-semibold">Redeemed to wallet</div>
-                                                    <div class="small text-muted">$10.00 • 2d ago</div>
+                                                    <div class="fw-semibold">8 User Reports</div>
+                                                    <div class="small text-muted">Need review</div>
                                                 </div>
-                                                <span class="badge bg-secondary">Balance: $24.50</span>
+                                                <span class="badge bg-warning">Review</span>
                                             </div>
                                             <div class="list-group-item d-flex align-items-start">
-                                                <div class="me-3 text-warning"><i
-                                                        class="bi bi-hourglass-split fs-5"></i></div>
-                                                <div class="flex-grow-1">
-                                                    <div class="fw-semibold">3 surveys pending</div>
-                                                    <div class="small text-muted">Matched to your profile • Today</div>
+                                                <div class="me-3 text-info">
+                                                    <i class="bi bi-calendar-x fs-5"></i>
                                                 </div>
-
+                                                <div class="flex-grow-1">
+                                                    <div class="fw-semibold">3 Surveys Expiring</div>
+                                                    <div class="small text-muted">Within 24 hours</div>
+                                                </div>
+                                                <span class="badge bg-info">Attention</span>
                                             </div>
                                         </div>
                                     </div>
@@ -329,41 +389,104 @@
                             <div class="card-body py-4 px-5">
                                 <div class="d-flex align-items-center">
                                     <div class="avatar avatar-xl">
-                                        <img src="{{ url_for('admin.static', filename='assets/images/faces/1.jpg') }}" alt="...">
+                                        <img src="assets/images/faces/1.jpg" alt="Admin Avatar">
                                     </div>
                                     <div class="ms-3 name">
                                         <h5 class="font-bold">{{current_user.full_name}}</h5>
-                                        <h6 class="text-muted mb-0">{{current_user.username}}</h6>
+                                        <h6 class="text-muted mb-0">Platform Administrator</h6>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <!-- Removed Recent Messages card as requested -->
+
                         <div class="card">
                             <div class="card-header">
-                                <h4>Completion Status</h4>
+                                <h4>Financial Overview</h4>
                             </div>
                             <div class="card-body">
-                                <div id="chart-visitors-profile"></div>
-                            </div>
-                        </div>
-                        <!-- Secondary quick cards (right column) -->
-                        <div class="card mt-3">
-                            <div class="card-body p-3">
-                                <div class="d-flex align-items-center justify-content-between mb-2">
-                                    <div class="d-flex align-items-center">
-                                        <div class="bg-light text-primary rounded-circle d-flex align-items-center justify-content-center me-2"
-                                            style="width:36px;height:36px;">
-                                            <i class="bi bi-cash"></i>
-                                        </div>
-                                        <h6 class="mb-0">Last Redeem</h6>
+                                <div class="d-flex align-items-center mb-4">
+                                    <div class="flex-grow-1">
+                                        <h2 class="fw-bold text-primary mb-0">$8,450.75</h2>
+                                        <p class="text-muted mb-0">Available balance</p>
                                     </div>
-                                    <span class="badge bg-success">Success</span>
+                                    <div class="flex-shrink-0">
+                                        <div class="avatar bg-light-primary p-2">
+                                            <i class="bi bi-wallet2 fs-1 text-primary"></i>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="small text-muted">18 Aug 2025 • Wallet</div>
-                                <div class="fw-semibold mt-1">Amount: $10.00</div>
+
+                                <div class="mb-3">
+                                    <div class="d-flex justify-content-between mb-1">
+                                        <span class="text-muted">Pending payouts</span>
+                                        <span class="fw-bold">$1,240.50</span>
+                                    </div>
+                                    <div class="progress" style="height: 8px;">
+                                        <div class="progress-bar bg-warning" role="progressbar" style="width: 35%">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="mb-4">
+                                    <div class="d-flex justify-content-between mb-1">
+                                        <span class="text-muted">This month's spending</span>
+                                        <span class="fw-bold">$3,845.25</span>
+                                    </div>
+                                    <div class="progress" style="height: 8px;">
+                                        <div class="progress-bar bg-info" role="progressbar" style="width: 65%"></div>
+                                    </div>
+                                </div>
+
+                                <!-- <div class="d-grid gap-2">
+                                    <a href="fundAccount.html" class="btn btn-primary">
+                                        <i class="bi bi-plus-circle me-1"></i>Add Funds
+                                    </a>
+                                    <a href="paymentHistory.html" class="btn btn-outline-primary">
+                                        <i class="bi bi-clock-history me-1"></i>View Reports
+                                    </a>
+                                </div> -->
                             </div>
                         </div>
+
+                        <div class="card mt-3">
+                            <div class="card-header">
+                                <h4>System Status</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="mb-3">
+                                    <div class="d-flex justify-content-between align-items-center mb-2">
+                                        <span class="fw-semibold">Server Uptime</span>
+                                        <span class="badge bg-success">99.95%</span>
+                                    </div>
+                                    <div class="progress" style="height: 8px;">
+                                        <div class="progress-bar bg-success" role="progressbar" style="width: 99.95%">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="mb-3">
+                                    <div class="d-flex justify-content-between align-items-center mb-2">
+                                        <span class="fw-semibold">Database Load</span>
+                                        <span class="badge bg-info">42%</span>
+                                    </div>
+                                    <div class="progress" style="height: 8px;">
+                                        <div class="progress-bar bg-info" role="progressbar" style="width: 42%"></div>
+                                    </div>
+                                </div>
+
+                                <div class="mb-3">
+                                    <div class="d-flex justify-content-between align-items-center mb-2">
+                                        <span class="fw-semibold">Response Time</span>
+                                        <span class="badge bg-primary">128ms</span>
+                                    </div>
+                                    <div class="progress" style="height: 8px;">
+                                        <div class="progress-bar bg-primary" role="progressbar" style="width: 75%">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                         <div class="card mt-3">
                             <div class="card-body p-3">
                                 <div class="d-flex align-items-center justify-content-between mb-2">
@@ -372,32 +495,12 @@
                                             style="width:36px;height:36px;">
                                             <i class="bi bi-ui-checks-grid"></i>
                                         </div>
-                                        <h6 class="mb-0">Surveys Available Today</h6>
+                                        <h6 class="mb-0">Surveys Created</h6>
                                     </div>
-                                    <span class="badge bg-primary">5</span>
+                                    <span class="badge bg-primary">24</span>
                                 </div>
-                                <div class="small text-muted">New surveys matched to your profile</div>
-                                <a href="{{ url_for('fillsurvey') }}"
- class="btn btn-sm btn-outline-primary mt-2">View</a>
-                            </div>
-                        </div>
-                        <div class="card mt-3">
-                            <div class="card-body p-3">
-                                <div class="d-flex align-items-center justify-content-between mb-2">
-                                    <div class="d-flex align-items-center">
-                                        <div class="bg-light text-warning rounded-circle d-flex align-items-center justify-content-center me-2"
-                                            style="width:36px;height:36px;">
-                                            <i class="bi bi-award"></i>
-                                        </div>
-                                        <h6 class="mb-0">Account Tier</h6>
-                                    </div>
-                                    <span class="badge bg-warning text-dark">Bronze</span>
-                                </div>
-                                <div class="small text-muted">Complete 3 more surveys to reach Silver</div>
-                                <a href="{{ url_for('admin.accountsettings') }}"
-class="btn btn-sm btn-outline-primary mt-2">Go to
-                                    Profile</a>
-
+                                <div class="small text-muted">Total surveys on platform</div>
+                                <a href="yourSurveys.html" class="btn btn-sm btn-outline-primary mt-2">Manage</a>
                             </div>
                         </div>
                     </div>
@@ -410,7 +513,7 @@ class="btn btn-sm btn-outline-primary mt-2">Go to
                         <p>2025 &copy; Triyatra</p>
                     </div>
                     <div class="float-end">
-                        <p>Crafted with <span class="text-danger"><i class="bi bi-heart"></i></span> by <a
+                        <p>Crafted with <span class="text-danger"><i class="bi bi-heart-fill"></i></span> by <a
                                 href="https://github.com/Tejas-Bipu-Shahi/Surv-Earn">Triyatra</a></p>
                     </div>
                 </div>
@@ -424,7 +527,55 @@ class="btn btn-sm btn-outline-primary mt-2">Go to
 <script src="{{ url_for('admin.static', filename='assets/js/pages/dashboard.js') }}"></script>
 
 <script src="{{ url_for('admin.static', filename='assets/js/main.js') }}"></script>
+<script>
+        // Initialize charts
+        document.addEventListener('DOMContentLoaded', function () {
+            // Platform Performance Chart
+            var platformPerformanceOptions = {
+                series: [{
+                    name: 'New Users',
+                    data: [45, 52, 38, 45, 59, 65, 84, 92, 105, 98, 87, 75]
+                }, {
+                    name: 'Survey Responses',
+                    data: [85, 101, 98, 87, 105, 121, 112, 145, 162, 148, 135, 120]
+                }, {
+                    name: 'Payouts ($)',
+                    data: [1250, 1340, 1420, 1380, 1475, 1580, 1630, 1720, 1840, 1750, 1650, 1540]
+                }],
+                chart: {
+                    height: 350,
+                    type: 'line',
+                    zoom: {
+                        enabled: false
+                    },
+                    toolbar: {
+                        show: true // this for the download the chart
+                    }
+                },
+                colors: ['#4361ee', '#06d6a0', '#ffd166'],
+                dataLabels: {
+                    enabled: false
+                },
+                stroke: {
+                    curve: 'smooth',
+                    width: 3
+                },
+                markers: {
+                    size: 4
+                },
+                xaxis: {
+                    categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+                },
+                legend: {
+                    position: 'top',
+                    horizontalAlign: 'left',
+                }
+            };
 
+            var platformPerformanceChart = new ApexCharts(document.querySelector("#chart-platform-performance"), platformPerformanceOptions);
+            platformPerformanceChart.render();
+        });
+    </script>
 </body>
 
 </html>

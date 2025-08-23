@@ -8,7 +8,7 @@
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-    
+
     <link rel="stylesheet" href="{{ url_for('admin.static', filename='assets/css/bootstrap.css') }}">
     <link rel="stylesheet" href="{{url_for('admin.static',filename='assets/vendors/iconly/bold.css')}}">
     <link rel="stylesheet" href="{{url_for('admin.static',filename='assets/vendors/simple-datatables/style.css')}}">
@@ -17,7 +17,6 @@
     <link rel="stylesheet" href="{{url_for('admin.static',filename='assets/css/app.css')}}">
     <link rel="shortcut icon" href="{{url_for('admin.static',filename='assets/images/favicon.svg')}}" type="image/x-icon">
     <style>
-        
         input[type="radio"]:checked+label.khalti-btn {
             background-color: #6f42c1 !important;
             color: #fff !important;
@@ -97,7 +96,7 @@
                 <div class="sidebar-header">
                     <div class="d-flex align-items-center justify-content-between">
                         <div class="logo me-2">
-                            
+
                             <a href="index.html"><img src="{{url_for('admin.static',filename='assets/images/logo/logo.png')}}" alt="Logo" srcset=""></a>
                         </div>
                         <div class="d-flex align-items-center">
@@ -144,7 +143,7 @@
                                         </a>
                                     </div>
                                     <div class="text-center py-2 border-top">
-                                        <a href="#" class="small text-primary">View All</a>
+                                        <a href="notifications.html" class="small text-primary">View All</a>
                                     </div>
                                 </div>
                             </div>
@@ -197,7 +196,7 @@
                         </li>
                         <li class="sidebar-item">
                             <a href="{{url_for('logout.html')}}" class="sidebar-link">
-                                <i class="bi bi-grid-fill"></i>
+                                <i class="bi bi-box-arrow-left"></i>
                                 <span>Logout</span>
                             </a>
                         </li>
@@ -405,7 +404,7 @@
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
     </div>
-    
+
     <script src="{{url_for('admin.static',filename='assets/vendors/perfect-scrollbar/perfect-scrollbar.min.js')}}"></script>
     <script src="{{url_for('admin.static',filename='assets/js/bootstrap.bundle.min.js')}}"></script>
     <script src="{{url_for('admin.static',filename='assets/vendors/simple-datatables/simple-datatables.js')}}"></script>
