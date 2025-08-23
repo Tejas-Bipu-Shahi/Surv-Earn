@@ -260,6 +260,12 @@ def transaction():
     return render_template('user/dist/transaction.html')
 
 
+@app.route('/notifications', )
+@login_required
+def notifications():
+    return render_template('user/dist/notifications.html')
+
+
 if __name__ == '__main__':
     from views.admin import admin_bp
 
