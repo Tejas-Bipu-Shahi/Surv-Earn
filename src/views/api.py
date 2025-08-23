@@ -1,5 +1,3 @@
-from dataclasses import fields
-
 from flask import Blueprint, jsonify, request
 from bson import ObjectId
 from models.user import User
