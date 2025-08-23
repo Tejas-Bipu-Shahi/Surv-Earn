@@ -19,7 +19,7 @@
     <link rel="stylesheet" href="{{ url_for('admin.static', filename='assets/css/app.css') }}">
     <link rel="shortcut icon" href="{{ url_for('admin.static', filename='assets/images/favicon.svg') }}"
         type="image/x-icon">
-
+    <link rel="stylesheet" href="{{url_for('static', filename='user/dist/assets/vendors/toastify/toastify.css')}}">
     <style>
         .stats-icon-admin {
             width: 3rem;
@@ -68,9 +68,7 @@
                 <div class="sidebar-header">
                     <div class="d-flex align-items-center justify-content-between">
                         <div class="logo me-2">
-                            <a href="{{ url_for('index') }}"><img
-                                    src="{{ url_for('admin.static', filename='assets/images/logo/logo.png') }}"
-                                    alt="Logo" srcset=""></a>
+                            <a class="navbar-brand" href="#">Surv&Earn</a>
                         </div>
                         <div class="d-flex align-items-center">
                             <div class="dropdown me-2">
@@ -577,5 +575,23 @@
         });
     </script>
 </body>
+<script src="{{url_for('static', filename='user/dist/assets/vendors/toastify/toastify.js')}}"></script>
+<script>
+    {% with messages = get_flashed_messages(with_categories = true) %}
+    {% if messages %}
+    {% for category, message in messages %}
+    Toastify({
+        text: "{{ message }}",
+        duration: 4000,
+        close: true,
+        gravity: "top",
+        position: "center",
+        className: "toastify-{{ category }}",
+        stopOnFocus: true,
+    }).showToast();
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
+</script>
 
 </html>

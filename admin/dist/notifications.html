@@ -8,14 +8,14 @@
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/bootstrap.css">
+    <link rel="stylesheet" href="{{ url_for('admin.static', filename='assets/css/bootstrap.css') }}">
 
-    <link rel="stylesheet" href="assets/vendors/iconly/bold.css">
+    <link rel="stylesheet" href="{{ url_for('admin.static', filename='assets/vendors/iconly/bold.css') }}">
 
-    <link rel="stylesheet" href="assets/vendors/perfect-scrollbar/perfect-scrollbar.css">
-    <link rel="stylesheet" href="assets/vendors/bootstrap-icons/bootstrap-icons.css">
-    <link rel="stylesheet" href="assets/css/app.css">
-    <link rel="shortcut icon" href="assets/images/favicon.svg" type="image/x-icon">
+    <link rel="stylesheet" href="{{ url_for('admin.static', filename='assets/vendors/perfect-scrollbar/perfect-scrollbar.css') }}">
+    <link rel="stylesheet" href="{{ url_for('admin.static', filename='assets/vendors/bootstrap-icons/bootstrap-icons.css') }}">
+    <link rel="stylesheet" href="{{ url_for('admin.static', filename='assets/css/app.css') }}">
+    <link rel="shortcut icon" href="{{ url_for('admin.static', filename='assets/images/favicon.svg') }}" type="image/x-icon">
     <style>
         /* Force notification avatars to be perfect circles and center icons */
         .notification-list .avatar {
@@ -42,7 +42,7 @@
                 <div class="sidebar-header">
                     <div class="d-flex align-items-center justify-content-between">
                         <div class="logo me-2">
-                            <a href="index.html"><img src="assets/images/logo/logo.png" alt="Logo" srcset=""></a>
+                        <a class="navbar-brand" href="#">Surv&Earn</a>
                         </div>
                         <div class="d-flex align-items-center">
                             <div class="dropdown me-2">
@@ -82,7 +82,7 @@
                                         </a>
                                     </div>
                                     <div class="text-center py-2 border-top">
-                                        <a href="notifications.html" class="small text-primary">View All</a>
+                                        <a href="{{ url_for('admin.notifications') }}" class="small text-primary">View All</a>
                                     </div>
                                 </div>
                             </div>
@@ -96,7 +96,7 @@
                     <ul class="menu">
                         <li class="sidebar-title">Menu</li>
                         <li class="sidebar-item">
-                            <a href="index.html" class="sidebar-link">
+                            <a href="{{ url_for('index') }}" class="sidebar-link">
                                 <i class="bi bi-grid-fill"></i>
                                 <span>Dashboard</span>
                             </a>
@@ -109,10 +109,10 @@
                             </a>
                             <ul class="submenu">
                                 <li class="submenu-item">
-                                    <a href="addSurvey.html">Add Survey</a>
+                                    <a href="{{ url_for('admin.addsurvey') }}">Add Survey</a>
                                 </li>
                                 <li class="submenu-item">
-                                    <a href="yourSurveys.html">Your Surveys</a>
+                                    <a href="{{ url_for('admin.yoursurveys') }}">Your Surveys</a>
                                 </li>
                             </ul>
                         </li>
@@ -123,18 +123,18 @@
                             </a>
                             <ul class="submenu active">
                                 <li class="submenu-item">
-                                    <a href="accountSettings.html">Account Settings</a>
+                                    <a href="{{ url_for('admin.accountsettings') }}">Account Settings</a>
                                 </li>
                                 <li class="submenu-item">
-                                    <a href="changePassword.html">Change Password</a>
+                                    <a href="{{ url_for('admin.changepassword') }}">Change Password</a>
                                 </li>
                                 <li class="submenu-item active ">
-                                    <a href="notifications.html">Notifications</a>
+                                    <a href="{{ url_for('admin.notifications') }}">Notifications</a>
                                 </li>
                             </ul>
                         </li>
                         <li class="sidebar-item">
-                            <a href="logout.html" class="sidebar-link">
+                            <a href="{{ url_for('logout') }}" class="sidebar-link">
                                 <i class="bi bi-box-arrow-left"></i>
                                 <span>Logout</span>
                             </a>
@@ -161,7 +161,7 @@
                         <div class="col-12 col-md-6 order-md-2 order-first">
                             <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
                                 <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
+                                    <li class="breadcrumb-item"><a href="{{ url_for('index') }}">Dashboard</a></li>
                                     <li class="breadcrumb-item active" aria-current="page">Notifications</li>
                                 </ol>
                             </nav>
@@ -488,9 +488,9 @@
         </div>
     </div>
 
-    <script src="assets/vendors/perfect-scrollbar/perfect-scrollbar.min.js"></script>
-    <script src="assets/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/js/main.js"></script>
+    <script src="{{ url_for('admin.static', filename='assets/vendors/perfect-scrollbar/perfect-scrollbar.min.js') }}"></script>
+    <script src="{{ url_for('admin.static', filename='assets/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ url_for('admin.static', filename='assets/js/main.js') }}"></script>
 
     <script>
         // Notification management functions
