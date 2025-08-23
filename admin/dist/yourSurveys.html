@@ -8,17 +8,17 @@
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{{ url_for('admin.static', filename='css/bootstrap.css') }}">
+    <link rel="stylesheet" href="{{ url_for('admin.static', filename='assets/css/bootstrap.css') }}">
 
-    <link rel="stylesheet" href="{{ url_for('admin.static', filename='vendors/iconly/bold.css') }}">
+    <link rel="stylesheet" href="{{ url_for('admin.static', filename='assets/vendors/iconly/bold.css') }}">
 
-    <link rel="stylesheet" href="{{ url_for('admin.static', filename='vendors/simple-datatables/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('admin.static', filename='assets/vendors/simple-datatables/style.css') }}">
 
     <link rel="stylesheet"
-        href="{{ url_for('admin.static', filename='vendors/perfect-scrollbar/perfect-scrollbar.css') }}">
-    <link rel="stylesheet" href="{{ url_for('admin.static', filename='vendors/bootstrap-icons/bootstrap-icons.css') }}">
-    <link rel="stylesheet" href="{{ url_for('admin.static', filename='css/app.css') }}">
-    <link rel="shortcut icon" href="{{ url_for('admin.static', filename='images/favicon.svg') }}" type="image/x-icon">
+        href="{{ url_for('admin.static', filename='assets/vendors/perfect-scrollbar/perfect-scrollbar.css') }}">
+    <link rel="stylesheet" href="{{ url_for('admin.static', filename='assets/vendors/bootstrap-icons/bootstrap-icons.css') }}">
+    <link rel="stylesheet" href="{{ url_for('admin.static', filename='assets/css/app.css') }}">
+    <link rel="shortcut icon" href="{{ url_for('admin.static', filename='assets/images/favicon.svg') }}" type="image/x-icon">
 
 </head>
 
@@ -29,7 +29,7 @@
                 <div class="sidebar-header">
                     <div class="d-flex align-items-center justify-content-between">
                         <div class="logo me-2">
-                            <a href="{{ url_for('admin.index') }}"><img
+                            <a href="{{ url_for('index') }}"><img
                                     src="{{ url_for('admin.static', filename='images/logo/logo.png') }}" alt="Logo"
                                     srcset=""></a>
                         </div>
@@ -243,7 +243,7 @@
                             <tbody>
                                 <tr>
                                     <td>1</td>
-                                    <td><a hhref="{{ admin.surveydetails }}"
+                                    <td><a href="{{ url_for('admin.surveydetails') }}"
 
                                             class="text-decoration-none fw-semibold text-primary">Customer
                                             Satisfaction</a></td>
@@ -260,7 +260,7 @@
                                 </tr>
                                 <tr>
                                     <td>2</td>
-                                    <td><a href="{{ admin.surveydetails }}"
+                                    <td><a href="{{ url_for('admin.surveydetails') }}"
 
                                             class="text-decoration-none fw-semibold text-primary">Product Feedback</a>
                                     </td>
@@ -277,7 +277,7 @@
                                 </tr>
                                 <tr>
                                     <td>3</td>
-                                    <td><a href="{{ admin.surveydetails }}"
+                                    <td><a href="{{ url_for('admin.surveydetails') }}"
 
                                             class="text-decoration-none fw-semibold text-primary">Market Research</a>
                                     </td>
@@ -309,18 +309,20 @@
             </footer>
         </div>
     </div>
-<script src="{{ admin.static('assets/vendors/perfect-scrollbar/perfect-scrollbar.min.js') }}"></script>
-<script src="{{ admin.static('assets/js/bootstrap.bundle.min.js') }}"></script>
-<script src="{{ admin.static('assets/vendors/simple-datatables/simple-datatables.js') }}"></script>
-<script src="{{ admin.static('assets/vendors/apexcharts/apexcharts.js') }}"></script>
-<script src="{{ admin.static('assets/js/pages/dashboard.js') }}"></script>
+<script src="{{ url_for('static', filename='assets/vendors/perfect-scrollbar/perfect-scrollbar.min.js') }}"></script>
+<script src="{{ url_for('static', filename='assets/js/bootstrap.bundle.min.js') }}"></script>
+<script src="{{ url_for('static', filename='assets/vendors/simple-datatables/simple-datatables.js') }}"></script>
+<script src="{{ url_for('static', filename='assets/vendors/apexcharts/apexcharts.js') }}"></script>
+<script src="{{ url_for('static', filename='assets/js/pages/dashboard.js') }}"></script>
+
+
 
     <script>
         // Simple Datatable
         let table1 = document.querySelector('#table1');
         let dataTable = new simpleDatatables.DataTable(table1);
     </script>
-    <script src="{{ admin.static('assets/js/main.js')}}></script>
+<script src="{{ url_for('static', filename='assets/js/main.js') }}"></script>
 </body>
 
 </html>
