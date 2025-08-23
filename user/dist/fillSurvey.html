@@ -27,7 +27,7 @@
                 <div class="sidebar-header">
                     <div class="d-flex align-items-center justify-content-between">
                         <div class="logo me-2">
-                            <a class="navbar-brand" href="#">Surv&Earn</a> </div>
+                            <a class="navbar-brand" href="{{url_for('index')}}">Surv&Earn</a> </div>
                         <div class="d-flex align-items-center">
                             <div class="dropdown me-2">
                                 <a href="#" id="notifDropdown" data-bs-toggle="dropdown" aria-expanded="false"
@@ -72,7 +72,7 @@
                                         </a>
                                     </div>
                                     <div class="text-center py-2 border-top">
-                                        <a href="notifications.html" class="small text-primary">View All</a>
+                                        <a href="{{url_for('notifications')}}" class="small text-primary">View All</a>
                                     </div>
                                 </div>
                             </div>
@@ -122,7 +122,7 @@
                                     <a href="{{url_for('changepassword')}}">Change Password</a>
                                 </li>
                                 <li class="submenu-item">
-                                    <a href="#">Notifications</a>
+                                    <a href="{{url_for('notifications')}}">Notifications</a>
                                 </li>
                             </ul>
                         </li>

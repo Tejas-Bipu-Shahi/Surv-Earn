@@ -8,14 +8,13 @@
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/bootstrap.css">
+<link rel="stylesheet" href="{{ url_for('static', filename='user/dist/assets/css/bootstrap.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='user/dist/assets/vendors/iconly/bold.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='user/dist//vendors/perfect-scrollbar/perfect-scrollbar.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='user/dist/assets/vendors/bootstrap-icons/bootstrap-icons.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='user/dist/assets/css/app.css') }}">
+<link rel="shortcut icon" href="{{ url_for('static', filename='user/dist/assets/images/favicon.svg') }}" type="image/x-icon">
 
-    <link rel="stylesheet" href="assets/vendors/iconly/bold.css">
-
-    <link rel="stylesheet" href="assets/vendors/perfect-scrollbar/perfect-scrollbar.css">
-    <link rel="stylesheet" href="assets/vendors/bootstrap-icons/bootstrap-icons.css">
-    <link rel="stylesheet" href="assets/css/app.css">
-    <link rel="shortcut icon" href="assets/images/favicon.svg" type="image/x-icon">
     <style>
         /* Force notification avatars to be perfect circles and center icons */
         .notification-list .avatar {
@@ -42,7 +41,7 @@
                 <div class="sidebar-header">
                     <div class="d-flex align-items-center justify-content-between">
                         <div class="logo me-2">
-                            <a class="navbar-brand" href="#">Surv&Earn</a></div>
+                            <a class="navbar-brand" href="{{url_for('index')}}">Surv&Earn</a></div>
                         <div class="d-flex align-items-center">
                             <div class="dropdown me-2">
                                 <a href="#" id="notifDropdown" data-bs-toggle="dropdown" aria-expanded="false"
@@ -87,7 +86,7 @@
                                         </a>
                                     </div>
                                     <div class="text-center py-2 border-top">
-                                        <a href="notifications.html" class="small text-primary">View All</a>
+                                        <a href="{{url_for('notifications')}}" class="small text-primary">View All</a>
                                     </div>
                                 </div>
                             </div>
@@ -101,7 +100,7 @@
                     <ul class="menu">
                         <li class="sidebar-title">Menu</li>
                         <li class="sidebar-item ">
-                            <a href="index.html" class="sidebar-link">
+                            <a href="{{url_for('index')}}" class="sidebar-link">
                                 <i class="bi bi-grid-fill"></i>
                                 <span>Dashboard</span>
                             </a>
@@ -114,13 +113,13 @@
                             </a>
                             <ul class="submenu">
                                 <li class="submenu-item">
-                                    <a href="fillSurvey.html">Fillup Survey</a>
+                                    <a href="{{ url_for('fillsurvey')}}">Fillup Survey</a>
                                 </li>
                                 <li class="submenu-item">
-                                    <a href="survHistory.html">Survey History</a>
+                                    <a href="{{url_for('surveyhistory')}}">Survey History</a>
                                 </li>
                                 <li class="submenu-item">
-                                    <a href="redeem.html">Redeem</a>
+                                    <a href="{{url_for('redeem')}}">Redeem</a>
                                 </li>
                             </ul>
                         </li>
@@ -131,18 +130,18 @@
                             </a>
                             <ul class="submenu active">
                                 <li class="submenu-item">
-                                    <a href="accountSettings.html">Account Settings</a>
+                                    <a href="{{url_for('accountsettings')}}">Account Settings</a>
                                 </li>
                                 <li class="submenu-item">
-                                    <a href="changePassword.html">Change Password</a>
+                                    <a href="{{url_for('changepassword')}}">Change Password</a>
                                 </li>
                                 <li class="submenu-item active">
-                                    <a href="notifications.html">Notifications</a>
+                                    <a href="{{url_for('notifications')}}">Notifications</a>
                                 </li>
                             </ul>
                         </li>
                         <li class="sidebar-item">
-                            <a href="logout.html" class="sidebar-link">
+                            <a href="{{url_for('logout')}}" class="sidebar-link">
                                 <i class="bi bi-box-arrow-left"></i>
                                 <span>Logout</span>
                             </a>
@@ -169,7 +168,7 @@
                         <div class="col-12 col-md-6 order-md-2 order-first">
                             <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
                                 <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
+                                    <li class="breadcrumb-item"><a href="{{url_for('index')}}">Dashboard</a></li>
                                     <li class="breadcrumb-item active" aria-current="page">Notifications</li>
                                 </ol>
                             </nav>
@@ -496,9 +495,10 @@
         </div>
     </div>
 
-    <script src="assets/vendors/perfect-scrollbar/perfect-scrollbar.min.js"></script>
-    <script src="assets/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/js/main.js"></script>
+<script src="{{ url_for('static', filename='user/dist/assets/vendors/perfect-scrollbar/perfect-scrollbar.min.js') }}"></script>
+<script src="{{ url_for('static', filename='user/dist/assets/js/bootstrap.bundle.min.js') }}"></script>
+<script src="{{ url_for('static', filename='user/dist/assets/js/main.js') }}"></script>
+
 
     <script>
         // Notification management functions
