@@ -1,5 +1,6 @@
 from flask import Blueprint, jsonify, request
 from bson import ObjectId
+from bson.errors import InvalidId
 from models.user import User
 from models.survey import Survey
 from config import mongo
@@ -32,10 +33,16 @@ def surveysubmission():
                 'message': 'Survey id is required. Please add a header with key="survey_id" and value="<survey_id>".',
                 'status': 400
             })
+        ObjectId(request.headers.get('surveyid'))
     except (AttributeError, TypeError):
         return jsonify({
             'message': 'Some attributes are not specified or incorrectly specified in the request.',
             'status': 400
+        })
+    except InvalidId:
+        return jsonify({
+            'message': 'Invalid survey id provided.',
+            'status': 404
         })
 
     survey_id = request.headers.get('surveyid')
@@ -64,12 +71,22 @@ def surveysubmission():
     user = User(**userdata)
     survey = Survey(**surveydata)
 
+    if survey_id in user.completed_surveys:
+        return jsonify({
+            'message': f'survey {survey_id} already completed',
+            'statuscode': 409,
+        })
+
+    ic('before', user)
+
     user.total_completed_surveys += 1
     user.current_balance += survey.reward_per_completion
     user.total_earnings += survey.reward_per_completion
-    user.completed_surveys.append(survey.id)
+    user.completed_surveys.append(survey_id)
 
-    mongo.db.users.update_one({'email': email}, {'$set': userdata})
+    ic('after', user)
+
+    mongo.db.users.update_one({'email': email}, {'$set': user.model_dump()})
 
     return jsonify({
         'message': f'success',
