@@ -8,7 +8,7 @@ from controllers import user_handler, email_sender
 from flask_login import login_required, login_user, logout_user, current_user
 from utils.otp_generator import generate_otp
 from bson import ObjectId
-
+from models.admindata import AdminData
 from config import app, mongo, mail
 
 # logging
@@ -19,7 +19,16 @@ from icecream import ic
 def index():
     if current_user.is_authenticated:
         if current_user.is_admin:
-            return render_template('admin/dist/index.html')
+            admindata = AdminData(available_balance=0,
+    total_payouts=1,
+    pending_payouts=2,
+    total_users=3,
+    active_surveys=2,
+    completed_responses=3,
+    total_surveys_created=1,
+    expired_surveys=0,
+    this_month_spending=0)
+            return render_template('admin/dist/index.html',admindb=admindata)
         return render_template('user/dist/index.html')
     return render_template('index.html')
 

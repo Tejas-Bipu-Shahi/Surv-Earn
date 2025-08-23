@@ -150,7 +150,7 @@
                     </p>
                 </div>
                 <div class="d-flex gap-2">
-                    <a href="addSurvey.html" class="btn btn-sm btn-primary">Create Survey</a>
+                    <a href="{{url_for('admin.addsurvey')}}" class="btn btn-sm btn-primary">Create Survey</a>
                     <button class="btn btn-sm btn-outline-secondary">Export CSV</button>
                 </div>
             </div>
@@ -169,7 +169,7 @@
                                     </div>
                                     <div class="col-md-8">
                                         <h6 class="text-muted font-semibold">Surveys Created</h6>
-                                        <h6 class="font-extrabold mb-0">24</h6>
+                                        <h6 class="font-extrabold mb-0">{{admindb.total_surveys_created}}</h6>
                                     </div>
                                 </div>
                             </div>
@@ -187,7 +187,7 @@
                                     </div>
                                     <div class="col-md-8">
                                         <h6 class="text-muted font-semibold">Active Surveys</h6>
-                                        <h6 class="font-extrabold mb-0">6</h6>
+                                        <h6 class="font-extrabold mb-0">{{admindb.active_surveys}}</h6>
                                     </div>
                                 </div>
                             </div>
@@ -205,7 +205,7 @@
                                     </div>
                                     <div class="col-md-8">
                                         <h6 class="text-muted font-semibold">Total Responses</h6>
-                                        <h6 class="font-extrabold mb-0">8,420</h6>
+                                        <h6 class="font-extrabold mb-0">{{admindb.completed_responses}}</h6>
                                     </div>
                                 </div>
                             </div>
@@ -223,7 +223,7 @@
                                     </div>
                                     <div class="col-md-8">
                                         <h6 class="text-muted font-semibold">Expired Surveys</h6>
-                                        <h6 class="font-extrabold mb-0">5</h6>
+                                        <h6 class="font-extrabold mb-0">{{admindb.expired_surveys}}</h6>
                                     </div>
                                 </div>
                             </div>

@@ -204,7 +204,7 @@
                                             </div>
                                             <div>
                                                 <div class="fw-bold small mb-1">Total Users</div>
-                                                <div class="h5 fw-bold mb-0">2,487</div>
+                                                <div class="h5 fw-bold mb-0">{{admindb.total_users}}</div>
                                             </div>
 
                                         </div>
@@ -226,7 +226,7 @@
                                             </div>
                                             <div>
                                                 <div class="fw-bold small mb-1">Active Surveys</div>
-                                                <div class="h5 fw-bold mb-0">6</div>
+                                                <div class="h5 fw-bold mb-0">{{admindb.active_surveys}}</div>
                                             </div>
                                         </div>
                                         <div class="mt-2">
@@ -247,7 +247,7 @@
                                             </div>
                                             <div>
                                                 <div class="fw-bold small mb-1">Completed Responses</div>
-                                                <div class="h5 fw-bold mb-0">8,420</div>
+                                                <div class="h5 fw-bold mb-0">{{admindb.completed_responses}}</div>
                                             </div>
                                         </div>
                                         <div class="mt-2">
@@ -271,7 +271,7 @@
                                             </div>
                                             <div>
                                                 <div class="fw-bold small mb-1">Total Payouts</div>
-                                                <div class="h5 fw-bold mb-0">$5,690</div>
+                                                <div class="h5 fw-bold mb-0">{{admindb.total_payouts}}</div>
                                             </div>
                                         </div>
                                         <div class="mt-2">
@@ -389,11 +389,11 @@
                             <div class="card-body py-4 px-5">
                                 <div class="d-flex align-items-center">
                                     <div class="avatar avatar-xl">
-                                        <img src="assets/images/faces/1.jpg" alt="Admin Avatar">
+                                        <img src="{{url_for('admin.static',filename='assets/images/faces/1.jpg')}}" alt="Admin Avatar">
                                     </div>
                                     <div class="ms-3 name">
-                                        <h5 class="font-bold">{{current_user.full_name}}</h5>
-                                        <h6 class="text-muted mb-0">Platform Administrator</h6>
+                                        <h5 class="font-bold">{{current_user.username}}</h5>
+                                        <h6 class="text-muted mb-0">Admin</h6>
                                     </div>
                                 </div>
                             </div>
@@ -406,7 +406,7 @@
                             <div class="card-body">
                                 <div class="d-flex align-items-center mb-4">
                                     <div class="flex-grow-1">
-                                        <h2 class="fw-bold text-primary mb-0">$8,450.75</h2>
+                                        <h2 class="fw-bold text-primary mb-0">{{admindb.available_balance}}</h2>
                                         <p class="text-muted mb-0">Available balance</p>
                                     </div>
                                     <div class="flex-shrink-0">
@@ -419,7 +419,7 @@
                                 <div class="mb-3">
                                     <div class="d-flex justify-content-between mb-1">
                                         <span class="text-muted">Pending payouts</span>
-                                        <span class="fw-bold">$1,240.50</span>
+                                        <span class="fw-bold">{{admindb.pending_payouts}}</span>
                                     </div>
                                     <div class="progress" style="height: 8px;">
                                         <div class="progress-bar bg-warning" role="progressbar" style="width: 35%">
@@ -430,7 +430,7 @@
                                 <div class="mb-4">
                                     <div class="d-flex justify-content-between mb-1">
                                         <span class="text-muted">This month's spending</span>
-                                        <span class="fw-bold">$3,845.25</span>
+                                        <span class="fw-bold">{{admindb.this_month_spending}}</span>
                                     </div>
                                     <div class="progress" style="height: 8px;">
                                         <div class="progress-bar bg-info" role="progressbar" style="width: 65%"></div>
@@ -500,7 +500,7 @@
                                     <span class="badge bg-primary">24</span>
                                 </div>
                                 <div class="small text-muted">Total surveys on platform</div>
-                                <a href="yourSurveys.html" class="btn btn-sm btn-outline-primary mt-2">Manage</a>
+                                <a href="{{url_for('admin.yoursurveys')}}" class="btn btn-sm btn-outline-primary mt-2">Manage</a>
                             </div>
                         </div>
                     </div>

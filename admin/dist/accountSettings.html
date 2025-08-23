@@ -156,7 +156,7 @@
                     <ul class="menu">
                         <li class="sidebar-title">Menu</li>
                         <li class="sidebar-item">
-                            <a href="{{url_for('admin.index')}}" class="sidebar-link">
+                            <a href="{{url_for('index')}}" class="sidebar-link">
                                 <i class="bi bi-grid-fill"></i>
                                 <span>Dashboard</span>
                             </a>
@@ -169,10 +169,10 @@
                             </a>
                             <ul class="submenu">
                                 <li class="submenu-item">
-                                    <a href="{{url_for('admin.addsurvey)}}">Add Survey</a>
+                                    <a href="{{url_for('admin.addsurvey')}}">Add Survey</a>
                                 </li>
                                 <li class="submenu-item">
-                                    <a href="{{url_for('yoursurveys.html')}}">Your Surveys</a>
+                                    <a href="{{ url_for('admin.yoursurveys')}}">Your Surveys</a>
                                 </li>
                             </ul>
                         </li>
@@ -183,18 +183,18 @@
                             </a>
                             <ul class="submenu active">
                                 <li class="submenu-item active">
-                                    <a href="{{url_for('accountsettings.html')}}">Account Settings</a>
+                                    <a href="{{url_for('admin.accountsettings')}}">Account Settings</a>
                                 </li>
                                 <li class="submenu-item">
-                                    <a href="{{url_for('changepassword.html')}}">Change Password</a>
+                                    <a href="{{url_for('admin.changepassword')}}">Change Password</a>
                                 </li>
                                 <li class="submenu-item">
-                                    <a href="{{url_for('notifications.html')}}">Notifications</a>
+                                    <a href="{{url_for('admin.notifications')}}">Notifications</a>
                                 </li>
                             </ul>
                         </li>
                         <li class="sidebar-item">
-                            <a href="{{url_for('logout.html')}}" class="sidebar-link">
+                            <a href="{{url_for('logout')}}" class="sidebar-link">
                                 <i class="bi bi-box-arrow-left"></i>
                                 <span>Logout</span>
                             </a>
@@ -529,7 +529,7 @@
             });
         });
     </script>
-    <script src="{{url_for('admin.static,filename='assets/js/main.js')}}></script>
+    <script src="{{url_for('admin.static',filename='assets/js/main.js')}}></script>
 </body>
 
 </html>
