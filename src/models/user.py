@@ -2,8 +2,6 @@ from pydantic import BaseModel
 from flask_login import UserMixin
 from datetime import date
 
-from models.survey import Survey
-
 
 class User(BaseModel, UserMixin):
     email: str
@@ -15,7 +13,7 @@ class User(BaseModel, UserMixin):
     total_completed_surveys: int = 0
     current_balance: int = 0
     total_earnings: int = 0
-    completed_surveys: list[Survey] = []
+    completed_surveys: list[str] = []
 
     full_name: str = ''
     phone_number: int | str = ''
