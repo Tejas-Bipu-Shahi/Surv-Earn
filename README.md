@@ -22,18 +22,34 @@ earning opportunities.
 
 Follow these steps to set up and run the project:
 
-1. **Clone the Repository**:
+0. **Setup Mongodb**:
+    1. **Either install mongodb locally OR Setup mongodb atlas cluster.** [More Info](https://mongodb.com)
+    2. **Get you mongodb URI either localhost or atlas.**
+
+1. **Create Secret Env File**
+    1. **create a file named `.env` inside `src` folder.**
+    2. **Put this inside the `.env` file.**
+       ```
+       SECRET_KEY="<yoursecretkey"
+       MAIL_SERVER="smtp.gmail.com" # you can use any smtp server
+       MAIL_USERNAME="<youremail@gmail.com>"
+       MAIL_PASSWORD="<youremailpassword>"
+       MAIL_DEFAULT_SENDER="<youremail@gmail.com>
+       MONGO_URI="<yourmongodburi>" # for local db uri is "mongodb://localhost:27017/" 
+       ```
+
+2. **Clone the Repository**:
    ```bash
    git clone https://github.com/Tejas-Bipu-Shahi/Surv-Earn.git
    cd surv-earn
    ```
 
-2. **Create a Virtual Environment**:
+3. **Create a Virtual Environment**:
    ```bash
    python -m venv venv
    ```
 
-3. **Activate Virtual Environment**:
+4. **Activate Virtual Environment**:
     - **Powershell**:
          ```bash
          venv\Scripts\activate.ps1
@@ -47,17 +63,17 @@ Follow these steps to set up and run the project:
          source venv/bin/activate
          ```
 
-4. **Install Dependencies**:
+5. **Install Dependencies**:
    ```bash 
    pip install flask flask-pymongo flask-login flask-mail dotenv bcrypt "pydantic[email]" icecream
    ```
 
-5. **Run the Application**:
+6. **Run the Application**:
    ```bash
    python src/main.py
    ```
 
-6. **Access the Application**:
+7. **Access the Application**:
    Open your browser and navigate to `http://localhost:5000`.
 
 ---
