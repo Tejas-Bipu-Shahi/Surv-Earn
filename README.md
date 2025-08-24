@@ -61,11 +61,45 @@ Follow these steps to set up and run the project:
 ### Admin Dashboard
 ![Admin Dashboard](assets/images/admin_dashboard.png)
 
-### Add Survey
-![Add Survey](assets/images/add_survey.png)
+### Add Survey and Your Surveys
+<table>
+  <tr>
+    <td>
+      <img src="assets/images/add_survey.png" width="100%"/>
+    </td>
+    <td>
+      <img src="assets/images/your_surveys.png" width="100%"/>
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <em>Add Survey</em>
+    </td>
+    <td align="center">
+      <em>Your Surveys</em>
+    </td>
+  </tr>
+</table>
 
-### Your Surveys
-![Your Surveys](assets/images/your_surveys.png)
+### About Us
+<table>
+  <tr>
+    <td>
+      <img src="assets/images/about%20(1).png" width="100%"/>
+    </td>
+    <td>
+      <img src="assets/images/about%20(2).png" width="100%"/>
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <em>About Us 1</em>
+    </td>
+    <td align="center">
+      <em>About Us 2</em>
+    </td>
+  </tr>
+</table>
 
 ### Profile
 ![Profile](assets/images/profile.png)
