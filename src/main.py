@@ -274,6 +274,10 @@ def transaction():
 def notifications():
     return render_template('user/dist/notifications.html')
 
+@app.route('/about')
+def about():
+    return render_template('/about.html')
+
 
 if __name__ == '__main__':
     from views.admin import admin_bp

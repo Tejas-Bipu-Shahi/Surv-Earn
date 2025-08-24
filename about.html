@@ -27,7 +27,8 @@
     <!-- AOS Animation -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
-    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/style.css') }}">
+
 </head>
 
 <body>
@@ -48,30 +49,19 @@
                 <div class="nav-links-container">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link" href="index.html#home">Home</a>
+                            <a class="nav-link" href="{{url_for('index')}}">Home</a>
                         </li>
+
                         <li class="nav-item">
-                            <a class="nav-link" href="index.html#features">Features</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="index.html#how-it-works">How It Works</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="index.html#testimonials">Testimonials</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" href="about.html">About Us</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="index.html#contact">Contact</a>
+                            <a class="nav-link active" href="{{url_for('index')}}">About Us</a>
                         </li>
                     </ul>
                 </div>
             </div>
             <!-- Register and Log In buttons -->
             <div class="d-flex">
-                <a href="#signup" class="btn btn-green me-2">Register</a>
-                <a href="#login" class="btn btn-green-light">Log In</a>
+                <a href="{{url_for('register')}}" class="btn btn-green me-2">Register</a>
+                <a href="{{url_for('login')}}" class="btn btn-green-light">Log In</a>
             </div>
         </div>
     </nav>
@@ -170,7 +160,7 @@
                         <div class="mb-3">
                             <div class="mx-auto"
                                 style="width: 100px; height: 100px; background: linear-gradient(135deg, #556B2F, #6B8E23); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 2rem; font-weight: bold;">
-                                <img src="assets/images/tejas.jpg" alt="Tejas Shahi" class="img-fluid rounded-circle"
+                                <img src="{{url_for('static',filename='assets/images/tejas.jpg')}}" alt="Tejas Shahi" class="img-fluid rounded-circle"
                                     style="width: 100px; height: 100px; object-fit: cover;">
                             </div>
                         </div>
@@ -186,7 +176,7 @@
                         <div class="mb-3">
                             <div class="mx-auto"
                                 style="width: 100px; height: 100px; background: linear-gradient(135deg, #1976D2, #42A5F5); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 2rem; font-weight: bold;">
-                                <img src="assets/images/nitya.jpg" alt="Nitya Yadav" class="img-fluid rounded-circle"
+                                <img src="{{url_for('static',filename='assets/images/nitya.jpg')}}" alt="Nitya Yadav" class="img-fluid rounded-circle"
                                     style="width: 100px; height: 100px; object-fit: cover;">
                             </div>
                         </div>
@@ -202,7 +192,7 @@
                         <div class="mb-3">
                             <div class="mx-auto"
                                 style="width: 100px; height: 100px; background: linear-gradient(135deg, #388E3C, #66BB6A); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 2rem; font-weight: bold;">
-                                <img src="assets/images/naitik.jpg" alt="Naitik Joshi" class="img-fluid rounded-circle"
+                                <img src="{{url_for('static',filename='assets/images/naitik.jpg')}}" alt="Naitik Joshi" class="img-fluid rounded-circle"
                                     style="width: 100px; height: 100px; object-fit: cover;">
                             </div>
                         </div>
@@ -218,7 +208,7 @@
                         <div class="mb-3">
                             <div class="mx-auto"
                                 style="width: 100px; height: 100px; background: linear-gradient(135deg, #F57C00, #FFB74D); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 2rem; font-weight: bold;">
-                                <img src="assets/images/sambhav.jpg" alt="Sambhav Shrestha"
+                                <img src="{{url_for('static',filename='assets/images/sambhav.jpg')}}" alt="Sambhav Shrestha"
                                     class="img-fluid rounded-circle"
                                     style="width: 100px; height: 100px; object-fit: cover;">
                             </div>
@@ -235,7 +225,7 @@
                         <div class="mb-3">
                             <div class="mx-auto"
                                 style="width: 100px; height: 100px; background: linear-gradient(135deg, #7B1FA2, #BA68C8); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 2rem; font-weight: bold;">
-                                <img src="assets/images/alwin.jpg" alt="Alwin Maharjan" class="img-fluid rounded-circle"
+                                <img src="{{url_for('static',filename='assets/images/alwin.jpg')}}" alt="Alwin Maharjan" class="img-fluid rounded-circle"
                                     style="width: 100px; height: 100px; object-fit: cover;">
                             </div>
                         </div>
@@ -300,8 +290,8 @@
                     <h2 class="cta-title">Join Our Growing Community</h2>
                     <p class="cta-subtitle">Be part of Nepal's leading survey platform and start earning rewards for
                         your valuable opinions today!</p>
-                    <a href="index.html#signup" class="btn btn-light btn-lg px-5 me-3">Get Started</a>
-                    <a href="index.html#contact" class="btn btn-outline-light btn-lg px-5">Contact Us</a>
+                    <a href="{{url_for('index')}}" class="btn btn-light btn-lg px-5 me-3">Get Started</a>
+                    <a href="{{url_for('index')}}" class="btn btn-outline-light btn-lg px-5">Contact Us</a>
                 </div>
             </div>
         </div>
@@ -312,7 +302,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-4 mb-5 mb-lg-0">
-                    <a href="index.html" class="footer-logo">Surv&Earn</a>
+                    <a href="{{url_for('index')}}" class="footer-logo">Surv&Earn</a>
                     <div class="footer-about">
                         <p>We connect businesses with consumers through meaningful surveys, while rewarding participants
                             for their valuable time and opinions.</p>
@@ -328,12 +318,12 @@
                     <div class="footer-links">
                         <h5>Quick Links</h5>
                         <ul>
-                            <li><a href="index.html#home">Home</a></li>
-                            <li><a href="index.html#features">Features</a></li>
-                            <li><a href="index.html#how-it-works">How It Works</a></li>
-                            <li><a href="index.html#testimonials">Testimonials</a></li>
-                            <li><a href="about.html">About Us</a></li>
-                            <li><a href="index.html#contact">Contact</a></li>
+                            <li><a href="{{url_for('index')}}">Home</a></li>
+                            <li><a href="{{url_for('index')}}">Features</a></li>
+                            <li><a href="{{url_for('index')}}">How It Works</a></li>
+                            <li><a href="{{url_for('index')}}">Testimonials</a></li>
+                            <li><a href="{{url_for('index')}}">About Us</a></li>
+                            <li><a href="{{url_for('index')}}">Contact</a></li>
                         </ul>
                     </div>
                 </div>
