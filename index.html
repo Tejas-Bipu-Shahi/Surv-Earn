@@ -27,7 +27,13 @@
     <!-- AOS Animation -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
-    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="{{url_for('static', filename='assets/css/style.css')}}">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='user/dist/assets/vendors//toastify/toastify.css') }}">
+
+
+
+
 </head>
 
 <body>
@@ -60,6 +66,9 @@
                             <a class="nav-link" href="#testimonials">Testimonials</a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link" href="about.html">About Us</a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link" href="#contact">Contact</a>
                         </li>
                     </ul>
@@ -67,8 +76,8 @@
             </div>
             <!-- Register and Log In buttons -->
             <div class="d-flex">
-                <a href="#signup" class="btn btn-green me-2">Register</a>
-                <a href="#login" class="btn btn-green-light">Log In</a>
+                <a href="{{url_for('register')}}" class="btn btn-green me-2">Register</a>
+                <a href="{{url_for('login')}}" class="btn btn-green-light">Log In</a>
             </div>
         </div>
     </nav>
@@ -402,6 +411,7 @@
                             <li><a href="#features">Features</a></li>
                             <li><a href="#how-it-works">How It Works</a></li>
                             <li><a href="#testimonials">Testimonials</a></li>
+                            <li><a href="about.html">About Us</a></li>
                             <li><a href="#contact">Contact</a></li>
                         </ul>
                     </div>
@@ -510,5 +520,26 @@
         });
     </script>
 </body>
+
+<script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+
+<script>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+        {% for category, message in messages %}
+            Toastify({
+                text: "{{ message }}",
+                duration: 4000,
+                close: true,
+                gravity: "top",
+                position: "center",
+                className: "toastify-{{ category }}",
+                stopOnFocus: true,
+            }).showToast();
+        {% endfor %}
+    {% endif %}
+    {% endwith %}
+</script>
+
 
 </html>

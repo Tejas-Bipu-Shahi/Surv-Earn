@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Mazer Admin Dashboard</title>
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{url_for('static', filename='user/dist/assets/css/bootstrap.css')}}">
+
+    <link rel="stylesheet" href="{{url_for('static', filename='user/dist/assets/vendors/iconly/bold.css')}}">
+
+    <link rel="stylesheet" href="{{url_for('static', filename='user/dist/assets/vendors/simple-datatables/style.css')}}">
+
+    <link rel="stylesheet" href="{{url_for('static', filename='user/dist/assets/vendors/perfect-scrollbar/perfect-scrollbar.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='user/dist/assets/vendors/bootstrap-icons/bootstrap-icons.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='user/dist/assets/css/app.css')}}">
+    <link rel="shortcut icon" href="{{url_for('static', filename='user/dist/assets/images/favicon.svg')}}" type="image/x-icon">
+    <style>
+        input[type="radio"]:checked+label.khalti-btn {
+            background-color: #6f42c1 !important;
+            color: #fff !important;
+            border-color: #6f42c1 !important;
+            box-shadow: 0 0 0 0.25rem rgba(111, 66, 193, 0.5) !important;
+            /* Purple outline */
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <div id="sidebar" class="active">
+            <div class="sidebar-wrapper active">
+                <div class="sidebar-header">
+                    <div class="d-flex align-items-center justify-content-between">
+                        <div class="logo me-2">
+                            <a class="navbar-brand" href="{{url_for('index')}}">Surv&Earn</a></div>
+                        <div class="d-flex align-items-center">
+                            <div class="dropdown me-2">
+                                <a href="#" id="notifDropdown" data-bs-toggle="dropdown" aria-expanded="false"
+                                    class="position-relative">
+                                    <i class="bi bi-bell fs-4"></i>
+                                    <span
+                                        class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+                                        style="font-size:0.7rem;">2</span>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-end shadow p-0 mt-2"
+                                    aria-labelledby="notifDropdown" style="min-width: 250px;">
+                                    <div
+                                        class="px-3 py-2 border-bottom d-flex justify-content-center align-items-center">
+                                        <a href="#" class="small text-primary">Mark all as read</a>
+                                    </div>
+                                    <div class="list-group list-group-flush">
+                                        <a href="#"
+                                            class="list-group-item list-group-item-action d-flex align-items-start">
+
+                                            <div>
+                                                <div class="d-flex align-items-center justify-content-center">
+                                                    <i class="bi bi-cash fs-4 me-4 mb-3"></i>
+
+                                                    <span class="fw-bold">Cash Redeem</span>
+                                                </div>
+
+                                                <div class="small text-muted mt-1">$4.49 was redeemed</div>
+                                            </div>
+                                        </a>
+                                        <a href="#"
+                                            class="list-group-item list-group-item-action d-flex align-items-start">
+
+                                            <div>
+                                                <div class="d-flex align-items-center justify-content-center">
+                                                    <i class="bi bi-cash fs-4 me-4 mb-3"></i>
+
+                                                    <span class="fw-bold">Cash Redeem</span>
+                                                </div>
+
+                                                <div class="small text-muted mt-1">$10.49 was redeemed</div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="text-center py-2 border-top">
+                                        <a href="{{url_for('notifications')}}" class="small text-primary">View All</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="toggler">
+                                <a href="#" class="sidebar-hide d-xl-none d-block"><i class="bi bi-x bi-middle"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="sidebar-menu">
+                    <ul class="menu">
+                        <li class="sidebar-title">Menu</li>
+                        <li class="sidebar-item">
+                            <a href="{{url_for('index')}}" class="sidebar-link">
+                                <i class="bi bi-grid-fill"></i>
+                                <span>Dashboard</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-title">Actions</li>
+                        <li class="sidebar-item has-sub active">
+                            <a href="#" class="sidebar-link">
+                                <i class="bi bi-ui-checks-grid"></i>
+                                <span>Survey</span>
+                            </a>
+                            <ul class="submenu active">
+                                <li class="submenu-item">
+                                    <a href="{{url_for('fillsurvey')}}">Fillup Survey</a>
+                                </li>
+                                <li class="submenu-item  ">
+                                    <a href="{{url_for('surveyhistory')}}">Survey History</a>
+                                </li>
+                                <li class="submenu-item active">
+                                    <a href="{{url_for('redeem')}}">Redeem</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="sidebar-item has-sub">
+                            <a href="#" class="sidebar-link">
+                                <i class="bi bi-person-circle"></i>
+                                <span>Profile</span>
+                            </a>
+                            <ul class="submenu">
+                                <li class="submenu-item">
+                                    <a href="{{url_for('accountsettings')}}">Account Settings</a>
+                                </li>
+                                <li class="submenu-item">
+                                    <a href="{{url_for('changepassword')}}">Change Password</a>
+                                </li>
+                                <li class="submenu-item">
+                                    <a href="{{url_for('notifications')}}">Notifications</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="sidebar-item">
+                            <a href="{{url_for('logout')}}" class="sidebar-link">
+                                <i class="bi bi-box-arrow-left"></i>
+                                <span>Logout</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <button class="sidebar-toggler btn x"><i data-feather="x"></i></button>
+            </div>
+        </div>
+        <div id="main">
+            <header class="mb-3">
+                <a href="#" class="burger-btn d-block d-xl-none">
+                    <i class="bi bi-justify fs-3"></i>
+                </a>
+            </header>
+            <div class="page-heading">
+                <h3>Redeem</h3>
+            </div>
+            <section class="section">
+                <div class="row">
+                    <div class="col-6 col-lg-3 col-md-6">
+                        <div class="card">
+                            <div class="card-body px-3 py-4-5">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="stats-icon purple d-flex align-items-center justify-content-center">
+                                            <i
+                                                class="bi bi-wallet2 fs-3 d-flex align-items-center justify-content-center mx-auto my-auto"></i>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <h6 class="text-muted font-semibold">Available Balance</h6>
+                                        <h6 class="font-extrabold mb-0">Rs. {{current_user.current_balance}}</h6>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-lg-3 col-md-6">
+                        <div class="card">
+                            <div class="card-body px-3 py-4-5">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="stats-icon blue d-flex align-items-center justify-content-center">
+                                            <i
+                                                class="bi bi-cash fs-3 d-flex align-items-center justify-content-center mx-auto my-auto"></i>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <h6 class="text-muted font-semibold">Total Earnings</h6>
+                                        <h6 class="font-extrabold mb-0">Rs. {{current_user.total_earnings}}</h6>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-lg-3 col-md-6">
+                        <div class="card">
+                            <div class="card-body px-3 py-4-5">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="stats-icon green d-flex align-items-center justify-content-center">
+                                            <i
+                                                class="bi bi-arrow-repeat fs-3 d-flex align-items-center justify-content-center mx-auto my-auto"></i>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <h6 class="text-muted font-semibold">Pending Requests</h6>
+                                        <h6 class="font-extrabold mb-0">2</h6>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-lg-3 col-md-6">
+                        <div class="card">
+                            <div class="card-body px-3 py-4-5">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="stats-icon red d-flex align-items-center justify-content-center">
+                                            <i
+                                                class="bi bi-x-circle fs-3 d-flex align-items-center justify-content-center mx-auto my-auto"></i>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <h6 class="text-muted font-semibold">Failed Requests</h6>
+                                        <h6 class="font-extrabold mb-0">1</h6>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card mb-3" id="redeem">
+                    <div class="card-body">
+                        <div class="row">
+                            <!-- Blue filled balance panel -->
+                            <div class="col-12 mb-3">
+                                <div class="bg-primary text-white rounded-3 p-4">
+                                    <div class="d-flex justify-content-start align-items-start gap-4">
+                                        <div class="d-flex flex-column align-items-start">
+
+                                            <div class="d-flex gap-4 mb-3">
+                                                <div class="d-none d-md-block">
+                                                    <i class="bi bi-wallet2 fs-2 opacity-75"></i>
+                                                </div>
+
+                                                <div>
+                                                    <h6 class="mb-1 text-white">Wallet Balance</h6>
+                                                    <h1 class="fw-bold mb-1 text-white">Rs. {{current_user.current_balance}}</h1>
+
+                                                </div>
+                                            </div>
+                                            <p class="small mb-0"><i class="bi bi-clock-history me-1"></i> Last
+                                                Addition:
+                                                2 hours ago</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Payment partners (toggle buttons) -->
+                            <div class="col-12 mb-3">
+                                <div class="d-flex flex-wrap gap-2">
+                                    <input type="radio" class="btn-check" name="partner" id="partnerEsewa"
+                                        autocomplete="off" checked>
+                                    <label class="btn btn-outline-success px-3" for="partnerEsewa">esewa</label>
+
+                                    <input type="radio" class="btn-check" name="partner" id="partnerKhalti"
+                                        autocomplete="off">
+                                    <label class="btn btn-outline-secondary px-3 khalti-btn" for="partnerKhalti"
+                                        style="border-color:#6f42c1; color:#6f42c1;">
+                                        khalti
+                                    </label>
+
+
+                                    <input type="radio" class="btn-check" name="partner" id="partnerPaypal"
+                                        autocomplete="off">
+                                    <label class="btn btn-outline-primary px-3" for="partnerPaypal">PayPal</label>
+
+                                    <input type="radio" class="btn-check" name="partner" id="partnerFonepay"
+                                        autocomplete="off">
+                                    <label class="btn btn-outline-danger px-3" for="partnerFonepay">Fonepay</label>
+                                </div>
+                            </div>
+
+                            <!-- Amount input and actions: left content and right notes column -->
+                            <div class="col-12">
+                                <div class="row">
+                                    <div class="col-md-8">
+                                        <div class="row align-items-center">
+                                            <div class="col-md-7 mb-2">
+                                                <label for="redeemAmount" class="form-label small text-muted">Enter
+                                                    Amount
+                                                    ($):</label>
+                                                <div class="input-group mb-2">
+                                                    <span class="input-group-text">$</span>
+                                                    <input type="number" id="redeemAmount" class="form-control"
+                                                        placeholder="0.00" min="0" step="0.01"
+                                                        aria-label="Amount in dollars">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-1 d-flex justify-content-center align-items-center">
+                                                <p class="small font-extrabold mb-0">OR</p>
+                                            </div>
+                                            <div class="col-md-4 text-md-start mt-2">
+                                                <button type="button" id="redeemFullBtn"
+                                                    class="btn btn-outline-primary text-nowrap" data-bs-toggle="button"
+                                                    aria-pressed="false" autocomplete="off">Full $</button>
+                                            </div>
+
+                                            <div class="col-12 mt-3">
+                                                <a href="{{url_for('transaction')}}" class="btn btn-primary">Request Redeem</a>
+                                                <div class="mt-5">
+                                                    <div class="d-flex flex-wrap gap-2">
+                                                        <span class="badge bg-light text-dark p-3 rounded-3"><i
+                                                                class="bi bi-info-circle me-2"></i>Min withdraw:
+                                                            $5.00</span>
+                                                        <span class="badge bg-light text-dark p-3 rounded-3"><i
+                                                                class="bi bi-clock me-2"></i>Processing: 1-3 business
+                                                            days</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- additional notes  -->
+                                    <div class="col-md-4 mt-3 mt-md-0">
+                                        <div class="card border-0 bg-light h-100 rounded-3">
+                                            <div class="card-body py-3 px-4">
+                                                <h6 class="card-title text-dark mb-2">
+                                                    <i class="bi bi-info-circle-fill me-2"></i>Payment Notes
+                                                </h6>
+                                                <ul class="list-unstyled small text-dark mb-0">
+                                                    <li class="mb-2">
+                                                        <i class="bi bi-clock-history me-2 text-primary"></i>
+                                                        Pending requests usually process in <strong>1–3 business
+                                                            days</strong>.
+                                                    </li>
+                                                    <li class="mb-2">
+                                                        <i class="bi bi-arrow-repeat me-2 text-muted"></i>
+                                                        If status is <em>Processing</em>, funds are being transferred;
+                                                        please wait.
+                                                    </li>
+                                                    <li class="mb-2">
+                                                        <i class="bi bi-check2-square me-2 text-success"></i>
+                                                        Once completed, transactions are <strong>final and cannot be
+                                                            reversed</strong>.
+                                                    </li>
+                                                    <li>
+                                                        <i class="bi bi-envelope me-2 text-muted"></i>
+                                                        For issues contact support at <a
+                                                            href="mailto:support@example.com">support@example.com</a>.
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header">
+                        <i class="bi bi-clock-history me-3"></i>Redeem history & transactions
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive overflow-auto">
+                            <table class="table table-striped align-middle text-nowrap min-vw-100" id="table2">
+                                <thead>
+                                    <tr>
+                                        <th>SN</th>
+                                        <th>Txn ID</th>
+                                        <th><i class="bi bi-clipboard-check me-2"></i>Survey</th>
+                                        <th><i class="bi bi-building me-2"></i>Company</th>
+                                        <th><i class="bi bi-file-text me-2"></i>Description</th>
+                                        <th><i class="bi bi-currency-dollar me-2"></i>Amount</th>
+                                        <th><i class="bi bi-calendar-event me-2"></i>Date</th>
+                                        <th><i class="bi bi-check-circle me-2"></i>Status</th>
+                                        <th><i class="bi bi-hash me-2"></i>Reference</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>#RD-1023</td>
+                                        <td><a href="{{url_for('surveydetails')}}"
+                                                class="text-decoration-none fw-semibold text-primary">Customer
+                                                Satisfaction</a></td>
+                                        <td><span class="badge bg-secondary">Acme Corp</span></td>
+                                        <td>Feedback payout via PayPal</td>
+                                        <td><span class="badge bg-success">$25.00</span></td>
+                                        <td>2025-08-12</td>
+                                        <td><span class="badge bg-success"><i class="bi bi-check-circle"></i>
+                                                Completed</span></td>
+                                        <td>PP-9A3F</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td>#RD-1024</td>
+                                        <td><a href="{{url_for('surveydetails')}}"
+                                                class="text-decoration-none fw-semibold text-primary">Product
+                                                Feedback</a></td>
+                                        <td><span class="badge bg-secondary">Globex Inc</span></td>
+                                        <td>Bank transfer for product feedback</td>
+                                        <td><span class="badge bg-warning text-dark">$50.00</span></td>
+                                        <td>2025-08-14</td>
+                                        <td><span class="badge bg-warning text-dark"><i
+                                                    class="bi bi-hourglass-split"></i>
+                                                Processing</span></td>
+                                        <td>BT-44X2</td>
+                                    </tr>
+                                    <tr>
+                                        <td>3</td>
+                                        <td>#RD-1025</td>
+                                        <td><a href="{{url_for('surveydetails')}}"
+                                                class="text-decoration-none fw-semibold text-primary">Market
+                                                Research</a></td>
+                                        <td><span class="badge bg-secondary">Initech</span></td>
+                                        <td>Gift card issuance failed</td>
+                                        <td><span class="badge bg-danger">$10.00</span></td>
+                                        <td>2025-08-16</td>
+                                        <td><span class="badge bg-danger"><i class="bi bi-x-circle"></i>
+                                                Failed</span>
+                                        </td>
+                                        <td>GC-0Z7Q</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+
+            </section>
+
+            <footer>
+                <div class="footer clearfix mb-0 text-muted">
+                    <div class="float-start">
+                        <p>2025 &copy; Triyatra </p>
+                    </div>
+                    <div class="float-end">
+                        <p>Crafted with <span class="text-danger"><i class="bi bi-heart-fill"></i></span> by <a
+                                href="https://github.com/Tejas-Bipu-Shahi/Surv-Earn">Triyatra</a></p>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+    <script src="{{url_for('static', filename='user/dist/assets/vendors/perfect-scrollbar/perfect-scrollbar.min.js')}}"></script>
+    <script src="{{url_for('static', filename='user/dist/assets/js/bootstrap.bundle.min.js')}}"></script>
+    <script src="{{url_for('static', filename='user/dist/assets/vendors/simple-datatables/simple-datatables.js')}}"></script>
+    <script src="{{url_for('static', filename='user/dist/assets/vendors/apexcharts/apexcharts.js')}}"></script>
+    <script src="{{url_for('static', filename='user/dist/assets/js/pages/dashboard.js')}}"></script>
+    <script>
+        // Simple Datatable
+        let table1 = document.querySelector('#table1');
+        let dataTable1 = new simpleDatatables.DataTable(table1);
+        let table2 = document.querySelector('#table2');
+        let dataTable2 = new simpleDatatables.DataTable(table2);
+    </script>
+    <script src="{{url_for('static', filename='user/dist/assets/js/main.js')}}"></script>
+</body>
+
+</html>

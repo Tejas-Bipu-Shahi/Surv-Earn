@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Mazer Admin Dashboard</title>
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="{{ url_for('admin.static', filename='assets/css/bootstrap.css') }}">
+    <link rel="stylesheet" href="{{url_for('admin.static',filename='assets/vendors/iconly/bold.css')}}">
+    <link rel="stylesheet" href="{{url_for('admin.static',filename='assets/vendors/simple-datatables/style.css')}}">
+    <link rel="stylesheet" href="{{url_for('admin.static',filename='assets/vendors/perfect-scrollbar/perfect-scrollbar.css')}}">
+    <link rel="stylesheet" href="{{url_for('admin.static',filename='assets/vendors/bootstrap-icons/bootstrap-icons.css')}}">
+    <link rel="stylesheet" href="{{url_for('admin.static',filename='assets/css/app.css')}}">
+    <link rel="shortcut icon" href="{{url_for('admin.static',filename='assets/images/favicon.svg')}}" type="image/x-icon">
+    <style>
+        input[type="radio"]:checked+label.khalti-btn {
+            background-color: #6f42c1 !important;
+            color: #fff !important;
+            border-color: #6f42c1 !important;
+            box-shadow: 0 0 0 0.25rem rgba(111, 66, 193, 0.5) !important;
+            /* Purple outline */
+        }
+
+        .profile-stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .stat-card {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 24px;
+            font-weight: 700;
+            color: #4361ee;
+            margin: 5px 0;
+        }
+
+        .stat-label {
+            font-size: 14px;
+            color: #6c757d;
+        }
+
+        .progress-bar {
+            height: 10px;
+            background: #e9ecef;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .progress {
+            height: 100%;
+            background: #4cc9f0;
+            border-radius: 5px;
+            transition: width 0.5s ease;
+        }
+
+        .toast-notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 9999;
+            min-width: 250px;
+        }
+
+        .avatar-placeholder {
+            width: 80px;
+            height: 80px;
+            background-color: #e9ecef;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #6c757d;
+            font-size: 12px;
+            text-align: center;
+            padding: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <div id="sidebar" class="active">
+            <div class="sidebar-wrapper active">
+                <div class="sidebar-header">
+                    <div class="d-flex align-items-center justify-content-between">
+                        <div class="logo me-2">
+
+                            <a class="navbar-brand" href="{{url_for('index')}}">Surv&Earn</a></div>
+                        <div class="d-flex align-items-center">
+                            <div class="dropdown me-2">
+                                <a href="#" id="notifDropdown" data-bs-toggle="dropdown" aria-expanded="false"
+                                    class="position-relative">
+                                    <i class="bi bi-bell fs-4"></i>
+                                    <span
+                                        class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+                                        style="font-size:0.7rem;">2</span>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-end shadow p-0 mt-2"
+                                    aria-labelledby="notifDropdown" style="min-width: 250px;">
+                                    <div
+                                        class="px-3 py-2 border-bottom d-flex justify-content-center align-items-center">
+                                        <a href="#" class="small text-primary">Mark all as read</a>
+                                    </div>
+                                    <div class="list-group list-group-flush">
+                                        <a href="#"
+                                            class="list-group-item list-group-item-action d-flex align-items-start">
+
+                                            <div>
+                                                <div class="d-flex align-items-center justify-content-center">
+                                                    <i class="bi bi-cash fs-4 me-4 mb-3"></i>
+
+                                                    <span class="fw-bold">Cash Redeem</span>
+                                                </div>
+
+                                                <div class="small text-muted mt-1">$4.49 was redeemed</div>
+                                            </div>
+                                        </a>
+                                        <a href="#"
+                                            class="list-group-item list-group-item-action d-flex align-items-start">
+
+                                            <div>
+                                                <div class="d-flex align-items-center justify-content-center">
+                                                    <i class="bi bi-cash fs-4 me-4 mb-3"></i>
+
+                                                    <span class="fw-bold">Cash Redeem</span>
+                                                </div>
+
+                                                <div class="small text-muted mt-1">$10.49 was redeemed</div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="text-center py-2 border-top">
+                                        <a href="notifications.html" class="small text-primary">View All</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="toggler">
+                                <a href="#" class="sidebar-hide d-xl-none d-block"><i class="bi bi-x bi-middle"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="sidebar-menu">
+                    <ul class="menu">
+                        <li class="sidebar-title">Menu</li>
+                        <li class="sidebar-item">
+                            <a href="{{url_for('index')}}" class="sidebar-link">
+                                <i class="bi bi-grid-fill"></i>
+                                <span>Dashboard</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-title">Actions</li>
+                        <li class="sidebar-item has-sub ">
+                            <a href="#" class="sidebar-link">
+                                <i class="bi bi-ui-checks-grid"></i>
+                                <span>Survey</span>
+                            </a>
+                            <ul class="submenu">
+                                <li class="submenu-item">
+                                    <a href="{{url_for('admin.addsurvey')}}">Add Survey</a>
+                                </li>
+                                <li class="submenu-item">
+                                    <a href="{{ url_for('admin.yoursurveys')}}">Your Surveys</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="sidebar-item has-sub active">
+                            <a href="#" class="sidebar-link">
+                                <i class="bi bi-person-circle"></i>
+                                <span>Profile</span>
+                            </a>
+                            <ul class="submenu active">
+                                <li class="submenu-item active">
+                                    <a href="{{url_for('admin.accountsettings')}}">Account Settings</a>
+                                </li>
+                                <li class="submenu-item">
+                                    <a href="{{url_for('admin.changepassword')}}">Change Password</a>
+                                </li>
+                                <li class="submenu-item">
+                                    <a href="{{url_for('admin.notifications')}}">Notifications</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="sidebar-item">
+                            <a href="{{url_for('logout')}}" class="sidebar-link">
+                                <i class="bi bi-box-arrow-left"></i>
+                                <span>Logout</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <button class="sidebar-toggler btn x"><i data-feather="x"></i></button>
+            </div>
+        </div>
+        <div id="main">
+            <header class="mb-3">
+                <a href="#" class="burger-btn d-block d-xl-none">
+                    <i class="bi bi-justify fs-3"></i>
+                </a>
+            </header>
+            <div class="page-heading">
+                <div class="page-title">
+                    <div class="row">
+                        <div class="col-12 col-md-6 order-md-1 order-last">
+                            <h3>Account Profile</h3>
+                            <p class="text-subtitle text-muted">A page where users can change profile information</p>
+                        </div>
+
+                    </div>
+                </div>
+                <section class="section">
+                    <div class="row">
+                        <div class="col-12 col-lg-4">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="d-flex justify-content-center align-items-center flex-column">
+                                        <!-- Avatar with dummy image reference -->
+                                        <div class="avatar avatar-2xl">
+                                            <img src="https://placehold.co/100x100/4361ee/white?text=JD" alt="Avatar"
+                                                id="userAvatar">
+                                        </div>
+                                        <!-- Fallback if image doesn't load -->
+                                        <div class="avatar-placeholder mt-2" id="avatarPlaceholder"
+                                            style="display: none;">
+                                            Click to upload profile image
+                                        </div>
+
+                                        <h3 class="mt-3" id="userName">John Doe</h3>
+                                        <p class="text-small" id="userOccupation">Junior Software Engineer</p>
+                                    </div>
+
+                                    <!-- Profile Completion Section -->
+                                    <div class="mt-4">
+                                        <h4 class="card-title d-flex align-items-center">
+                                            <i class="bi bi-graph-up me-2"></i> Profile Completion
+                                        </h4>
+
+                                        <div class="profile-completion">
+                                            <div class="d-flex justify-content-between">
+                                                <span id="completionText">0% Complete</span>
+                                            </div>
+                                            <div class="progress-bar">
+                                                <div class="progress" id="completionProgress" style="width: 0%"></div>
+                                            </div>
+                                            <p class="mt-2 small text-muted">Complete your profile to access more
+                                                surveys!</p>
+                                        </div>
+
+                                        <div class="profile-stats">
+                                            <div class="stat-card">
+                                                <div class="stat-value">24</div>
+                                                <div class="stat-label">Surveys Completed</div>
+                                            </div>
+                                            <div class="stat-card">
+                                                <div class="stat-value">$128.50</div>
+                                                <div class="stat-label">Total Earnings</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-lg-8">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h4 class="card-title d-flex align-items-center mb-4">
+                                        <i class="bi bi-person-lines-fill me-2"></i> Personal Information
+                                    </h4>
+
+                                    <form id="profileForm" action="#" method="get">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="name" class="form-label">Full Name</label>
+                                                    <input type="text" name="name" id="name" class="form-control"
+                                                        placeholder="Your Name" value="John Doe">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="email" class="form-label">Email Address</label>
+                                                    <input type="text" name="email" id="email" class="form-control"
+                                                        placeholder="Your Email" value="john.doe@example.net">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row mt-3">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="phone" class="form-label">Phone Number</label>
+                                                    <input type="text" name="phone" id="phone" class="form-control"
+                                                        placeholder="Your Phone" value="+1 (555) 123-4567">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="occupation" class="form-label">Occupation</label>
+                                                    <input type="text" name="occupation" id="occupation"
+                                                        class="form-control" placeholder="Your Occupation"
+                                                        value="Software Engineer">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row mt-3">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="birthday" class="form-label">Date of Birth</label>
+                                                    <input type="date" name="birthday" id="birthday"
+                                                        class="form-control" value="1990-05-15">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="gender" class="form-label">Gender</label>
+                                                    <select name="gender" id="gender" class="form-control">
+                                                        <option value="male">Male</option>
+                                                        <option value="female">Female</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row mt-3">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="address" class="form-label">Address</label>
+                                                    <input type="text" name="address" id="address" class="form-control"
+                                                        placeholder="Your Address" value="123 Main Street, Apt 4B">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="city" class="form-label">City</label>
+                                                    <input type="text" name="city" id="city" class="form-control"
+                                                        placeholder="Your City" value="New York">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row mt-3">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="zipcode" class="form-label">ZIP Code</label>
+                                                    <input type="text" name="zipcode" id="zipcode" class="form-control"
+                                                        placeholder="Your ZIP Code" value="10001">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="education" class="form-label">Education</label>
+                                                    <input type="text" name="education" id="education"
+                                                        class="form-control" placeholder="Your Education"
+                                                        value="Bachelor's Degree">
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="form-group mt-4">
+                                            <button type="submit" class="btn btn-primary">Save Changes</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <footer>
+                <div class="footer clearfix mb-0 text-muted">
+                    <div class="float-start">
+                        <p>2025 &copy; Triyatra </p>
+                    </div>
+                    <div class="float-end">
+                        <p>Crafted with <span class="text-danger"><i class="bi bi-heart-fill"></i></span> by <a
+                                href="https://github.com/Tejas-Bipu-Shahi/Surv-Earn">Triyatra</a></p>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="toast-notification" id="saveToast" style="display: none;">
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <strong>Success!</strong> Your changes have been saved.
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    </div>
+
+    <script src="{{url_for('admin.static',filename='assets/vendors/perfect-scrollbar/perfect-scrollbar.min.js')}}"></script>
+    <script src="{{url_for('admin.static',filename='assets/js/bootstrap.bundle.min.js')}}"></script>
+    <script src="{{url_for('admin.static',filename='assets/vendors/simple-datatables/simple-datatables.js')}}"></script>
+    <script src="{{url_for('admin.static',filename='assets/vendors/apexcharts/apexcharts.js')}}"></script>
+    <script src="{{url_for('admin.static',filename='assets/js/pages/dashboard.js')}}"></script>
+    <script>
+        // Simple Datatable
+        let table1 = document.querySelector('#table1');
+        let dataTable1 = new simpleDatatables.DataTable(table1);
+        let table2 = document.querySelector('#table2');
+        let dataTable2 = new simpleDatatables.DataTable(table2);
+
+        // Calculate profile completion based on filled fields
+        function calculateProfileCompletion() {
+            const fields = [
+                'name', 'email', 'phone', 'occupation',
+                'birthday', 'gender', 'address', 'city', 'zipcode'
+            ];
+
+            let filledCount = 0;
+
+            fields.forEach(field => {
+                const element = document.getElementById(field);
+                if (element) {
+                    if (element.type === 'select-one') {
+                        if (element.value !== '') filledCount++;
+                    } else {
+                        if (element.value !== '') filledCount++;
+                    }
+                }
+            });
+
+            // Calculate percentage (each field is worth ~11.11%)
+            const completionPercentage = Math.round((filledCount / fields.length) * 100);
+
+            // Update progress bar
+            const progressBar = document.getElementById('completionProgress');
+            const completionText = document.getElementById('completionText');
+
+            progressBar.style.width = completionPercentage + '%';
+            completionText.textContent = completionPercentage + '% Complete';
+
+            return completionPercentage;
+        }
+
+        // Show toast notification
+        function showSaveToast() {
+            const toast = document.getElementById('saveToast');
+            toast.style.display = 'block';
+
+            // Hide after 3 seconds
+            setTimeout(() => {
+                toast.style.display = 'none';
+            }, 3000);
+        }
+
+        // Check if avatar image loaded successfully
+        function checkAvatarLoad() {
+            const avatar = document.getElementById('userAvatar');
+            const placeholder = document.getElementById('avatarPlaceholder');
+
+            avatar.onerror = function () {
+                // If image fails to load, show placeholder
+                avatar.style.display = 'none';
+                placeholder.style.display = 'flex';
+            };
+
+            // Check if image is already broken
+            if (!avatar.complete || avatar.naturalHeight === 0) {
+                avatar.style.display = 'none';
+                placeholder.style.display = 'flex';
+            }
+        }
+
+        // Update user info when form changes
+        function updateUserInfo() {
+            const name = document.getElementById('name').value;
+            const occupation = document.getElementById('occupation').value;
+
+            if (name) {
+                document.getElementById('userName').textContent = name;
+            }
+
+            if (occupation) {
+                document.getElementById('userOccupation').textContent = occupation;
+            }
+        }
+
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', function () {
+            // Calculate initial profile completion
+            calculateProfileCompletion();
+
+            // Check if avatar loaded
+            checkAvatarLoad();
+
+            // Update profile completion when form fields change
+            const formInputs = document.querySelectorAll('#profileForm input, #profileForm select');
+            formInputs.forEach(input => {
+                input.addEventListener('change', function () {
+                    calculateProfileCompletion();
+                    updateUserInfo();
+                });
+
+                input.addEventListener('blur', function () {
+                    calculateProfileCompletion();
+                    updateUserInfo();
+                });
+            });
+
+            // Handle form submission
+            const profileForm = document.getElementById('profileForm');
+            profileForm.addEventListener('submit', function (e) {
+                e.preventDefault();
+
+                // Show save notification
+                showSaveToast();
+
+                // Recalculate completion (in case any fields were cleared)
+                calculateProfileCompletion();
+
+                return false;
+            });
+        });
+    </script>
+    <script src="{{url_for('admin.static',filename='assets/js/main.js')}}></script>
+</body>
+
+</html>
