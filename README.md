@@ -101,13 +101,14 @@ Admin Dashboard also provides features like adding survey and viewing your surve
   </tr>
   <tr>
     <td align="center">
-      <em>About Us 1</em>
+      <em>About Us landing page</em>
     </td>
     <td align="center">
-      <em>About Us 2</em>
+      <em>Meet the team</em>
     </td>
   </tr>
 </table>
+
 ---
 
 ## Contributors
