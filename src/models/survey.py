@@ -25,3 +25,7 @@ class Survey(BaseModel):
     date_posted: str = date.today().strftime("%Y-%m-%d")
     questions_count: int = 0
     category: str = ''
+
+    @property
+    def id(self):
+        return self._id

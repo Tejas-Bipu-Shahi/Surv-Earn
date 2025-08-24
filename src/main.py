@@ -20,15 +20,15 @@ def index():
     if current_user.is_authenticated:
         if current_user.is_admin:
             admindata = AdminData(available_balance=0,
-    total_payouts=1,
-    pending_payouts=2,
-    total_users=3,
-    active_surveys=2,
-    completed_responses=3,
-    total_surveys_created=1,
-    expired_surveys=0,
-    this_month_spending=0)
-            return render_template('admin/dist/index.html',admindb=admindata)
+                                  total_payouts=1,
+                                  pending_payouts=2,
+                                  total_users=3,
+                                  active_surveys=2,
+                                  completed_responses=3,
+                                  total_surveys_created=1,
+                                  expired_surveys=0,
+                                  this_month_spending=0)
+            return render_template('admin/dist/index.html', admindb=admindata)
         return render_template('user/dist/index.html')
     return render_template('index.html')
 
@@ -281,6 +281,8 @@ def about():
 
 if __name__ == '__main__':
     from views.admin import admin_bp
+    from views.api import api_bp
 
     app.register_blueprint(admin_bp)
-    app.run(debug=True, port=5000)
+    app.register_blueprint(api_bp)
+    app.run(debug=True, port=5000, host='0.0.0.0')
