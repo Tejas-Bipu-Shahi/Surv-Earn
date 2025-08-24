@@ -2,7 +2,9 @@
 
 ![Surv&Earn Logo](assets/images/surv&earn.png)
 
-Surv&Earn is an innovative platform designed to empower freelance enthusiasts by providing opportunities to contribute to research while earning pocket money. Our mission is to bridge the gap between businesses seeking valuable insights and individuals looking for flexible earning opportunities.
+Surv&Earn is an innovative platform designed to empower freelance enthusiasts by providing opportunities to contribute to research while
+earning pocket money. Our mission is to bridge the gap between businesses seeking valuable insights and individuals looking for flexible
+earning opportunities.
 
 ---
 
@@ -22,19 +24,32 @@ Follow these steps to set up and run the project:
 
 1. **Clone the Repository**:
    ```bash
-   git clone https://github.com/your-repo/surv-earn.git
+   git clone https://github.com/Tejas-Bipu-Shahi/Surv-Earn.git
    cd surv-earn
    ```
 
 2. **Create a Virtual Environment**:
    ```bash
    python -m venv venv
-   source venv/bin/activate   # On Windows: venv\Scripts\activate
    ```
 
+3. **Activate Virtual Environment**:
+    - **Powershell**:
+         ```bash
+         venv\Scripts\activate.ps1
+         ```
+    - **CMD Prompt**:
+        ```bash
+        venv\Scripts\activate.bat
+        ```
+    - **sh / bash / zsh / fish**:
+         ```bash
+         source venv/bin/activate
+         ```
+
 3. **Install Dependencies**:
-   ```bash
-   pip install -r requirements.txt
+   ```bash 
+   pip install flask flask-pymongo flask-login flask-mail dotenv bcrypt "pydantic[email]" icecream
    ```
 
 4. **Run the Application**:
@@ -43,22 +58,26 @@ Follow these steps to set up and run the project:
    ```
 
 5. **Access the Application**:
-   Open your browser and navigate to `http://localhost:8000`.
+   Open your browser and navigate to `http://localhost:5000`.
 
 ---
 
 ## Visual Preview
 
 ### Home Page
+
 ![Home Page](assets/images/index.png)
 
 ### Features
+
 ![Features](assets/images/features.png)
 
 ### How It Works
+
 ![How It Works](assets/images/how_it_works.png)
 
 ### Admin Dashboard
+
 ![Admin Dashboard](assets/images/admin_dashboard.png)
 
 Admin Dashboard also provides features like adding survey and viewing your survey history.
@@ -82,12 +101,15 @@ Admin Dashboard also provides features like adding survey and viewing your surve
 </table>
 
 ### User Profile
+
 ![Profile](assets/images/profile.png)
 
 ### Notifications
+
 ![Notifications](assets/images/notifications.png)
 
 ### About Us
+
 ![About Us 1](assets/images/about%20(1).png)
 
 <table>
