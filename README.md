@@ -185,7 +185,7 @@ Admin Dashboard also provides features like adding survey and viewing your surve
 
 ## 🌐 Demo
 
-Experience Surv&Earn live: [https://surv-earn.onrender.com/](https://surv-earn.onrender.com/)
+Experience Surv&Earn live: [https://survearn.onrender.com/](https://survearn.onrender.com/)
 
 ---
 
