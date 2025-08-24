@@ -27,11 +27,11 @@
     <!-- AOS Animation -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
-    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
 <body>
-    <!-- Navigation Bar (Original Design) -->
+    <!-- Navigation Bar (Updated for mobile responsiveness) -->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top bg-transparent">
         <div class="container">
             <!-- Brand/Logo -->
@@ -67,9 +67,16 @@
                         </li>
                     </ul>
                 </div>
+
+                <!-- Mobile Auth Buttons (shown only on mobile) -->
+                <div class="mobile-auth-buttons">
+                    <a href="#signup" class="btn btn-green">Register</a>
+                    <a href="#login" class="btn btn-green-light">Log In</a>
+                </div>
             </div>
-            <!-- Register and Log In buttons -->
-            <div class="d-flex">
+
+            <!-- Register and Log In buttons (shown only on desktop) -->
+            <div class="d-flex desktop-auth-buttons">
                 <a href="#signup" class="btn btn-green me-2">Register</a>
                 <a href="#login" class="btn btn-green-light">Log In</a>
             </div>
@@ -435,18 +442,20 @@
             <div class="footer-bottom">
                 <div class="row">
                     <div class="col-md-6 text-center text-md-start">
-                        <p class="mb-0">&copy; 2024 Surv&Earn. All rights reserved.</p>
+                        <p class="mb-0">2025 &copy; Triyatra. All rights reserved.</p>
                     </div>
                     <div class="col-md-6 text-center text-md-end">
-                        <p class="mb-0">Made with <i class="fas fa-heart text-danger"></i> by Surv&Earn Team</p>
+
+                        <p>Crafted with <span class="text-danger"><i class="fas fa-heart text-danger"></i></span> by <a
+                                href="https://github.com/Tejas-Bipu-Shahi/Surv-Earn" style="color: white;">Triyatra</a>
+                        </p>
                     </div>
                 </div>
             </div>
-        </div>
     </footer>
 
     <!-- Back to Top Button -->
-    <a href="#" class="back-to-top" id="backToTop"><i class="fas fa-arrow-up"></i></a>
+    <!-- <a href="#" class="back-to-top" id="backToTop"><i class="fas fa-arrow-up"></i></a> -->
 
     <!-- Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
@@ -454,65 +463,8 @@
     <!-- AOS Animation -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
-    <!-- Custom JS -->
-    <script>
-        // Initialize AOS animation
-        AOS.init({
-            duration: 800,
-            easing: 'ease-in-out',
-            once: true
-        });
 
-        // Navbar scroll effect
-        window.addEventListener('scroll', function () {
-            const navbar = document.querySelector('.navbar');
-            if (window.scrollY > 50) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
-        });
-
-        // Back to top button
-        const backToTopButton = document.getElementById('backToTop');
-        window.addEventListener('scroll', function () {
-            if (window.scrollY > 300) {
-                backToTopButton.style.display = 'block';
-            } else {
-                backToTopButton.style.display = 'none';
-            }
-        });
-
-        backToTopButton.addEventListener('click', function (e) {
-            e.preventDefault();
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-
-                const targetId = this.getAttribute('href');
-                if (targetId === '#') return;
-
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 70,
-                        behavior: 'smooth'
-                    });
-
-                    // Close mobile menu if open
-                    const navbarToggler = document.querySelector('.navbar-toggler');
-                    const navbarNav = document.querySelector('.navbar-collapse');
-                    if (navbarToggler && !navbarToggler.classList.contains('collapsed')) {
-                        navbarToggler.click();
-                    }
-                }
-            });
-        });
-    </script>
+    <script src="./assets/js/script.js"></script>
 </body>
 
 </html>
