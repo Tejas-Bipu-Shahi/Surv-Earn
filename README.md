@@ -47,17 +47,17 @@ Follow these steps to set up and run the project:
          source venv/bin/activate
          ```
 
-3. **Install Dependencies**:
+4. **Install Dependencies**:
    ```bash 
    pip install flask flask-pymongo flask-login flask-mail dotenv bcrypt "pydantic[email]" icecream
    ```
 
-4. **Run the Application**:
+5. **Run the Application**:
    ```bash
    python src/main.py
    ```
 
-5. **Access the Application**:
+6. **Access the Application**:
    Open your browser and navigate to `http://localhost:5000`.
 
 ---
