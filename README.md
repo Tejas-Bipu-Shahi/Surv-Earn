@@ -61,27 +61,35 @@ Follow these steps to set up and run the project:
 ### Admin Dashboard
 ![Admin Dashboard](assets/images/admin_dashboard.png)
 
-### Add Survey and Your Surveys
+Admin Dashboard also provides features like adding survey and viewing your survey history.
 <table>
   <tr>
     <td>
-      <img src="assets/images/add_survey.png" width="100%"/>
+      <img src="https://github.com/user-attachments/assets/998f5aa9-f439-4f74-9955-f1d386e52cde" width="100%"/>
     </td>
     <td>
-      <img src="assets/images/your_surveys.png" width="100%"/>
+      <img src="https://github.com/user-attachments/assets/c6ce0a53-85e7-4d49-9448-b1ffa1581e1e" width="100%"/>
     </td>
   </tr>
   <tr>
     <td align="center">
-      <em>Add Survey</em>
+      <em>Terminal Manager main interface with setup, fix, and removal options</em>
     </td>
     <td align="center">
-      <em>Your Surveys</em>
+      <em>Dynamic installation progress with real-time status updates and color-coded messages</em>
     </td>
   </tr>
 </table>
 
+### User Profile
+![Profile](assets/images/profile.png)
+
+### Notifications
+![Notifications](assets/images/notifications.png)
+
 ### About Us
+![About Us 1](assets/images/about%20(1).png)
+
 <table>
   <tr>
     <td>
@@ -100,23 +108,44 @@ Follow these steps to set up and run the project:
     </td>
   </tr>
 </table>
-
-### Profile
-![Profile](assets/images/profile.png)
-
-### Notifications
-![Notifications](assets/images/notifications.png)
-
-### About Us
-![About Us 1](assets/images/about%20(1).png)
-![About Us 2](assets/images/about%20(2).png)
-
 ---
 
 ## Contributors
 
-- [Contributor 1](https://github.com/contributor1)
-- [Contributor 2](https://github.com/contributor2)
+<table>
+  <tr>
+    <td align="center">
+      <img src="assets/images/tejas.jpg" width="100" style="border-radius:50%"/>
+      <br/>
+      <a href="https://github.com/Tejas-Bipu-Shahi">Tejas Shahi</a>
+    </td>
+    <td align="center">
+      <img src="assets/images/naitik.jpg" width="100" style="border-radius:50%"/>
+      <br/>
+      <a href="https://github.com/Nick-Zoc">Naitik Joshi</a>
+    </td>
+    <td align="center">
+      <img src="assets/images/Alwin.jpg" width="100" style="border-radius:50%"/>
+      <br/>
+      <a href="https://github.com/Alwin-Kuri">Alwin Maharjan</a>
+    </td>
+    <td align="center">
+      <img src="assets/images/nitya.jpg" width="100" style="border-radius:50%"/>
+      <br/>
+      <a href="https://github.com/nityayada">Nitya Yadav</a>
+    </td>
+    <td align="center">
+      <img src="assets/images/sambhav.jpg" width="100" style="border-radius:50%"/>
+      <br/>
+      <a href="https://github.com/Sambhu69">Sambhav Shrestha</a>
+    </td>
+  </tr>
+</table>
+
+- [Tejas Shahi](https://github.com/Tejas-Bipu-Shahi)
+- [Naitik Joshi](https://github.com/Nick-Zoc)
+- [Nitya Yadav](https://github.com/nityayada)
+- [Alwin Maharjan](https://github.com/Alwin-Kuri)
 - [Sambhav Shrestha](https://github.com/Sambhu69)
 
 ---
