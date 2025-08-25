@@ -34,7 +34,7 @@ Follow these steps to set up and run the project:
        MAIL_SERVER="smtp.gmail.com" # you can use any smtp server
        MAIL_USERNAME="<youremail@gmail.com>"
        MAIL_PASSWORD="<youremailpassword>"
-       MAIL_DEFAULT_SENDER="<youremail@gmail.com>
+       MAIL_DEFAULT_SENDER="<youremail@gmail.com>"
        MONGO_URI="<yourmongodburi>" # for local db uri is "mongodb://localhost:27017/" 
        ```
 
