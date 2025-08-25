@@ -196,7 +196,7 @@ def fillsurvey():
 @app.route('/surveyhistory', methods=['GET', 'POST'])
 @login_required
 def surveyhistory():
-    return render_template('user/dist/survHistory.html')
+    return render_template('user/dist/survHistory.html', enumerate=enumerate, mongo=mongo, ObjectId=ObjectId)
 
 
 @app.route('/redeems', methods=['GET', 'POST'])
@@ -273,6 +273,7 @@ def transaction():
 @login_required
 def notifications():
     return render_template('user/dist/notifications.html')
+
 
 @app.route('/about')
 def about():
