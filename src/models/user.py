@@ -14,6 +14,7 @@ class User(BaseModel, UserMixin):
     current_balance: int = 0
     total_earnings: int = 0
     completed_surveys: list[dict[str, str]] = []
+    redeems: list[dict[str, str]] = []
 
     full_name: str = ''
     phone_number: int | str = ''
