@@ -192,7 +192,7 @@ def fillsurvey():
     total_surveys = len(surveys)
     expiring_soon_count = 0
     for survey in surveys:
-        if (date.today() + timedelta(3)) >= date.fromisoformat(survey['expiration_date']):
+        if (date.today() + timedelta(3)) >= date.fromisoformat(survey['expiration_date']) >= date.today():
             expiring_soon_count += 1
     return render_template('user/dist/fillSurvey.html', surveys=surveys, enumerate=enumerate,
                            total_surveys=total_surveys, expiring_soon_count=expiring_soon_count)
