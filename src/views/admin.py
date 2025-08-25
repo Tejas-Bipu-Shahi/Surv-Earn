@@ -6,8 +6,7 @@ from datetime import date
 
 from config import project_root_dir, mongo
 from models.survey import Survey, SurveyStatus
-from models.admindata import AdminData
-
+from models.company_data import CompanyData
 
 from icecream import ic
 
@@ -90,18 +89,18 @@ def transaction():
 def yoursurveys():
     if not current_user.is_admin:
         return "You are not an Admin."
-    admindata = AdminData(available_balance=0,
-                          total_payouts=1,
-                          pending_payouts=2,
-                          total_users=3,
-                          active_surveys=2,
-                          completed_responses=3,
-                          total_surveys_created=1,
-                          expired_surveys=0,
-                          this_month_spending=0)
+    admindata = CompanyData(available_balance=0,
+                            total_payouts=1,
+                            pending_payouts=2,
+                            total_users=3,
+                            active_surveys=2,
+                            completed_responses=3,
+                            total_surveys_created=1,
+                            expired_surveys=0,
+                            this_month_spending=0)
     surveys = list(mongo.db.surveys.find())
     total_surveys = len(surveys)
-    return render_template('yourSurveys.html',admindb=admindata,surveys=surveys,enumerate=enumerate,total_surveys=total_surveys)
+    return render_template('yourSurveys.html', admindb=admindata, surveys=surveys, enumerate=enumerate, total_surveys=total_surveys)
 
 
 @admin_bp.route('/notifications', methods=['GET', 'POST'])
