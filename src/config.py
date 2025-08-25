@@ -1,6 +1,6 @@
 from flask import Flask
 from flask_pymongo import PyMongo
-from flask_login import LoginManager
+from flask_login import LoginManager, logout_user
 import os
 from dotenv import load_dotenv
 from models.user import User
@@ -34,5 +34,8 @@ mail = Mail(app)
 
 
 @login_manager.user_loader
-def load_user(email: str) -> User:
-    return User(**mongo.db.users.find_one({'email': email}))
+def load_user(email: str) -> User | None:
+    try:
+        return User(**mongo.db.users.find_one({'email': email}))
+    except TypeError:
+        logout_user()

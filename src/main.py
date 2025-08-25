@@ -18,19 +18,17 @@ from icecream import ic
 @app.route('/')
 def index():
     if current_user.is_authenticated:
-        try:
-            if current_user.is_admin:
-                users_count = mongo.db.users.count_documents({'is_admin': False})
-                active_surveys_count = mongo.db.surveys.count_documents({})
-                total_submissions_count = mongo.db.survey_submissions.count_documents({})
-                company_data = CompanyData()
-                return render_template('admin/dist/index.html', users_count=users_count,
-                                       active_surveys_count=active_surveys_count,
-                                       total_submissions_count=total_submissions_count,
-                                       company_data=company_data)
-            return render_template('user/dist/index.html')
-        except TypeError:
-            logout_user()
+        if current_user.is_admin:
+            users_count = mongo.db.users.count_documents({'is_admin': False})
+            active_surveys_count = mongo.db.surveys.count_documents({})
+            total_submissions_count = mongo.db.survey_submissions.count_documents({})
+            company_data = CompanyData()
+            return render_template('admin/dist/index.html', users_count=users_count,
+                                   active_surveys_count=active_surveys_count,
+                                   total_submissions_count=total_submissions_count,
+                                   company_data=company_data)
+        return render_template('user/dist/index.html')
+
     return render_template('index.html')
 
 
