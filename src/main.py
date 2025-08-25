@@ -29,7 +29,7 @@ def index():
                                        total_submissions_count=total_submissions_count,
                                        company_data=company_data)
             return render_template('user/dist/index.html')
-        except AttributeError:
+        except TypeError:
             logout_user()
     return render_template('index.html')
 
