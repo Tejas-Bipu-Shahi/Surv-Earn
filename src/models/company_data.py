@@ -1,8 +1,8 @@
 from pydantic import BaseModel
 
 
-class AdminData(BaseModel):
-    available_balance: int =0
+class CompanyData(BaseModel):
+    available_balance: int = 0
     total_payouts: int = 0
     pending_payouts: int = 0
     total_users: int = 0
