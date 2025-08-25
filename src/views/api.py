@@ -13,10 +13,6 @@ api_bp = Blueprint('api', __name__, url_prefix='/api')
 
 @api_bp.route('/surveysubmission', methods=['POST'])
 def surveysubmission():
-    mongo.db.surveysubmission.insert_one({
-        'headers': list(request.headers.items()),
-        'json': request.json
-    })
     try:
         if request.json.get('data').get('fields')[-1].get('label') != 'email':
             # the last field of the form must be email field with label set to "email"
@@ -86,6 +82,11 @@ def surveysubmission():
     ic('after', user)
 
     mongo.db.users.update_one({'email': email}, {'$set': user.model_dump()})
+
+    mongo.db.survey_submissions.insert_one({
+        'headers': list(request.headers.items()),
+        'json': request.json
+    })
 
     return jsonify({
         'message': f'success',
