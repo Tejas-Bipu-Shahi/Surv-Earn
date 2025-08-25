@@ -9,5 +9,5 @@ class CompanyData(BaseModel):
     active_surveys: int = 0
     completed_responses: int = 0
     total_surveys_created: int = 0
-    expired_surveys: int = None
-    this_month_spending: int = None
+    expired_surveys: int = 0
+    this_month_spending: int = 0
