@@ -1,30 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - Mazer Admin Dashboard</title>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{{url_for('static', filename='user/dist/assets/css/bootstrap.css')}}">
-    <link rel="stylesheet" href="{{url_for('static', filename='user/dist/assets/vendors/bootstrap-icons/bootstrap-icons.css')}}">
-    <link rel="stylesheet" href="{{url_for('static', filename='user/dist/assets/css/app.css')}}">
-    <link rel="stylesheet" href="{{url_for('static', filename='user/dist/assets/css/pages/auth.css')}}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='user/dist/assets/vendors//toastify/toastify.css') }}">
-
+    <title>Register - Surv&Earn</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{url_for('static',filename='assets/css/login_reg.css')}}">
 </head>
-
 <body>
-<div id="auth">
-
-    <div class="row h-100">
-        <div class="col-lg-5 col-12">
-            <div id="auth-left">
-                <div class="auth-logo">
-                    <a href="index.html"><img src="assets/images/logo/logo.png" alt="Logo"></a>
+    <div class="auth-container">
+        <div class="auth-card">
+            <!-- for left side background image with logo and slogan // Surv&Earn welcome message for users-->
+            <div class="auth-left register-bg">
+                <div class="auth-left-content">
+                    <div class="brand-logo">
+                        S&E
+                    </div>
+                    <h1 class="auth-title">Make Money Taking Surveys</h1>
+                    <p class="auth-subtitle">Looking to earn extra cash online?</p>
+                    <p class="auth-description">
+                        Join thousands of users who are already earning money by sharing their opinions through our survey platform.
+                    </p>
                 </div>
-                <h1 class="auth-title">Sign Up</h1>
-                <p class="auth-subtitle mb-5">Input your data to register to our website.</p>
+            </div>
+
+            <!-- for right Side i.e. Registration Form -->
+            <div class="auth-right">
+                <h2 class="form-title">Sign Up</h2>
+                <p class="form-subtitle">Input your data to register to our website.</p>
+
+                <!-- Display Flask error messages -->
+                {% if email_error %}
+                <div class="alert alert-danger">
+                    {{ email_error }}
+                </div>
+                {% endif %}
+
+                {% if password_error %}
+                <div class="alert alert-danger">
+                    {{ password_error }}
+                </div>
+                {% endif %}
+
+                {% if confirm_password_error %}
+                <div class="alert alert-danger">
+                    {{ confirm_password_error }}
+                </div>
+                {% endif %}
 
                 <form action="register" method="POST">
                     <div class="form-group position-relative has-icon-left mb-4">
@@ -66,48 +89,25 @@
                     <span class="text-danger">{{confirm_password_error}}</span>
                     {% endif %}
                     <div class="form-check form-check-lg d-flex align-items-end">
-                        <input class="form-check-input me-2" type="checkbox" value="True" name="register_as_admin" id="flexCheckDefault">
-                        <label class="form-check-label text-gray-600" for="flexCheckDefault">
+                        <input class="form-check-input me-2"
+                               type="checkbox"
+                               value="True"
+                               name="register_as_admin"
+                               id="register_as_admin">
+                        <label class="form-check-label" for="register_as_admin">
                             Register as Admin
                         </label>
                     </div>
-                    <button class="btn btn-primary btn-block btn-lg shadow-lg mt-5" type="submit">Sign Up</button>
-                </form>
-                <div class="text-center mt-5 text-lg fs-4">
-                    <p class='text-gray-600'>Already have an account? <a href="{{url_for('login')}}"
-                                                                         class="font-bold">Log
-                        in</a>.</p>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-7 d-none d-lg-block">
-            <div id="auth-right">
 
+                    <button class="btn-primary mt-5" type="submit">Sign Up</button>
+                </form>
+                <div class="auth-links mt-4">
+                    <p>Already have an account? <a href="login.html">Log in</a></p>
+                </div>
             </div>
         </div>
     </div>
 
-</div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
-
-<script src="{{url_for('static', filename='user/dist/assets/vendors/toastify/toastify.js')}}"></script>
-<script>
-    {% with messages = get_flashed_messages(with_categories=true) %}
-    {% if messages %}
-        {% for category, message in messages %}
-            Toastify({
-                text: "{{ message }}",
-                duration: 4000,
-                close: true,
-                gravity: "top",
-                position: "center",
-                className: "toastify-{{ category }}",
-                stopOnFocus: true,
-            }).showToast();
-        {% endfor %}
-    {% endif %}
-    {% endwith %}
-</script>
-
-
 </html>
