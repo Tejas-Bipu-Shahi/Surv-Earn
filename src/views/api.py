@@ -4,13 +4,9 @@ from bson.errors import InvalidId
 from models.user import User
 from models.survey import Survey
 from config import mongo
+from datetime import date
 
 from icecream import ic
-
-from typing import TYPE_CHECKING
-
-if TYPE_CHECKING:
-    from flask import Flask
 
 api_bp = Blueprint('api', __name__, url_prefix='/api')
 
@@ -76,13 +72,14 @@ def surveysubmission():
             'message': f'survey {survey_id} already completed',
             'statuscode': 409,
         })
+    submission_date = date.today().strftime('%Y-%m-%d')
 
     ic('before', user)
 
     user.total_completed_surveys += 1
     user.current_balance += survey.reward_per_completion
     user.total_earnings += survey.reward_per_completion
-    user.completed_surveys.append(survey_id)
+    user.completed_surveys.append(dict(survey_id=survey_id, submission_date=submission_date))
 
     ic('after', user)
 
