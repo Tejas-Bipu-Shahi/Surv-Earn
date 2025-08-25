@@ -440,6 +440,14 @@
     {% endwith %}
 </script>
 
+<!-- Hidden div to store dynamic values -->
+<div id="js-data"
+     data-total-completed="{{current_user.total_completed_surveys}}"
+     data-total-balance="{{ current_user.current_balance }}"
+     data-total-earnings="{{ current_user.total_earnings }}">
+</div>
+
+
 
 
 </html>
