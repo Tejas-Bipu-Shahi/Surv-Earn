@@ -67,11 +67,13 @@ def surveysubmission():
     user = User(**userdata)
     survey = Survey(**surveydata)
 
-    if survey_id in user.completed_surveys:
-        return jsonify({
-            'message': f'survey {survey_id} already completed',
-            'statuscode': 409,
-        })
+    for s in user.completed_surveys:
+        if s.get('survey_id') == survey_id:
+            return jsonify({
+                'message': f'survey {survey_id} already completed',
+                'statuscode': 409,
+            })
+
     submission_date = date.today().strftime('%Y-%m-%d')
 
     ic('before', user)
