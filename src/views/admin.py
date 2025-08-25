@@ -89,18 +89,17 @@ def transaction():
 def yoursurveys():
     if not current_user.is_admin:
         return "You are not an Admin."
-    admindata = CompanyData(available_balance=0,
-                            total_payouts=1,
-                            pending_payouts=2,
-                            total_users=3,
-                            active_surveys=2,
-                            completed_responses=3,
-                            total_surveys_created=1,
-                            expired_surveys=0,
-                            this_month_spending=0)
+    admindata = CompanyData()
     surveys = list(mongo.db.surveys.find())
     total_surveys = len(surveys)
-    return render_template('yourSurveys.html', admindb=admindata, surveys=surveys, enumerate=enumerate, total_surveys=total_surveys)
+    total_surveys_submissions_count = mongo.db.survey_submissions.count_documents({})
+    expired_surveys_count = 0
+    for survey in surveys:
+        if date.fromisoformat(survey['expiration_date']) < date.today():
+            expired_surveys_count += 1
+    return render_template('yourSurveys.html', admindb=admindata, surveys=surveys, enumerate=enumerate,
+                           total_surveys=total_surveys, total_surveys_submissions_count=total_surveys_submissions_count,
+                           expired_surveys_count=expired_surveys_count)
 
 
 @admin_bp.route('/notifications', methods=['GET', 'POST'])

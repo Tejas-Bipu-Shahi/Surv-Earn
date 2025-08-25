@@ -169,7 +169,7 @@
                                     </div>
                                     <div class="col-md-8">
                                         <h6 class="text-muted font-semibold">Surveys Created</h6>
-                                        <h6 class="font-extrabold mb-0">{{admindb.total_surveys_created}}</h6>
+                                        <h6 class="font-extrabold mb-0">{{total_surveys}}</h6>
                                     </div>
                                 </div>
                             </div>
@@ -187,7 +187,7 @@
                                     </div>
                                     <div class="col-md-8">
                                         <h6 class="text-muted font-semibold">Active Surveys</h6>
-                                        <h6 class="font-extrabold mb-0">{{admindb.active_surveys}}</h6>
+                                        <h6 class="font-extrabold mb-0">{{total_surveys}}</h6>
                                     </div>
                                 </div>
                             </div>
@@ -205,7 +205,7 @@
                                     </div>
                                     <div class="col-md-8">
                                         <h6 class="text-muted font-semibold">Total Responses</h6>
-                                        <h6 class="font-extrabold mb-0">{{admindb.completed_responses}}</h6>
+                                        <h6 class="font-extrabold mb-0">{{total_surveys_submissions_count}}</h6>
                                     </div>
                                 </div>
                             </div>
@@ -223,7 +223,7 @@
                                     </div>
                                     <div class="col-md-8">
                                         <h6 class="text-muted font-semibold">Expired Surveys</h6>
-                                        <h6 class="font-extrabold mb-0">{{admindb.expired_surveys}}</h6>
+                                        <h6 class="font-extrabold mb-0">{{expired_surveys_count}}</h6>
                                     </div>
                                 </div>
                             </div>
@@ -267,7 +267,7 @@
                                     <td><span class="fw-bold">150</span></td>
                                     <td>{{survey.estimated_time}} min</td>
                                     <td><span class="badge bg-secondary">{{survey.category}}</span></td>
-                                    <td><a href="https://docs.google.com/forms/d/e/example1/viewanalytics"
+                                    <td><a href="#"
                                             target="_blank" class="btn btn-sm btn-outline-primary">View Results</a></td>
                                 </tr>
                             {% endfor %}
