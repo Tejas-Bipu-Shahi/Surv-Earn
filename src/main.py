@@ -10,6 +10,7 @@ from utils.otp_generator import generate_otp
 from bson import ObjectId
 from models.company_data import CompanyData
 from config import app, mongo, mail
+from datetime import date, timedelta
 
 # logging
 from icecream import ic
@@ -189,7 +190,12 @@ def verify_otp():
 def fillsurvey():
     surveys = list(mongo.db.surveys.find())
     total_surveys = len(surveys)
-    return render_template('user/dist/fillSurvey.html', surveys=surveys, enumerate=enumerate, total_surveys=total_surveys)
+    expiring_soon_count = 0
+    for survey in surveys:
+        if (date.today() + timedelta(3)) >= date.fromisoformat(survey['expiration_date']):
+            expiring_soon_count += 1
+    return render_template('user/dist/fillSurvey.html', surveys=surveys, enumerate=enumerate,
+                           total_surveys=total_surveys, expiring_soon_count=expiring_soon_count)
 
 
 @app.route('/surveyhistory', methods=['GET', 'POST'])
