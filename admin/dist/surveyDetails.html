@@ -280,7 +280,7 @@
         let table2 = document.querySelector('#table2');
         let dataTable2 = new simpleDatatables.DataTable(table2);
     </script>
-    <script src="{{ admin.static('assets/js/main.js') }}"></script>
+    <script src="{{ url_for('admin.static', filename='assets/js/main.js') }}"></script>
 </body>
 
 </html>

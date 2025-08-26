@@ -108,4 +108,4 @@ def yoursurveys():
 def notifications():
     if not current_user.is_admin:
         return "You are not an Admin."
-    return "notification"
+    return redirect(url_for('notifications'))
