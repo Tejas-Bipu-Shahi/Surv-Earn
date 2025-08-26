@@ -242,6 +242,15 @@ def redeem():
                 "$set": user.model_dump()
             }
         )
+        status = email_sender.send_redeem_request_mail(mail=mail, requester_email=requester_email, requester_userid=requester_userid,
+                                                       payment_partner=payment_partner, payment_receiver_id=payment_receiver_id,
+                                                       payment_receiver_name=payment_receiver_username,
+                                                       payment_amount=payment_amount, redeem_id=str(inserted_redeem.inserted_id))
+        if not status[0]:
+            ic(status[1])
+            flash(str(status[1]), 'error')
+        else:
+            flash('Redeem requested successfully!', 'success')
         return redirect(url_for('redeem'))
 
     return render_template('user/dist/redeem.html', enumerate=enumerate, len=len)
