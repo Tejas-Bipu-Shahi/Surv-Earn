@@ -219,24 +219,32 @@ def redeem():
         payment_receiver_username = request.form['payment_receiver_name']
         payment_amount = int(request.form['redeem_amount'])
 
+        if not (user.current_balance >= payment_amount):
+            return render_template('user/dist/redeem.html', amount_error='Redeem amount is higher than current balance.',
+                                   enumerate=enumerate)
+
         redeem_instance = Redeem(requester_email=requester_email, requester_userid=requester_userid,
                                  payment_partner=payment_partner, payment_receiver_id=payment_receiver_id,
                                  payment_receiver_username=payment_receiver_username, payment_amount=payment_amount)
-        inserted_redeem = mongo.db.reedem_requests.insert_one(redeem_instance.model_dump())
+
+        inserted_redeem = mongo.db.redeem_requests.insert_one(redeem_instance.model_dump())
 
         new_redeem = {
             'redeem_id': str(inserted_redeem.inserted_id),
-            'requested_date': date.today().isoformat()
+            'requested_date': date.today().isoformat(),
+            'redeem_amount': str(redeem_instance.payment_amount),
         }
         user.redeems.append(new_redeem)
+        user.current_balance -= payment_amount
         mongo.db.users.update_one(
             {"_id": ObjectId(requester_userid)},
             {
                 "$set": user.model_dump()
             }
         )
+        return redirect(url_for('redeem'))
 
-    return render_template('user/dist/redeem.html')
+    return render_template('user/dist/redeem.html', enumerate=enumerate)
 
 
 @app.route('/accountsettings', methods=['GET', 'POST'])

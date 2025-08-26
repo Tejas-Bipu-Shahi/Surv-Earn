@@ -316,6 +316,9 @@
                                                            placeholder="300" min="300" step="1.00"
                                                            aria-label="Amount in Npr" name="redeem_amount" required>
                                                 </div>
+                                                {% if amount_error %}
+                                                <span class="text-danger">{{ amount_error }}</span>
+                                                {% endif %}
 
                                             </div>
 
@@ -386,61 +389,24 @@
                             <thead>
                             <tr>
                                 <th>SN</th>
-                                <th>Txn ID</th>
-                                <th><i class="bi bi-clipboard-check me-2"></i>Survey</th>
-                                <th><i class="bi bi-building me-2"></i>Company</th>
-                                <th><i class="bi bi-file-text me-2"></i>Description</th>
-                                <th><i class="bi bi-currency-dollar me-2"></i>Amount</th>
                                 <th><i class="bi bi-calendar-event me-2"></i>Date</th>
+                                <th><i class="bi bi-currency-dollar me-2"></i>Amount</th>
                                 <th><i class="bi bi-check-circle me-2"></i>Status</th>
-                                <th><i class="bi bi-hash me-2"></i>Reference</th>
+                                <th>Redeem ID</th>
                             </tr>
                             </thead>
                             <tbody>
+                            {% for i, redeem in enumerate(current_user.redeems) %}
                             <tr>
-                                <td>1</td>
-                                <td>#RD-1023</td>
-                                <td><a href="{{url_for('surveydetails')}}"
-                                       class="text-decoration-none fw-semibold text-primary">Customer
-                                    Satisfaction</a></td>
-                                <td><span class="badge bg-secondary">Acme Corp</span></td>
-                                <td>Feedback payout via PayPal</td>
-                                <td><span class="badge bg-success">Rs25.00</span></td>
-                                <td>2025-08-12</td>
+                                <td>{{i+1}}</td>
+                                <td>{{redeem.requested_date}}</td>
+                                <td><span class="badge bg-success">Rs. {{redeem.redeem_amount}}</span></td>
                                 <td><span class="badge bg-success"><i class="bi bi-check-circle"></i>
                                                 Completed</span></td>
-                                <td>PP-9A3F</td>
+                                <td>{{redeem.redeem_id}}</td>
+
                             </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>#RD-1024</td>
-                                <td><a href="{{url_for('surveydetails')}}"
-                                       class="text-decoration-none fw-semibold text-primary">Product
-                                    Feedback</a></td>
-                                <td><span class="badge bg-secondary">Globex Inc</span></td>
-                                <td>Bank transfer for product feedback</td>
-                                <td><span class="badge bg-warning text-dark">Rs50.00</span></td>
-                                <td>2025-08-14</td>
-                                <td><span class="badge bg-warning text-dark"><i
-                                        class="bi bi-hourglass-split"></i>
-                                                Processing</span></td>
-                                <td>BT-44X2</td>
-                            </tr>
-                            <tr>
-                                <td>3</td>
-                                <td>#RD-1025</td>
-                                <td><a href="{{url_for('surveydetails')}}"
-                                       class="text-decoration-none fw-semibold text-primary">Market
-                                    Research</a></td>
-                                <td><span class="badge bg-secondary">Initech</span></td>
-                                <td>Gift card issuance failed</td>
-                                <td><span class="badge bg-danger">Rs10.00</span></td>
-                                <td>2025-08-16</td>
-                                <td><span class="badge bg-danger"><i class="bi bi-x-circle"></i>
-                                                Failed</span>
-                                </td>
-                                <td>GC-0Z7Q</td>
-                            </tr>
+                            {% endfor %}
                             </tbody>
                         </table>
                     </div>
