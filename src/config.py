@@ -38,4 +38,4 @@ def load_user(email: str) -> User | None:
     try:
         return User(**mongo.db.users.find_one({'email': email}))
     except TypeError:
-        logout_user()
+        return None
