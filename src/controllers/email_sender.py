@@ -22,5 +22,5 @@ def send_otp_mail(mail: 'Mail', otp: str, recipient: str, sender: str) -> tuple[
         ic(f'Email sent to {recipient}.')
 
     except Exception as e:
-        return False, str(e)
+        return False, f'Email Error: {str(e)}'
     return True, 'Success'
