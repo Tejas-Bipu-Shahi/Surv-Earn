@@ -210,33 +210,30 @@ def surveyhistory():
 def redeem():
     if request.method == 'POST':
         requester_email = current_user.email
-        requester_userid = current_user._id
+        userdata = mongo.db.users.find_one({'email': requester_email})
+        user = User(**userdata)
+        requester_userid = str(userdata['_id'])
 
         payment_partner = request.form['payment_partner']
         payment_receiver_id = request.form['payment_receiver_id']
-        payment_receiver_username = request.form['payment_receiver_username']
-        payment_amount = int(request.form['payment_amount'])
+        payment_receiver_username = request.form['payment_receiver_name']
+        payment_amount = int(request.form['redeem_amount'])
 
         redeem_instance = Redeem(requester_email=requester_email, requester_userid=requester_userid,
                                  payment_partner=payment_partner, payment_receiver_id=payment_receiver_id,
                                  payment_receiver_username=payment_receiver_username, payment_amount=payment_amount)
-        inserted_redeem = mongo.db.reedems.insert_one(redeem_instance.model_dump())
+        inserted_redeem = mongo.db.reedem_requests.insert_one(redeem_instance.model_dump())
+
         new_redeem = {
-            'redeem_id': inserted_redeem.inserted_id,
+            'redeem_id': str(inserted_redeem.inserted_id),
             'requested_date': date.today().isoformat()
         }
-
+        user.redeems.append(new_redeem)
         mongo.db.users.update_one(
-            {"_id": ObjectId(requester_userid)},  # Find the specific user
+            {"_id": ObjectId(requester_userid)},
             {
-                "$push": {
-                    "redeems": new_redeem  # This will append the redeem if the field exists
-                },
-                "$setOnInsert": {
-                    "redeems": [new_redeem]  # This ensures the field is created if it doesn't exist
-                }
-            },
-            upsert=True  # This allows the update to create the field if it doesn't exist
+                "$set": user.model_dump()
+            }
         )
 
     return render_template('user/dist/redeem.html')
