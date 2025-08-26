@@ -221,7 +221,7 @@ def redeem():
 
         if not (user.current_balance >= payment_amount):
             return render_template('user/dist/redeem.html', amount_error='Redeem amount is higher than current balance.',
-                                   enumerate=enumerate)
+                                   enumerate=enumerate, len=len)
 
         redeem_instance = Redeem(requester_email=requester_email, requester_userid=requester_userid,
                                  payment_partner=payment_partner, payment_receiver_id=payment_receiver_id,
@@ -244,7 +244,7 @@ def redeem():
         )
         return redirect(url_for('redeem'))
 
-    return render_template('user/dist/redeem.html', enumerate=enumerate)
+    return render_template('user/dist/redeem.html', enumerate=enumerate, len=len)
 
 
 @app.route('/accountsettings', methods=['GET', 'POST'])
