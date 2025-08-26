@@ -31,6 +31,7 @@ def addsurvey():
     if request.method == 'POST':
         survey_title = request.form['survey-title']
         survey_short_desc = request.form['survey-short']
+        survey_long_desc = request.form['long-description']
         reward = float(request.form['reward'])
         expiry_date = date.fromisoformat(request.form['expiry-date']).strftime('%Y-%m-%d')
         est_time = int(request.form['est-time'])
@@ -43,7 +44,7 @@ def addsurvey():
         survey = Survey(survey_title=survey_title, company_name=company_name, reward_per_completion=reward, survey_url=form_url,
                         short_description=survey_short_desc, status=SurveyStatus.ACTIVE, estimated_time=est_time,
                         date_posted=date_posted, questions_count=questions_count, category=category,
-                        expiration_date=expiry_date)
+                        expiration_date=expiry_date, full_description=survey_long_desc)
         ic(survey)
 
         mongo.db.surveys.insert_one(survey.model_dump())
