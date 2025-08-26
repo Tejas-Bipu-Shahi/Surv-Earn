@@ -73,17 +73,21 @@ body {
 }
 
 .brand-logo {
-  width: 60px;
-  height: 60px;
+  width: 80px;
+  height: 80px;
   background: var(--pure-white);
   border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
   margin-bottom: 30px;
-  font-size: 24px;
-  font-weight: bold;
-  color: var(--primary-green);
+  padding: 10px;
+}
+
+.auth-logo {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
 }
 
 .auth-title {

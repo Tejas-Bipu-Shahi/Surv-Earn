@@ -45,6 +45,20 @@ h6 {
     font-weight: 700;
     font-size: 1.8rem;
     color: var(--primary-dark);
+    display: flex;
+    align-items: center;
+}
+
+.navbar-logo {
+    height: 40px;
+    width: auto;
+    margin-right: 10px;
+}
+
+.footer-logo-img {
+    height: 50px;
+    width: auto;
+    margin-bottom: 15px;
 }
 
 .btn-green {
