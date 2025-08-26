@@ -36,6 +36,7 @@ Follow these steps to set up and run the project:
        MAIL_PASSWORD="<youremailpassword>"
        MAIL_DEFAULT_SENDER="<youremail@gmail.com>"
        MONGO_URI="<yourmongodburi>" # for local db uri is "mongodb://localhost:27017/" 
+       PRIMARY_ADMIN_EMAIL="<youradminemail>" # this email will recieve otp when someone tries to register as admin
        ```
 
 2. **Clone the Repository**:
